@@ -1,0 +1,50 @@
+form {
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
+  margin: 3vh auto;
+}
+
+form > * {
+  font-size: 20px;
+}
+
+label {
+  color: rgb(35, 144, 61);
+}
+
+input,
+select {
+  margin-bottom: 10px;
+  background-color: lightgray;
+  border: 0;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.em_uma_linha {
+  display: flex;
+}
+
+.em_uma_linha > * {
+  font-size: 20px;
+}
+
+#rua {
+  flex: 4;
+}
+
+#numero {
+  flex: 1;
+  width: 50px;
+  margin-left: 5px;
+}
+
+#enviar {
+  background-color: rgb(35, 144, 61);
+  color: white;
+  border: 0;
+  height: 42px;
+  font-size: 20px;
+  margin-top: 10px;
+}

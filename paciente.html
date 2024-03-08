@@ -23,5 +23,245 @@
         <span>Nome de usuário</span>
       </div>
     </header>
+
+    <form action="/submit" method="post">
+      <h2>Paciente</h2>
+
+      <label for="cartao_sus">Cartão SUS:</label>
+      <input
+        type="number"
+        id="cartao_sus"
+        name="cartao_sus"
+        required
+        maxlength="15"
+      />
+
+      <label for="nome_paciente">Nome do Paciente:</label>
+      <input
+        type="text"
+        id="nome_paciente"
+        name="nome_paciente"
+        required
+        maxlength="64"
+      />
+
+      <label for="sexo">Sexo:</label>
+      <select id="sexo" name="sexo" required>
+        <option value=" " disabled selected hidden></option>
+        <option value="f">Feminino</option>
+        <option value="m">Masculino</option>
+        <option value="n">Não identificar</option>
+      </select>
+
+      <label for="data_nascimento">Data de Nascimento:</label>
+      <input type="date" id="data_nascimento" name="data_nascimento" required />
+
+      <label for="nome_recebedor">Nome do recebedor:</label>
+      <input
+        type="text"
+        id="nome_recebedor"
+        name="nome_recebedor"
+        required
+        maxlength="64"
+      />
+
+      <label for="utiliza_esf">Utiliza o ESF:</label>
+      <select id="utiliza" name="utiliza" required>
+        <option value=" " disabled selected hidden></option>
+        <option value="s">Sim</option>
+        <option value="n">Não</option>
+      </select>
+
+      <h2>Endereço</h2>
+
+      <label for="rua">Rua:</label>
+      <div class="em_uma_linha">
+        <input type="text" id="rua" name="rua" required maxlength="64" />
+        <input type="number" id="numero" name="numero" required max="99999" />
+      </div>
+
+      <label for="municipio">Município: -> select</label>
+      <input
+        type="text"
+        id="municipio"
+        name="municipio"
+        required
+        maxlength="64"
+      />
+
+      <label for="regiao">Região:</label>
+      <select id="regiao" name="regiao" required>
+        <option value=" " disabled selected hidden></option>
+        <option value="A">Centro-Oeste</option>
+        <option value="B">Nordeste</option>
+        <option value="C">Norte</option>
+        <option value="D">Sudeste</option>
+        <option value="E">Sul</option>
+        <option value="F">Não se aplica</option>
+      </select>
+
+      <label for="territorio">Território:</label>
+      <select name="territorio">
+        <option value=" " disabled selected hidden></option>
+        <option value="AC">Acre</option>
+        <option value="AL">Alagoas</option>
+        <option value="AP">Amapá</option>
+        <option value="AM">Amazonas</option>
+        <option value="BA">Bahia</option>
+        <option value="CE">Ceará</option>
+        <option value="DF">Distrito Federal</option>
+        <option value="ES">Espírito Santo</option>
+        <option value="GO">Goiás</option>
+        <option value="MA">Maranhão</option>
+        <option value="MT">Mato Grosso</option>
+        <option value="MS">Mato Grosso do Sul</option>
+        <option value="MG">Minas Gerais</option>
+        <option value="PA">Pará</option>
+        <option value="PB">Paraíba</option>
+        <option value="PR">Paraná</option>
+        <option value="PE">Pernambuco</option>
+        <option value="PI">Piauí</option>
+        <option value="RJ">Rio de Janeiro</option>
+        <option value="RN">Rio Grande do Norte</option>
+        <option value="RS">Rio Grande do Sul</option>
+        <option value="RO">Rondônia</option>
+        <option value="RR">Roraima</option>
+        <option value="SC">Santa Catarina</option>
+        <option value="SP">São Paulo</option>
+        <option value="SE">Sergipe</option>
+        <option value="TO">Tocantins</option>
+      </select>
+
+      <label for="macro_regiao">Macro Região:</label>
+      <select id="macro_regiao" name="macro_regiao" required>
+        <option value=" " disabled selected hidden></option>
+        <option value="A">Cerrados</option>
+        <option value="B">Litoral</option>
+        <option value="C">Meio Norte</option>
+        <option value="D">Semiárido</option>
+        <option value="E">Não se aplica</option>
+      </select>
+
+      <label for="telefone">Telefone:</label>
+      <input type="tel" id="telefone" name="telefone" required maxlength="20" />
+
+      <label for="convenio">Convênio:</label>
+      <input
+        type="text"
+        id="convenio"
+        name="convenio"
+        required
+        maxlength="30"
+      />
+
+      <label for="escolaridade">Escolaridade:</label>
+      <input
+        type="text"
+        id="escolaridade"
+        name="escolaridade"
+        required
+        maxlength="30"
+      />
+
+      <label for="profissao">Profissão:</label>
+      <input
+        type="text"
+        id="profissao"
+        name="profissao"
+        required
+        maxlength="30"
+      />
+
+      <label for="diagnostico">Diagnóstico:</label>
+      <input
+        type="text"
+        id="diagnostico"
+        name="diagnostico"
+        required
+        maxlength="50"
+      />
+
+      <label for="condicoes_clinicas">Condições Clínicas:</label>
+      <input
+        type="text"
+        id="condicoes_clinicas"
+        name="condicoes_clinicas"
+        required
+        maxlength="50"
+      />
+
+      <label for="doenca_base_estoma">Doença de Base para o Estoma:</label>
+      <input
+        type="text"
+        id="doenca_base_estoma"
+        name="doenca_base_estoma"
+        required
+        maxlength="50"
+      />
+
+      <label for="demarcacao_estoma"
+        >Demarcação do Estoma no Pré-Operatório:</label
+      >
+      <select id="demarcacao_estoma" name="demarcacao_estoma" required>
+        <option value=" " disabled selected hidden></option>
+        <option value="1">Sim</option>
+        <option value="0">Não</option>
+      </select>
+
+      <label for="tipo_estoma">Tipo de Estoma: -> select</label>
+      <input
+        type="text"
+        id="tipo_estoma"
+        name="tipo_estoma"
+        required
+        maxlength="32"
+      />
+
+      <label for="modo_exteriorizacao">Modo de Exteriorização: -> select</label>
+      <input
+        type="text"
+        id="modo_exteriorizacao"
+        name="modo_exteriorizacao"
+        required
+        maxlength="30"
+      />
+
+      <label for="tipo_abdome">Tipo de Abdome: -> select</label>
+      <input type="text" id="tipo_abdome" name="tipo_abdome" required />
+
+      <label for="mobilidade">Mobilidade:</label>
+      <input
+        type="text"
+        id="mobilidade"
+        name="mobilidade"
+        required
+        maxlength="30"
+      />
+
+      <label for="tipo_cirurgia_realizada"
+        >Tipo de Cirurgia Realizada: -> select</label
+      >
+      <input
+        type="text"
+        id="tipo_cirurgia_realizada"
+        name="tipo_cirurgia_realizada"
+        required
+        maxlength="20"
+      />
+
+      <label for="data_cirurgia">Data da Cirurgia:</label>
+      <input type="date" id="data_cirurgia" name="data_cirurgia" required />
+
+      <label for="hospital">Hospital:</label>
+      <input
+        type="text"
+        id="hospital"
+        name="hospital"
+        required
+        maxlength="30"
+      />
+
+      <button id="enviar" type="submit">Enviar</button>
+    </form>
   </body>
 </html>

@@ -1,0 +1,75 @@
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgb(35, 144, 61);
+}
+
+main > * {
+  width: 80vw;
+  margin: 2vw 0 0 0;
+}
+
+main > h1 {
+  margin: 4vw 0 0 0;
+}
+
+.pesquisa {
+  display: flex;
+  justify-content: space-between;
+}
+
+.busca > button {
+  background-color: rgb(35, 144, 61);
+  color: white;
+  border: 0;
+  height: 42px;
+  font-size: 20px;
+}
+
+.busca > input {
+  border: 5px solid lightgrey;
+  border-right: 0;
+  margin-right: -5px;
+  height: 30px;
+  width: 60vw;
+  font-size: 20px;
+}
+
+#filter > img {
+  height: 40px;
+  width: 40px;
+}
+
+#adicionar {
+  background-color: rgb(35, 144, 61);
+  color: white;
+  border: 0;
+  height: 42px;
+  font-size: 20px;
+}
+
+.pacientes {
+  background-color: lightgray;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.paciente {
+  background: linear-gradient(lightgray, rgb(180, 180, 180));
+  border-radius: 20px;
+  color: black;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.paciente > img {
+  height: 80px;
+  width: 80px;
+  border-radius: 40px;
+  margin: 0px 10px;
+  border: 2px solid lightgrey;
+}

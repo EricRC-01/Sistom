@@ -1,40 +1,88 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="description" content="Base de dados - Ostomia">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Ostomia</title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <header>
-            <div>
-                <img src="logo.png" alt="amogus">
-            </div>
-            <div class="user">
-                <div>
-                    <img>
-                </div>
-                <div>
-                    <p>Nome de usuário</p>
-                </div>
-            </div>
-        </header>
-        <main>
-            <table class="dados">
-                <tbody>
-                    <tr>
-                        <td>Pacientes</td>
-                        <td>Pacientes</td>
-                        <td>Pacientes</td>
-                        <td>Pacientes</td>
-                    </tr>
-                </tbody>
-            </table>
-        </main>
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Sistom - Acompanhamento de Ostomizados" />
+    <title>Sistom</title>
+    <link rel="stylesheet" href="header.css" />
+    <link rel="stylesheet" href="main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <a href="index.html">
+        <div class="home" href="index.html">
+          <img src="logo.png" alt="Logo do Sistom" />
+          <span>Sistom</span>
+        </div>
+      </a>
+      <div class="user">
+        <img src="paciente7.jpeg" alt="Imagem do usuário" />
+        <span>Nome de usuário</span>
+      </div>
+    </header>
+    <main>
+      <h1>Pacientes</h1>
+      <div class="pesquisa">
+        <div class="busca">
+          <input placeholder="Digite o nome do paciente" />
+          <button>Pesquisar</button>
+        </div>
+        <div id="filter"><img src="options-outline.svg" alt="Filtros" /></div>
+        <button id="adicionar">Adicionar</button>
+      </div>
+      <div class="pacientes">
+        <!-- <div class="paciente">
+          <img src="paciente1.jpeg" alt="Imagem do paciente" />
+          <span>Seu Gera</span>
+        </div> -->
+        <a href="paciente.html">
+          <div class="paciente">
+            <img src="paciente2.png" alt="Imagem do paciente" />
+
+            <span>Zézo</span>
+          </div>
+        </a>
+        <a href="paciente.html">
+          <div class="paciente">
+            <img src="paciente3.png" alt="Imagem do paciente" />
+            <span>Jorge</span>
+          </div>
+        </a>
+
+        <a href="paciente.html">
+          <div class="paciente">
+            <img src="paciente4.jpeg" alt="Imagem do paciente" />
+            <span>Pietra</span>
+          </div>
+        </a>
+
+        <a href="paciente.html">
+          <div class="paciente">
+            <img src="paciente5.jpeg" alt="Imagem do paciente" />
+            <span>Enzo</span>
+          </div>
+        </a>
+
+        <a href="paciente.html">
+          <div class="paciente">
+            <img src="paciente6.jpeg" alt="Imagem do paciente" />
+            <span>Betão</span>
+          </div>
+        </a>
+
+        <a href="paciente.html">
+          <div class="paciente">
+            <img src="paciente7.jpeg" alt="Imagem do paciente" />
+            <span>Marinho</span>
+          </div>
+        </a>
+      </div>
+    </main>
+  </body>
 </html>

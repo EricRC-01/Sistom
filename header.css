@@ -1,0 +1,46 @@
+* {
+  font-family: "Inter", sans-serif;
+}
+
+header {
+  margin: -8px -8px 0 -8px;
+  background: rgb(35, 144, 61);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+header div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 30px;
+}
+
+a {
+  text-decoration: none; /* Remove o sublinhado padrão */
+  color: inherit; /* Usa a cor do texto padrão */
+  cursor: pointer; /* Muda o cursor para parecer com um link */
+}
+
+.home {
+  font-style: italic;
+  font-weight: 600;
+  font-size: 40px;
+}
+
+.home > img {
+  height: 80px;
+  width: 80px;
+}
+.user {
+  font-weight: 600;
+}
+
+.user > img {
+  height: 40px;
+  width: 40px;
+  border-radius: 40px;
+  margin: 0px 10px;
+  border: 2px solid lightgrey;
+}

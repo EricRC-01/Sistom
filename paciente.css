@@ -1,3 +1,20 @@
+.alerta {
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60vw;
+  margin: 20px auto;
+  height: 8vw;
+  border-radius: 20px;
+  font-size: 30px;
+}
+
+.alerta > img {
+  height: 40px;
+  width: 40px;
+}
+
 form section {
   display: flex;
   flex-direction: column;

@@ -73,3 +73,8 @@ main > h1 {
   margin: 0px 10px;
   border: 2px solid lightgrey;
 }
+
+.aviso > img {
+  height: 40px;
+  width: 40px;
+}

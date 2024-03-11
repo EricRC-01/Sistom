@@ -35,269 +35,517 @@
     </header>
 
     <form action="/submit" method="post">
-      <h2>Paciente</h2>
+      <section class="paciente">
+        <h2>Paciente</h2>
 
-      <label for="forma_recadastro">Forma de Recadastro</label>
-      <select id="forma_recadastro" name="forma_recadastro" required>
-        <option value=" " disabled selected hidden></option>
-        <option value="A">Presencial</option>
-        <option value="B">Remoto</option>
-      </select>
+        <label for="forma_recadastro">Forma de Recadastro</label>
+        <select id="forma_recadastro" name="forma_recadastro" required>
+          <option value=" " disabled selected hidden></option>
+          <option value="A">Presencial</option>
+          <option value="B">Remoto</option>
+        </select>
 
-      <label for="cartao_sus">Cartão SUS:</label>
-      <input
-        type="text"
-        id="cartao_sus"
-        name="cartao_sus"
-        maxlength="18"
-        oninput="mascaraCartaoSUS(this)"
-      />
+        <label for="cartao_sus">Cartão SUS:</label>
+        <input
+          type="text"
+          id="cartao_sus"
+          name="cartao_sus"
+          maxlength="18"
+          oninput="mascaraCartaoSUS(this)"
+        />
 
-      <label for="nome_paciente">Nome do Paciente:</label>
-      <input
-        type="text"
-        id="nome_paciente"
-        name="nome_paciente"
-        required
-        maxlength="128"
-      />
+        <label for="nome_paciente">Nome do Paciente:</label>
+        <input
+          type="text"
+          id="nome_paciente"
+          name="nome_paciente"
+          required
+          maxlength="128"
+        />
 
-      <label for="sexo">Sexo:</label>
-      <select id="sexo" name="sexo" required>
-        <option value=" " disabled selected hidden></option>
-        <option value="f">Feminino</option>
-        <option value="m">Masculino</option>
-        <option value="n">Não identificar</option>
-      </select>
+        <label for="sexo">Sexo:</label>
+        <select id="sexo" name="sexo" required>
+          <option value=" " disabled selected hidden></option>
+          <option value="f">Feminino</option>
+          <option value="m">Masculino</option>
+          <option value="n">Não identificar</option>
+        </select>
 
-      <label for="data_nascimento">Data de Nascimento:</label>
-      <input type="date" id="data_nascimento" name="data_nascimento" required />
+        <label for="data_nascimento">Data de Nascimento:</label>
+        <input
+          type="date"
+          id="data_nascimento"
+          name="data_nascimento"
+          required
+        />
 
-      <label for="nome_recebedor">Nome do recebedor:</label>
-      <input
-        type="text"
-        id="nome_recebedor"
-        name="nome_recebedor"
-        required
-        maxlength="128"
-      />
+        <label for="nome_recebedor">Nome do recebedor:</label>
+        <input
+          type="text"
+          id="nome_recebedor"
+          name="nome_recebedor"
+          required
+          maxlength="128"
+        />
 
-      <label for="utiliza_esf">Utiliza o ESF:</label>
-      <select id="utiliza" name="utiliza" required>
-        <option value=" " disabled selected hidden></option>
-        <option value="s">Sim</option>
-        <option value="n">Não</option>
-      </select>
+        <label for="utiliza_esf">Utiliza o ESF:</label>
+        <select id="utiliza_esf" name="utiliza_esf" required>
+          <option value=" " disabled selected hidden></option>
+          <option value="s">Sim</option>
+          <option value="n">Não</option>
+        </select>
 
-      <h2>Endereço</h2>
+        <label for="telefone">Telefone:</label>
+        <input
+          type="tel"
+          id="telefone"
+          name="telefone"
+          required
+          maxlength="20"
+        />
 
-      <div class="em_uma_linha">
-        <div class="flex2">
-          <label for="logradouro">Logradouro:</label>
-          <input
-            type="text"
-            id="logradouro"
-            name="logradouro"
-            required
-            maxlength="128"
-          />
+        <label for="convenio">Convênio:</label>
+
+        <select id="convenio" name="convenio" required>
+          <option value=" " disabled selected hidden></option>
+          <option value="A">Convenio A</option>
+          <option value="B">Convenio B</option>
+          <option value="C">Convenio C</option>
+          <option value="D">Convenio D</option>
+          <option value="E">Outro</option>
+        </select>
+
+        <label for="escolaridade">Escolaridade:</label>
+        <input
+          type="text"
+          id="escolaridade"
+          name="escolaridade"
+          required
+          maxlength="30"
+        />
+
+        <label for="profissao">Profissão:</label>
+        <input
+          type="text"
+          id="profissao"
+          name="profissao"
+          required
+          maxlength="30"
+        />
+      </section>
+
+      <section class="endereco">
+        <h2>Endereço</h2>
+        <div class="em_uma_linha">
+          <div class="flex2">
+            <label for="logradouro">Logradouro:</label>
+            <input
+              type="text"
+              id="logradouro"
+              name="logradouro"
+              required
+              maxlength="128"
+            />
+          </div>
+          <div class="flex1">
+            <label for="numero">Numero:</label>
+            <input
+              type="number"
+              id="numero"
+              name="numero"
+              required
+              max="99999"
+            />
+          </div>
+          <div class="flex1">
+            <label for="complemento">Complemento:</label>
+            <input
+              type="text"
+              id="complemento"
+              name="complemento"
+              required
+              maxlength="128"
+            />
+          </div>
         </div>
-        <div class="flex1">
-          <label for="numero">Numero:</label>
-          <input type="number" id="numero" name="numero" required max="99999" />
-        </div>
-        <div class="flex1">
-          <label for="complemento">Complemento:</label>
-          <input
-            type="text"
-            id="complemento"
-            name="complemento"
-            required
-            maxlength="128"
-          />
-        </div>
-      </div>
 
-      <label for="municipio">Município: -> select</label>
-      <input
-        type="text"
-        id="municipio"
-        name="municipio"
-        required
-        maxlength="128"
-      />
+        <label for="municipio">Município:</label>
+        <select id="municipio" name="municipio" required>
+          <option value=" " disabled selected hidden></option>
+          <option>Acauã</option>
+          <option>Agricolândia</option>
+          <option>Água Branca</option>
+          <option>Alagoinha do Piauí</option>
+          <option>Alegrete do Piauí</option>
+          <option>Alto Longá</option>
+          <option>Altos</option>
+          <option>Alvorada do Gurgueia</option>
+          <option>Amarante</option>
+          <option>Angical do Piauí</option>
+          <option>Anísio de Abreu</option>
+          <option>Antônio Almeida</option>
+          <option>Aroazes</option>
+          <option>Aroeiras do Itaim</option>
+          <option>Arraial</option>
+          <option>Assunção do Piauí</option>
+          <option>Avelino Lopes</option>
+          <option>Baixa Grande do Ribeiro</option>
+          <option>Barra d'Alcântara</option>
+          <option>Barras</option>
+          <option>Barreiras do Piauí</option>
+          <option>Barro Duro</option>
+          <option>Batalha</option>
+          <option>Bela Vista do Piauí</option>
+          <option>Belém do Piauí</option>
+          <option>Beneditinos</option>
+          <option>Bertolínia</option>
+          <option>Betânia do Piauí</option>
+          <option>Boa Hora</option>
+          <option>Bocaina</option>
+          <option>Bom Jesus</option>
+          <option>Bom Princípio do Piauí</option>
+          <option>Bonfim do Piauí</option>
+          <option>Boqueirão do Piauí</option>
+          <option>Brasileira</option>
+          <option>Brejo do Piauí</option>
+          <option>Buriti dos Lopes</option>
+          <option>Buriti dos Montes</option>
+          <option>Cabeceiras do Piauí</option>
+          <option>Cajazeiras do Piauí</option>
+          <option>Cajueiro da Praia</option>
+          <option>Caldeirão Grande do Piauí</option>
+          <option>Campinas do Piauí</option>
+          <option>Campo Alegre do Fidalgo</option>
+          <option>Campo Grande do Piauí</option>
+          <option>Campo Largo do Piauí</option>
+          <option>Campo Maior</option>
+          <option>Canavieira</option>
+          <option>Canto do Buriti</option>
+          <option>Capitão de Campos</option>
+          <option>Capitão Gervásio Oliveira</option>
+          <option>Caracol</option>
+          <option>Caraúbas do Piauí</option>
+          <option>Caridade do Piauí</option>
+          <option>Castelo do Piauí</option>
+          <option>Caxingó</option>
+          <option>Cocal</option>
+          <option>Cocal de Telha</option>
+          <option>Cocal dos Alves</option>
+          <option>Coivaras</option>
+          <option>Colônia do Gurgueia</option>
+          <option>Colônia do Piauí</option>
+          <option>Conceição do Canindé</option>
+          <option>Coronel José Dias</option>
+          <option>Corrente</option>
+          <option>Cristalândia do Piauí</option>
+          <option>Cristino Castro</option>
+          <option>Curimatá</option>
+          <option>Currais</option>
+          <option>Curral Novo do Piauí</option>
+          <option>Curralinhos</option>
+          <option>Demerval Lobão</option>
+          <option>Dirceu Arcoverde</option>
+          <option>Dom Expedito Lopes</option>
+          <option>Dom Inocêncio</option>
+          <option>Domingos Mourão</option>
+          <option>Elesbão Veloso</option>
+          <option>Eliseu Martins</option>
+          <option>Esperantina</option>
+          <option>Fartura do Piauí</option>
+          <option>Flores do Piauí</option>
+          <option>Floresta do Piauí</option>
+          <option>Floriano</option>
+          <option>Francinópolis</option>
+          <option>Francisco Ayres</option>
+          <option>Francisco Macedo</option>
+          <option>Francisco Santos</option>
+          <option>Fronteiras</option>
+          <option>Geminiano</option>
+          <option>Gilbués</option>
+          <option>Guadalupe</option>
+          <option>Guaribas</option>
+          <option>Hugo Napoleão</option>
+          <option>Ilha Grande</option>
+          <option>Inhuma</option>
+          <option>Ipiranga do Piauí</option>
+          <option>Isaías Coelho</option>
+          <option>Itainópolis</option>
+          <option>Itaueira</option>
+          <option>Jacobina do Piauí</option>
+          <option>Jaicós</option>
+          <option>Jardim do Mulato</option>
+          <option>Jatobá do Piauí</option>
+          <option>Jerumenha</option>
+          <option>João Costa</option>
+          <option>Joaquim Pires</option>
+          <option>Joca Marques</option>
+          <option>José de Freitas</option>
+          <option>Juazeiro do Piauí</option>
+          <option>Júlio Borges</option>
+          <option>Jurema</option>
+          <option>Lagoa Alegre</option>
+          <option>Lagoa de São Francisco</option>
+          <option>Lagoa do Barro do Piauí</option>
+          <option>Lagoa do Piauí</option>
+          <option>Lagoa do Sítio</option>
+          <option>Lagoinha do Piauí</option>
+          <option>Landri Sales</option>
+          <option>Luís Correia</option>
+          <option>Luzilândia</option>
+          <option>Madeiro</option>
+          <option>Manoel Emídio</option>
+          <option>Marcolândia</option>
+          <option>Marcos Parente</option>
+          <option>Massapê do Piauí</option>
+          <option>Matias Olímpio</option>
+          <option>Miguel Alves</option>
+          <option>Miguel Leão</option>
+          <option>Milton Brandão</option>
+          <option>Monsenhor Gil</option>
+          <option>Monsenhor Hipólito</option>
+          <option>Monte Alegre do Piauí</option>
+          <option>Morro Cabeça no Tempo</option>
+          <option>Morro do Chapéu do Piauí</option>
+          <option>Murici dos Portelas</option>
+          <option>Nazaré do Piauí</option>
+          <option>Nazária</option>
+          <option>Nossa Senhora de Nazaré</option>
+          <option>Nossa Senhora dos Remédios</option>
+          <option>Nova Santa Rita</option>
+          <option>Novo Oriente do Piauí</option>
+          <option>Novo Santo Antônio</option>
+          <option>Oeiras</option>
+          <option>Olho d'Água do Piauí</option>
+          <option>Padre Marcos</option>
+          <option>Paes Landim</option>
+          <option>Pajeú do Piauí</option>
+          <option>Palmeira do Piauí</option>
+          <option>Palmeirais</option>
+          <option>Paquetá</option>
+          <option>Parnaguá</option>
+          <option>Parnaíba</option>
+          <option>Passagem Franca do Piauí</option>
+          <option>Patos do Piauí</option>
+          <option>Pau d'Arco do Piauí</option>
+          <option>Paulistana</option>
+          <option>Pavussu</option>
+          <option>Pedro II</option>
+          <option>Pedro Laurentino</option>
+          <option>Picos</option>
+          <option>Pimenteiras</option>
+          <option>Pio IX</option>
+          <option>Piracuruca</option>
+          <option>Piripiri</option>
+          <option>Porto</option>
+          <option>Porto Alegre do Piauí</option>
+          <option>Prata do Piauí</option>
+          <option>Queimada Nova</option>
+          <option>Redenção do Gurgueia</option>
+          <option>Regeneração</option>
+          <option>Riacho Frio</option>
+          <option>Ribeira do Piauí</option>
+          <option>Ribeiro Gonçalves</option>
+          <option>Rio Grande do Piauí</option>
+          <option>Santa Cruz do Piauí</option>
+          <option>Santa Cruz dos Milagres</option>
+          <option>Santa Filomena</option>
+          <option>Santa Luz</option>
+          <option>Santa Rosa do Piauí</option>
+          <option>Santana do Piauí</option>
+          <option>Santo Antônio de Lisboa</option>
+          <option>Santo Antônio dos Milagres</option>
+          <option>Santo Inácio do Piauí</option>
+          <option>São Braz do Piauí</option>
+          <option>São Félix do Piauí</option>
+          <option>São Francisco de Assis do Piauí</option>
+          <option>São Francisco do Piauí</option>
+          <option>São Gonçalo do Gurgueia</option>
+          <option>São Gonçalo do Piauí</option>
+          <option>São João da Canabrava</option>
+          <option>São João da Fronteira</option>
+          <option>São João da Serra</option>
+          <option>São João da Varjota</option>
+          <option>São João do Arraial</option>
+          <option>São João do Piauí</option>
+          <option>São José do Divino</option>
+          <option>São José do Peixe</option>
+          <option>São José do Piauí</option>
+          <option>São Julião</option>
+          <option>São Lourenço do Piauí</option>
+          <option>São Luís do Piauí</option>
+          <option>São Miguel da Baixa Grande</option>
+          <option>São Miguel do Fidalgo</option>
+          <option>São Miguel do Tapuio</option>
+          <option>São Pedro do Piauí</option>
+          <option>São Raimundo Nonato</option>
+          <option>Sebastião Barros</option>
+          <option>Sebastião Leal</option>
+          <option>Sigefredo Pacheco</option>
+          <option>Simões</option>
+          <option>Simplício Mendes</option>
+          <option>Socorro do Piauí</option>
+          <option>Sussuapara</option>
+          <option>Tamboril do Piauí</option>
+          <option>Tanque do Piauí</option>
+          <option>Teresina</option>
+          <option>União</option>
+          <option>Uruçuí</option>
+          <option>Valença do Piauí</option>
+          <option>Várzea Branca</option>
+          <option>Várzea Grande</option>
+          <option>Vera Mendes</option>
+          <option>Vila Nova do Piauí</option>
+          <option>Wall Ferraz</option>
+          <option>Outro</option>
+        </select>
 
-      <label for="regiao">Região:</label>
-      <select id="regiao" name="regiao" required>
-        <option value=" " disabled selected hidden></option>
-        <option value="A">Centro-Oeste</option>
-        <option value="B">Nordeste</option>
-        <option value="C">Norte</option>
-        <option value="D">Sudeste</option>
-        <option value="E">Sul</option>
-        <option value="F">Não se aplica</option>
-      </select>
+        <label for="regiao">Região:</label>
+        <select id="regiao" name="regiao" required>
+          <option value=" " disabled selected hidden></option>
+          <option value="A">Centro-Oeste</option>
+          <option value="B">Nordeste</option>
+          <option value="C">Norte</option>
+          <option value="D">Sudeste</option>
+          <option value="E">Sul</option>
+          <option value="F">Não se aplica</option>
+        </select>
 
-      <label for="territorio">Território:</label>
-      <select name="territorio">
-        <option value=" " disabled selected hidden></option>
-        <option value="AC">Acre</option>
-        <option value="AL">Alagoas</option>
-        <option value="AP">Amapá</option>
-        <option value="AM">Amazonas</option>
-        <option value="BA">Bahia</option>
-        <option value="CE">Ceará</option>
-        <option value="DF">Distrito Federal</option>
-        <option value="ES">Espírito Santo</option>
-        <option value="GO">Goiás</option>
-        <option value="MA">Maranhão</option>
-        <option value="MT">Mato Grosso</option>
-        <option value="MS">Mato Grosso do Sul</option>
-        <option value="MG">Minas Gerais</option>
-        <option value="PA">Pará</option>
-        <option value="PB">Paraíba</option>
-        <option value="PR">Paraná</option>
-        <option value="PE">Pernambuco</option>
-        <option value="PI">Piauí</option>
-        <option value="RJ">Rio de Janeiro</option>
-        <option value="RN">Rio Grande do Norte</option>
-        <option value="RS">Rio Grande do Sul</option>
-        <option value="RO">Rondônia</option>
-        <option value="RR">Roraima</option>
-        <option value="SC">Santa Catarina</option>
-        <option value="SP">São Paulo</option>
-        <option value="SE">Sergipe</option>
-        <option value="TO">Tocantins</option>
-      </select>
+        <label for="territorio">Território:</label>
+        <select name="territorio">
+          <option value=" " disabled selected hidden></option>
+          <option value="AC">Acre</option>
+          <option value="AL">Alagoas</option>
+          <option value="AP">Amapá</option>
+          <option value="AM">Amazonas</option>
+          <option value="BA">Bahia</option>
+          <option value="CE">Ceará</option>
+          <option value="DF">Distrito Federal</option>
+          <option value="ES">Espírito Santo</option>
+          <option value="GO">Goiás</option>
+          <option value="MA">Maranhão</option>
+          <option value="MT">Mato Grosso</option>
+          <option value="MS">Mato Grosso do Sul</option>
+          <option value="MG">Minas Gerais</option>
+          <option value="PA">Pará</option>
+          <option value="PB">Paraíba</option>
+          <option value="PR">Paraná</option>
+          <option value="PE">Pernambuco</option>
+          <option value="PI">Piauí</option>
+          <option value="RJ">Rio de Janeiro</option>
+          <option value="RN">Rio Grande do Norte</option>
+          <option value="RS">Rio Grande do Sul</option>
+          <option value="RO">Rondônia</option>
+          <option value="RR">Roraima</option>
+          <option value="SC">Santa Catarina</option>
+          <option value="SP">São Paulo</option>
+          <option value="SE">Sergipe</option>
+          <option value="TO">Tocantins</option>
+        </select>
 
-      <label for="macro_regiao">Macro Região:</label>
-      <select id="macro_regiao" name="macro_regiao" required>
-        <option value=" " disabled selected hidden></option>
-        <option value="A">Cerrados</option>
-        <option value="B">Litoral</option>
-        <option value="C">Meio Norte</option>
-        <option value="D">Semiárido</option>
-        <option value="E">Não se aplica</option>
-      </select>
+        <label for="macro_regiao">Macro Região:</label>
+        <select id="macro_regiao" name="macro_regiao" required>
+          <option value=" " disabled selected hidden></option>
+          <option value="A">Cerrados</option>
+          <option value="B">Litoral</option>
+          <option value="C">Meio Norte</option>
+          <option value="D">Semiárido</option>
+          <option value="E">Não se aplica</option>
+        </select>
+      </section>
 
-      <label for="telefone">Telefone:</label>
-      <input type="tel" id="telefone" name="telefone" required maxlength="20" />
+      <section class="estoma">
+        <h2>Estoma</h2>
+        <label for="diagnostico">Diagnóstico:</label>
+        <input
+          type="text"
+          id="diagnostico"
+          name="diagnostico"
+          required
+          maxlength="50"
+        />
 
-      <label for="convenio">Convênio:</label>
-      <input
-        type="text"
-        id="convenio"
-        name="convenio"
-        required
-        maxlength="30"
-      />
+        <label for="condicoes_clinicas">Condições Clínicas:</label>
+        <input
+          type="text"
+          id="condicoes_clinicas"
+          name="condicoes_clinicas"
+          required
+          maxlength="50"
+        />
 
-      <label for="escolaridade">Escolaridade:</label>
-      <input
-        type="text"
-        id="escolaridade"
-        name="escolaridade"
-        required
-        maxlength="30"
-      />
+        <label for="doenca_base_estoma">Doença de Base para o Estoma:</label>
+        <input
+          type="text"
+          id="doenca_base_estoma"
+          name="doenca_base_estoma"
+          required
+          maxlength="50"
+        />
 
-      <label for="profissao">Profissão:</label>
-      <input
-        type="text"
-        id="profissao"
-        name="profissao"
-        required
-        maxlength="30"
-      />
+        <label for="demarcacao_estoma"
+          >Demarcação do Estoma no Pré-Operatório:</label
+        >
+        <select id="demarcacao_estoma" name="demarcacao_estoma" required>
+          <option value=" " disabled selected hidden></option>
+          <option value="1">Sim</option>
+          <option value="0">Não</option>
+        </select>
 
-      <label for="diagnostico">Diagnóstico:</label>
-      <input
-        type="text"
-        id="diagnostico"
-        name="diagnostico"
-        required
-        maxlength="50"
-      />
+        <label for="tipo_estoma">Tipo de Estoma: -> select</label>
+        <input
+          type="text"
+          id="tipo_estoma"
+          name="tipo_estoma"
+          required
+          maxlength="32"
+        />
 
-      <label for="condicoes_clinicas">Condições Clínicas:</label>
-      <input
-        type="text"
-        id="condicoes_clinicas"
-        name="condicoes_clinicas"
-        required
-        maxlength="50"
-      />
+        <label for="modo_exteriorizacao"
+          >Modo de Exteriorização: -> select</label
+        >
+        <input
+          type="text"
+          id="modo_exteriorizacao"
+          name="modo_exteriorizacao"
+          required
+          maxlength="30"
+        />
 
-      <label for="doenca_base_estoma">Doença de Base para o Estoma:</label>
-      <input
-        type="text"
-        id="doenca_base_estoma"
-        name="doenca_base_estoma"
-        required
-        maxlength="50"
-      />
+        <label for="tipo_abdome">Tipo de Abdome: -> select</label>
+        <input type="text" id="tipo_abdome" name="tipo_abdome" required />
 
-      <label for="demarcacao_estoma"
-        >Demarcação do Estoma no Pré-Operatório:</label
-      >
-      <select id="demarcacao_estoma" name="demarcacao_estoma" required>
-        <option value=" " disabled selected hidden></option>
-        <option value="1">Sim</option>
-        <option value="0">Não</option>
-      </select>
+        <label for="mobilidade">Mobilidade:</label>
+        <input
+          type="text"
+          id="mobilidade"
+          name="mobilidade"
+          required
+          maxlength="30"
+        />
 
-      <label for="tipo_estoma">Tipo de Estoma: -> select</label>
-      <input
-        type="text"
-        id="tipo_estoma"
-        name="tipo_estoma"
-        required
-        maxlength="32"
-      />
+        <label for="tipo_cirurgia_realizada"
+          >Tipo de Cirurgia Realizada: -> select</label
+        >
+        <input
+          type="text"
+          id="tipo_cirurgia_realizada"
+          name="tipo_cirurgia_realizada"
+          required
+          maxlength="20"
+        />
 
-      <label for="modo_exteriorizacao">Modo de Exteriorização: -> select</label>
-      <input
-        type="text"
-        id="modo_exteriorizacao"
-        name="modo_exteriorizacao"
-        required
-        maxlength="30"
-      />
+        <label for="data_cirurgia">Data da Cirurgia:</label>
+        <input type="date" id="data_cirurgia" name="data_cirurgia" required />
 
-      <label for="tipo_abdome">Tipo de Abdome: -> select</label>
-      <input type="text" id="tipo_abdome" name="tipo_abdome" required />
-
-      <label for="mobilidade">Mobilidade:</label>
-      <input
-        type="text"
-        id="mobilidade"
-        name="mobilidade"
-        required
-        maxlength="30"
-      />
-
-      <label for="tipo_cirurgia_realizada"
-        >Tipo de Cirurgia Realizada: -> select</label
-      >
-      <input
-        type="text"
-        id="tipo_cirurgia_realizada"
-        name="tipo_cirurgia_realizada"
-        required
-        maxlength="20"
-      />
-
-      <label for="data_cirurgia">Data da Cirurgia:</label>
-      <input type="date" id="data_cirurgia" name="data_cirurgia" required />
-
-      <label for="hospital">Hospital:</label>
-      <input
-        type="text"
-        id="hospital"
-        name="hospital"
-        required
-        maxlength="30"
-      />
+        <label for="hospital">Hospital:</label>
+        <input
+          type="text"
+          id="hospital"
+          name="hospital"
+          required
+          maxlength="30"
+        />
+      </section>
 
       <button id="enviar" type="submit">Enviar</button>
     </form>

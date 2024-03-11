@@ -38,8 +38,14 @@
       <img src="warning-outline.svg" alt="Filtros" />Consulta atrasada em 2 meses
     </div>
 
+    <div class="tab">
+      <button class="botoes-paginacao" onclick="openSection(event, 'paciente')">Paciente</button>
+      <button class="botoes-paginacao" onclick="openSection(event, 'endereco')">Endereço</button>
+      <button class="botoes-paginacao" onclick="openSection(event, 'estoma')">Tipo de Estomia</button>
+    </div>
+
     <form action="/submit" method="post">
-      <section class="paciente">
+      <section id="paciente" class="tabcontent">
         <h2>Paciente</h2>
 
         <label for="forma_recadastro">Forma de Recadastro</label>
@@ -138,7 +144,7 @@
         />
       </section>
 
-      <section class="endereco">
+      <section id="endereco" class="tabcontent">
         <h2>Endereço</h2>
         <div class="em_uma_linha">
           <div class="flex2">
@@ -457,7 +463,7 @@
         </select>
       </section>
 
-      <section class="estoma">
+      <section id="estoma" class="tabcontent">
         <div class="em_uma_linha">
           <h2>Estoma</h2>
           <button id="adicionar">Adicionar</button>
@@ -698,4 +704,5 @@
       </section>
     </form>
   </body>
+  <script src="paciente.js"></script>
 </html>

@@ -24,6 +24,7 @@ select {
 
 .em_uma_linha {
   display: flex;
+  justify-content: space-between;
 }
 
 .flex1 {
@@ -53,6 +54,14 @@ select {
 
 #complemento {
   width: calc(100% - 15px);
+}
+
+#adicionar {
+  background-color: rgb(35, 144, 61);
+  color: white;
+  border: 0;
+  height: 42px;
+  font-size: 20px;
 }
 
 #enviar {

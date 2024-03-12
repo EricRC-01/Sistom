@@ -10,6 +10,21 @@ header {
   justify-content: space-between;
 }
 
+footer {
+  margin: 80px -8px -8px -8px;
+  padding: 40px 40px;
+  background: rgb(35, 144, 61);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+footer > p {
+  width: 60vw;
+  margin: auto;
+}
+
 header div {
   display: flex;
   justify-content: center;

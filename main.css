@@ -32,15 +32,15 @@ button {
   border: 5px solid lightgrey;
   border-right: 0;
   margin-right: -5px;
-  display: flex;
   height: 30px;
-  width: 60vw;
+  width: 55vw;
   font-size: 20px;
 }
 
-#filter > img {
-  height: 40px;
-  width: 40px;
+ion-icon {
+  height: 30px;
+  width: 30px;
+  color: white;
 }
 
 .pacientes {

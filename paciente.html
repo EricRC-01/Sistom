@@ -18,6 +18,14 @@
           .replace(/(\d{4})(\d)/, "$1 $2") // Adiciona o segundo espaço
           .replace(/(\d{4})(\d)/, "$1 $2"); // Adiciona o terceiro espaço
       }
+
+      function mascaraCPF(campoCPF) {
+        campoCPF.value = campoCPF.value
+          .replace(/\D/g, "")
+          .replace(/(\d{3})(\d)/, "$1.$2") 
+          .replace(/(\d{3})(\d)/, "$1.$2") 
+          .replace(/(\d{3})(\d)/, "$1-$2");
+      }
     </script>
   </head>
   <body>
@@ -43,28 +51,15 @@
     <nav>
       <button class="paginacao" onclick="openSection(event, 'paciente')">Paciente</button>
       <button class="paginacao" onclick="openSection(event, 'endereco')">Endereço</button>
+      <button class="paginacao" onclick="openSection(event, 'paciente')">Recebedores</button>
+      <button class="paginacao" onclick="openSection(event, 'consulta')">Estoma(s)</button>
       <button class="paginacao" onclick="openSection(event, 'consulta')">Consultas</button>
+      <button class="paginacao" onclick="openSection(event, 'consulta')">Equipamentos</button>
     </nav>
 
     <form action="/submit" method="post">
       <section id="paciente" class="tabcontent">
         <h2>Paciente</h2>
-
-        <label for="forma_recadastro">Forma de Recadastro</label>
-        <select id="forma_recadastro" name="forma_recadastro" required>
-          <option value=" " disabled selected hidden></option>
-          <option value="A">Presencial</option>
-          <option value="B">Remoto</option>
-        </select>
-
-        <label for="cartao_sus">Cartão SUS:</label>
-        <input
-          type="text"
-          id="cartao_sus"
-          name="cartao_sus"
-          maxlength="18"
-          oninput="mascaraCartaoSUS(this)"
-        />
 
         <label for="nome_paciente">Nome do Paciente:</label>
         <input
@@ -73,6 +68,31 @@
           name="nome_paciente"
           required
           maxlength="128"
+        />
+
+        <label for="rg">RG:</label>
+        <input
+          type="text"
+          id="rg"
+          name="rg"
+        />
+
+        <label for="cpf">CPF:</label>
+        <input
+          type="text"
+          id="cpf"
+          name="cpf"
+          maxlength="18"
+          oninput="mascaraCPF(this)"
+        />
+
+        <label for="cartao_sus">Cartão SUS:</label>
+        <input
+          type="text"
+          id="cartao_sus"
+          name="cartao_sus"
+          maxlength="18"
+          oninput="mascaraCartaoSUS(this)"
         />
 
         <label for="sexo">Sexo:</label>
@@ -90,6 +110,13 @@
           name="data_nascimento"
           required
         />
+
+        <label for="forma_recadastro">Forma de Recadastro</label>
+        <select id="forma_recadastro" name="forma_recadastro" required>
+          <option value=" " disabled selected hidden></option>
+          <option value="A">Presencial</option>
+          <option value="B">Remoto</option>
+        </select>
 
         <label for="nome_recebedor">Nome do recebedor:</label>
         <input

@@ -15,7 +15,8 @@
   </head>
   <body>
     <header>
-        <div class="home" href="index.html">
+      <a href="index.html">
+        <div class="home">
           <img src="logo.png" alt="Logo do Sistom" />
           <span>Sistom</span>
         </div>
@@ -32,8 +33,14 @@
           <input placeholder="Digite o nome do paciente" />
           <button>Pesquisar</button>
         </div>
-        <div id="filter"><img src="options-outline.svg" alt="Filtros" /></div>
-        <button id="adicionar">Adicionar</button>
+        <div id="filter">
+          <img
+            src="options-outline.svg"
+            alt="Ícone de filtragem: ícone com três barras e um círculo em cada barra"
+          />
+        </div>
+        <button>Adicionar</button>
+        <button><a href="estatistica.html">Estatísticas</a></button>
       </div>
       <div class="pacientes">
         <!-- <div class="paciente">
@@ -55,9 +62,12 @@
         </a>
 
         <a href="paciente.html">
-          <div class="paciente" style="background: linear-gradient(brown, red)">
+          <div class="paciente aviso_vermelho">
             <div class="aviso">
-              <img src="warning-outline.svg" alt="Filtros" />
+              <img
+                src="warning-outline.svg"
+                alt="Imagem de um sinal de alerta ao lado esquerdo da imagem do paciente"
+              />
             </div>
             <img src="paciente4.jpeg" alt="Imagem do paciente" />
             <span>Pietra</span>
@@ -74,12 +84,12 @@
         </a>
 
         <a href="paciente.html">
-          <div
-            class="paciente"
-            style="background: linear-gradient(orange, yellow)"
-          >
+          <div class="paciente aviso_amarelo">
             <div class="aviso">
-              <img src="warning-outline.svg" alt="Filtros" />
+              <img
+                src="warning-outline.svg"
+                alt="Imagem de um sinal de alerta ao lado esquerdo da imagem do paciente"
+              />
             </div>
             <img src="paciente6.jpeg" alt="Imagem do paciente" />
             <span>Betão</span>
@@ -97,7 +107,11 @@
       </div>
     </main>
     <footer>
-    <p>Site desenvolvido para Centro de Ciências da Saúde (CSS), por estudantes da Universidade de São Paulo (USP) para uso exclusivo de profissionais da saúde do Sistema Único de Saúde (SUS) do Piauí</p>
+      <p>
+        Site desenvolvido para Centro de Ciências da Saúde (CSS), por estudantes
+        da Universidade de São Paulo (USP) para uso exclusivo de profissionais
+        da saúde do Sistema Único de Saúde (SUS) do Piauí
+      </p>
     </footer>
   </body>
 </html>

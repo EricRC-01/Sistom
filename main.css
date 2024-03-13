@@ -20,7 +20,7 @@ main > h1 {
   justify-content: space-between;
 }
 
-.busca > button {
+button {
   background-color: rgb(35, 144, 61);
   color: white;
   border: 0;
@@ -32,6 +32,7 @@ main > h1 {
   border: 5px solid lightgrey;
   border-right: 0;
   margin-right: -5px;
+  display: flex;
   height: 30px;
   width: 60vw;
   font-size: 20px;
@@ -42,16 +43,8 @@ main > h1 {
   width: 40px;
 }
 
-#adicionar {
-  background-color: rgb(35, 144, 61);
-  color: white;
-  border: 0;
-  height: 42px;
-  font-size: 20px;
-}
-
 .pacientes {
-  background-color: lightgray;
+  background-color: rgb(229, 229, 229);
   padding: 20px;
   border-radius: 20px;
 }
@@ -62,13 +55,13 @@ main > h1 {
   color: black;
   display: flex;
   align-items: center;
-  padding: 20px;
+  padding: 15px;
   margin-bottom: 20px;
 }
 
 .paciente > img {
-  height: 80px;
-  width: 80px;
+  height: 70px;
+  width: 70px;
   border-radius: 40px;
   margin: 0px 10px;
   border: 2px solid lightgrey;
@@ -77,4 +70,12 @@ main > h1 {
 .aviso > img {
   height: 40px;
   width: 40px;
+}
+
+.aviso_vermelho {
+  background: linear-gradient(brown, red);
+}
+
+.aviso_amarelo {
+  background: linear-gradient(orange, yellow);
 }

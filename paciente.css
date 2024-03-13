@@ -1,24 +1,33 @@
+#voltar {
+  position: fixed;
+}
+
 .alerta {
   background-color: red;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 60vw;
+  width: 40vw;
   margin: 20px auto;
-  height: 8vw;
+  height: 6vw;
   border-radius: 20px;
-  font-size: 30px;
+  font-size: 2vw;
 }
 
 .alerta > img {
-  height: 40px;
-  width: 40px;
+  height: 3vw;
+  width: 3vw;
 }
 
 nav {
   display: flex;
   width: 60vw;
   margin: 3vh auto;
+}
+
+.botao_voltar {
+  color: rgb(35, 144, 61);
+  font-size: 1.2vw;
 }
 
 button {

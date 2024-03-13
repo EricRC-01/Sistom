@@ -73,7 +73,7 @@ select {
   width: calc(100% - 15px);
 }
 
-#adicionar {
+.botao {
   background-color: rgb(35, 144, 61);
   color: white;
   border: 0;

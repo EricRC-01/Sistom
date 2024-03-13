@@ -39,9 +39,9 @@
     </div>
 
     <div class="tab">
-      <button class="botoes-paginacao" onclick="openSection(event, 'paciente')">Paciente</button>
-      <button class="botoes-paginacao" onclick="openSection(event, 'endereco')">Endereço</button>
-      <button class="botoes-paginacao" onclick="openSection(event, 'estoma')">Tipo de Estomia</button>
+      <button class="botoes-paginacao botao" onclick="openSection(event, 'paciente')">Paciente</button>
+      <button class="botoes-paginacao botao" onclick="openSection(event, 'endereco')">Endereço</button>
+      <button class="botoes-paginacao botao" onclick="openSection(event, 'estoma')">Tipo de Estomia</button>
     </div>
 
     <form action="/submit" method="post">
@@ -466,7 +466,7 @@
       <section id="estoma" class="tabcontent">
         <div class="em_uma_linha">
           <h2>Estoma</h2>
-          <button id="adicionar">Adicionar</button>
+          <button class="botao">Adicionar</button>
         </div>
         <label for="diagnostico">Diagnóstico:</label>
         <input
@@ -700,7 +700,7 @@
         <input type="number" id="custo_adicional" name="custo_adicional" />
       </section>
       <section>
-        <button id="enviar" type="submit">Enviar</button>
+        <button class="botao" type="submit">Enviar</button>
       </section>
     </form>
   </body>

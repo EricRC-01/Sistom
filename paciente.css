@@ -15,7 +15,27 @@
   width: 40px;
 }
 
-form section {
+nav {
+  display: flex;
+  width: 60vw;
+  margin: 3vh auto;
+}
+
+button {
+  background-color: rgb(35, 144, 61);
+  color: white;
+  border: 0;
+  height: 42px;
+  font-size: 20px;
+  border: 5px solid white;
+  border: 0 5px;
+}
+
+.paginacao {
+  width: 20vw;
+}
+
+section {
   display: flex;
   flex-direction: column;
   width: 60vw;
@@ -71,14 +91,6 @@ select {
 
 #complemento {
   width: calc(100% - 15px);
-}
-
-.botao {
-  background-color: rgb(35, 144, 61);
-  color: white;
-  border: 0;
-  height: 42px;
-  font-size: 20px;
 }
 
 #enviar {

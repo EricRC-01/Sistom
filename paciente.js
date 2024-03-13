@@ -4,7 +4,7 @@ function openSection(evt, sectionName) {
   for (i = 0; i < tabcontent.length; i++) {
     tabcontent[i].style.display = "none";
   }
-  tablinks = document.getElementsByClassName("botoes-paginacao");
+  tablinks = document.getElementsByClassName("paginacao");
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }

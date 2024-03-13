@@ -38,11 +38,11 @@
       <img src="warning-outline.svg" alt="Filtros" />Consulta atrasada em 2 meses
     </div>
 
-    <div class="tab">
-      <button class="botoes-paginacao botao" onclick="openSection(event, 'paciente')">Paciente</button>
-      <button class="botoes-paginacao botao" onclick="openSection(event, 'endereco')">Endereço</button>
-      <button class="botoes-paginacao botao" onclick="openSection(event, 'estoma')">Tipo de Estomia</button>
-    </div>
+    <nav>
+      <button class="paginacao" onclick="openSection(event, 'paciente')">Paciente</button>
+      <button class="paginacao" onclick="openSection(event, 'endereco')">Endereço</button>
+      <button class="paginacao" onclick="openSection(event, 'estoma')">Tipo de Estomia</button>
+    </nav>
 
     <form action="/submit" method="post">
       <section id="paciente" class="tabcontent">
@@ -466,7 +466,7 @@
       <section id="estoma" class="tabcontent">
         <div class="em_uma_linha">
           <h2>Estoma</h2>
-          <button class="botao">Adicionar</button>
+          <button>Adicionar</button>
         </div>
         <label for="diagnostico">Diagnóstico:</label>
         <input
@@ -700,7 +700,7 @@
         <input type="number" id="custo_adicional" name="custo_adicional" />
       </section>
       <section>
-        <button class="botao" type="submit">Enviar</button>
+        <button type="submit">Enviar</button>
       </section>
     </form>
   </body>

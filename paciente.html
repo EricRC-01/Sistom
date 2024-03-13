@@ -41,7 +41,7 @@
     <nav>
       <button class="paginacao" onclick="openSection(event, 'paciente')">Paciente</button>
       <button class="paginacao" onclick="openSection(event, 'endereco')">Endereço</button>
-      <button class="paginacao" onclick="openSection(event, 'estoma')">Tipo de Estomia</button>
+      <button class="paginacao" onclick="openSection(event, 'consulta')">Consultas</button>
     </nav>
 
     <form action="/submit" method="post">
@@ -463,11 +463,18 @@
         </select>
       </section>
 
-      <section id="estoma" class="tabcontent">
-        <div class="em_uma_linha">
-          <h2>Estoma</h2>
-          <button>Adicionar</button>
+      <section id="consulta" class="tabcontent">
+        <h2>Consultas</h2>
+
+        <div class="consultas">
+            <select id="consultas" name="consultas" required>
+              <option value="">Consulta 26/09/2022</option>
+              <option value="">Consulta 28/10/2022</option>
+              <option value="">Consulta 02/12/2022</option>
+            </select>
+            <button id="adicionar">Adicionar</button>
         </div>
+        <h3>Dados da consulta:</h3>
         <label for="diagnostico">Diagnóstico:</label>
         <input
           type="text"

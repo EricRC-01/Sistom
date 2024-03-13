@@ -64,6 +64,29 @@ select {
   justify-content: space-between;
 }
 
+.consultas {
+  display: flex;
+  justify-content: space-between;
+}
+
+.consultas > button {
+  background-color: rgb(35, 144, 61);
+  color: white;
+  border: 0;
+  width: 10vw;
+  font-size: 20px;
+}
+
+.consultas > select {
+  border: 5px solid lightgrey;
+  border-right: 0;
+
+  margin-right: -5px;
+  background-color: white;
+  width: 50vw;
+  font-size: 20px;
+}
+
 .flex1 {
   flex: 1;
   display: flex;

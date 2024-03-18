@@ -22,12 +22,13 @@
       function mascaraCPF(campoCPF) {
         campoCPF.value = campoCPF.value
           .replace(/\D/g, "")
-          .replace(/(\d{3})(\d)/, "$1.$2") 
-          .replace(/(\d{3})(\d)/, "$1.$2") 
+          .replace(/(\d{3})(\d)/, "$1.$2")
+          .replace(/(\d{3})(\d)/, "$1.$2")
           .replace(/(\d{3})(\d)/, "$1-$2");
       }
     </script>
   </head>
+
   <body>
     <header>
       <a href="index.html">
@@ -42,19 +43,36 @@
       </div>
     </header>
 
-    <a class="botao_voltar", id="voltar" href="index.html"><-- Voltar a Tela Inicial</a>
+    <a class="botao_voltar" , id="voltar" href="index.html"
+      ><span><--</span>Tela Inicial</a
+    >
 
     <div class="alerta">
-      <img src="warning-outline.svg" alt="Imagem de um sinal de alerta ao lado esquerdo do aviso" />Consulta atrasada em 2 meses
+      <img
+        src="warning-outline.svg"
+        alt="Imagem de um sinal de alerta ao lado esquerdo do aviso"
+      />Consulta atrasada em 2 meses
     </div>
 
     <nav>
-      <button class="paginacao" onclick="openSection(event, 'paciente')">Paciente</button>
-      <button class="paginacao" onclick="openSection(event, 'endereco')">Endereço</button>
-      <button class="paginacao" onclick="openSection(event, 'paciente')">Recebedores</button>
-      <button class="paginacao" onclick="openSection(event, 'consulta')">Estoma(s)</button>
-      <button class="paginacao" onclick="openSection(event, 'consulta')">Consultas</button>
-      <button class="paginacao" onclick="openSection(event, 'consulta')">Equipamentos</button>
+      <button class="paginacao" onclick="openSection(event, 'paciente')">
+        Paciente
+      </button>
+      <button class="paginacao" onclick="openSection(event, 'endereco')">
+        Endereço
+      </button>
+      <button class="paginacao" onclick="openSection(event, 'recebedor')">
+        Recebedores
+      </button>
+      <button class="paginacao" onclick="openSection(event, 'estoma')">
+        Estoma(s)
+      </button>
+      <button class="paginacao" onclick="openSection(event, 'consulta')">
+        Consultas
+      </button>
+      <button class="paginacao" onclick="openSection(event, 'material')">
+        Materiais
+      </button>
     </nav>
 
     <form action="/submit" method="post">
@@ -71,18 +89,14 @@
         />
 
         <label for="rg">RG:</label>
-        <input
-          type="text"
-          id="rg"
-          name="rg"
-        />
+        <input type="text" id="rg" name="rg" />
 
         <label for="cpf">CPF:</label>
         <input
           type="text"
           id="cpf"
           name="cpf"
-          maxlength="18"
+          maxlength="14"
           oninput="mascaraCPF(this)"
         />
 
@@ -117,15 +131,6 @@
           <option value="A">Presencial</option>
           <option value="B">Remoto</option>
         </select>
-
-        <label for="nome_recebedor">Nome do recebedor:</label>
-        <input
-          type="text"
-          id="nome_recebedor"
-          name="nome_recebedor"
-          required
-          maxlength="128"
-        />
 
         <label for="utiliza_esf">Utiliza o ESF:</label>
         <select id="utiliza_esf" name="utiliza_esf" required>
@@ -171,6 +176,11 @@
           required
           maxlength="30"
         />
+
+        <label for="data_inscricao"
+          >Quando se inscreveu no programa (dia/mês/ano):</label
+        >
+        <input type="date" id="data_inscricao" name="data_inscricao" />
       </section>
 
       <section id="endereco" class="tabcontent">
@@ -492,18 +502,79 @@
         </select>
       </section>
 
-      <section id="consulta" class="tabcontent">
-        <h2>Consultas</h2>
+      <section id="recebedor" class="tabcontent">
+        <h2>Recebedores</h2>
 
-        <div class="consultas">
-            <select id="consultas" name="consultas" required>
-              <option value="">Consulta 26/09/2022</option>
-              <option value="">Consulta 28/10/2022</option>
-              <option value="">Consulta 02/12/2022</option>
-            </select>
-            <button id="adicionar">Adicionar</button>
+        <div class="selector">
+          <select id="recebedores" name="recebedores" required>
+            <option value="">João da Silva Filho</option>
+            <option value="">João da Silva Neto</option>
+            <option value="">Joana da Silva</option>
+          </select>
+          <button id="adicionar">Adicionar</button>
         </div>
-        <h3>Dados da consulta:</h3>
+
+        <h2>Dados do Recebedor</h2>
+
+        <label for="nome_recebedor">Nome do recebedor:</label>
+        <input
+          type="text"
+          id="nome_recebedor"
+          name="nome_recebedor"
+          required
+          maxlength="128"
+        />
+
+        <label for="recebedor_rg">RG:</label>
+        <input type="text" id="recebedor_rg" name="recebedor_rg" />
+
+        <label for="recebedor_cpf">CPF:</label>
+        <input
+          type="text"
+          id="recebedor_cpf"
+          name="recebedor_cpf"
+          maxlength="14"
+          oninput="mascaraCPF(this)"
+        />
+
+        <label for="motivo"
+          >Motivo para receber materiais em nome do paciente:</label
+        >
+        <input type="text" id="motivo" name="motivo" required maxlength="128" />
+
+        <label for="data_autorizacao">Data da Autorização:</label>
+        <input
+          type="date"
+          id="data_autorizacao"
+          name="data_autorizacao"
+          required
+          maxlength="128"
+        />
+
+        <label for="local_autorizacao">Local da Autorização:</label>
+        <input
+          type="text"
+          id="local_autorizacao"
+          name="local_autorizacao"
+          required
+          maxlength="128"
+        />
+      </section>
+
+      <section id="estoma" class="tabcontent">
+        <h2>Estoma</h2>
+
+        <div class="selector">
+          <select id="estomas" name="estomas" required>
+            <option value="">Colostomia em alça</option>
+            <option value="">Ileostomia convencional</option>
+            <option value="">Ureterostomia terminal</option>
+          </select>
+          <button id="adicionar">Adicionar</button>
+        </div>
+
+        <h2>Dados do Estoma:</h2>
+
         <label for="diagnostico">Diagnóstico:</label>
         <input
           type="text"
@@ -513,13 +584,54 @@
           maxlength="50"
         />
 
-        <label for="condicoes_clinicas">Condições Clínicas:</label>
+        <label for="data_cirurgia">Data da Cirurgia:</label>
+        <input type="date" id="data_cirurgia" name="data_cirurgia" required />
+
+        <label for="nome_cirurgiao">Nome do Cirurgião:</label>
+        <input type="text" id="nome_cirurgiao" name="nome_cirurgiao" required />
+
+        <label for="procedimento">Procedimento Cirúrgico:</label>
+        <select id="" name="" required>
+          <option value=" " disabled selected hidden></option>
+          <option value="">a</option>
+          <option value="">b</option>
+          <option value="">c</option>
+        </select>
+
+        <label for="hospital">Hospital:</label>
+        <input type="text" id="hospital" name="hospital" required />
+
+        <label for="tipo_estoma">Tipo de estoma:</label>
+        <select id="tipo_estoma" name="tipo_estoma" required>
+          <option value=" " disabled selected hidden></option>
+          <option value="">a</option>
+          <option value="">b</option>
+          <option value="">c</option>
+        </select>
+
+        <label for="modo_exteriorizacao">Modo de Exteriorização:</label>
+        <select id="" name="" required>
+          <option value=" " disabled selected hidden></option>
+          <option value="">a</option>
+          <option value="">b</option>
+          <option value="">c</option>
+        </select>
+
+        <label for="tempo_estoma">Tempo de Permanência do Estoma:</label>
+        <select id="tempo_estoma" name="tempo_estoma" required>
+          <option value=" " disabled selected hidden></option>
+          <option value="">Temporário</option>
+          <option value="">Permanente</option>
+          <option value="">Indeterminado</option>
+        </select>
+
+        <span>só aparece se marca Indeterminado acima</span>
+
+        <label for="causa_indeterminado">Se Indeterminado, Qual a Causa:</label>
         <input
           type="text"
-          id="condicoes_clinicas"
-          name="condicoes_clinicas"
-          required
-          maxlength="50"
+          id="causa_indeterminado"
+          name="causa_indeterminado"
         />
 
         <label for="doenca_base_estoma">Doença de Base para o Estoma:</label>
@@ -538,142 +650,202 @@
           <option value=" " disabled selected hidden></option>
           <option value="1">Sim</option>
           <option value="0">Não</option>
+          <option value="2">Não informado</option>
         </select>
 
-        <label for="tipo_estoma">Tipo de Estoma: -> select</label>
-        <input
-          type="text"
-          id="tipo_estoma"
-          name="tipo_estoma"
-          required
-          maxlength="32"
-        />
+        <label for="tipo_estoma">Tipo de Estoma:</label>
+        <select id="tipo_estoma" name="tipo_estoma" required>
+          <option value=" " disabled selected hidden></option>
+          <option value="">Colostomia</option>
+          <option value="">Ileostomia</option>
+          <option value="">Urostomia</option>
+          <option value="">Outro</option>
+        </select>
 
-        <label for="modo_exteriorizacao"
-          >Modo de Exteriorização: -> select</label
-        >
-        <input
-          type="text"
-          id="modo_exteriorizacao"
-          name="modo_exteriorizacao"
-          required
-          maxlength="30"
-        />
+        <label for="modo_exteriorizacao">Modo de Exteriorização:</label>
+        <select id="modo_exteriorizacao" name="modo_exteriorizacao" required>
+          <option value=" " disabled selected hidden></option>
+          <option value="">Terminal</option>
+          <option value="">Derivação Urinária Bricker</option>
+          <option value="">Em alça</option>
+          <option value="">Uro</option>
+          <option value="">Duas bocas</option>
+          <option value="">Não informado</option>
+          <option value="">Outro</option>
+        </select>
 
-        <label for="tipo_abdome">Tipo de Abdome: -> select</label>
-        <input type="text" id="tipo_abdome" name="tipo_abdome" required />
+        <label for="tipo_abdome">Tipo de Abdome:</label>
+        <select id="tipo_abdome" name="tipo_abdome" required>
+          <option value=" " disabled selected hidden></option>
+          <option value="">Plano</option>
+          <option value="">Globoso</option>
+          <option value="">Escavado</option>
+          <option value="">Semi Globoso</option>
+          <option value="">Não informado</option>
+          <option value="">Outro</option>
+        </select>
 
         <label for="mobilidade">Mobilidade:</label>
-        <input
-          type="text"
-          id="mobilidade"
-          name="mobilidade"
-          required
-          maxlength="30"
-        />
+        <select id="mobilidade" name="mobilidade" required>
+          <option value=" " disabled selected hidden></option>
+          <option value="">Deambula</option>
+          <option value="">Deambula com auxílio</option>
+          <option value="">Não deambula</option>
+          <option value="">Não informado</option>
+          <option value="">Outro</option>
+        </select>
 
-        <label for="tipo_cirurgia_realizada"
-          >Tipo de Cirurgia Realizada: -> select</label
-        >
-        <input
-          type="text"
+        <label for="tipo_cirurgia_realizada">Tipo de Cirurgia Realizada:</label>
+        <select
           id="tipo_cirurgia_realizada"
           name="tipo_cirurgia_realizada"
           required
-          maxlength="20"
-        />
-
-        <label for="data_cirurgia">Data da Cirurgia:</label>
-        <input type="date" id="data_cirurgia" name="data_cirurgia" required />
-
-        <label for="hospital">Hospital:</label>
-        <input
-          type="text"
-          id="hospital"
-          name="hospital"
-          required
-          maxlength="30"
-        />
-        <label for="diagnostico">Diagnóstico médico (CID):</label>
-        <input type="text" id="diagnostico" name="diagnostico" />
-
-        <label for="condicoes_clinicas"
-          >Condições clínicas e fatores associados:</label
         >
-        <input type="text" id="condicoes_clinicas" name="condicoes_clinicas"></input type="text">
-
-        <label for="doenca_base">Doença de base para o estoma:</label>
-        <input type="text" id="doenca_base" name="doenca_base" />
-
-        <label for="tipo_estoma">Tipo de estoma:</label>
-        <input type="text" id="tipo_estoma" name="tipo_estoma" />
-
-        <label for="modo_exteriorizacao">Modo de Exteriorização:</label>
-        <input
-          type="text"
-          id="modo_exteriorizacao"
-          name="modo_exteriorizacao"
-        />
-
-        <label for="tipo_abdome">Tipo de Abdome:</label>
-        <input type="text" id="tipo_abdome" name="tipo_abdome" />
-
-        <label for="mobilidade">Mobilidade:</label>
-        <input type="text" id="mobilidade" name="mobilidade" />
-
-        <label for="tipo_cirurgia">Tipo de Cirurgia Realizada:</label>
-        <input type="text" id="tipo_cirurgia" name="tipo_cirurgia" />
-
-        <label for="data_cirurgia">Data da Cirurgia:</label>
-        <input type="date" id="data_cirurgia" name="data_cirurgia" />
-
-        <label for="tempo_estoma">Tempo de Permanência do Estoma:</label>
-        <input type="text" id="tempo_estoma" name="tempo_estoma" />
-        <!-- campo abaixo se refere ao de cima, mas não está claro -->
-        <label for="causa_indeterminado">Se Indeterminado, Qual a Causa:</label>
-        <input
-          type="text"
-          id="causa_indeterminado"
-          name="causa_indeterminado"
-        />
+          <option value=" " disabled selected hidden></option>
+          <option value="">Laparotomia</option>
+          <option value="">Enterectomia</option>
+          <option value="">Colectomia</option>
+          <option value="">Convencional</option>
+          <option value="">Cistectomia</option>
+          <option value="">Bricker</option>
+          <option value="">Confecção de alça</option>
+          <option value="">Vídeo</option>
+          <option value="">Colostomia</option>
+          <option value="">Incisão em região de cólon descendente</option>
+          <option value="">Apendicite</option>
+          <option value="">Incisão em região abdominal D</option>
+          <option value="">Não informado</option>
+          <option value="">Outro</option>
+        </select>
 
         <label for="localizacao_abdominal">Localização Abdominal:</label>
-        <input
-          type="text"
+        <select
           id="localizacao_abdominal"
           name="localizacao_abdominal"
-        />
+          required
+        >
+          <option value=" " disabled selected hidden></option>
+          <option value="">QSE</option>
+          <option value="">QSD</option>
+          <option value="">QIE</option>
+          <option value="">QID</option>
+          <option value="">Não informado</option>
+          <option value="">Outro</option>
+        </select>
 
         <label for="higiene">Higiene:</label>
-        <input type="text" id="higiene" name="higiene" />
+        <select id="higiene" name="higiene" required>
+          <option value=" " disabled selected hidden></option>
+          <option value="">Boa</option>
+          <option value="">Satisfatória</option>
+          <option value="">Ruim</option>
+          <option value="">Não informado</option>
+          <option value="">Outro</option>
+        </select>
 
         <label for="medida_estoma">Medida do Estoma:</label>
-        <input type="text" id="medida_estoma" name="medida_estoma" />
+        <div class="em_uma_linha">
+          <input
+            class="flex2"
+            type="number"
+            id="medida_estoma1"
+            name="medida_estoma1"
+          />
+          por
+          <input
+            class="flex2"
+            type="number"
+            id="medida_estoma2"
+            name="medida_estoma2"
+          />
+          mm
+        </div>
 
         <label for="formato_estoma">Formato do Estoma:</label>
-        <input type="text" id="formato_estoma" name="formato_estoma" />
+        <select id="formato_estoma" name="formato_estoma" required>
+          <option value=" " disabled selected hidden></option>
+          <option value="">Oval</option>
+          <option value="">Circular</option>
+          <option value="">Não informado</option>
+          <option value="">Outro</option>
+        </select>
+
+        <label for="regularidade_estoma">Regularidade do Estoma:</label>
+        <select id="regularidade_estoma" name="regularidade_estoma" required>
+          <option value=" " disabled selected hidden></option>
+          <option value="">Regular</option>
+          <option value="">Irregular</option>
+          <option value="">Não informado</option>
+          <option value="">Outro</option>
+        </select>
 
         <label for="coloracao_estoma">Coloração do Estoma:</label>
-        <input type="text" id="coloracao_estoma" name="coloracao_estoma" />
+        <select id="coloracao_estoma" name="coloracao_estoma" required>
+          <option value=" " disabled selected hidden></option>
+          <option value="">Vermelho vivo</option>
+          <option value="">Rosado</option>
+          <option value="">Não informado</option>
+          <option value="">Outro</option>
+        </select>
 
         <label for="tubete_haste_fixacao">Tubete/Haste de Fixação:</label>
-        <input
-          type="text"
-          id="tubete_haste_fixacao"
-          name="tubete_haste_fixacao"
-        />
+        <select id="tubete_haste_fixacao" name="tubete_haste_fixacao" required>
+          <option value=" " disabled selected hidden></option>
+          <option value="">Presente</option>
+          <option value="">Ausente</option>
+          <option value="">Não informado</option>
+          <option value="">Outro</option>
+        </select>
+
+        <label for="protusao_estoma">Protusão do Estoma:</label>
+        <select id="protusao_estoma" name="protusao_estoma" required>
+          <option value=" " disabled selected hidden></option>
+          <option value="">Protuso-saliente</option>
+          <option value="">Plano</option>
+          <option value="">Retraído</option>
+          <option value="">Não informado</option>
+          <option value="">Outro</option>
+        </select>
 
         <label for="funcao_estoma">Função do Estoma:</label>
-        <input type="text" id="funcao_estoma" name="funcao_estoma" />
+        <select id="funcao_estoma" name="funcao_estoma" required>
+          <option value=" " disabled selected hidden></option>
+          <option value="">Funcionante (proximal)</option>
+          <option value="">Não funcionante (fístula mucosa)</option>
+          <option value="">Não informado</option>
+          <option value="">Outro</option>
+        </select>
 
         <label for="complicacoes_estoma"
           >Complicações Presentes no Estoma:</label
         >
-        <input
-          type="text"
-          id="complicacoes_estoma"
-          name="complicacoes_estoma"
-        />
+        <select id="complicacoes_estoma" name="complicacoes_estoma" required>
+          <option value=" " disabled selected hidden></option>
+          <option value="">Ausente</option>
+          <option value="">Fungo</option>
+          <option value="">Retração</option>
+          <option value="">Sangramento</option>
+          <option value="">Prolapso</option>
+          <option value="">Edema</option>
+          <option value="">Vazamento</option>
+          <option value="">Estenose</option>
+          <option value="">Hérnia</option>
+          <option value="">Granuloma</option>
+          <option value="">Infecção</option>
+          <option value="">Deiscência</option>
+          <option value="">Dermatite</option>
+          <option value="">Tumor</option>
+          <option value="">Necrose</option>
+          <option value="">lesão decorrente tubete periestomal</option>
+          <option value="">Corte inadequado</option>
+          <option value="">Maceração</option>
+          <option value="">Corte inadequado</option>
+          <option value="">Descolamento</option>
+          <option value="">Saída de fezes pela parte inferior</option>
+          <option value="">Isquemia</option>
+          <option value="">Não informado</option>
+          <option value="">Outro</option>
+        </select>
 
         <label for="efluente">Efluente:</label>
         <input type="text" id="efluente" name="efluente" />
@@ -710,24 +882,58 @@
 
         <label for="custo_extra">Custo Extra com Equipamento/Adjuvantes:</label>
         <input type="text" id="custo_extra" name="custo_extra" />
+      </section>
+
+      <section id="consulta" class="tabcontent">
+        <h2>Consultas</h2>
+
+        <div class="selector">
+          <select id="consultas" name="consultas" required>
+            <option value="">Consulta 26/09/2022</option>
+            <option value="">Consulta 28/10/2022</option>
+            <option value="">Consulta 02/12/2022</option>
+          </select>
+          <button id="adicionar">Adicionar</button>
+        </div>
+
+        <h2>Dados da consulta:</h2>
+
+        <label for="condicoes_clinicas">Condições Clínicas:</label>
+        <input
+          type="text"
+          id="condicoes_clinicas"
+          name="condicoes_clinicas"
+          required
+          maxlength="50"
+        />
 
         <label for="adaptacao">Como está a sua Adaptação?</label>
-        <input type="text" id="adaptacao" name="adaptacao"></input type="text">
+        <input type="text" id="adaptacao" name="adaptacao" />
 
         <label for="equipamentos_indicados">Equipamentos Indicados:</label>
-        <input type="text"
+        <input
+          type="text"
           id="equipamentos_indicados"
           name="equipamentos_indicados"
-        ></input type="text">
+        />
 
         <label for="observacao">Observação do avaliador:</label>
-        <input type="text" id="observacao" name="observacao"></input type="text">
+        <input type="text" id="observacao" name="observacao" />
+      </section>
 
-        <label for="data_inscricao">Quando se inscreveu no programa (dia/mês/ano):</label>
-        <input type="date" id="data_inscricao" name="data_inscricao" />
+      <section id="material" class="tabcontent">
+        <h2>Materiais</h2>
 
-        <label for="materiais">Quais materiais recebe:</label>
-        <input type="text" id="materiais" name="materiais" />
+        <div class="selector">
+          <select id="materiais" name="materiais" required>
+            <option value="">A</option>
+            <option value="">B</option>
+            <option value="">C</option>
+          </select>
+          <button id="adicionar">Adicionar</button>
+        </div>
+
+        <h2>Dados do Materiai:</h2>
 
         <label for="quantidade_mensal">Quantidade que recebe mensal:</label>
         <input type="number" id="quantidade_mensal" name="quantidade_mensal" />
@@ -735,6 +941,7 @@
         <label for="custo_adicional">Custo adicional:</label>
         <input type="number" id="custo_adicional" name="custo_adicional" />
       </section>
+
       <section>
         <button type="submit">Enviar</button>
       </section>

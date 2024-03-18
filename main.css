@@ -26,6 +26,15 @@ button {
   border: 0;
   height: 42px;
   font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.busca {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .busca > input {
@@ -33,7 +42,7 @@ button {
   border-right: 0;
   margin-right: -5px;
   height: 30px;
-  width: 55vw;
+  width: 45vw;
   font-size: 20px;
 }
 

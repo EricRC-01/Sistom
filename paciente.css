@@ -28,13 +28,21 @@ nav {
 .botao_voltar {
   color: rgb(35, 144, 61);
   font-size: 1.2vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.botao_voltar > span {
+  font-size: 40px;
 }
 
 button {
   background-color: rgb(35, 144, 61);
   color: white;
   border: 0;
-  height: 42px;
+  height: 45px;
   font-size: 20px;
   border: 5px solid white;
   border: 0 5px;
@@ -84,15 +92,15 @@ select {
   border: 0;
   width: 10vw;
   font-size: 20px;
+  padding: 10px;
 }
 
 .consultas > select {
   border: 5px solid lightgrey;
   border-right: 0;
-
   margin-right: -5px;
   background-color: white;
-  width: 50vw;
+  width: 70vw;
   font-size: 20px;
 }
 

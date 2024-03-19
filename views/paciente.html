@@ -26,6 +26,14 @@
           .replace(/(\d{3})(\d)/, "$1.$2")
           .replace(/(\d{3})(\d)/, "$1-$2");
       }
+
+      function mascaraTelefone(campoTelefone) {
+        campoTelefone.value = campoTelefone.value
+          .replace(/\D/g, "") // Remove todos os caracteres que não são dígitos
+          .replace(/^(\d{2})(\d)/, "($1) $2") // Coloca parênteses em volta dos dois primeiros dígitos
+          .replace(/(\d{4})(\d)/, "$1-$2") // Adiciona o hífen depois dos quatro dígitos seguintes (fixo)
+          .replace(/(\d{4})-(\d)(\d{4})/, "$1$2-$3"); // Ajusta o hífen para a posição correta em números de celular
+      }
     </script>
   </head>
 
@@ -58,18 +66,23 @@
       <button class="paginacao" onclick="openSection(event, 'paciente')">
         Paciente
       </button>
+      <hr />
       <button class="paginacao" onclick="openSection(event, 'endereco')">
         Endereço
       </button>
+      <hr />
       <button class="paginacao" onclick="openSection(event, 'recebedor')">
         Recebedores
       </button>
+      <hr />
       <button class="paginacao" onclick="openSection(event, 'estoma')">
         Estoma(s)
       </button>
+      <hr />
       <button class="paginacao" onclick="openSection(event, 'consulta')">
         Consultas
       </button>
+      <hr />
       <button class="paginacao" onclick="openSection(event, 'material')">
         Materiais
       </button>
@@ -141,11 +154,13 @@
 
         <label for="telefone">Telefone:</label>
         <input
-          type="tel"
+          type="text"
           id="telefone"
           name="telefone"
+          oninput="mascaraTelefone(this)"
           required
           maxlength="20"
+          oninput="mascaraTelefone"
         />
 
         <label for="convenio">Convênio:</label>
@@ -1098,5 +1113,5 @@
       </section>
     </form>
   </body>
-  <script src="../script/paciente.js"></script>
+  <script src="../scripts/paciente.js"></script>
 </html>

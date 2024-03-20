@@ -20,18 +20,6 @@ main > h1 {
   flex-wrap: wrap;
 }
 
-button {
-  background-color: rgb(35, 144, 61);
-  color: white;
-  border: 0;
-  height: 42px;
-  font-size: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 5px;
-}
-
 .busca {
   display: flex;
   justify-content: center;

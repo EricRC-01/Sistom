@@ -31,6 +31,11 @@ nav {
   flex-wrap: wrap;
 }
 
+nav > button {
+  border: 5px solid white;
+  border: 0 5px;
+}
+
 .paginacao {
   padding-left: 20px;
   padding-right: 20px;
@@ -51,14 +56,10 @@ nav {
   font-size: 40px;
 }
 
+/* Priorizados por estar sobrescrevendo o estilo do header.css  */
 button {
-  background-color: rgb(35, 144, 61);
-  color: white;
-  border: 0;
-  height: 45px;
-  font-size: 20px;
-  border: 5px solid white;
-  border: 0 5px;
+  height: 42px !important;
+  margin: 0px !important;
 }
 
 section {

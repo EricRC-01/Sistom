@@ -211,7 +211,7 @@
               maxlength="128"
             />
           </div>
-          <div class="flex1">
+          <div class="flex1 margin_left">
             <label for="numero">Numero:</label>
             <input
               type="number"
@@ -221,7 +221,7 @@
               max="99999"
             />
           </div>
-          <div class="flex1">
+          <div class="flex1 margin_left">
             <label for="complemento">Complemento:</label>
             <input
               type="text"
@@ -590,6 +590,27 @@
 
         <h2>Dados do Estoma:</h2>
 
+        <label for="periodicidade_estoma">Periodicidade:</label>
+        <div class="em_uma_linha">
+          <input
+            class="flex1"
+            type="number"
+            id="periodicidade_estoma_numero"
+            name="periodicidade_estoma_numero"
+            required
+          />
+          <select
+            class="flex2 margin_left"
+            id="periodicidade_estoma_intervalo"
+            name="periodicidade_estoma_intervalo"
+            required
+          >
+            <option value=" " disabled selected hidden></option>
+            <option value="">Semanas</option>
+            <option value="">Meses</option>
+            <option value="">Anos</option>
+          </select>
+        </div>
         <label for="diagnostico">Diagnóstico:</label>
         <input
           type="text"
@@ -737,8 +758,13 @@
         <label for="dimensoes">Dimensões do Estoma em mm:</label>
         <div class="em_uma_linha">
           <input class="flex2" type="number" id="dimensao1" name="dimensao1" />
-          <span> por </span>
-          <input class="flex2" type="number" id="dimensao2" name="dimensao2" />
+          <span class="margin_left"> por </span>
+          <input
+            class="flex2 margin_left"
+            type="number"
+            id="dimensao2"
+            name="dimensao2"
+          />
         </div>
 
         <label for="formato_estoma">Formato do Estoma:</label>
@@ -944,15 +970,19 @@
             <option value="Sim">Uma peça</option>
             <option value="Não">Duas peças</option>
           </select>
-          <select id="opacidade" name="opacidade" class="flex1">
+          <select id="opacidade" name="opacidade" class="flex1 margin_left">
             <option value="Sim">Opaco</option>
             <option value="Não">Transparente</option>
           </select>
-          <select id="frenavel" name="frenavel" class="flex1">
+          <select id="frenavel" name="frenavel" class="flex1 margin_left">
             <option value="Sim">Drenável</option>
             <option value="Não">Não drenável</option>
           </select>
-          <select id="plano_infantil" name="plano_infantil" class="flex1">
+          <select
+            id="plano_infantil"
+            name="plano_infantil"
+            class="flex1 margin_left"
+          >
             <option value="Sim">Plano infantil</option>
             <option value="Não">Plano comum</option>
           </select>
@@ -1093,6 +1123,28 @@
         </div>
 
         <h2>Dados do Material:</h2>
+
+        <label for="periodicidade_material">Periodicidade:</label>
+        <div class="em_uma_linha">
+          <input
+            class="flex1"
+            type="number"
+            id="periodicidade_material_numero"
+            name="periodicidade_material_numero"
+            required
+          />
+          <select
+            class="flex2 margin_left"
+            id="periodicidade_material_intervalo"
+            name="periodicidade_material_intervalo"
+            required
+          >
+            <option value=" " disabled selected hidden></option>
+            <option value="">Semanas</option>
+            <option value="">Meses</option>
+            <option value="">Anos</option>
+          </select>
+        </div>
 
         <label for="quantidade_mensal">Quantidade que recebe mensal:</label>
         <input type="number" id="quantidade_mensal" name="quantidade_mensal" />

@@ -96,8 +96,6 @@ select {
 }
 
 .selector > button {
-  background-color: rgb(35, 144, 61);
-  color: white;
   border: 0;
   width: 10vw;
   font-size: 20px;
@@ -118,8 +116,11 @@ select {
   display: flex;
   flex-direction: column;
   align-items: start;
-  margin-left: 15px;
   width: 15vw;
+}
+
+.margin_left {
+  margin-left: 15px;
 }
 
 .flex2 {

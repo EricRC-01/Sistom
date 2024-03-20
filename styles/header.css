@@ -44,6 +44,10 @@ a {
   font-size: 40px;
 }
 
+button:hover {
+  background-color: rgb(17, 90, 34);
+}
+
 .home > img {
   height: 80px;
   width: 80px;

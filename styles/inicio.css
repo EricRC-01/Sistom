@@ -4,9 +4,6 @@
   margin-right: auto;
   text-align: center;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50px;
 }
 
 .footer {
@@ -14,4 +11,8 @@
   bottom: 0;
   left: 0;
   width: 100%;
+}
+
+main {
+  margin-top: 20vh;
 }

@@ -58,8 +58,8 @@ nav > button {
 
 /* Priorizados por estar sobrescrevendo o estilo do header.css  */
 button {
-  height: 42px !important;
-  margin: 0px !important;
+  height: 42px;
+  margin: 0px;
 }
 
 section {
@@ -88,7 +88,18 @@ select {
 
 .em_uma_linha {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+}
+.em_uma_linha > input,select {
+  width: 100%;
+  /* justify-content: space-between; */
+}
+.em_uma_linha > button {
+  font-size: 15px;
+  height: 35px;
+  margin-left: -5px;
+  
+  /* justify-content: space-between; */
 }
 
 .selector {

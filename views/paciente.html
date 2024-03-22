@@ -34,6 +34,13 @@
           .replace(/(\d{4})(\d)/, "$1-$2") // Adiciona o hífen depois dos quatro dígitos seguintes (fixo)
           .replace(/(\d{4})-(\d)(\d{4})/, "$1$2-$3"); // Ajusta o hífen para a posição correta em números de celular
       }
+      function mascaraCEP(campoCEP) {
+        campoCEP.value = campoCEP.value
+          .replace(/\D/g, "") // Remove todos os caracteres que não são dígitos
+          .replace(/^(\d{5})(\d)/, "$1-$2");
+      }
+
+
     </script>
   </head>
 
@@ -92,6 +99,12 @@
       <section id="paciente" class="tabcontent">
         <h2>Paciente</h2>
 
+        <label for="">Imagem do Paciente:</label>
+        <input type="file">
+
+        <label for="">Documentos de Inscrição:</label>
+        <input type="file">
+
         <label for="nome_paciente">Nome do Paciente:</label>
         <input
           type="text"
@@ -145,14 +158,16 @@
           <option value="B">Remoto</option>
         </select>
 
-        <label for="utiliza_esf">Utiliza o ESF:</label>
-        <select id="utiliza_esf" name="utiliza_esf" required>
-          <option value=" " disabled selected hidden></option>
-          <option value="s">Sim</option>
-          <option value="n">Não</option>
+        <label for="esf">ESF:</label>
+        <input
+          type="text"
+          id="esf"
+          name="esf"
+          placeholder="Número da equipe ou nome do profissional"
+          
         </select>
 
-        <label for="telefone">Telefone:</label>
+        <label for="telefone">Telefone:</label><div class="em_uma_linha">
         <input
           type="text"
           id="telefone"
@@ -161,7 +176,7 @@
           required
           maxlength="20"
           oninput="mascaraTelefone"
-        />
+        /><button id="adicionar">Adicionar</button></div>
 
         <label for="convenio">Convênio:</label>
 
@@ -221,6 +236,7 @@
               max="99999"
             />
           </div>
+          
           <div class="flex1 margin_left">
             <label for="complemento">Complemento:</label>
             <input
@@ -232,7 +248,15 @@
             />
           </div>
         </div>
-
+        <label for="cep">CEP:</label>
+        <input
+          type="text"
+          id="cep"
+          name="cep"
+          required
+          maxlength="9"
+          oninput="mascaraCEP(this)"
+        />
         <label for="municipio">Município:</label>
         <select id="municipio" name="municipio" required>
           <option value=" " disabled selected hidden></option>
@@ -589,6 +613,9 @@
         </div>
 
         <h2>Dados do Estoma:</h2>
+
+        <label for="">Imagem:</label>
+        <input type="file">
 
         <label for="periodicidade_estoma">Periodicidade:</label>
         <div class="em_uma_linha">
@@ -1139,7 +1166,6 @@
             name="periodicidade_material_intervalo"
             required
           >
-            <option value=" " disabled selected hidden></option>
             <option value="">Semanas</option>
             <option value="">Meses</option>
             <option value="">Anos</option>

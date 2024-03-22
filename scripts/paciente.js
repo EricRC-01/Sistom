@@ -16,3 +16,20 @@ function openSection(evt, sectionName) {
 document.addEventListener("DOMContentLoaded", function () {
   document.querySelector(".tablinks").click();
 });
+
+function showHideInput(selectId, inputId) {
+  var selectElement = document.getElementById(selectId);
+  var inputContainer = document.getElementById(inputId);
+  var selectedOption = selectElement.options[selectElement.selectedIndex].value;
+
+  if (selectedOption === "i") {
+    inputContainer.style.display = "flex";
+  } else {
+    inputContainer.style.display = "none";
+  }
+}
+
+// Chamada de funções ao carregar
+openSection(event, "paciente");
+
+showHideInput("tempo_estoma", "causa");

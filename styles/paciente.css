@@ -88,18 +88,17 @@ select {
 
 .em_uma_linha {
   display: flex;
-  /* justify-content: space-between; */
 }
-.em_uma_linha > input,select {
+
+.em_uma_linha > input,
+select {
   width: 100%;
-  /* justify-content: space-between; */
 }
+
 .em_uma_linha > button {
   font-size: 15px;
   height: 35px;
   margin-left: -5px;
-  
-  /* justify-content: space-between; */
 }
 
 .selector {
@@ -112,6 +111,7 @@ select {
   width: 10vw;
   font-size: 20px;
   padding: 10px;
+  height: 45px;
 }
 
 .selector > select {
@@ -161,4 +161,10 @@ select {
   border: 0;
   height: 42px;
   margin-top: 10px;
+}
+
+#causa {
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
 }

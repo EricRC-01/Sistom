@@ -25,6 +25,8 @@ nav {
   width: 80vw;
   margin: 3vh auto;
   flex-wrap: wrap;
+  position: sticky;
+  top: 0; /* Cabeçalho vai grudar no topo */
 }
 
 nav > button {

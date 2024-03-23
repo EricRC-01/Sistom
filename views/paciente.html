@@ -3,6 +3,7 @@
   <head>
     <link rel="stylesheet" href="../styles/header.css" />
     <link rel="stylesheet" href="../styles/paciente.css" />
+    <link rel="stylesheet" href="../styles/checkboxes.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -671,78 +672,99 @@
           <option value="">Não informado</option>
           <option value="">Outro</option>
         </select>
-
+        
         <label for="efluente">Efluente:</label>
-        <label
-          ><input type="checkbox" name="opcao" value="Fezes formadas" /> Fezes
-          formadas</label
-        >
-        <label
-          ><input type="checkbox" name="opcao" value="Fezes pastosas" /> Fezes
-          pastosas</label
-        >
-        <label
-          ><input type="checkbox" name="opcao" value="Fezes semiliquidas" />
-           Fezes semiliquidas</label
-        >
-        <label
-          ><input type="checkbox" name="opcao" value="Fezes liquidas" /> Fezes
-          liquidas</label
-        >
-        <label><input type="checkbox" name="opcao" value="Urina" /> Urina</label>
-        <label><input type="checkbox" name="opcao" value="Muco" /> Muco</label>
-        <label
-          ><input type="checkbox" name="opcao" value="Não informado" /> Não
-          informado</label
-        ><br />
+        <div class="checkboxes">
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" name="cb" id="1" />
+            <label for="1" onclick="texto('1', 'Fezes Formadas');">Fezes Formadas</label>
+          </div>
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" name="cb" id="2" />
+            <label for="2" onclick="texto('2', 'Íntegra');">Íntegra</label>
+          </div>
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" name="cb" id="3" />
+            <label for="3" onclick="texto('3', 'Fezes semilíquidas');">Fezes semilíquidas</label>
+          </div>
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" name="cb" id="4" />
+            <label for="4" onclick="texto('4', 'Fezes líquidas');">Fezes líquidas</label>
+          </div>
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" name="cb" id="5" />
+            <label for="5" onclick="texto('5', 'Urina');">Urina</label>
+          </div>
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" name="cb" id="6" />
+            <label for="6" onclick="texto('6', 'Muco');">Muco</label>
+          </div>
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" name="cb" id="7" />
+            <label for="7" onclick="texto('7', 'Não informado');">Não informado</label>
+          </div>
+        </div>
 
+        
+        
         <label for="pele_periestoma">Pele Periestoma:</label>
-        <label
-          ><input type="checkbox" name="opcao" value="Integra" /> Íntegra</label
-        >
-        <label
-          ><input type="checkbox" name="opcao" value="Dermatite" />
-          Dermatite</label
-        >
-        <label
-          ><input type="checkbox" name="opcao" value="Hiperemiada" />
-          Hiperemiada</label
-        >
-        <label
-          ><input type="checkbox" name="opcao" value="Granuloma" />
-          Granuloma</label
-        >
-        <label
-          ><input type="checkbox" name="opcao" value="Macerada" />
-          Macerada</label
-        >
-        <label
-          ><input type="checkbox" name="opcao" value="Hérnia Paraestomal" />
-          Hérnia Paraestomal</label
-        >
-        <label
-          ><input
-            type="checkbox"
-            name="opcao"
-            value="lesão decorrente do tubete"
-          />
-          Lesão decorrente do tubete</label
-        >
-        <label
-          ><input type="checkbox" name="opcao" value="Infecção fúngica" />
-          Infecção fúngica</label
-        >
-        <label
-          ><input type="checkbox" name="opcao" value="Friável" /> Friável</label
-        >
-        <label
-          ><input type="checkbox" name="opcao" value="Pontos Escurecidos" />
-          Pontos Escurecidos</label
-        >
-        <label
-          ><input type="checkbox" name="opcao" value="Deiscência nos pontos" />
-          Deiscência nos pontos</label
-        >
+        <div class="checkboxes">
+          
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" name="cb" id="8" />
+            <label for="8" onclick="texto('8', 'Íntegra');">Íntegra</label>
+          </div>
+          
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" name="cb" id="9" />
+            <label for="9" onclick="texto('9', 'Dermatite');">Dermatite</label>
+          </div>
+
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" name="cb" id="10" />
+            <label for="10" onclick="texto('10', 'Heperemiada');">Heperemiada</label>
+          </div>
+
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" name="cb" id="11" />
+            <label for="11" onclick="texto('11', 'Granuloma');">Granuloma</label>
+          </div>
+          
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" name="cb" id="12" />
+            <label for="12" onclick="texto('12', 'Macerada');">Macerada</label>
+          </div>
+          
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" name="cb" id="13" />
+            <label for="13" onclick="texto('13', 'Hérnia Paraestomal');">Hérnia Paraestomal</label>
+          </div>
+          
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" name="cb" id="14" />
+            <label for="14" onclick="texto('14', 'Lesão decorrente do tubete');">Lesão decorrente do tubete</label>
+          </div>
+
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" name="cb" id="15" />
+            <label for="15" onclick="texto('15', 'Infecção fúngica');">Infecção fúngica</label>
+          </div>
+          
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" name="cb" id="16" />
+            <label for="16" onclick="texto('16', 'Friável');">Friável</label>
+          </div>
+          
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" name="cb" id="17" />
+            <label for="17" onclick="texto('17', 'Pontos Escurecidos');">Pontos Escurecidos</label>
+          </div>
+          
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" name="cb" id="18" />
+            <label for="18" onclick="texto('18', 'Deiscência nos pontos');">Deiscência nos pontos</label>
+          </div>
+        </div>
 
         <label for="usa_cinto_sustentacao">Usa Cinto de Sustentação:</label>
         <select id="usa_cinto_sustentacao" name="usa_cinto_sustentacao">
@@ -768,7 +790,7 @@
             <option value="Sim">Opaco</option>
             <option value="Não">Transparente</option>
           </select>
-          <select id="frenavel" name="frenavel" class="flex1 margin_left">
+          <select id="drenavel" name="drenavel" class="flex1 margin_left">
             <option value="Sim">Drenável</option>
             <option value="Não">Não drenável</option>
           </select>
@@ -791,80 +813,83 @@
         </select>
 
         <label for="uso_adjuvante">Uso de Adjuvante:</label>
-        <label for="nao_utiliza"
-          ><input type="checkbox" id="nao_utiliza" name="nao_utiliza" /> Não
-          utiliza</label
-        >
-        <label for="pasta_hidrocoloide"
-          ><input
-            type="checkbox"
-            id="pasta_hidrocoloide"
-            name="pasta_hidrocoloide"
-          />
-          Pasta de hidrocolóide</label
-        >
-        <label for="po_estoma"
-          ><input type="checkbox" id="po_estoma" name="po_estoma" /> Pó para
-          estoma</label
-        >
-        <label for="creme_dermatite"
-          ><input type="checkbox" id="creme_dermatite" name="creme_dermatite" />
-          Creme para dermatite</label
-        >
-        <label for="spray_barreira"
-          ><input type="checkbox" id="spray_barreira" name="spray_barreira" />
-          Spray barreira de pele</label
-        >
-        <label for="anel_moldavel"
-          ><input type="checkbox" id="anel_moldavel" name="anel_moldavel" />
-          Anel moldável</label
-        >
-        <label for="removedor_adesivo"
-          ><input
-            type="checkbox"
-            id="removedor_adesivo"
-            name="removedor_adesivo"
-          />
-          Removedor de adesivo</label
-        >
-        <label for="creme_barreira"
-          ><input type="checkbox" id="creme_barreira" name="creme_barreira" />
-          Creme barreira</label
-        >
-        <label for="fita_adesiva"
-          ><input type="checkbox" id="fita_adesiva" name="fita_adesiva" /> Fita
-          adesiva circular</label
-        >
-        <label for="elastico_improvisacao"
-          ><input
-            type="checkbox"
-            id="elastico_improvisacao"
-            name="elastico_improvisacao"
-          />
-          Elástico para improvisação</label
-        >
-        <label for="cinto"
-          ><input type="checkbox" id="cinto" name="cinto" /> Cinto</label
-        >
-        <label for="phmb"
-          ><input type="checkbox" id="phmb" name="phmb" /> PHMB</label
-        >
-        <label for="desodorante_lubrificante"
-          ><input
-            type="checkbox"
-            id="desodorante_lubrificante"
-            name="desodorante_lubrificante"
-          />
-          Desodorante/lubrificante</label
-        >
-        <label for="placa_protetora"
-          ><input type="checkbox" id="placa_protetora" name="placa_protetora" />
-          Placa protetora</label
-        >
-        <label for="limpador_pele"
-          ><input type="checkbox" id="limpador_pele" name="limpador_pele" />
-          Limpador de pele</label
-        >
+        <div class="checkboxes">
+
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" id="nao_utiliza" name="nao_utiliza" />
+            <label for="nao_utiliza" onclick="texto('nao_utiliza', 'Não utiliza');">Não utiliza</label>
+          </div>
+          
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" id="pasta_hidrocoloide" name="pasta_hidrocoloide" />
+            <label for="pasta_hidrocoloide" onclick="texto('pasta_hidrocoloide', 'Pasta de hidrocolóide');">Pasta de hidrocolóide</label>
+          </div>
+          
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" id="po_estoma" name="po_estoma" />
+            <label for="po_estoma" onclick="texto('po_estoma', 'Pó para estoma');">Pó para estoma</label>
+          </div>
+          
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" id="creme_dermatite" name="creme_dermatite" />
+            <label for="creme_dermatite" onclick="texto('creme_dermatite', 'Creme para dermatite');">Creme para dermatite</label>
+          </div>
+          
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" id="spray_barreira" name="spray_barreira" />
+            <label for="spray_barreira" onclick="texto('spray_barreira', 'Spray barreira de pele');">Spray barreira de pele</label>
+          </div>
+          
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" id="anel_moldavel" name="anel_moldavel" />
+            <label for="anel_moldavel" onclick="texto('anel_moldavel', 'Anel moldável');">Anel moldável</label>
+          </div>
+          
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" id="removedor_adesivo" name="removedor_adesivo" />
+            <label for="removedor_adesivo" onclick="texto('removedor_adesivo', 'Removedor de adesivo');">Removedor de adesivo</label>
+          </div>
+          
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" id="creme_barreira" name="creme_barreira" />
+            <label for="creme_barreira" onclick="texto('creme_barreira', 'Creme barreira');">Creme barreira</label>
+          </div>
+          
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" id="fita_adesiva" name="fita_adesiva" />
+            <label for="fita_adesiva" onclick="texto('fita_adesiva', 'Fita adesiva circular');">Fita adesiva circular</label>
+          </div>
+          
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" id="elastico_improvisacao" name="elastico_improvisacao" />
+            <label for="elastico_improvisacao" onclick="texto('elastico_improvisacao', 'Elástico para improvisação');">Elástico para improvisação</label>
+          </div>
+          
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" id="cinto" name="cinto" />
+            <label for="cinto" onclick="texto('cinto', 'Cinto');">Cinto</label>
+          </div>
+          
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" id="phmb" name="phmb" />
+            <label for="phmb" onclick="texto('phmb', 'PHMB');">PHMB</label>
+          </div>
+          
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" id="desodorante_lubrificante" name="desodorante_lubrificante" />
+            <label for="desodorante_lubrificante" onclick="texto('desodorante_lubrificante', 'Desodorante/lubrificante');">Desodorante/lubrificante</label>
+          </div>
+          
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" id="placa_protetora" name="placa_protetora" />
+            <label for="placa_protetora" onclick="texto('placa_protetora', 'Placa protetora');">Placa protetora</label>
+          </div>
+
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" id="limpador_pele" name="limpador_pele" />
+            <label for="limpador_pele" onclick="texto('limpador_pele', 'Limpador para a pele');">Limpador para a pele</label>
+          </div>
+        </div>
       </section>
 
       <section id="consulta" class="tabcontent">
@@ -993,4 +1018,5 @@
     >
   </body>
   <script src="../scripts/paciente.js"></script>
+  <script src="../scripts/checkboxes.js"></script>
 </html>

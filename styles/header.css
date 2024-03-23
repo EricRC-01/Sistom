@@ -60,6 +60,22 @@ button:hover {
   background-color: rgb(17, 90, 34);
 }
 
+.acessibilidade{
+  position: fixed;
+  right: 0;
+  top:110px;
+}
+
+.acessibilidade > button{
+  width: 42px;
+  height: 42px;
+}
+
+.acessibilidade > button > img{
+  width: 40px;
+  height: 40px;
+}
+
 .home > img {
   height: 80px;
   width: 80px;

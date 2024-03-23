@@ -1,3 +1,33 @@
+// Função para adicionar a máscara do cartão SUS
+function mascaraCartaoSUS(campoCartao) {
+  campoCartao.value = campoCartao.value
+    .replace(/\D/g, "") // Remove caracteres não numéricos
+    .replace(/(\d{3})(\d)/, "$1 $2") // Adiciona o primeiro espaço
+    .replace(/(\d{4})(\d)/, "$1 $2") // Adiciona o segundo espaço
+    .replace(/(\d{4})(\d)/, "$1 $2"); // Adiciona o terceiro espaço
+}
+
+function mascaraCPF(campoCPF) {
+  campoCPF.value = campoCPF.value
+    .replace(/\D/g, "")
+    .replace(/(\d{3})(\d)/, "$1.$2")
+    .replace(/(\d{3})(\d)/, "$1.$2")
+    .replace(/(\d{3})(\d)/, "$1-$2");
+}
+
+function mascaraTelefone(campoTelefone) {
+  campoTelefone.value = campoTelefone.value
+    .replace(/\D/g, "") // Remove todos os caracteres que não são dígitos
+    .replace(/^(\d{2})(\d)/, "($1) $2") // Coloca parênteses em volta dos dois primeiros dígitos
+    .replace(/(\d{4})(\d)/, "$1-$2") // Adiciona o hífen depois dos quatro dígitos seguintes (fixo)
+    .replace(/(\d{4})-(\d)(\d{4})/, "$1$2-$3"); // Ajusta o hífen para a posição correta em números de celular
+}
+function mascaraCEP(campoCEP) {
+  campoCEP.value = campoCEP.value
+    .replace(/\D/g, "") // Remove todos os caracteres que não são dígitos
+    .replace(/^(\d{5})(\d)/, "$1-$2");
+}
+
 function openSection(evt, sectionName) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
@@ -27,6 +57,11 @@ function showHideInput(selectId, inputId) {
   } else {
     inputContainer.style.display = "none";
   }
+}
+
+function voltarAoTopo() {
+  document.body.scrollTop = 0; // Para Safari
+  document.documentElement.scrollTop = 0; // Para Chrome, Firefox, IE e Opera
 }
 
 // Chamada de funções ao carregar

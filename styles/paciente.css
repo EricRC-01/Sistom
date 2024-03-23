@@ -68,8 +68,7 @@ nav > button {
   font-size: 40px;
 }
 
-/* Priorizados por estar sobrescrevendo o estilo do header.css  */
-button {
+nav button, form button {
   height: 42px;
   margin: 0px;
 }

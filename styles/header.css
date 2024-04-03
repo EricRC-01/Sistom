@@ -4,7 +4,7 @@
 
 header {
   margin: -8px -8px 0 -8px;
-  background: rgb(35, 144, 61);
+  background: rgb(0, 113, 93);
   color: white;
   display: flex;
   justify-content: space-between;
@@ -13,7 +13,7 @@ header {
 footer {
   margin: 80px -8px -8px -8px;
   padding: 40px 40px;
-  background: rgb(35, 144, 61);
+  background:  rgb(0, 113, 93);
   color: white;
   display: flex;
   justify-content: space-between;

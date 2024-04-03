@@ -10,10 +10,15 @@ header {
   justify-content: space-between;
 }
 
+#title{
+  font-family: "Varela Round", sans-serif;
+  font-style: normal;
+}
+
 footer {
   margin: 80px -8px -8px -8px;
   padding: 40px 40px;
-  background:  rgb(0, 113, 93);
+  background: rgb(0, 113, 93);
   color: white;
   display: flex;
   justify-content: space-between;
@@ -45,7 +50,7 @@ a {
 }
 
 button {
-  background-color: rgb(35, 144, 61);
+  background-color: rgb(0, 113, 93);
   color: white;
   border: 0;
   height: 42px;
@@ -54,10 +59,12 @@ button {
   justify-content: center;
   align-items: center;
   margin: 5px;
+  padding:20px;
+  border-radius: 20px;
 }
 
 button:hover {
-  background-color: rgb(17, 90, 34);
+  background-color: rgb(0, 81, 67);
 }
 
 .acessibilidade{
@@ -77,9 +84,11 @@ button:hover {
 }
 
 .home > img {
-  height: 80px;
-  width: 80px;
+  height: 90px;
+  width: 90px;
+  padding-right: 15px;
 }
+
 .user {
   font-weight: 600;
 }

@@ -3,7 +3,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: rgb(35, 144, 61);
+  color: rgb(0, 113, 93);
 }
 
 main > * {
@@ -29,10 +29,12 @@ main > h1 {
 .busca > input {
   border: 5px solid lightgrey;
   border-right: 0;
-  margin-right: -5px;
+  margin-right: -15px;
   height: 30px;
   width: 45vw;
   font-size: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
 
 ion-icon {

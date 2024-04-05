@@ -4,7 +4,7 @@
 
 header {
   margin: -8px -8px 0 -8px;
-  background: rgb(0, 113, 93);
+  background: linear-gradient(#038C65,#02735E);
   color: white;
   display: flex;
   justify-content: space-between;

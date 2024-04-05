@@ -58,10 +58,32 @@ function showHideInput(selectId, inputId) {
     inputContainer.style.display = "none";
   }
 }
-
 function voltarAoTopo() {
-  document.body.scrollTop = 0; // Para Safari
-  document.documentElement.scrollTop = 0; // Para Chrome, Firefox, IE e Opera
+  // Posição atual da rolagem
+  const startPos = window.pageYOffset || document.documentElement.scrollTop;
+
+  // Tempo inicial, ainda não definido
+  let start = null;
+
+  function step(timestamp) {
+    if (!start) start = timestamp; // Define o tempo inicial no primeiro frame
+    const progress = timestamp - start; // Calcula o progresso desde o início
+
+    // Calcula a posição atual. Usamos `Math.max` para evitar valores negativos.
+    // O 'easeOutQuad' é aplicado aqui modificando a variável 'progress'.
+    // O fator de desaceleração pode ser ajustado modificando os números no cálculo de 'position'.
+    const position = Math.max(startPos - (progress / 5) * (startPos / 100), 0);
+
+    window.scrollTo(0, position);
+
+    // Se a posição atual não for 0, continuamos a animação
+    if (position > 0) {
+      window.requestAnimationFrame(step);
+    }
+  }
+
+  // Inicia a animação
+  window.requestAnimationFrame(step);
 }
 
 // Chamada de funções ao carregar

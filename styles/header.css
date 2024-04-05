@@ -2,15 +2,31 @@
   font-family: "Inter", sans-serif;
 }
 
+:root {
+  --cor-original-r: 0;
+  --cor-original-g: 113;
+  --cor-original-b: 93;
+  --cor-primaria: rgb(
+    var(--cor-original-r),
+    var(--cor-original-g),
+    var(--cor-original-b)
+  );
+  --cor-escurecida: rgb(
+    calc(var(--cor-original-r) * 0.8),
+    calc(var(--cor-original-g) * 0.8),
+    calc(var(--cor-original-b) * 0.8)
+  );
+}
+
 header {
   margin: -8px -8px 0 -8px;
-  background: linear-gradient(#038C65,#02735E);
+  background: linear-gradient(var(--cor-primaria), var(--cor-escurecida));
   color: white;
   display: flex;
   justify-content: space-between;
 }
 
-#title{
+#title {
   font-family: "Varela Round", sans-serif;
   font-style: normal;
 }
@@ -18,7 +34,7 @@ header {
 footer {
   margin: 80px -8px -8px -8px;
   padding: 40px 40px;
-  background: rgb(0, 113, 93);
+  background: var(--cor-primaria);
   color: white;
   display: flex;
   justify-content: space-between;
@@ -50,7 +66,7 @@ a {
 }
 
 button {
-  background-color: rgb(0, 113, 93);
+  background-color: var(--cor-primaria);
   color: white;
   border: 0;
   height: 42px;
@@ -59,26 +75,26 @@ button {
   justify-content: center;
   align-items: center;
   margin: 5px;
-  padding:20px;
+  padding: 20px;
   border-radius: 20px;
 }
 
 button:hover {
-  background-color: rgb(0, 81, 67);
+  background-color: var(--cor-escurecida);
 }
 
-.acessibilidade{
+.acessibilidade {
   position: fixed;
   right: 0;
   top: 110px;
 }
 
-.acessibilidade > button{
+.acessibilidade > button {
   width: 42px;
   height: 42px;
 }
 
-.acessibilidade > button > img{
+.acessibilidade > button > img {
   width: 40px;
   height: 40px;
 }

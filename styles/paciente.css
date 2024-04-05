@@ -42,7 +42,7 @@ nav > button {
 }
 
 .botao_voltar {
-  color: rgb(35, 144, 61);
+  color: rgb(0, 113, 93);
   font-size: 1.2vw;
   display: flex;
   flex-direction: column;
@@ -55,8 +55,8 @@ nav > button {
   font-size: 40px;
 }
 
-.botao_subir{
-  color: rgb(35, 144, 61);
+.botao_subir {
+  color: rgb(0, 113, 93);
   position: fixed;
   bottom: 10px;
   right: 20px;
@@ -70,7 +70,8 @@ nav > button {
   font-size: 40px;
 }
 
-nav button, form button {
+nav button,
+form button {
   height: 42px;
   margin: 0px;
 }
@@ -87,7 +88,7 @@ form * {
 }
 
 label {
-  color: rgb(35, 144, 61);
+  color: rgb(0, 113, 93);
 }
 
 input,
@@ -136,7 +137,7 @@ select {
   font-size: 20px;
 }
 
-.checkboxes{
+.checkboxes {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   width: 100%;
@@ -179,7 +180,7 @@ select {
 }
 
 #enviar {
-  background-color: rgb(35, 144, 61);
+  background-color: rgb(0, 113, 93);
   color: white;
   border: 0;
   height: 42px;

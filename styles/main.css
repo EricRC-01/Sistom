@@ -51,7 +51,7 @@ ion-icon {
 
 .paciente {
   background: linear-gradient(lightgray, rgb(180, 180, 180));
-  border-radius: 20px;
+  border-radius: 50px;
   color: black;
   display: flex;
   align-items: center;

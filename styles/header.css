@@ -3,6 +3,50 @@
 }
 
 :root {
+  --data-theme: light;
+}
+
+[data-theme="dark"] {
+  --cor-primaria-r: 50;
+  --cor-primaria-g: 163;
+  --cor-primaria-b: 143;
+  --cor-primaria: rgb(
+    var(--cor-primaria-r),
+    var(--cor-primaria-g),
+    var(--cor-primaria-b)
+  );
+  --cor-escurecida: rgb(
+    calc(var(--cor-primaria-r) * 0.8),
+    calc(var(--cor-primaria-g) * 0.8),
+    calc(var(--cor-primaria-b) * 0.8)
+  );
+  --fundo-r: 0;
+  --fundo-g: 0;
+  --fundo-b: 0;
+  --fundo: rgb(var(--fundo-r), var(--fundo-g), var(--fundo-b));
+
+  --fundo2-r: 55;
+  --fundo2-g: 55;
+  --fundo2-b: 55;
+  --fundo2: rgb(var(--fundo2-r), var(--fundo2-g), var(--fundo2-b));
+
+  --fundo3-r: 66;
+  --fundo3-g: 66;
+  --fundo3-b: 66;
+  --fundo3: rgb(var(--fundo3-r), var(--fundo3-g), var(--fundo3-b));
+
+  --neutro-r: 255;
+  --neutro-g: 255;
+  --neutro-b: 255;
+  --neutro: rgb(var(--neutro-r), var(--neutro-g), var(--neutro-b));
+
+  --neutro2-r: 211;
+  --neutro2-g: 211;
+  --neutro2-b: 211;
+  --neutro2: rgb(var(--neutro2-r), var(--neutro2-g), var(--neutro2-b));
+}
+
+[data-theme="light"] {
   --cor-primaria-r: 0;
   --cor-primaria-g: 113;
   --cor-primaria-b: 93;
@@ -25,6 +69,11 @@
   --fundo2-g: 211;
   --fundo2-b: 211;
   --fundo2: rgb(var(--fundo2-r), var(--fundo2-g), var(--fundo2-b));
+
+  --fundo3-r: 180;
+  --fundo3-g: 180;
+  --fundo3-b: 180;
+  --fundo3: rgb(var(--fundo3-r), var(--fundo3-g), var(--fundo3-b));
 
   --neutro-r: 0;
   --neutro-g: 0;

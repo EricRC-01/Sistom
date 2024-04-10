@@ -32,7 +32,7 @@ ion-icon {
 }
 
 .paciente {
-  background: linear-gradient(var(--fundo2), rgb(180, 180, 180));
+  background: linear-gradient(var(--fundo2), var(--fundo3));
   color: black;
   display: flex;
   align-items: center;
@@ -88,6 +88,7 @@ ion-icon {
 .paciente .menu-content {
   display: none;
   position: absolute;
+  color: var(--neutro);
   top: 50px;
   width: 20vw;
   background-color: var(--fundo);

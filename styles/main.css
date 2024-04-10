@@ -55,16 +55,28 @@ ion-icon {
   color: black;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 15px;
   margin-bottom: 20px;
 }
 
-.paciente > img {
+.dados {
+  display: flex;
+  align-items: center;
+}
+
+.dados > img {
   height: 70px;
   width: 70px;
   border-radius: 40px;
   margin: 0px 10px;
   border: 2px solid lightgrey;
+}
+
+.dados > div {
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
 }
 
 .aviso > img {
@@ -78,4 +90,45 @@ ion-icon {
 
 .aviso_amarelo {
   background: linear-gradient(orange, yellow);
+}
+
+.menu {
+  display: flex;
+  justify-content: end;
+
+  position: relative;
+}
+
+.paciente .menu-toggle {
+  background-color: var(--cor-primaria);
+  color: white;
+  padding: 5px;
+}
+
+.paciente .menu-content {
+  display: none;
+  position: absolute;
+  top: 50px;
+  width: 20vw;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 5px;
+  z-index: 1;
+}
+
+.paciente .menu-content a {
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+  text-decoration: none;
+}
+
+.paciente .menu-content a:hover {
+  background-color: #ddd;
+}
+
+.menu-content ion-icon {
+  margin: 5px;
+  color: var(--cor-primaria);
 }

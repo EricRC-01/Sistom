@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <link rel="stylesheet" href="../styles/header.css" />
+    <link rel="stylesheet" href="../styles/paciente.css" />
+    <link rel="stylesheet" href="../styles/checkboxes.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header>
+      <a href="../views/index.html">
+        <div class="home">
+          <img src="../pictures/logo.png" alt="Logo do Sistom" />
+          <span>Sistom</span>
+        </div>
+      </a>
+      <div class="user">
+        <img src="../pictures/paciente7.jpeg" alt="Imagem do usuário" />
+        <span>Nome de usuário</span>
+      </div>
+    </header>
+    <div class="acessibilidade">
+      <button><img src="./Contraste-icon.svg" /></button>
+      <button><img src="./Tam-fonte-menos-icon.svg" /></button>
+      <button><img src="./Tam-fonte-mais-icon.svg" /></button>
+      <button><img src="./Libras-icon.svg" /></button>
+    </div>
+    <a class="botao_voltar" , id="voltar" href="../views/index.html"
+      ><span><--</span>Tela Inicial</a
+    >
+
+    <div class="alerta">
+      <img
+        src="warning-outline.svg"
+        alt="Imagem de um sinal de alerta ao lado esquerdo do aviso"
+      />Consulta atrasada em 2 meses
+    </div>
+
+    <form action="/submit" method="post">
+      <section id="consulta" class="tabcontent">
+        <h2>Consultas</h2>
+
+        <div class="selector">
+          <select id="consultas" name="consultas" required>
+            <option value="">Consulta 26/09/2022</option>
+            <option value="">Consulta 28/10/2022</option>
+            <option value="">Consulta 02/12/2022</option>
+          </select>
+          <button>Adicionar</button>
+        </div>
+
+        <h2>Dados da consulta:</h2>
+
+        <label for="">Imagens do Estoma:</label>
+        <input type="file" multiple />
+
+        <label for="condicoes_clinicas">Condições Clínicas:</label>
+        <input
+          type="text"
+          id="condicoes_clinicas"
+          name="condicoes_clinicas"
+          required
+          maxlength="50"
+          placeholder="ex: Neoplastia"
+        />
+
+        <label for="adaptacao">Como está a sua Adaptação?</label>
+        <input
+          type="text"
+          id="adaptacao"
+          name="adaptacao"
+          placeholder="ex: Boa"
+        />
+
+        <label for="equipamentos_indicados">Equipamentos Indicados:</label>
+        <input
+          type="text"
+          id="equipamentos_indicados"
+          name="equipamentos_indicados"
+          placeholder="ex: Neoplastia"
+        />
+
+        <label for="observacao">Observação do avaliador:</label>
+        <input
+          type="text"
+          id="observacao"
+          name="observacao"
+          placeholder="ex: Equipamento coletor de 1 peça plana"
+        />
+
+        <button type="submit">Enviar</button>
+      </section>
+    </form>
+    <a class="botao_subir" onclick="voltarAoTopo()"
+      ><span>↑</span>Voltar ao Topo</a
+    >
+  </body>
+  <script src="../scripts/paciente.js"></script>
+  <script src="../scripts/checkboxes.js"></script>
+</html>

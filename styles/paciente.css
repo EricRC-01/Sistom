@@ -79,7 +79,7 @@ form button {
 section {
   display: flex;
   flex-direction: column;
-  width: 80vw;
+  width: 60vw;
   margin: 3vh auto;
 }
 
@@ -100,6 +100,27 @@ select {
   padding: 5px;
 }
 
+.busca {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.busca > button {
+  margin-top: -10px;
+}
+
+.busca > input,
+.busca > select {
+  border: 5px solid var(--fundo2);
+  background-color: var(--fundo);
+  border-right: 0;
+  margin-right: -25px;
+  height: 42px;
+  font-size: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
 .em_uma_linha {
   display: flex;
 }
@@ -113,28 +134,6 @@ select {
   font-size: 15px;
   height: 35px;
   margin-left: -5px;
-}
-
-.selector {
-  display: flex;
-  justify-content: space-between;
-}
-
-.selector > button {
-  border: 0;
-  width: 10vw;
-  font-size: 20px;
-  padding: 10px;
-  height: 45px;
-}
-
-.selector > select {
-  border: 5px solid var(--fundo2);
-  border-right: 0;
-  margin-right: -5px;
-  background-color: var(--fundo);
-  width: 70vw;
-  font-size: 20px;
 }
 
 .checkboxes {
@@ -190,5 +189,4 @@ select {
 #causa {
   display: flex;
   flex-direction: column;
-  width: 80vw;
 }

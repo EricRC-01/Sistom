@@ -139,3 +139,21 @@ button:hover {
   margin: 0px 10px;
   border: 2px solid var(--fundo2);
 }
+
+.busca {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.busca > input,
+.busca > select {
+  border: 5px solid var(--fundo2);
+  background-color: var(--fundo);
+  border-right: 0;
+  margin-right: -15px;
+  height: 30px;
+  font-size: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}

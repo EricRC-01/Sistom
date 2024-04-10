@@ -20,23 +20,6 @@ main > h1 {
   flex-wrap: wrap;
 }
 
-.busca {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.busca > input {
-  border: 5px solid lightgrey;
-  border-right: 0;
-  margin-right: -15px;
-  height: 30px;
-  width: 45vw;
-  font-size: 20px;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-}
-
 ion-icon {
   height: 30px;
   width: 30px;

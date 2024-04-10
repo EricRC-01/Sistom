@@ -19,7 +19,7 @@
   justify-content: center;
   align-items: end;
   font-size: 17px;
-  background-color: lightgray;
+  background-color: var(--fundo2);
   margin: auto;
   width: 27vw;
   height: 30vh;
@@ -27,7 +27,7 @@
   padding: 2vw;
 }
 
-h2{
+h2 {
   margin: auto;
 }
 
@@ -37,17 +37,18 @@ h2{
   width: 26vw;
 }
 
-.login > button{
+.login > button {
   font-size: 14px;
   height: 30px;
   padding: 10px;
 }
 
 main {
-  display: flex; margin: 13vh 10vw;
+  display: flex;
+  margin: 13vh 10vw;
 }
 
-main > div{
+main > div {
   width: 40vw;
 }
 

@@ -44,20 +44,17 @@ ion-icon {
 }
 
 .pacientes {
-  background-color: rgb(229, 229, 229);
-  padding: 20px;
+  background-color: var(--fundo2);
   border-radius: 20px;
 }
 
 .paciente {
-  background: linear-gradient(lightgray, rgb(180, 180, 180));
-  border-radius: 50px;
+  background: linear-gradient(var(--fundo2), rgb(180, 180, 180));
   color: black;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 15px;
-  margin-bottom: 20px;
 }
 
 .dados {
@@ -70,7 +67,7 @@ ion-icon {
   width: 70px;
   border-radius: 40px;
   margin: 0px 10px;
-  border: 2px solid lightgrey;
+  border: 2px solid var(--fundo2);
 }
 
 .dados > div {
@@ -101,7 +98,7 @@ ion-icon {
 
 .paciente .menu-toggle {
   background-color: var(--cor-primaria);
-  color: white;
+  color: var(--fundo);
   padding: 5px;
 }
 
@@ -110,7 +107,7 @@ ion-icon {
   position: absolute;
   top: 50px;
   width: 20vw;
-  background-color: #f9f9f9;
+  background-color: var(--fundo);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   padding: 5px;
@@ -125,7 +122,7 @@ ion-icon {
 }
 
 .paciente .menu-content a:hover {
-  background-color: #ddd;
+  background-color: var(--fundo2);
 }
 
 .menu-content ion-icon {

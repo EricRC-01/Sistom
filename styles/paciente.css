@@ -30,7 +30,7 @@ nav {
 }
 
 nav > button {
-  border: 5px solid white;
+  border: 5px solid var(--fundo);
   border: 0 5px;
 }
 
@@ -42,7 +42,7 @@ nav > button {
 }
 
 .botao_voltar {
-  color: rgb(0, 113, 93);
+  color: var(--cor-primaria);
   font-size: 1.2vw;
   display: flex;
   flex-direction: column;
@@ -56,7 +56,7 @@ nav > button {
 }
 
 .botao_subir {
-  color: rgb(0, 113, 93);
+  color: var(--cor-primaria);
   position: fixed;
   bottom: 10px;
   right: 20px;
@@ -88,13 +88,13 @@ form * {
 }
 
 label {
-  color: rgb(0, 113, 93);
+  color: var(--cor-primaria);
 }
 
 input,
 select {
   margin-bottom: 10px;
-  background-color: lightgray;
+  background-color: var(--fundo2);
   border: 0;
   border-radius: 5px;
   padding: 5px;
@@ -129,10 +129,10 @@ select {
 }
 
 .selector > select {
-  border: 5px solid lightgrey;
+  border: 5px solid var(--fundo2);
   border-right: 0;
   margin-right: -5px;
-  background-color: white;
+  background-color: var(--fundo);
   width: 70vw;
   font-size: 20px;
 }
@@ -143,7 +143,7 @@ select {
   width: 100%;
   margin-bottom: 15px;
   padding: 10px;
-  background-color: lightgrey;
+  background-color: var(--fundo2);
   border-radius: 5px;
 }
 
@@ -180,8 +180,8 @@ select {
 }
 
 #enviar {
-  background-color: rgb(0, 113, 93);
-  color: white;
+  background-color: var(--cor-primaria);
+  color: var(--fundo);
   border: 0;
   height: 42px;
   margin-top: 10px;

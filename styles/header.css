@@ -3,25 +3,48 @@
 }
 
 :root {
-  --cor-original-r: 0;
-  --cor-original-g: 113;
-  --cor-original-b: 93;
+  --cor-primaria-r: 0;
+  --cor-primaria-g: 113;
+  --cor-primaria-b: 93;
   --cor-primaria: rgb(
-    var(--cor-original-r),
-    var(--cor-original-g),
-    var(--cor-original-b)
+    var(--cor-primaria-r),
+    var(--cor-primaria-g),
+    var(--cor-primaria-b)
   );
   --cor-escurecida: rgb(
-    calc(var(--cor-original-r) * 0.8),
-    calc(var(--cor-original-g) * 0.8),
-    calc(var(--cor-original-b) * 0.8)
+    calc(var(--cor-primaria-r) * 0.8),
+    calc(var(--cor-primaria-g) * 0.8),
+    calc(var(--cor-primaria-b) * 0.8)
   );
+  --fundo-r: 255;
+  --fundo-g: 255;
+  --fundo-b: 255;
+  --fundo: rgb(var(--fundo-r), var(--fundo-g), var(--fundo-b));
+
+  --fundo2-r: 211;
+  --fundo2-g: 211;
+  --fundo2-b: 211;
+  --fundo2: rgb(var(--fundo2-r), var(--fundo2-g), var(--fundo2-b));
+
+  --neutro-r: 0;
+  --neutro-g: 0;
+  --neutro-b: 0;
+  --neutro: rgb(var(--neutro-r), var(--neutro-g), var(--neutro-b));
+
+  --neutro2-r: 61;
+  --neutro2-g: 61;
+  --neutro2-b: 61;
+  --neutro2: rgb(var(--neutro2-r), var(--neutro2-g), var(--neutro2-b));
+}
+
+body {
+  background-color: var(--fundo);
 }
 
 header {
   margin: -8px -8px 0 -8px;
   background: linear-gradient(var(--cor-primaria), var(--cor-escurecida));
-  color: white;
+  color: var(--fundo);
   display: flex;
   justify-content: space-between;
 }
@@ -35,7 +58,7 @@ footer {
   margin: 80px -8px -8px -8px;
   padding: 40px 40px;
   background: var(--cor-primaria);
-  color: white;
+  color: var(--fundo);
   display: flex;
   justify-content: space-between;
   text-align: center;
@@ -67,7 +90,7 @@ a {
 
 button {
   background-color: var(--cor-primaria);
-  color: white;
+  color: var(--fundo);
   border: 0;
   height: 42px;
   font-size: 20px;
@@ -114,5 +137,5 @@ button:hover {
   width: 40px;
   border-radius: 40px;
   margin: 0px 10px;
-  border: 2px solid lightgrey;
+  border: 2px solid var(--fundo2);
 }

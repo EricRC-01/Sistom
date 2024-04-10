@@ -1,20 +1,21 @@
-/* fonte: https://getcssscan.com/css-checkboxes-examples */
-
 .checkbox-wrapper-47 input[type="checkbox"] {
-  display: none;
-  visibility: hidden;
+  /* display: none;
+  visibility: hidden; */
+  width: 20px; /* Define a largura */
+  height: 20px; /* Define a altura */
+  border-radius: 5px; /* Define o raio da borda */
 }
 
 .checkbox-wrapper-47 label {
   position: relative;
-  padding-left: 2em;
-  padding-right: 1em;
   line-height: 2;
   cursor: pointer;
   display: inline-flex;
+  font-size: 15px;
+  visibility: visible; /* torna o label visível por padrão */
 }
 
-.checkbox-wrapper-47 label:before {
+.checkbox-wrapper-47 label::before {
   box-sizing: border-box;
   content: "";
   position: absolute;
@@ -22,21 +23,24 @@
   left: 0;
   display: block;
   width: 1.4em;
-  height: 1.4em;
+  /* height: 1.4em; */
   border: 2px solid var(--cor-primaria);
   border-radius: 6px;
+  visibility: hidden; /* torna o label::before oculto por padrão */
 }
 
 .checkbox-wrapper-47 input[type="checkbox"]:checked + label {
   padding-left: 1em;
+  visibility: hidden; /* torna o label oculto quando checkbox está marcado */
 }
 
-.checkbox-wrapper-47 input[type="checkbox"]:checked + label:before {
+.checkbox-wrapper-47 input[type="checkbox"]:checked + label::before {
   top: 0;
   width: 100%;
-  height: 2em;
+  /* height: 2em; */
   background: #b7e6c9;
   border-color: #2cbc63;
+  visibility: visible; /* torna o label::before visível quando checkbox está marcado */
 }
 
 .checkbox-wrapper-47 label,
@@ -59,5 +63,4 @@
 .checkbox-wrapper-47 input[type="checkbox"] + label::before {
   /* as outras propriedades permanecem iguais para o estado não marcado */
   content: ""; /* Garante que o texto fique vazio quando não estiver marcado */
-  padding-left: 10px;
 }

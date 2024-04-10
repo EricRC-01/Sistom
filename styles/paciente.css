@@ -138,7 +138,7 @@ select {
 
 .checkboxes {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   width: 100%;
   margin-bottom: 15px;
   padding: 10px;
@@ -189,4 +189,9 @@ select {
 #causa {
   display: flex;
   flex-direction: column;
+}
+
+#add_telefone {
+  padding: 17px 20px;
+  margin-left: -15px;
 }

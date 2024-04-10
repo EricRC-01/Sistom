@@ -1,4 +1,3 @@
-
 function texto(id, novoTexto) {
   // Encontra o elemento input pelo seu ID
   var checkbox = document.getElementById(id);
@@ -7,8 +6,8 @@ function texto(id, novoTexto) {
   var label = checkbox.nextElementSibling;
 
   // Verifica se o label existe e tem o atributo for correspondente ao id do input
-  if (label && label.tagName === 'LABEL' && label.getAttribute('for') === id) {
+  if (label && label.tagName === "LABEL" && label.getAttribute("for") === id) {
     // Define o novo texto usando o atributo data-content, mas somente altera o visual quando marcado
-    label.setAttribute('data-content', novoTexto);
+    label.setAttribute("data-content", novoTexto);
   }
 }

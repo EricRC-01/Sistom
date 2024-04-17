@@ -458,7 +458,6 @@ export const PaginaPaciente = () => {
           </TabContext>
         </Box>
       </Container>
-      <Footer />
     </>
   );
 };

@@ -18,7 +18,6 @@ export const PaginaInicial = () => {
       <Header />
       <ModalFormPaciente />
       <TabelaPaciente />
-      <Footer />
     </>
   );
 };

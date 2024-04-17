@@ -108,7 +108,6 @@ export const Teste = () => {
           </TabContext>
         </Box>
       </Container>
-      <Footer />
     </>
   );
 };

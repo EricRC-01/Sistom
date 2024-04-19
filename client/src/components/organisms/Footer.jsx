@@ -13,7 +13,7 @@ export const Footer = () => {
         }}
       >
         <Container>
-          <Grid container direction="column" alignItems="center">
+          <Grid container direction="column" alignItems="center" py="1rem">
             <Grid item xs={12}>
               {/* <Typography
                             variant="h6"

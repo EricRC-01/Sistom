@@ -23,6 +23,7 @@ import { PaginaInicial } from "./components/pages/PaginaInicial.jsx";
 import { Teste } from "./components/pages/Teste.jsx";
 import { PaginaPaciente } from "./components/pages/PaginaPaciente.jsx";
 import { Header } from "./components/organisms/Header.jsx";
+import { Accessibility } from "./components/organisms/Accessibility.jsx";
 import { Footer } from "./components/organisms/Footer.jsx";
 
 const router = createBrowserRouter([
@@ -61,6 +62,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             paddingBottom: "2.5rem",
           }}
         >
+          <Accessibility />
           <RouterProvider router={router} />
 
           <Footer />

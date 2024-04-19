@@ -6,17 +6,18 @@ export const Theme = createTheme({
       main: "#00715D",
     },
     secondary: {
-      main: "#f50057",
-    },
-    textPrimary: {
       main: "#ffffff",
     },
-    textSecondary: {
-      main: "#dddddd",
+    tertiary: {
+      main: "#004f41",
+    },
+    text: {
+      primary: "#000000",
+      secondary: "#ffffff",
     },
   },
 
   typography: {
-    fontFamily: "Inter",
+    fontFamily: "Inter, sans-serif",
   },
 });

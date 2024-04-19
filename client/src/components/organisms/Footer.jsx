@@ -4,18 +4,18 @@ import { Box, Container, Grid, Typography } from "@mui/material";
 export const Footer = () => {
   return (
     <>
-        <Box
+      <Box
         sx={{
-            width: "100%",
-            backgroundColor: "primary.main",
-            position: 'absolute',
-            bottom: 0,
+          width: "100%",
+          backgroundColor: "primary.main",
+          position: "absolute",
+          bottom: 0,
         }}
-        >
-            <Container>
-                <Grid container direction="column" alignItems="center">
-                    <Grid item xs={12}>
-                        <Typography
+      >
+        <Container>
+          <Grid container direction="column" alignItems="center">
+            <Grid item xs={12}>
+              {/* <Typography
                             variant="h6"
                             noWrap
                             component="a"
@@ -30,18 +30,23 @@ export const Footer = () => {
                             }}
                         >
                             SISTOM
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <Typography color="textSecondary" variant="subtitle2">
-                            USP São Carlos - ICMC - {`${new Date().getFullYear()}`}
-                        </Typography>
-                    </Grid>
-                </Grid>
-            </Container>
-        </Box>
+                        </Typography> */}
+            </Grid>
+            <Grid item xs={12}>
+              {/* <Typography color="textSecondary" variant="subtitle2">
+                USP São Carlos - ICMC - {`${new Date().getFullYear()}`}
+              </Typography> */}
+              <Typography color="textSecondary" variant="subtitle2">
+                Site desenvolvido para Centro de Ciências da Saúde (CSS), por
+                estudantes da Universidade de São Paulo (USP) para uso exclusivo
+                de profissionais da saúde do Sistema Único de Saúde (SUS) do
+                Piauí
+              </Typography>
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
     </>
-
   );
 };
 

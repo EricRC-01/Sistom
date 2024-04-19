@@ -1,12 +1,22 @@
-import { createTheme } from '@mui/material';
+import { createTheme } from "@mui/material";
 export const Theme = createTheme({
   palette: {
-    mode: 'light',
+    mode: "light",
     primary: {
-      main: '#02883b',
+      main: "#00715D",
     },
     secondary: {
-      main: '#f50057',
+      main: "#f50057",
     },
+    textPrimary: {
+      main: "#ffffff",
+    },
+    textSecondary: {
+      main: "#dddddd",
+    },
+  },
+
+  typography: {
+    fontFamily: "Inter",
   },
 });

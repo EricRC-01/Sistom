@@ -10,8 +10,8 @@ export const Accessibility = () => {
     <Box
       sx={{
         position: "fixed",
-        right: "0",
-        top: "110px",
+        right: ".5rem",
+        top: "7rem",
         display: "flex",
         flexDirection: "column",
       }}
@@ -21,40 +21,48 @@ export const Accessibility = () => {
         sx={{
           backgroundColor: "primary.main",
           "&:hover": { backgroundColor: "tertiary.main" },
+          padding: ".5rem",
+          marginBottom: ".2rem",
         }}
         color="secondary"
       >
-        <ContrastSharpIcon />
+        <ContrastSharpIcon fontSize="medium" />
       </IconButton>
       <IconButton
         variant="contained"
         sx={{
           backgroundColor: "primary.main",
           "&:hover": { backgroundColor: "tertiary.main" },
+          padding: ".5rem",
+          marginBottom: ".2rem",
         }}
         color="secondary"
       >
-        <TextDecreaseSharpIcon />
+        <TextDecreaseSharpIcon fontSize="medium" />
       </IconButton>
       <IconButton
         variant="contained"
         sx={{
           backgroundColor: "primary.main",
           "&:hover": { backgroundColor: "tertiary.main" },
+          padding: ".5rem",
+          marginBottom: ".2rem",
         }}
         color="secondary"
       >
-        <TextIncreaseSharpIcon />
+        <TextIncreaseSharpIcon fontSize="medium" />
       </IconButton>
       <IconButton
         variant="contained"
         sx={{
           backgroundColor: "primary.main",
           "&:hover": { backgroundColor: "tertiary.main" },
+          padding: ".5rem",
+          marginBottom: ".2rem",
         }}
         color="secondary"
       >
-        <SignLanguageRoundedIcon />
+        <SignLanguageRoundedIcon fontSize="medium" />
       </IconButton>
     </Box>
   );

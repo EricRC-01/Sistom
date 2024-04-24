@@ -36,7 +36,11 @@ export const Footer = () => {
               {/* <Typography color="textSecondary" variant="subtitle2">
                 USP São Carlos - ICMC - {`${new Date().getFullYear()}`}
               </Typography> */}
-              <Typography color="textSecondary" variant="subtitle2">
+              <Typography
+                color="textSecondary"
+                variant="subtitle2"
+                textAlign={"center"}
+              >
                 Site desenvolvido para Centro de Ciências da Saúde (CSS), por
                 estudantes da Universidade de São Paulo (USP) para uso exclusivo
                 de profissionais da saúde do Sistema Único de Saúde (SUS) do

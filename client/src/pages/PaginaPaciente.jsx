@@ -6,9 +6,6 @@ import {
 } from "@mui/material";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 
-import { FormPaciente } from "components/FormPaciente";
-import { CadastroGeral } from "components/CadastroGeral";
-
 import { DisplayDataCards } from "components/DisplayDataCards";
 import { ModalFormCirurgia } from "components/ModalFormCirurgia";
 

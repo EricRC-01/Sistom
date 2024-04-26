@@ -19,8 +19,6 @@ import { usePocket } from "contexts/PocketContext";
 const Header = () => {
   const { logout, user } = usePocket();
 
-  const settings = ["Perfil", "Logout"];
-
   const [anchorElUser, setAnchorElUser] = useState(null);
 
   const handleOpenUserMenu = (event) => {
@@ -32,11 +30,13 @@ const Header = () => {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: "primary.main" }}>
+    <AppBar position="static" sx={{ backgroundColor: "primary.main", 
+    paddingTop: "0.8rem",
+    paddingBottom: "0.5rem", }}>
       <Container>
         <Toolbar disableGutters>
           <Link to="/">
-            <Box component="img" alt="Logo" src={Logo} height="3rem" />
+            <Box component="img" alt="Logo" src={Logo} height="4rem" />
           </Link>
 
           <Typography
@@ -46,14 +46,14 @@ const Header = () => {
             sx={{
               ml: 1,
               display: "flex",
-              fontFamily: "monospace",
+              fontFamily: "Varela Round",
               fontWeight: 700,
-              letterSpacing: ".3rem",
               color: "inherit",
+              fontSize: 30,
               textDecoration: "none",
             }}
           >
-            SISTOM
+            Sistom
           </Typography>
           <Box
             sx={{

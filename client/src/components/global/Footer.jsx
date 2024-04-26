@@ -15,7 +15,7 @@ const Footer = () => {
         <Container>
           <Grid container direction="column" alignItems="center" py="1rem">
             <Grid item xs={12}>
-              {/* <Typography
+              <Typography
                             variant="h6"
                             noWrap
                             component="a"
@@ -30,13 +30,13 @@ const Footer = () => {
                             }}
                         >
                             SISTOM
-                        </Typography> */}
+                        </Typography>
             </Grid>
             <Grid item xs={12}>
-              {/* <Typography color="textSecondary" variant="subtitle2">
+              <Typography color="textSecondary" variant="subtitle2">
                 USP São Carlos - ICMC - {`${new Date().getFullYear()}`}
-              </Typography> */}
-              <Typography
+              </Typography>
+              {/* <Typography
                 color="textSecondary"
                 variant="subtitle2"
                 textAlign={"center"}
@@ -45,7 +45,7 @@ const Footer = () => {
                 estudantes da Universidade de São Paulo (USP) para uso exclusivo
                 de profissionais da saúde do Sistema Único de Saúde (SUS) do
                 Piauí
-              </Typography>
+              </Typography> */}
             </Grid>
           </Grid>
         </Container>

@@ -1,5 +1,8 @@
+import "@fontsource/varela-round";
+import "@fontsource/inter";
+
 import { createTheme } from "@mui/material";
-export const Theme = createTheme({
+const Theme = createTheme({
   palette: {
     mode: "light",
     primary: {
@@ -13,7 +16,6 @@ export const Theme = createTheme({
     },
     text: {
       primary: "#000000",
-      secondary: "#ffffff",
     },
   },
 
@@ -21,3 +23,5 @@ export const Theme = createTheme({
     fontFamily: "Inter, sans-serif",
   },
 });
+
+export default Theme;

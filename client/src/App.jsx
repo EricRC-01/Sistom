@@ -1,12 +1,22 @@
-import { FormPaciente } from "./components/organisms/FormPaciente"
-import InputFileUpload from "./components/molecules/InputFileUpload"
+import { RouterProvider } from "react-router-dom";
+import router from "./routes/index.jsx";
 
-function App() {
+import { Box } from "@mui/material";
+
+const App = () => {
   return (
     <>
-      <InputFileUpload />
+      <Box
+        sx={{
+          minHeight: "100vh",
+          position: "relative",
+          paddingBottom: "2.5rem",
+        }}
+      >
+        <RouterProvider router={router} />
+      </Box>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;

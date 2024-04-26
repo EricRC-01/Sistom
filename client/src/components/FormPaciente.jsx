@@ -15,11 +15,12 @@ import {
   InputLabel,
   MenuItem,
   Button,
+  Stack,
 } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import dayjs from "dayjs";
 import { useState, useEffect, useRef } from "react";
-import InputFileUpload from "../molecules/InputFileUpload";
+import InputFileUpload from "./InputFileUpload";
 import DoneIcon from "@mui/icons-material/Done";
 
 const convenioArr = ["teste1", "teste2"];

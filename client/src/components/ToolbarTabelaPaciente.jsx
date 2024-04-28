@@ -10,7 +10,7 @@ import SearchIcon from "@mui/icons-material/Search";
 
 import { styled, alpha } from "@mui/material/styles";
 
-import { ModalFormPaciente } from "./ModalFormPaciente";
+import { ModalFormPaciente } from "./modal-forms/ModalFormPaciente";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",

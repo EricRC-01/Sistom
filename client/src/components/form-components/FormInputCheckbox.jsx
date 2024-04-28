@@ -14,6 +14,7 @@ export const FormInputCheckbox = ({ name, control, label, setValue }) => {
   return (
     <FormControlLabel
       component="fieldset"
+      label={label}
       control={
         <Controller
           name={name}
@@ -22,12 +23,10 @@ export const FormInputCheckbox = ({ name, control, label, setValue }) => {
             <Checkbox
               checked={field.checked}
               onChange={(e) => field.onChange(e.target.checked)}
-              label={label}
             />
           )}
         />
       }
-      label={label}
     />
   );
 };

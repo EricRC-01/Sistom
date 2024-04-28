@@ -1,5 +1,4 @@
 import { TabelaPaciente } from "../components/TabelaPaciente";
-import { ModalFormPaciente } from "../components/ModalFormPaciente";
 import { ToolbarTabelaPaciente } from "components/ToolbarTabelaPaciente";
 
 import { Paper } from "@mui/material";
@@ -12,7 +11,7 @@ const Dashboard = () => {
       <Container
         maxWidth="lg"
         component={Paper}
-        sx={{ mt: 5, minHeight: "calc(100vh - 10rem)" }}
+        sx={{ mb: 10, mt: 5 }}
       >
         <ToolbarTabelaPaciente />
         <hr />

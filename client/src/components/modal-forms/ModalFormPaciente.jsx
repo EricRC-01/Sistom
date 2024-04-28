@@ -7,12 +7,14 @@ import {
   IconButton,
 } from "@mui/material";
 import { useForm } from "react-hook-form";
-import { FormInputText } from "../components/form-components/FormInputText";
-import { FormInputCheckbox } from "./form-components/FormInputCheckbox";
-import { FormInputDropdown } from "../components/form-components/FormInputDropdown";
-import { FormInputDate } from "../components/form-components/FormInputDate";
-import { FormInputRadio } from "../components/form-components/FormInputRadio";
+import { FormInputText } from "../form-components/FormInputText";
+import { FormInputCheckbox } from "../form-components/FormInputCheckbox";
+import { FormInputDropdown } from "../form-components/FormInputDropdown";
+import { FormInputDate } from "../form-components/FormInputDate";
+import { FormInputRadio } from "../form-components/FormInputRadio";
+import { FormInputMultiCheckbox } from "components/form-components/FormInputMultiCheckbox";
 import dayjs, { Dayjs } from "dayjs";
+
 
 import { useMutation } from "@tanstack/react-query";
 import { usePocket } from "contexts/PocketContext";
@@ -25,18 +27,19 @@ import { useQueryClient } from "@tanstack/react-query";
 
 const defaultValues = {
   nome: "",
-  rg: "",
-  cpf: "",
   cns: "",
   sexo: "",
-  dataNasc: dayjs(Date.now()),
+  dataNasc: null,
   recadastro: "",
   tel: "",
   convenio: "",
   escolaridade: "",
   profissao: "",
-  dataInsc: dayjs(Date.now()),
+  dataInsc: null,
   esf: "",
+  mobilidade: "",
+  cinto: "",
+  efluente: "",
 };
 
 export const ModalFormPaciente = () => {
@@ -49,10 +52,10 @@ export const ModalFormPaciente = () => {
 
   const queryClient = useQueryClient();
 
-  const { registerPaciente, pb } = usePocket();
+  const { registerField, pb } = usePocket();
 
   const { mutate, isLoading, isError } = useMutation({
-    mutationFn: registerPaciente,
+    mutationFn: registerField,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["pacientes"] });
       handleClose();
@@ -69,12 +72,23 @@ export const ModalFormPaciente = () => {
   const onSubmit = async (data) => {
     console.log(data);
     mutate({
-      nome: data.nome,
-      tel: data.tel,
-      rg: data.rg,
-      cpf: data.cpf,
-      cns: data.cns,
-      sexo: data.sexo,
+      data: {
+        nome: data.nome,
+        cns: data.cns,
+        sexo: data.sexo,
+        tel: data.tel,
+        escolaridade: data.escolaridade,
+        esf: data.esf,
+        convenio: data.convenio,
+        profissao: data.profissao,
+        recadastro: data.recadastro,
+        dataNasc: data.dataNasc,
+        dataInsc: data.dataInsc,
+        mobilidade: data.mobilidade,
+        cinto: data.cinto,
+        efluente: data.efluente,
+      },
+      tabela: "pacientes",
     });
   };
 
@@ -98,13 +112,17 @@ export const ModalFormPaciente = () => {
           }}
         >
           <FormInputText name="nome" control={control} label="Nome" />
-          <FormInputText name="rg" control={control} label="RG" />
-          <FormInputText name="cpf" control={control} label="CPF" />
           <FormInputText name="cns" control={control} label="CNS" />
           <FormInputCheckbox
             name="esf"
             control={control}
             label="Usa ESF?"
+            setValue={setValue}
+          />
+          <FormInputCheckbox
+            name="cinto"
+            control={control}
+            label="Usa cinto de sustentação?"
             setValue={setValue}
           />
           <FormInputRadio
@@ -114,11 +132,11 @@ export const ModalFormPaciente = () => {
             options={[
               {
                 label: "Masculino",
-                value: "M",
+                value: "masculino",
               },
               {
                 label: "Feminino",
-                value: "F",
+                value: "feminino",
               },
             ]}
           />
@@ -134,11 +152,11 @@ export const ModalFormPaciente = () => {
             options={[
               {
                 label: "Presencial",
-                value: "P",
+                value: "presencial",
               },
               {
                 label: "Remoto",
-                value: "R",
+                value: "remoto",
               },
             ]}
           />
@@ -148,16 +166,105 @@ export const ModalFormPaciente = () => {
             name="convenio"
             control={control}
             label="Convênio"
+            options={[
+              {
+                label: "Placeholder 1",
+                value: "1",
+              },
+              {
+                label: "Placeholder 2",
+                value: "2",
+              },
+            ]}
           />
           <FormInputDropdown
             name="escolaridade"
             control={control}
             label="Escolaridade"
+            options={[
+              {
+                label: "Ausente",
+                value: "ausente",
+              },
+              {
+                label: "Ensino Fundamental",
+                value: "fundamental",
+              },
+              {
+                label: "Ensino Médio",
+                value: "medio",
+              },
+              {
+                label: "Ensino Superior",
+                value: "superior",
+              },
+            ]}
           />
           <FormInputDropdown
             name="profissao"
             control={control}
             label="Profissão"
+            options={[
+              {
+                label: "Placeholder 1",
+                value: "1",
+              },
+              {
+                label: "Placeholder 2",
+                value: "2",
+              },
+            ]}
+          />
+          <FormInputDropdown
+            name="mobilidade"
+            control={control}
+            label="Mobilidade"
+            options={[
+              {
+                label: "Deambula",
+                value: "deambula",
+              },
+              {
+                label: "Deambula com auxílio",
+                value: "auxilio",
+              },
+              {
+                label: "Não deambula",
+                value: "nao",
+              },
+            ]}
+          />
+          <FormInputMultiCheckbox
+            name="efluente"
+            control={control}
+            label="Efluente"
+            setValue={setValue}
+            options={[
+              {
+                label: "Fezes formadas",
+                value: "formada",
+              },
+              {
+                label: "Fezes pastosas",
+                value: "pastosa",
+              },
+              {
+                label: "Fezes líquidas",
+                value: "liquida",
+              },
+              {
+                label: "Fezes semilíquidas",
+                value: "semiliquida",
+              },
+              {
+                label: "Muco",
+                value: "muco",
+              },
+              {
+                label: "Urina",
+                value: "urina",
+              },
+            ]}
           />
           <FormInputDate
             name="dataInsc"

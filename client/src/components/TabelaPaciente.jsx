@@ -6,16 +6,9 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  Paper,
-  Toolbar,
-  Tooltip,
-  IconButton,
   Button,
-  Typography,
 } from "@mui/material";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import FilterListIcon from "@mui/icons-material/FilterList";
-
 
 import { Link } from "react-router-dom";
 
@@ -24,7 +17,7 @@ import { useQuery } from "@tanstack/react-query";
 import { usePocket } from "contexts/PocketContext";
 
 export const TabelaPaciente = () => {
-  const { getAllData, pb } = usePocket();
+  const { getAllData } = usePocket();
 
   const { isLoading, isError, error, data } = useQuery({
     queryKey: ["pacientes"],
@@ -42,8 +35,6 @@ export const TabelaPaciente = () => {
             <TableRow>
               <TableCell>Nome</TableCell>
               <TableCell>Telefone</TableCell>
-              <TableCell>RG</TableCell>
-              <TableCell>CPF</TableCell>
               <TableCell>CNS</TableCell>
               <TableCell>Sexo</TableCell>
               <TableCell>Data de Nascimento</TableCell>
@@ -56,16 +47,14 @@ export const TabelaPaciente = () => {
               <TableRow key={d.id}>
                 <TableCell>{d.nome}</TableCell>
                 <TableCell>{d.tel}</TableCell>
-                <TableCell>{d.rg}</TableCell>
-                <TableCell>{d.cpf}</TableCell>
                 <TableCell>{d.cns}</TableCell>
                 <TableCell>{d.sexo.toString()}</TableCell>
-                <TableCell>{d.dataNasc}</TableCell>
-                <TableCell>{d.dataInsc}</TableCell>
+                <TableCell>{d.dataNasc.split(' ')[0]}</TableCell>
+                <TableCell>{d.dataInsc.split(' ')[0]}</TableCell>
                 <TableCell>
                   <Button
                     component={Link}
-                    to={"/Paciente"}
+                    to={`/Paciente?userId=${d.id}`}
                     startIcon={<MoreHorizIcon />}
                   />
                 </TableCell>

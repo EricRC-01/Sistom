@@ -6,21 +6,13 @@ import {
   FormLabel,
 } from "@mui/material";
 import { Controller } from "react-hook-form";
-const options = [
-  {
-    label: "Checkbox Option 1",
-    value: "1",
-  },
-  {
-    label: "Checkbox Option 2",
-    value: "2",
-  },
-];
+
 export const FormInputMultiCheckbox = ({
   name,
   control,
   setValue,
   label,
+  options,
 }) => {
   const [selectedItems, setSelectedItems] = useState([]);
   // we are handling the selection manually here

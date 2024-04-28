@@ -1,16 +1,7 @@
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import { Controller } from "react-hook-form";
-const options = [
-  {
-    label: "Dropdown Option 1",
-    value: "1",
-  },
-  {
-    label: "Dropdown Option 2",
-    value: "2",
-  },
-];
-export const FormInputDropdown = ({ name, control, label }) => {
+
+export const FormInputDropdown = ({ name, control, label, options }) => {
   const generateSingleOptions = () => {
     return options.map((option) => {
       return (

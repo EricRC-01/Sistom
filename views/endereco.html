@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <link rel="stylesheet" href="../styles/header.css" />
+    <link rel="stylesheet" href="../styles/paciente.css" />
+    <link rel="stylesheet" href="../styles/checkboxes.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <header>
+      <a href="../views/index.html">
+        <div class="home">
+          <img src="../pictures/logo.png" alt="Logo do Sistom" />
+          <span id="title">Sistom</span>
+        </div>
+      </a>
+      <div class="user">
+        <img src="../pictures/paciente7.jpeg" alt="Imagem do usuário" />
+        <span>Nome de usuário</span>
+      </div>
+    </header>
+    <div class="acessibilidade">
+      <button>
+        <img onclick="toggleDarkMode()" src="./Contraste-icon.svg" />
+      </button>
+      <button><img src="./Tam-fonte-menos-icon.svg" /></button>
+      <button><img src="./Tam-fonte-mais-icon.svg" /></button>
+      <button><img src="./Libras-icon.svg" /></button>
+    </div>
+    <a class="botao_voltar" , id="voltar" href="../views/index.html"
+      ><span><--</span>Tela Inicial</a
+    >
+
+    <form action="/submit" method="post">
+      <section id="endereco" class="tabcontent">
+        <h2>Endereço</h2>
+        <div class="em_uma_linha">
+          <div class="flex2">
+            <label for="logradouro">Logradouro:</label>
+            <input
+              type="text"
+              id="logradouro"
+              name="logradouro"
+              required
+              maxlength="128"
+              placeholder="ex: Avenida Getúlio Vargas"
+            />
+          </div>
+          <div class="flex1 margin_left">
+            <label for="numero">Numero:</label>
+            <input
+              type="number"
+              id="numero"
+              name="numero"
+              required
+              max="99999"
+              placeholder="ex: 645"
+            />
+          </div>
+
+          <div class="flex1 margin_left">
+            <label for="complemento">Complemento:</label>
+            <input
+              type="text"
+              id="complemento"
+              name="complemento"
+              required
+              maxlength="128"
+              placeholder="ex: Apartamento 105"
+            />
+          </div>
+        </div>
+        <label for="cep">CEP:</label>
+        <input
+          type="text"
+          id="cep"
+          name="cep"
+          required
+          maxlength="9"
+          oninput="mascaraCEP(this)"
+          placeholder="ex: 39807-123"
+        />
+        <label for="municipio">Município:</label>
+        <select id="municipio" name="municipio" required>
+          <option value="A">
+            Município A (Opções virão do Banco de Dados)
+          </option>
+          <option value="B">Município B</option>
+          <option value="C">
+            Outro (Atravéz dessa opção, pode-se adicionar um item à lista)
+          </option>
+        </select>
+
+        <label for="regiao">Região:</label>
+        <select id="regiao" name="regiao" required>
+          <option value="A">Centro-Oeste</option>
+          <option value="B">Nordeste</option>
+          <option value="C">Norte</option>
+          <option value="D">Sudeste</option>
+          <option value="E">Sul</option>
+          <option value="F">Não se aplica</option>
+        </select>
+
+        <label for="territorio">Território:</label>
+        <select name="territorio">
+          <option value="AC">Acre</option>
+          <option value="AL">Alagoas</option>
+          <option value="AP">Amapá</option>
+          <option value="AM">Amazonas</option>
+          <option value="BA">Bahia</option>
+          <option value="CE">Ceará</option>
+          <option value="DF">Distrito Federal</option>
+          <option value="ES">Espírito Santo</option>
+          <option value="GO">Goiás</option>
+          <option value="MA">Maranhão</option>
+          <option value="MT">Mato Grosso</option>
+          <option value="MS">Mato Grosso do Sul</option>
+          <option value="MG">Minas Gerais</option>
+          <option value="PA">Pará</option>
+          <option value="PB">Paraíba</option>
+          <option value="PR">Paraná</option>
+          <option value="PE">Pernambuco</option>
+          <option value="PI" selected>Piauí</option>
+          <option value="RJ">Rio de Janeiro</option>
+          <option value="RN">Rio Grande do Norte</option>
+          <option value="RS">Rio Grande do Sul</option>
+          <option value="RO">Rondônia</option>
+          <option value="RR">Roraima</option>
+          <option value="SC">Santa Catarina</option>
+          <option value="SP">São Paulo</option>
+          <option value="SE">Sergipe</option>
+          <option value="TO">Tocantins</option>
+        </select>
+
+        <label for="macro_regiao">Macro Região:</label>
+        <select id="macro_regiao" name="macro_regiao" required>
+          <option value="A">Cerrados</option>
+          <option value="B">Litoral</option>
+          <option value="C" selected>Meio Norte</option>
+          <option value="D">Semiárido</option>
+          <option value="E">Não se aplica</option>
+        </select>
+
+        <button type="submit">Enviar</button>
+      </section>
+    </form>
+  </body>
+  <script src="../scripts/paciente.js"></script>
+  <script src="../scripts/checkboxes.js"></script>
+  <script src="../scripts/darkmode.js"></script>
+</html>

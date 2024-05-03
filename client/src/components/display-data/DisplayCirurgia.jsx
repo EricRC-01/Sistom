@@ -1,5 +1,7 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { usePocket } from "contexts/PocketContext";
+
+import { useEffect } from "react";
 
 import {
   Grid,
@@ -13,7 +15,9 @@ import {
 import { useLocation } from "react-router-dom";
 
 export const DisplayCirurgia = () => {
-  
+
+  const queryClient = useQueryClient();
+
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const userId = searchParams.get("userId");
@@ -28,8 +32,18 @@ export const DisplayCirurgia = () => {
     }),
   });
 
+  useEffect(() => {
+    return () => {
+      // Reset the data in the query cache when the component unmounts
+      queryClient.removeQueries(["cirurgias", userId]);
+    };
+  }, [queryClient, userId]);
+
   if (isLoading) return <div>Carregando...</div>;
   if (isError) return <div>{error}</div>;
+
+  if(!data.length) return <div>Sem cirurgias cadastradas!</div>
+
 
   return (
     <>
@@ -45,7 +59,7 @@ export const DisplayCirurgia = () => {
                   Hospital: {item.hospital}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Data: {item.data.split(" ")[0]}
+                  Data: {item.data.split(' ')[0]}
                 </Typography>
               </CardContent>
               <CardActions sx={{ justifyContent: "flex-end" }}>

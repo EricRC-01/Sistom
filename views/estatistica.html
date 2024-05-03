@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Sistom - Acompanhamento de Ostomizados" />
+    <title>Sistom</title>
+    <link rel="stylesheet" href="../styles/header.css" />
+    <link rel="stylesheet" href="../styles/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
+    <script type="text/javascript">
+      google.charts.load("current", { packages: ["corechart"] });
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ["Task", "Hours per Day"],
+          ["Work", 11],
+          ["Eat", 2],
+          ["Commute", 2],
+          ["Watch TV", 2],
+          ["Sleep", 7],
+        ]);
+
+        var options = {
+          title: "My Daily Activities",
+          pieHole: 0.4,
+        };
+
+        var chart = new google.visualization.PieChart(
+          document.getElementById("donutchart")
+        );
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <a href="../views/index.html">
+        <div class="home">
+          <img src="../pictures/logo.png" alt="Logo do Sistom" />
+          <span id="title">Sistom</span>
+        </div>
+      </a>
+      <div class="user">
+        <img src="../pictures/paciente7.jpeg" alt="Imagem do usuário" />
+        <span>Nome de usuário</span>
+      </div>
+    </header>
+    <div id="donutchart" style="width: 900px; height: 500px"></div>
+    <footer>
+      <p>
+        Site desenvolvido para Centro de Ciências da Saúde (CSS), por estudantes
+        da Universidade de São Paulo (USP) para uso exclusivo de profissionais
+        da saúde do Sistema Único de Saúde (SUS) do Piauí
+      </p>
+    </footer>
+    <script src="../scripts/darkmode.js"></script>
+  </body>
+</html>

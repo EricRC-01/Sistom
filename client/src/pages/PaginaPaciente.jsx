@@ -3,9 +3,13 @@ import { Container, Box, Tab } from "@mui/material";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 
 import { ModalFormCirurgia } from "components/modal-forms/ModalFormCirurgia";
+import { ModalFormEstoma } from "components/modal-forms/ModalFormEstoma";
 
 import { DisplayCirurgia } from "components/display-data/DisplayCirurgia";
 import { DisplayRecebedor } from "components/display-data/DisplayRecebedor";
+import { DisplayPaciente } from "components/display-data/DisplayPaciente";
+import { DisplayEstoma } from "components/display-data/DisplayEstoma";
+import { ModalFormRecebedor } from "components/modal-forms/ModalFormRecebedor";
 
 export const PaginaPaciente = () => {
 
@@ -27,9 +31,15 @@ export const PaginaPaciente = () => {
                 <Tab label="Cirurgias" value="4" />
               </TabList>
             </Box>
-            <TabPanel value="1">{/* <FormPaciente /> */}</TabPanel>
-            <TabPanel value="2"></TabPanel>
+            <TabPanel value="1">
+              <DisplayPaciente />
+            </TabPanel>
+            <TabPanel value="2">
+              <ModalFormEstoma />
+              <DisplayEstoma />
+            </TabPanel>
             <TabPanel value="3">
+              <ModalFormRecebedor />
               <DisplayRecebedor />
             </TabPanel>
             <TabPanel value="4">

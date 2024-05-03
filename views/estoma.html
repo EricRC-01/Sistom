@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <link rel="stylesheet" href="../styles/header.css" />
+    <link rel="stylesheet" href="../styles/paciente.css" />
+    <link rel="stylesheet" href="../styles/checkboxes.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <header>
+      <a href="../views/index.html">
+        <div class="home">
+          <img src="../pictures/logo.png" alt="Logo do Sistom" />
+          <span id="title">Sistom</span>
+        </div>
+      </a>
+      <div class="user">
+        <img src="../pictures/paciente7.jpeg" alt="Imagem do usuário" />
+        <span>Nome de usuário</span>
+      </div>
+    </header>
+    <div class="acessibilidade">
+      <button>
+        <img onclick="toggleDarkMode()" src="./Contraste-icon.svg" />
+      </button>
+      <button><img src="./Tam-fonte-menos-icon.svg" /></button>
+      <button><img src="./Tam-fonte-mais-icon.svg" /></button>
+      <button><img src="./Libras-icon.svg" /></button>
+    </div>
+    <a class="botao_voltar" , id="voltar" href="../views/index.html"
+      ><span><--</span>Tela Inicial</a
+    >
+
+    <form action="/submit" method="post">
+      <section id="estoma" class="tabcontent">
+        <h2>Estoma</h2>
+
+        <div class="busca">
+          <select id="estomas" name="estomas" required>
+            <option value="">
+              Selecione qual estoma deste paciente deseja conferir
+            </option>
+            <option value="">Colostomia em alça</option>
+            <option value="">Ileostomia convencional</option>
+            <option value="">Ureterostomia terminal</option>
+          </select>
+          <button>Adicionar</button>
+        </div>
+
+        <h2>Dados do Estoma:</h2>
+
+        <label for="periodicidade_estoma">Periodicidade:</label>
+        <div class="em_uma_linha">
+          <input
+            class="flex1"
+            type="number"
+            id="periodicidade_estoma_numero"
+            name="periodicidade_estoma_numero"
+            required
+            placeholder="Quantidade de "
+          />
+          <select
+            class="flex2 margin_left"
+            id="periodicidade_estoma_intervalo"
+            name="periodicidade_estoma_intervalo"
+            required
+          >
+            <option value="s">Semanas</option>
+            <option value="m">Meses</option>
+            <option value="a">Anos</option>
+          </select>
+        </div>
+
+        <label for="data_cirurgia">Data da Cirurgia:</label>
+        <input
+          type="date"
+          id="data_cirurgia"
+          name="data_cirurgia"
+          required
+          placeholder="11/01/2024"
+        />
+
+        <label for="nome_cirurgiao">Nome do Cirurgião:</label>
+        <input
+          type="text"
+          id="nome_cirurgiao"
+          name="nome_cirurgiao"
+          required
+          placeholder="Cláudio da Fonseca"
+        />
+
+        <label for="hospital">Hospital:</label>
+        <select id="hospital" name="hospital" required>
+          <option value="A">Hospital A (Opções virão do Banco de Dados)</option>
+          <option value="B">Hospital B</option>
+          <option value="C">
+            Outro (Atravéz dessa opção, pode-se adicionar um item à lista)
+          </option>
+        </select>
+
+        <label for="tempo_estoma">Tempo de Permanência do Estoma:</label>
+        <select
+          id="tempo_estoma"
+          name="tempo_estoma"
+          required
+          onchange="showHideInput('tempo_estoma', 'causa')"
+        >
+          <option value="t">Temporário</option>
+          <option value="p">Permanente</option>
+          <option value="i" selected>Indeterminado</option>
+        </select>
+
+        <div id="causa">
+          <label for="causa_indeterminado"
+            >Se Indeterminado, Qual a Causa:</label
+          >
+          <input
+            type="text"
+            id="causa_indeterminado"
+            name="causa_indeterminado"
+            placeholder="Recuperação em andamento"
+          />
+        </div>
+
+        <label for="doenca_base_estoma">Doença de Base para o Estoma:</label>
+        <input
+          type="text"
+          id="doenca_base_estoma"
+          name="doenca_base_estoma"
+          required
+          maxlength="50"
+          placeholder="Câncer de estômago"
+        />
+
+        <label for="demarcacao_estoma"
+          >Demarcação do Estoma no Pré-Operatório:</label
+        >
+        <select id="demarcacao_estoma" name="demarcacao_estoma" required>
+          <option value="s">Sim</option>
+          <option value="n">Não</option>
+          <option value="x">Não informado</option>
+        </select>
+
+        <label for="tipo_estoma">Tipo de Estoma:</label>
+        <select id="tipo_estoma" name="tipo_estoma" required>
+          <option value="c">Colostomia</option>
+          <option value="i">Ileostomia</option>
+          <option value="u">Urostomia</option>
+          <option value="o">Outro</option>
+        </select>
+
+        <label for="modo_exteriorizacao">Modo de Exteriorização:</label>
+        <select id="modo_exteriorizacao" name="modo_exteriorizacao" required>
+          <option value="t">Terminal</option>
+          <option value="b">Derivação Urinária Bricker</option>
+          <option value="a">Em alça</option>
+          <option value="u">Uro</option>
+          <option value="d">Duas bocas</option>
+          <option value="n">Não informado</option>
+          <option value="o">Outro</option>
+        </select>
+
+        <label for="tipo_abdome">Tipo de Abdome:</label>
+        <select id="tipo_abdome" name="tipo_abdome" required>
+          <option value="p">Plano</option>
+          <option value="g">Globoso</option>
+          <option value="e">Escavado</option>
+          <option value="s">Semi Globoso</option>
+          <option value="n">Não informado</option>
+          <option value="o">Outro</option>
+        </select>
+
+        <label for="mobilidade">Mobilidade:</label>
+        <select id="mobilidade" name="mobilidade" required>
+          <option value="d">Deambula</option>
+          <option value="a">Deambula com auxílio</option>
+          <option value="n">Não deambula</option>
+          <option value="x">Não informado</option>
+          <option value="o">Outro</option>
+        </select>
+
+        <label for="tipo_cirurgia_realizada">Tipo de Cirurgia Realizada:</label>
+        <select
+          id="tipo_cirurgia_realizada"
+          name="tipo_cirurgia_realizada"
+          required
+        >
+          <option value="">Laparotomia</option>
+          <option value="">Enterectomia</option>
+          <option value="">Colectomia</option>
+          <option value="">Convencional</option>
+          <option value="">Cistectomia</option>
+          <option value="">Bricker</option>
+          <option value="">Confecção de alça</option>
+          <option value="">Vídeo</option>
+          <option value="">Colostomia</option>
+          <option value="">Incisão em região de cólon descendente</option>
+          <option value="">Apendicite</option>
+          <option value="">Incisão em região abdominal D</option>
+          <option value="">Não informado</option>
+          <option value="">Outro</option>
+        </select>
+
+        <label for="localizacao_abdominal">Localização Abdominal:</label>
+        <select
+          id="localizacao_abdominal"
+          name="localizacao_abdominal"
+          required
+        >
+          <option value="">QSE</option>
+          <option value="">QSD</option>
+          <option value="">QIE</option>
+          <option value="">QID</option>
+          <option value="">Não informado</option>
+          <option value="">Outro</option>
+        </select>
+
+        <label for="higiene">Higiene:</label>
+        <select id="higiene" name="higiene" required>
+          <option value="">Boa</option>
+          <option value="">Satisfatória</option>
+          <option value="">Ruim</option>
+          <option value="">Não informado</option>
+          <option value="">Outro</option>
+        </select>
+
+        <label for="dimensoes">Dimensões do Estoma em mm:</label>
+        <div class="em_uma_linha">
+          <input
+            class="flex2"
+            type="number"
+            id="dimensao1"
+            name="dimensao1"
+            placeholder="3"
+          />
+          <span class="margin_left">por </span>
+          <input
+            class="flex2 margin_left"
+            type="number"
+            id="dimensao2"
+            name="dimensao2"
+            placeholder="4"
+          />
+        </div>
+
+        <label for="formato_estoma">Formato do Estoma:</label>
+        <select id="formato_estoma" name="formato_estoma" required>
+          <option value="">Oval</option>
+          <option value="">Circular</option>
+          <option value="">Não informado</option>
+          <option value="">Outro</option>
+        </select>
+
+        <label for="regularidade_estoma">Regularidade do Estoma:</label>
+        <select id="regularidade_estoma" name="regularidade_estoma" required>
+          <option value="">Regular</option>
+          <option value="">Irregular</option>
+          <option value="">Não informado</option>
+          <option value="">Outro</option>
+        </select>
+
+        <label for="coloracao_estoma">Coloração do Estoma:</label>
+        <select id="coloracao_estoma" name="coloracao_estoma" required>
+          <option value="">Vermelho vivo</option>
+          <option value="">Rosado</option>
+          <option value="">Não informado</option>
+          <option value="">Outro</option>
+        </select>
+
+        <label for="tubete_haste_fixacao">Tubete/Haste de Fixação:</label>
+        <select id="tubete_haste_fixacao" name="tubete_haste_fixacao" required>
+          <option value="">Presente</option>
+          <option value="">Ausente</option>
+          <option value="">Não informado</option>
+          <option value="">Outro</option>
+        </select>
+
+        <label for="protusao_estoma">Protusão do Estoma:</label>
+        <select id="protusao_estoma" name="protusao_estoma" required>
+          <option value="">Protuso-saliente</option>
+          <option value="">Plano</option>
+          <option value="">Retraído</option>
+          <option value="">Não informado</option>
+          <option value="">Outro</option>
+        </select>
+
+        <label for="funcao_estoma">Função do Estoma:</label>
+        <select id="funcao_estoma" name="funcao_estoma" required>
+          <option value="">Funcionante (proximal)</option>
+          <option value="">Não funcionante (fístula mucosa)</option>
+          <option value="">Não informado</option>
+          <option value="">Outro</option>
+        </select>
+
+        <label for="complicacoes_estoma"
+          >Complicações Presentes no Estoma:</label
+        >
+        <div class="checkboxes">
+          <div class="checkbox-wrapper-47">
+            <input
+              type="checkbox"
+              name="complicacoes_estoma[]"
+              id="Ausente"
+              value="Ausente"
+              onclick="texto('Ausente', 'Ausente');"
+            />
+            <label for="Ausente">Ausente</label>
+          </div>
+          <div class="checkbox-wrapper-47">
+            <input
+              type="checkbox"
+              name="complicacoes_estoma[]"
+              id="Fungo"
+              value="Fungo"
+              onclick="texto('Fungo', 'Fungo');"
+            />
+            <label for="Fungo">Fungo</label>
+          </div>
+          <div class="checkbox-wrapper-47">
+            <input
+              type="checkbox"
+              name="complicacoes_estoma[]"
+              id="Retração"
+              value="Retração"
+              onclick="texto('Retração', 'Retração');"
+            />
+            <label for="Retração">Retração</label>
+          </div>
+          <div class="checkbox-wrapper-47">
+            <input
+              type="checkbox"
+              name="complicacoes_estoma[]"
+              id="Sangramento"
+              value="Sangramento"
+              onclick="texto('Sangramento', 'Sangramento');"
+            />
+            <label for="Sangramento">Sangramento</label>
+          </div>
+          <div class="checkbox-wrapper-47">
+            <input
+              type="checkbox"
+              name="complicacoes_estoma[]"
+              id="Prolapso"
+              value="Prolapso"
+              onclick="texto('Prolapso', 'Prolapso');"
+            />
+            <label for="Prolapso">Prolapso</label>
+          </div>
+          <div class="checkbox-wrapper-47">
+            <input
+              type="checkbox"
+              name="complicacoes_estoma[]"
+              id="Edema"
+              value="Edema"
+              onclick="texto('Edema', 'Edema');"
+            />
+            <label for="Edema">Edema</label>
+          </div>
+          <div class="checkbox-wrapper-47">
+            <input
+              type="checkbox"
+              name="complicacoes_estoma[]"
+              id="Vazamento"
+              value="Vazamento"
+              onclick="texto('Vazamento', 'Vazamento');"
+            />
+            <label for="Vazamento">Vazamento</label>
+          </div>
+          <div class="checkbox-wrapper-47">
+            <input
+              type="checkbox"
+              name="complicacoes_estoma[]"
+              id="Estenose"
+              value="Estenose"
+              onclick="texto('Estenose', 'Estenose');"
+            />
+            <label for="Estenose">Estenose</label>
+          </div>
+          <div class="checkbox-wrapper-47">
+            <input
+              type="checkbox"
+              name="complicacoes_estoma[]"
+              id="Hérnia"
+              value="Hérnia"
+              onclick="texto('Hérnia', 'Hérnia');"
+            />
+            <label for="Hérnia">Hérnia</label>
+          </div>
+          <div class="checkbox-wrapper-47">
+            <input
+              type="checkbox"
+              name="complicacoes_estoma[]"
+              id="Hérnia_periestomal"
+              value="Hérnia periestomal"
+              onclick="texto('Hérnia_periestomal', 'Hérnia periestomal');"
+            />
+            <label for="Hérnia_periestomal">Hérnia periestomal</label>
+          </div>
+          <div class="checkbox-wrapper-47">
+            <input
+              type="checkbox"
+              name="complicacoes_estoma[]"
+              id="Hérnia_umbilical"
+              value="Hérnia umbilical"
+              onclick="texto('Hérnia_umbilical', 'Hérnia umbilical');"
+            />
+            <label for="Hérnia_umbilical">Hérnia umbilical</label>
+          </div>
+          <div class="checkbox-wrapper-47">
+            <input
+              type="checkbox"
+              name="complicacoes_estoma[]"
+              id="Granuloma"
+              value="Granuloma"
+              onclick="texto('Granuloma', 'Granuloma');"
+            />
+            <label for="Granuloma">Granuloma</label>
+          </div>
+          <div class="checkbox-wrapper-47">
+            <input
+              type="checkbox"
+              name="complicacoes_estoma[]"
+              id="Infecção"
+              value="Infecção"
+              onclick="texto('Infecção', 'Infecção');"
+            />
+            <label for="Infecção">Infecção</label>
+          </div>
+          <div class="checkbox-wrapper-47">
+            <input
+              type="checkbox"
+              name="complicacoes_estoma[]"
+              id="Deiscência"
+              value="Deiscência"
+              onclick="texto('Deiscência', 'Deiscência');"
+            />
+            <label for="Deiscência">Deiscência</label>
+          </div>
+          <div class="checkbox-wrapper-47">
+            <input
+              type="checkbox"
+              name="complicacoes_estoma[]"
+              id="Dermatite"
+              value="Dermatite"
+              onclick="texto('Dermatite', 'Dermatite');"
+            />
+            <label for="Dermatite">Dermatite</label>
+          </div>
+          <div class="checkbox-wrapper-47">
+            <input
+              type="checkbox"
+              name="complicacoes_estoma[]"
+              id="Tumor"
+              value="Tumor"
+              onclick="texto('Tumor', 'Tumor');"
+            />
+            <label for="Tumor">Tumor</label>
+          </div>
+          <div class="checkbox-wrapper-47">
+            <input
+              type="checkbox"
+              name="complicacoes_estoma[]"
+              id="Necrose"
+              value="Necrose"
+              onclick="texto('Necrose', 'Necrose');"
+            />
+            <label for="Necrose">Necrose</label>
+          </div>
+          <div class="checkbox-wrapper-47">
+            <input
+              type="checkbox"
+              name="complicacoes_estoma[]"
+              id="lesão_decorrente_tubete"
+              value="lesão decorrente tubete"
+              onclick="texto('lesão_decorrente_tubete', 'Lesão decorrente tubete');"
+            />
+            <label for="lesão_decorrente_tubete">Lesão decorrente tubete</label>
+          </div>
+          <div class="checkbox-wrapper-47">
+            <input
+              type="checkbox"
+              name="complicacoes_estoma[]"
+              id="Corte_inadequado"
+              value="Corte inadequado"
+              onclick="texto('Corte_inadequado', 'Corte inadequado');"
+            />
+            <label for="Corte_inadequado">Corte inadequado</label>
+          </div>
+          <div class="checkbox-wrapper-47">
+            <input
+              type="checkbox"
+              name="complicacoes_estoma[]"
+              id="Maceração"
+              value="Maceração"
+              onclick="texto('Maceração', 'Maceração');"
+            />
+            <label for="Maceração">Maceração</label>
+          </div>
+          <div class="checkbox-wrapper-47">
+            <input
+              type="checkbox"
+              name="complicacoes_estoma[]"
+              id="Descolamento"
+              value="Descolamento"
+              onclick="texto('Descolamento', 'Descolamento');"
+            />
+            <label for="Descolamento">Descolamento</label>
+          </div>
+          <div class="checkbox-wrapper-47">
+            <input
+              type="checkbox"
+              name="complicacoes_estoma[]"
+              id="Saída_de_fezes_pela_parte_inferior"
+              value="Saída de fezes pela parte inferior"
+              onclick="texto('Saída_de_fezes_pela_parte_inferior', 'Saída de fezes pela parte inferior');"
+            />
+            <label for="Saída_de_fezes_pela_parte_inferior"
+              >Saída de fezes pela parte inferior</label
+            >
+          </div>
+          <div class="checkbox-wrapper-47">
+            <input
+              type="checkbox"
+              name="complicacoes_estoma[]"
+              id="Isquemia"
+              value="Isquemia"
+              onclick="texto('Isquemia', 'Isquemia');"
+            />
+            <label for="Isquemia">Isquemia</label>
+          </div>
+          <div class="checkbox-wrapper-47">
+            <input
+              type="checkbox"
+              name="complicacoes_estoma[]"
+              id="Não_informado"
+              value="Não informado"
+              onclick="texto('Não_informado', 'Não informado');"
+            />
+            <label for="Não_informado">Não informado</label>
+          </div>
+          <div class="checkbox-wrapper-47">
+            <input
+              type="checkbox"
+              name="complicacoes_estoma[]"
+              id="Outro"
+              value="Outro"
+              onclick="texto('Outro', 'Outro');"
+            />
+            <label for="Outro">Outro</label>
+          </div>
+        </div>
+
+        <label for="efluente">Efluente:</label>
+        <div class="checkboxes">
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" name="cb" id="2" />
+            <label for="2" onclick="texto('2', 'Íntegra');">Íntegra</label>
+          </div>
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" name="cb" id="1" />
+            <label for="1" onclick="texto('1', 'Fezes Formadas');"
+              >Fezes Formadas</label
+            >
+          </div>
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" name="cb" id="3" />
+            <label for="3" onclick="texto('3', 'Fezes semilíquidas');"
+              >Fezes semilíquidas</label
+            >
+          </div>
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" name="cb" id="4" />
+            <label for="4" onclick="texto('4', 'Fezes líquidas');"
+              >Fezes líquidas</label
+            >
+          </div>
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" name="cb" id="5" />
+            <label for="5" onclick="texto('5', 'Urina');">Urina</label>
+          </div>
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" name="cb" id="6" />
+            <label for="6" onclick="texto('6', 'Muco');">Muco</label>
+          </div>
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" name="cb" id="7" />
+            <label for="7" onclick="texto('7', 'Não informado');"
+              >Não informado</label
+            >
+          </div>
+        </div>
+
+        <label for="pele_periestoma">Pele Periestoma:</label>
+        <div class="checkboxes">
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" name="cb" id="8" />
+            <label for="8" onclick="texto('8', 'Íntegra');">Íntegra</label>
+          </div>
+
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" name="cb" id="9" />
+            <label for="9" onclick="texto('9', 'Dermatite');">Dermatite</label>
+          </div>
+
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" name="cb" id="10" />
+            <label for="10" onclick="texto('10', 'Heperemiada');"
+              >Heperemiada</label
+            >
+          </div>
+
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" name="cb" id="11" />
+            <label for="11" onclick="texto('11', 'Granuloma');"
+              >Granuloma</label
+            >
+          </div>
+
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" name="cb" id="12" />
+            <label for="12" onclick="texto('12', 'Macerada');">Macerada</label>
+          </div>
+
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" name="cb" id="13" />
+            <label for="13" onclick="texto('13', 'Hérnia Paraestomal');"
+              >Hérnia Paraestomal</label
+            >
+          </div>
+
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" name="cb" id="14" />
+            <label for="14" onclick="texto('14', 'Lesão decorrente do tubete');"
+              >Lesão decorrente do tubete</label
+            >
+          </div>
+
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" name="cb" id="15" />
+            <label for="15" onclick="texto('15', 'Infecção fúngica');"
+              >Infecção fúngica</label
+            >
+          </div>
+
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" name="cb" id="16" />
+            <label for="16" onclick="texto('16', 'Friável');">Friável</label>
+          </div>
+
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" name="cb" id="17" />
+            <label for="17" onclick="texto('17', 'Pontos Escurecidos');"
+              >Pontos Escurecidos</label
+            >
+          </div>
+
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" name="cb" id="18" />
+            <label for="18" onclick="texto('18', 'Deiscência nos pontos');"
+              >Deiscência nos pontos</label
+            >
+          </div>
+        </div>
+
+        <label for="usa_cinto_sustentacao">Usa Cinto de Sustentação:</label>
+        <select id="usa_cinto_sustentacao" name="usa_cinto_sustentacao">
+          <option value="1">Sim</option>
+          <option value="0">Não</option>
+        </select>
+
+        <label for="diametro_equipamento">Diâmetro do Equipamento em mm:</label>
+        <input
+          type="number"
+          id="diametro_equipamento"
+          name="diametro_equipamento"
+          placeholder="4"
+        />
+
+        <label for="sistema">Sistema:</label>
+        <div class="em_uma_linha">
+          <select id="qtd_pecas" name="qtd_pecas" class="flex1">
+            <option value="Sim">Uma peça</option>
+            <option value="Não">Duas peças</option>
+          </select>
+          <select id="opacidade" name="opacidade" class="flex1 margin_left">
+            <option value="Sim">Opaco</option>
+            <option value="Não">Transparente</option>
+          </select>
+          <select id="drenavel" name="drenavel" class="flex1 margin_left">
+            <option value="Sim">Drenável</option>
+            <option value="Não">Não drenável</option>
+          </select>
+          <select
+            id="plano_infantil"
+            name="plano_infantil"
+            class="flex1 margin_left"
+          >
+            <option value="n">Plano Neonatal</option>
+            <option value="i">Plano Infantil</option>
+            <option value="a">Plano Adulto</option>
+          </select>
+        </div>
+
+        <label for="tipo_placa">Tipo de Placa:</label>
+        <select id="tipo_placa" name="tipo_placa">
+          <option value="0">Plana</option>
+          <option value="1">Recortável</option>
+          <option value="2">Convexa</option>
+        </select>
+
+        <label for="uso_adjuvante">Uso de Adjuvante:</label>
+        <div class="checkboxes">
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" id="nao_utiliza" name="nao_utiliza" />
+            <label
+              for="nao_utiliza"
+              onclick="texto('nao_utiliza', 'Não utiliza');"
+              >Não utiliza</label
+            >
+          </div>
+
+          <div class="checkbox-wrapper-47">
+            <input
+              type="checkbox"
+              id="pasta_hidrocoloide"
+              name="pasta_hidrocoloide"
+            />
+            <label
+              for="pasta_hidrocoloide"
+              onclick="texto('pasta_hidrocoloide', 'Pasta de hidrocolóide');"
+              >Pasta de hidrocolóide</label
+            >
+          </div>
+
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" id="po_estoma" name="po_estoma" />
+            <label
+              for="po_estoma"
+              onclick="texto('po_estoma', 'Pó para estoma');"
+              >Pó para estoma</label
+            >
+          </div>
+
+          <div class="checkbox-wrapper-47">
+            <input
+              type="checkbox"
+              id="creme_dermatite"
+              name="creme_dermatite"
+            />
+            <label
+              for="creme_dermatite"
+              onclick="texto('creme_dermatite', 'Creme para dermatite');"
+              >Creme para dermatite</label
+            >
+          </div>
+
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" id="spray_barreira" name="spray_barreira" />
+            <label
+              for="spray_barreira"
+              onclick="texto('spray_barreira', 'Spray barreira de pele');"
+              >Spray barreira de pele</label
+            >
+          </div>
+
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" id="anel_moldavel" name="anel_moldavel" />
+            <label
+              for="anel_moldavel"
+              onclick="texto('anel_moldavel', 'Anel moldável');"
+              >Anel moldável</label
+            >
+          </div>
+
+          <div class="checkbox-wrapper-47">
+            <input
+              type="checkbox"
+              id="removedor_adesivo"
+              name="removedor_adesivo"
+            />
+            <label
+              for="removedor_adesivo"
+              onclick="texto('removedor_adesivo', 'Removedor de adesivo');"
+              >Removedor de adesivo</label
+            >
+          </div>
+
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" id="creme_barreira" name="creme_barreira" />
+            <label
+              for="creme_barreira"
+              onclick="texto('creme_barreira', 'Creme barreira');"
+              >Creme barreira</label
+            >
+          </div>
+
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" id="fita_adesiva" name="fita_adesiva" />
+            <label
+              for="fita_adesiva"
+              onclick="texto('fita_adesiva', 'Fita adesiva circular');"
+              >Fita adesiva circular</label
+            >
+          </div>
+
+          <div class="checkbox-wrapper-47">
+            <input
+              type="checkbox"
+              id="elastico_improvisacao"
+              name="elastico_improvisacao"
+            />
+            <label
+              for="elastico_improvisacao"
+              onclick="texto('elastico_improvisacao', 'Elástico para improvisação');"
+              >Elástico para improvisação</label
+            >
+          </div>
+
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" id="cinto" name="cinto" />
+            <label for="cinto" onclick="texto('cinto', 'Cinto');">Cinto</label>
+          </div>
+
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" id="phmb" name="phmb" />
+            <label for="phmb" onclick="texto('phmb', 'PHMB');">PHMB</label>
+          </div>
+
+          <div class="checkbox-wrapper-47">
+            <input
+              type="checkbox"
+              id="desodorante_lubrificante"
+              name="desodorante_lubrificante"
+            />
+            <label
+              for="desodorante_lubrificante"
+              onclick="texto('desodorante_lubrificante', 'Desodorante/lubrificante');"
+              >Desodorante/lubrificante</label
+            >
+          </div>
+
+          <div class="checkbox-wrapper-47">
+            <input
+              type="checkbox"
+              id="placa_protetora"
+              name="placa_protetora"
+            />
+            <label
+              for="placa_protetora"
+              onclick="texto('placa_protetora', 'Placa protetora');"
+              >Placa protetora</label
+            >
+          </div>
+
+          <div class="checkbox-wrapper-47">
+            <input type="checkbox" id="limpador_pele" name="limpador_pele" />
+            <label
+              for="limpador_pele"
+              onclick="texto('limpador_pele', 'Limpador para a pele');"
+              >Limpador para a pele</label
+            >
+          </div>
+        </div>
+
+        <button type="submit">Enviar</button>
+      </section>
+    </form>
+    <a class="botao_subir" onclick="voltarAoTopo()"
+      ><span>↑</span>Voltar ao Topo</a
+    >
+  </body>
+  <script src="../scripts/paciente.js"></script>
+  <script src="../scripts/checkboxes.js"></script>
+  <script src="../scripts/darkmode.js"></script>
+</html>

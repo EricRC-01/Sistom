@@ -1,5 +1,7 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { usePocket } from "contexts/PocketContext";
+
+import { useEffect } from "react";
 
 import {
   Grid,
@@ -10,18 +12,37 @@ import {
   Button,
 } from "@mui/material";
 
-export const DisplayRecebedor = () => {
-  const { getAllData } = usePocket();
+import { useLocation } from "react-router-dom";
 
+export const DisplayRecebedor = () => {
+
+  const queryClient = useQueryClient();
+    
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const userId = searchParams.get("userId");
+
+  const { getFilterData } = usePocket();
+  
   const { isLoading, isError, error, data } = useQuery({
     queryKey: ["recebedores"],
-    queryFn: () => getAllData("recebedores"),
+    queryFn: () => getFilterData({
+      table: "recebedores",
+      id: userId,
+    }),
   });
+
+  useEffect(() => {
+    return () => {
+      // Reset the data in the query cache when the component unmounts
+      queryClient.removeQueries(["recebedores", userId]);
+    };
+  }, [queryClient, userId]);
 
   if (isLoading) return <div>Carregando...</div>;
   if (isError) return <div>{error}</div>;
 
-  console.log(data);
+  if(!data.length) return <div>Sem recebedores cadastrados!</div>
 
   return (
     <>

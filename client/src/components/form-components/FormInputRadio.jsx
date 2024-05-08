@@ -28,7 +28,7 @@ export const FormInputRadio = ({ name, control, label, options, rules }) => {
         rules={rules} // Set the error message here
         render={({ field: { onChange, value }, fieldState: { error } }) => (
           <>
-            <RadioGroup value={value} onChange={onChange} row>
+            <RadioGroup value={value} onChange={onChange} >
               {generateRadioOptions()}
             </RadioGroup>
             <FormHelperText error={!!error}>{error ? error.message : ''}</FormHelperText>

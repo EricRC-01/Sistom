@@ -14,6 +14,7 @@ import { RequireAuth } from "../utils/RequireAuth";
 
 import Header from "components/global/Header";
 import Footer from "components/global/Footer";
+import { Accessibility } from "components/global/Accessibility";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -23,6 +24,7 @@ const router = createBrowserRouter(
         <>
           <Header />
           <Outlet />
+          <Accessibility />
           <Footer />
         </>
       }

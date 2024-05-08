@@ -16,21 +16,21 @@ const Footer = () => {
           <Grid container direction="column" alignItems="center" py="1rem">
             <Grid item xs={12}>
               <Typography
-                            variant="h6"
-                            noWrap
-                            component="a"
-                            sx={{
-                            ml: 1,
-                            display: 'flex',
-                            fontFamily: 'monospace',
-                            fontWeight: 700,
-                            letterSpacing: '.3rem',
-                            color: 'inherit',
-                            textDecoration: 'none',
-                            }}
-                        >
-                            SISTOM
-                        </Typography>
+                variant="h6"
+                noWrap
+                component="a"
+                sx={{
+                  ml: 1,
+                  display: "flex",
+                  fontFamily: "monospace",
+                  fontWeight: 700,
+                  letterSpacing: ".3rem",
+                  color: "inherit",
+                  textDecoration: "none",
+                }}
+              >
+                SISTOM
+              </Typography>
             </Grid>
             <Grid item xs={12}>
               <Typography color="textSecondary" variant="subtitle2">

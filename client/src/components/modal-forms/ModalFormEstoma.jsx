@@ -127,7 +127,7 @@ export const ModalFormEstoma = () => {
         </IconButton>
       </Tooltip>
 
-      <Dialog open={open} onClose={handleClose} maxWidth="lg">
+      <Dialog open={open} onClose={handleClose} maxWidth="sm" fullWidth>
         <DialogTitle>
           Registrar Novo Paciente
           <IconButton onClick={handleClose} sx={{ float: "right" }}>

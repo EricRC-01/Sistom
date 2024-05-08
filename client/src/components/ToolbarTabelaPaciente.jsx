@@ -2,11 +2,18 @@ import {
   Toolbar,
   Tooltip,
   Typography,
+  Input,
+  Button,
   IconButton,
   InputBase,
 } from "@mui/material";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import SearchIcon from "@mui/icons-material/Search";
+
+
+import FilterListRoundedIcon from "@mui/icons-material/FilterListRounded";
+import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
+import LeaderboardRoundedIcon from "@mui/icons-material/LeaderboardRounded";
 
 import { styled, alpha } from "@mui/material/styles";
 
@@ -61,16 +68,42 @@ export const ToolbarTabelaPaciente = () => {
           pr: { xs: 1, sm: 1 },
         }}
       >
-        <Typography sx={{ flex: "1 1 100%" }} variant="h6">
-          Pacientes
-        </Typography>
+        <Input
+          sx={{
+            border: ".3rem solid #cccccc",
+            borderRadius: "1rem",
+            marginRight: "-1.5rem",
+            height: "2.2rem",
+            padding: "0.5rem",
+            width: "50%",
+          }}
+          placeholder="Digite o nome do paciente"
+          disableUnderline
+        />
+        <Button
+          startIcon={<SearchRoundedIcon />}
+          // onClick={handleOpen}
+          variant="contained"
+          sx={{
+            borderRadius: "1rem",
+            marginRight: "1rem",
+          }}
+        >
+          Pesquisar
+        </Button>
 
-        <Search>
-          <SearchIconWrapper>
-            <SearchIcon />
-          </SearchIconWrapper>
-          <StyledInputBase placeholder="Procurar CPF…" />
-        </Search>
+        <Button
+        startIcon={<FilterListRoundedIcon />}
+        // onClick={handleOpen}
+        variant="contained"
+        sx={{
+          borderRadius: "1rem",
+          marginRight: "1rem",
+        }}
+      >
+        Filtrar
+      </Button>
+
 
         <Tooltip title="Cadastrar">
           <IconButton>
@@ -78,11 +111,16 @@ export const ToolbarTabelaPaciente = () => {
           </IconButton>
         </Tooltip>
 
-        <Tooltip title="Filtrar">
-          <IconButton>
-            <FilterListIcon />
-          </IconButton>
-        </Tooltip>
+        <Button
+        startIcon={<LeaderboardRoundedIcon />}
+        // onClick={handleOpen}
+        variant="contained"
+        sx={{
+          borderRadius: "1rem",
+        }}
+      >
+        Estatística
+      </Button>
       </Toolbar>
     </>
   );

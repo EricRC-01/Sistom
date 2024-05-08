@@ -15,13 +15,14 @@ import { FormInputRadio } from "../form-components/FormInputRadio";
 import { FormInputMultiCheckbox } from "components/form-components/FormInputMultiCheckbox";
 import dayjs, { Dayjs } from "dayjs";
 
-
 import { useMutation } from "@tanstack/react-query";
 import { usePocket } from "contexts/PocketContext";
 
 import { useState } from "react";
 import AddBoxIcon from "@mui/icons-material/AddBox";
 import CloseIcon from "@mui/icons-material/Close";
+
+import AddCircleRoundedIcon from "@mui/icons-material/AddCircleRounded";
 
 import { useQueryClient } from "@tanstack/react-query";
 
@@ -94,7 +95,17 @@ export const ModalFormPaciente = () => {
 
   return (
     <>
-      <AddBoxIcon onClick={handleOpen} />
+      <Button
+        startIcon={<AddCircleRoundedIcon />}
+        onClick={handleOpen}
+        variant="contained"
+        sx={{
+          borderRadius: "1rem",
+          marginRight: "1rem",
+        }}
+      >
+        Adicionar
+      </Button>
 
       <Dialog open={open} onClose={handleClose} fullWidth>
         <DialogTitle>

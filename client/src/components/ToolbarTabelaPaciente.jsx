@@ -1,21 +1,12 @@
 import {
   Toolbar,
-  Tooltip,
   Typography,
   Input,
-  Button,
   IconButton,
-  InputBase,
 } from "@mui/material";
-import FilterListIcon from "@mui/icons-material/FilterList";
-import SearchIcon from "@mui/icons-material/Search";
 
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import LeaderboardRoundedIcon from "@mui/icons-material/LeaderboardRounded";
-
-import { styled, alpha } from "@mui/material/styles";
-
-import { Hidden } from "@mui/material";
 
 import { ModalFormPaciente } from "./modal-forms/ModalFormPaciente";
 import { ModalFilter } from "./ModalFilter";
@@ -44,7 +35,7 @@ export const ToolbarTabelaPaciente = () => {
         />
 
         <IconButton
-          /* onClick={handleOpen} */
+          onClick={() => alert("Buscando...")}
           variant="contained"
           sx={{
             borderRadius: 5,
@@ -67,9 +58,8 @@ export const ToolbarTabelaPaciente = () => {
         <ModalFormPaciente />
 
         <IconButton
-          /* onClick={handleOpen} */
           variant="contained"
-          onClick={() => alert("Estatisticado")}
+          onClick={() => alert("Estatisticando...")}
           sx={{
             borderRadius: 5,
             marginRight: 1,

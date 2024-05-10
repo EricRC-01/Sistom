@@ -5,8 +5,8 @@ export const FormInputDropdown = ({ name, control, label, options }) => {
   const generateSingleOptions = () => {
     return options.map((option) => {
       return (
-        <MenuItem key={option.value} value={option.value}>
-          {option.label}
+        <MenuItem key={option} value={option}>
+          {option}
         </MenuItem>
       );
     });

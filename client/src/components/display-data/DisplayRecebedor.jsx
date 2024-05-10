@@ -34,7 +34,6 @@ export const DisplayRecebedor = () => {
 
   useEffect(() => {
     return () => {
-      // Reset the data in the query cache when the component unmounts
       queryClient.removeQueries(["recebedores", userId]);
     };
   }, [queryClient, userId]);
@@ -62,7 +61,7 @@ export const DisplayRecebedor = () => {
                 </Typography>
               </CardContent>
               <CardActions sx={{ justifyContent: "flex-end" }}>
-                <Button size="small" variant="contained" color="info">
+                <Button size="small" variant="contained" color="primary">
                   Editar
                 </Button>
                 <Button size="small">Remover</Button>

@@ -6,7 +6,7 @@ import {
   DialogActions,
   IconButton,
   Tooltip,
-  Typography
+  Typography,
 } from "@mui/material";
 import { useForm } from "react-hook-form";
 import FilterListRoundedIcon from "@mui/icons-material/FilterListRounded";
@@ -17,7 +17,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { FormInputRadio } from "components/form-components/FormInputRadio";
 
 const defaultValues = {
-    sexo: "",
+  sexo: "",
 };
 
 export const ModalFilter = () => {
@@ -75,16 +75,7 @@ export const ModalFilter = () => {
             name="sexo"
             control={control}
             label="Sexo"
-            options={[
-              {
-                label: "Masculino",
-                value: "masculino",
-              },
-              {
-                label: "Feminino",
-                value: "feminino",
-              },
-            ]}
+            options={["Masculino", "Feminino"]}
           />
         </DialogContent>
         <DialogActions>

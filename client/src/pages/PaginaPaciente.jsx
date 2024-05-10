@@ -20,7 +20,7 @@ export const PaginaPaciente = () => {
 
   return (
     <>
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" sx={{ pb:10 }}>
         <Box sx={{ width: "100%", typography: "body1" }}>
           <TabContext value={tabValue}>
             <Box sx={{ borderBottom: 1, borderColor: "divider" }}>

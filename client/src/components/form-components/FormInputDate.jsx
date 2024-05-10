@@ -4,8 +4,6 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { Controller } from "react-hook-form";
 import "dayjs/locale/pt-br";
 
-import { FormHelperText } from "@mui/material";
-
 export const FormInputDate = ({ name, control, label, required }) => {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="pt-br">

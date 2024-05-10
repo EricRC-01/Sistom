@@ -34,7 +34,6 @@ export const DisplayEstoma = () => {
 
   useEffect(() => {
     return () => {
-      // Reset the data in the query cache when the component unmounts
       queryClient.removeQueries(["estomas", userId]);
     };
   }, [queryClient, userId]);
@@ -44,21 +43,20 @@ export const DisplayEstoma = () => {
 
   if (!data.length) return <div>Sem estomas cadastrados!</div>;
 
+  console.log(data)
+
   return (
     <>
-      <Grid container spacing={2} mb={10} mt={1} pb={3} position={'relative'} >
+      <Grid container spacing={2} mt={1} position={"relative"}>
         {data.map((item, index) => (
           <Grid item xs={12} sm={12} md={12} key={item.id}>
             <Card>
               <CardContent>
-                <Typography variant="h5" component="div">
-                  {item.diagnostico}
+                <Typography variant="h4" component="div" mb={2}>
+                  {item.tipoEstoma}
                 </Typography>
                 <Typography variant="body1" color="text.secondary" mb={1}>
                   Realizado demarcação no pré-operatório: {item.demarcacao}
-                </Typography>
-                <Typography variant="body1" color="text.secondary" mb={1}>
-                  Tipo de estoma: {item.tipo}
                 </Typography>
                 <Typography variant="body1" color="text.secondary" mb={1}>
                   Modo de exteriorização: {item.exteriorizacao}
@@ -125,7 +123,7 @@ export const DisplayEstoma = () => {
                 </Typography>
               </CardContent>
               <CardActions sx={{ justifyContent: "flex-end" }}>
-                <Button size="small" variant="contained" color="info">
+                <Button size="small" variant="contained" color="primary">
                   Editar
                 </Button>
                 <Button size="small">Remover</Button>

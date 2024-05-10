@@ -6,7 +6,6 @@ import {
   DialogActions,
   IconButton,
   Typography,
-  DialogContentText,
 } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { FormInputText } from "../form-components/FormInputText";
@@ -15,13 +14,11 @@ import { FormInputDropdown } from "../form-components/FormInputDropdown";
 import { FormInputDate } from "../form-components/FormInputDate";
 import { FormInputRadio } from "../form-components/FormInputRadio";
 import { FormInputMultiCheckbox } from "components/form-components/FormInputMultiCheckbox";
-import dayjs, { Dayjs } from "dayjs";
 
 import { useMutation } from "@tanstack/react-query";
 import { usePocket } from "contexts/PocketContext";
 
 import { useState } from "react";
-import AddBoxIcon from "@mui/icons-material/AddBox";
 import CloseIcon from "@mui/icons-material/Close";
 
 import AddCircleRoundedIcon from "@mui/icons-material/AddCircleRounded";
@@ -135,9 +132,7 @@ export const ModalFormPaciente = () => {
             control={control}
             label="Nome"
             required={true}
-            pattern={
-              /^[A-ZÁÉÍÓÚÂÊÎÔÛÃÕÇ][a-záéíóúâêîôûãõç]+(\s[A-ZÁÉÍÓÚÂÊÎÔÛÃÕÇ][a-záéíóúâêîôûãõç]+)+$/
-            }
+            pattern={/^[a-zA-ZÀ-ú\s]+( [a-zA-ZÀ-ú\s]+)+$/i}
           />
           <FormInputText
             name="cns"
@@ -163,16 +158,7 @@ export const ModalFormPaciente = () => {
             control={control}
             label={"Sexo"}
             required={true}
-            options={[
-              {
-                label: "Masculino",
-                value: "Masculino",
-              },
-              {
-                label: "Feminino",
-                value: "Feminino",
-              },
-            ]}
+            options={["Masculino", "Feminino"]}
           />
           <FormInputDate
             name="dataNasc"
@@ -185,95 +171,44 @@ export const ModalFormPaciente = () => {
             control={control}
             label={"Forma de Recadastro"}
             required={true}
-            options={[
-              {
-                label: "Presencial",
-                value: "Presencial",
-              },
-              {
-                label: "Remoto",
-                value: "Remoto",
-              },
-            ]}
+            options={["Presencial", "Remoto"]}
           />
           <FormInputText
             name="tel"
             control={control}
             label="Telefone"
             required={true}
+            pattern={/^\d{10,11}$/}
           />
           <FormInputDropdown
             name="convenio"
             control={control}
             label="Convênio"
-            options={[
-              {
-                label: "Placeholder 1",
-                value: "1",
-              },
-              {
-                label: "Placeholder 2",
-                value: "2",
-              },
-            ]}
+            options={["Placeholder 1", "Placeholder 2"]}
           />
           <FormInputDropdown
             name="escolaridade"
             control={control}
             label="Escolaridade"
             options={[
-              {
-                label: "Ausente",
-                value: "Ausente",
-              },
-              {
-                label: "Ensino Fundamental",
-                value: "Ensino Fundamental",
-              },
-              {
-                label: "Ensino Médio",
-                value: "Ensino Médio",
-              },
-              {
-                label: "Ensino Superior",
-                value: "Ensino Superior",
-              },
+              "Ausente",
+              "Ensino Fundamental",
+              "Ensino Médio",
+              "Ensino Superior",
             ]}
           />
           <FormInputDropdown
             name="profissao"
             control={control}
             label="Profissão"
-            options={[
-              {
-                label: "Placeholder 1",
-                value: "1",
-              },
-              {
-                label: "Placeholder 2",
-                value: "2",
-              },
-            ]}
+            options={["Placeholder 1", "Placeholder 2"]}
           />
           <FormInputRadio
             name="mobilidade"
             control={control}
             label="Mobilidade"
             required={true}
-            options={[
-              {
-                label: "Deambula",
-                value: "Deambula",
-              },
-              {
-                label: "Deambula com auxílio",
-                value: "Deambula com auxílio",
-              },
-              {
-                label: "Não deambula",
-                value: "Não deambula",
-              },
-            ]}
+            options={["Deambula", "Deambula com auxílio", "Não deambula"]}
           />
           <FormInputMultiCheckbox
             name="efluente"

@@ -13,11 +13,14 @@ export const themeSettings = (mode, size) => {
       primary: {
         main: "#005C4B",
       },
+      secondary: {
+        main: "#FF0E55",
+      },
       tertiary: {
         main: "#004f41",
       },
-      text: {
-        primary: "#000000",
+      background: {
+        default: mode === "light" ? "#f5f5f5" : "#121212",
       },
     },
 

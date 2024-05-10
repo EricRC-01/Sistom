@@ -5,23 +5,19 @@ import {
   DialogContent,
   DialogActions,
   IconButton,
-  Tooltip,
   Typography,
 } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { FormInputText } from "../form-components/FormInputText";
 import { FormInputDropdown } from "../form-components/FormInputDropdown";
 import { FormInputDate } from "../form-components/FormInputDate";
-import dayjs, { Dayjs } from "dayjs";
 
 import { useMutation } from "@tanstack/react-query";
 import { usePocket } from "contexts/PocketContext";
 
 import { useState } from "react";
-import AddBoxIcon from "@mui/icons-material/AddBox";
-import CloseIcon from "@mui/icons-material/Close";
 import AddCircleRoundedIcon from "@mui/icons-material/AddCircleRounded";
-
+import CloseIcon from "@mui/icons-material/Close";
 
 import { useQueryClient } from "@tanstack/react-query";
 
@@ -41,18 +37,15 @@ export const ModalFormCirurgia = () => {
     reset();
   };
 
-  // Usando useLocation para obter a localização (URL)
   const location = useLocation();
-  // Obtendo os parâmetros da URL
   const searchParams = new URLSearchParams(location.search);
-  // Obtendo o valor do parâmetro 'userId'
   const userId = searchParams.get("userId");
 
   const queryClient = useQueryClient();
 
-  const { registerField, pb } = usePocket();
+  const { registerField } = usePocket();
 
-  const { mutate, isLoading, isError } = useMutation({
+  const { mutate } = useMutation({
     mutationFn: registerField,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["cirurgias"] });
@@ -63,7 +56,7 @@ export const ModalFormCirurgia = () => {
     },
   });
 
-  const { handleSubmit, reset, control, setValue } = useForm({
+  const { handleSubmit, reset, control } = useForm({
     defaultValues: defaultValues,
   });
 
@@ -73,7 +66,7 @@ export const ModalFormCirurgia = () => {
         hospital: data.hospital,
         data: data.data,
         tipo: data.tipo,
-        "paciente": userId,
+        paciente: userId,
       },
       tabela: "cirurgias",
     });
@@ -120,14 +113,13 @@ export const ModalFormCirurgia = () => {
             control={control}
             label="Tipo de cirurgia"
             options={[
-              {
-                label: "Placeholder 1",
-                value: "1",
-              },
-              {
-                label: "Placeholder 2",
-                value: "2",
-              },
+              "Colostomia",
+              "Urostomia",
+              "Enterectomia",
+              "Laparotomia",
+              "Bricker",
+              "Ileostomia",
+              "Colectomia",
             ]}
           />
           <FormInputDate

@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {
   Checkbox,
-  FormControl,
   FormControlLabel,
-  FormLabel,
 } from "@mui/material";
 import { Controller } from "react-hook-form";
 

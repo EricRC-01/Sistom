@@ -4,12 +4,9 @@ import {
   TextField,
   FormControlLabel,
   Checkbox,
-  Link,
-  Grid,
   Box,
   Typography,
   Container,
-  CssBaseline,
 } from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 
@@ -48,7 +45,6 @@ const Auth = () => {
 
   return (
     <Container component="main" maxWidth="xs">
-      <CssBaseline />
       <Box
         sx={{
           marginTop: 8,

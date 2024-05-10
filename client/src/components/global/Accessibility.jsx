@@ -3,16 +3,13 @@ import { Box, IconButton } from "@mui/material";
 import ContrastSharpIcon from "@mui/icons-material/ContrastSharp";
 import TextDecreaseSharpIcon from "@mui/icons-material/TextDecreaseSharp";
 import TextIncreaseSharpIcon from "@mui/icons-material/TextIncreaseSharp";
-import SignLanguageRoundedIcon from "@mui/icons-material/SignLanguageRounded";
 import { useContext } from "react";
 import { ThemeContext } from "../../theme/Theme";
 
 export const Accessibility = () => {
-
   const { colorMode, fontSize } = useContext(ThemeContext);
 
   return (
-    
     <Box
       sx={{
         position: "fixed",
@@ -29,7 +26,7 @@ export const Accessibility = () => {
           "&:hover": { backgroundColor: "tertiary.main" },
           padding: ".5rem",
           mt: 1,
-          color: "white"
+          color: "white",
         }}
         onClick={colorMode.toggleColorMode}
       >
@@ -42,7 +39,7 @@ export const Accessibility = () => {
           "&:hover": { backgroundColor: "tertiary.main" },
           padding: ".5rem",
           mt: 1,
-          color: "white"
+          color: "white",
         }}
         onClick={fontSize.decreaseFontSize}
       >
@@ -55,24 +52,12 @@ export const Accessibility = () => {
           "&:hover": { backgroundColor: "tertiary.main" },
           padding: ".5rem",
           mt: 1,
-          color: "white"
+          color: "white",
         }}
         onClick={fontSize.increaseFontSize}
       >
         <TextIncreaseSharpIcon fontSize="medium" />
       </IconButton>
-      {/* <IconButton
-        variant="contained"
-        sx={{
-          backgroundColor: "primary.main",
-          "&:hover": { backgroundColor: "tertiary.main" },
-          padding: ".5rem",
-          marginBottom: ".2rem",
-          color: "white"
-        }}
-      >
-        <SignLanguageRoundedIcon fontSize="medium" />
-      </IconButton> */}
     </Box>
   );
 };

@@ -3,16 +3,7 @@ import { usePocket } from "contexts/PocketContext";
 
 import { useEffect } from "react";
 
-import {
-  Grid,
-  Card,
-  CardContent,
-  CardActions,
-  Typography,
-  Button,
-  Paper,
-  Box,
-} from "@mui/material";
+import { Grid, Typography, Button, Paper, Box } from "@mui/material";
 
 import { useLocation } from "react-router-dom";
 
@@ -36,7 +27,6 @@ export const DisplayPaciente = () => {
 
   useEffect(() => {
     return () => {
-      // Reset the data in the query cache when the component unmounts
       queryClient.removeQueries(["pacientes", userId]);
     };
   }, [queryClient, userId]);
@@ -46,9 +36,16 @@ export const DisplayPaciente = () => {
 
   return (
     <>
-      <Grid container spacing={2} component={Paper} mb={10} pb={3} position={'relative'} >
+      <Grid
+        container
+        spacing={2}
+        component={Paper}
+        mb={10}
+        pb={3}
+        position={"relative"}
+      >
         {data.map((item, index) => (
-          <Grid item xs={12} sm={6} md={4} key={item.id} >
+          <Grid item xs={12} sm={6} md={4} key={item.id}>
             <Typography variant="h4" component="div" mb={2}>
               {item.nome}
             </Typography>
@@ -77,7 +74,8 @@ export const DisplayPaciente = () => {
               Utiliza ESF: {item.esf ? "Sim" : "Não"}
             </Typography>
             <Typography variant="body1" color="text.secondary" mb={1}>
-              Escolaridade: {item.escolaridade ? item.escolaridade : "Não informado"}
+              Escolaridade:{" "}
+              {item.escolaridade ? item.escolaridade : "Não informado"}
             </Typography>
             <Typography variant="body1" color="text.secondary" mb={1}>
               Profissão: {item.profissao ? item.profissao : "Não informado"}
@@ -91,16 +89,16 @@ export const DisplayPaciente = () => {
             <Typography variant="body1" color="text.secondary" mb={1}>
               Efluente: {item.efluente ? item.efluente.join(", ") : "Ausente"}
             </Typography>
-
-            
           </Grid>
         ))}
-        <Box sx={{ position:"absolute", right:10, bottom:10 }}>
-            <Button size="small" variant="contained" color="info">
-              Editar
-            </Button>
-            <Button size="small" variant="contained" color="error">Remover</Button>
-            </Box>
+        <Box sx={{ position: "absolute", right: 10, bottom: 10 }}>
+          <Button size="small" variant="contained" color="primary">
+            Editar
+          </Button>
+          <Button size="small" variant="contained" color="error">
+            Remover
+          </Button>
+        </Box>
       </Grid>
     </>
   );

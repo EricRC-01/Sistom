@@ -9,7 +9,9 @@ import {
   Container,
   TableHead,
   TableRow,
-  Button, Typography,
+  Button,
+  Typography,
+  Paper
 } from "@mui/material";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 
@@ -32,17 +34,45 @@ export const TabelaPaciente = () => {
 
   return (
     <>
-      <Container sx={{ display: {xs: "none", sm: "none", md:"block"} }}>
-        <Table >
+      <Container component={Paper} sx={{ display: { xs: "none", sm: "none", md: "block"}, overflow:'auto' }}>
+        <Table>
           <TableHead>
             <TableRow>
-              <TableCell><Typography variant="body1" color="initial">Nome</Typography></TableCell>
-              <TableCell><Typography variant="body1" color="initial">Telefone</Typography></TableCell>
-              <TableCell><Typography variant="body1" color="initial">CNS</Typography></TableCell>
-              <TableCell><Typography variant="body1" color="initial">Sexo</Typography></TableCell>
-              <TableCell><Typography variant="body1" color="initial">Data de Nascimento</Typography></TableCell>
-              <TableCell><Typography variant="body1" color="initial">Data de Inscrição</Typography></TableCell>
-              <TableCell><Typography variant="body1" color="initial">Ações</Typography></TableCell>
+              <TableCell>
+                <Typography variant="body1">
+                  Nome
+                </Typography>
+              </TableCell>
+              <TableCell>
+                <Typography variant="body1">
+                  Telefone
+                </Typography>
+              </TableCell>
+              <TableCell>
+                <Typography variant="body1">
+                  CNS
+                </Typography>
+              </TableCell>
+              <TableCell>
+                <Typography variant="body1">
+                  Sexo
+                </Typography>
+              </TableCell>
+              <TableCell>
+                <Typography variant="body1">
+                  Data de Nascimento
+                </Typography>
+              </TableCell>
+              <TableCell>
+                <Typography variant="body1">
+                  Data de Inscrição
+                </Typography>
+              </TableCell>
+              <TableCell>
+                <Typography variant="body1">
+                  Ações
+                </Typography>
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -52,8 +82,8 @@ export const TabelaPaciente = () => {
                 <TableCell>{d.tel}</TableCell>
                 <TableCell>{d.cns}</TableCell>
                 <TableCell>{d.sexo.toString()}</TableCell>
-                <TableCell>{d.dataNasc.split(' ')[0]}</TableCell>
-                <TableCell>{d.dataInsc.split(' ')[0]}</TableCell>
+                <TableCell>{d.dataNasc.split(" ")[0]}</TableCell>
+                <TableCell>{d.dataInsc.split(" ")[0]}</TableCell>
                 <TableCell>
                   <Button
                     component={Link}
@@ -65,26 +95,40 @@ export const TabelaPaciente = () => {
             ))}
           </TableBody>
         </Table>
-        </Container>
-      <Container sx={{ display: {xs: "block", sm: "block", md:"none"}, py: 3 }}>
+      </Container>
+      <Container
+        sx={{ display: { xs: "block", sm: "block", md: "none" }, py: 3 }}
+      >
         {data.map((d) => (
-        <Card sx={{ mb: 3 }} key={d.id}>
-          <CardContent>
-            <Typography variant="h6" color="initial">Nome: {d.nome}</Typography>
-            <Typography variant="body1" color="initial">Telefone: {d.tel}</Typography>
-            <Typography variant="body1" color="initial">CNS: {d.cns}</Typography>
-            <Typography variant="body1" color="initial">Sexo: {d.sexo.toString()}</Typography>
-            <Typography variant="body1" color="initial">Data de Nascimento: {d.dataNasc.split(' ')[0]}</Typography>
-            <Typography variant="body1" color="initial">Data de Inscrição: {d.dataInsc.split(' ')[0]}</Typography>
-          </CardContent>
-          <CardActions>
-            <Button
-              component={Link}
-              to={`/Paciente?userId=${d.id}`}
-              startIcon={<MoreHorizIcon />}
-            />
-          </CardActions>
-        </Card>
+          <Card sx={{ mb: 3 }} key={d.id}>
+            <CardContent>
+              <Typography variant="h6">
+                Nome: {d.nome}
+              </Typography>
+              <Typography variant="body1">
+                Telefone: {d.tel}
+              </Typography>
+              <Typography variant="body1">
+                CNS: {d.cns}
+              </Typography>
+              <Typography variant="body1">
+                Sexo: {d.sexo.toString()}
+              </Typography>
+              <Typography variant="body1">
+                Data de Nascimento: {d.dataNasc.split(" ")[0]}
+              </Typography>
+              <Typography variant="body1">
+                Data de Inscrição: {d.dataInsc.split(" ")[0]}
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button
+                component={Link}
+                to={`/Paciente?userId=${d.id}`}
+                startIcon={<MoreHorizIcon />}
+              />
+            </CardActions>
+          </Card>
         ))}
       </Container>
     </>

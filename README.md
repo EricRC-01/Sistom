@@ -29,6 +29,7 @@ Inside the field `client`
 7. Execute `./pocketbase serve`
 
 (The usage of pocketbase is temporary in this project)
+(You can access the App with login: user@gmail.com and password: 12345)
 
 ## Usage
 

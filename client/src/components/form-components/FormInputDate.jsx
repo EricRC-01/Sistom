@@ -2,16 +2,32 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { Controller } from "react-hook-form";
-import 'dayjs/locale/pt-br'; 
+import "dayjs/locale/pt-br";
 
-export const FormInputDate = ({ name, control, label }) => {
+import { FormHelperText } from "@mui/material";
+
+export const FormInputDate = ({ name, control, label, required }) => {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="pt-br">
       <Controller
         name={name}
         control={control}
-        render={({ field: { onChange, value } }) => (
-          <DatePicker value={value} onChange={onChange} label={label} />
+        rules={{ required: { value: required, message: "Campo Obrigatório" } }}
+        render={({ field: { onChange, value }, fieldState: { error } }) => (
+          <>
+            <DatePicker
+              value={value}
+              onChange={onChange}
+              label={label.concat(required ? " *" : "")}
+              disableFuture
+              slotProps={{
+                textField: {
+                  helperText: !!error ? error.message : "",
+                  error: !!error,
+                },
+              }}
+            />
+          </>
         )}
       />
     </LocalizationProvider>

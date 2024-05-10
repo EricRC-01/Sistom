@@ -15,9 +15,14 @@ import { Link } from "react-router-dom";
 import { Icon } from "@mui/material";
 import Logo from "../../../global/logo.png";
 import { usePocket } from "contexts/PocketContext";
+import { useQuery } from "@tanstack/react-query";
+
+import { useEffect } from "react";
+import { useQueryClient } from "@tanstack/react-query";
+
 
 const Header = () => {
-  const { logout, user } = usePocket();
+  const { logout, user, pb, getById } = usePocket();
 
   const [anchorElUser, setAnchorElUser] = useState(null);
 
@@ -29,80 +34,109 @@ const Header = () => {
     setAnchorElUser(null);
   };
 
+  //i want to make the below function only execute when the user is logged in
+  //i want to get the user's avatar from the database
+
+  const queryClient = useQueryClient();
+
+  const { isLoading, isError, error, data } = useQuery({
+    queryKey: ["users"],
+    queryFn: () =>
+      getById({
+        table: "users",
+        id: pb.authStore.model.id,
+      }),
+  });
+
+  useEffect(() => {
+    return () => {
+      // Reset the data in the query cache when the component unmounts
+      queryClient.removeQueries(["users", pb?.authStore?.model?.id]);
+    };
+  }, [queryClient, pb?.authStore?.model?.id]);
+
+
   return (
-    <AppBar position="static" sx={{ backgroundColor: "primary.main", 
-    paddingTop: "0.8rem",
-    paddingBottom: "0.5rem", }}>
+    <AppBar
+      position="static"
+      sx={{
+        backgroundColor: "primary.main",
+        paddingTop: "0.8rem",
+        paddingBottom: "0.5rem",
+      }}
+    >
       <Container>
-        <Toolbar disableGutters>
+        <Toolbar
+          disableGutters
+          sx={{
+            justifyContent: pb.authStore.isValid ? "flex-start" : "center",
+          }}
+        >
           <Link to="/">
             <Box component="img" alt="Logo" src={Logo} height="4rem" />
           </Link>
 
           <Typography
-            variant="h6"
+            variant="h4"
             noWrap
             component="a"
             sx={{
               ml: 1,
-              display: "flex",
               fontFamily: "Varela Round",
               fontWeight: 700,
-              color: "inherit",
-              fontSize: 30,
-              textDecoration: "none",
             }}
           >
             Sistom
           </Typography>
-          <Box
-            sx={{
-              flexGrow: 1,
-              display: "flex",
-              justifyContent: "flex-end",
-              mr: 1,
-            }}
-          >
-            <Button
-              component={Link}
-              to={"/Relatorio"}
-              sx={{ my: 2, color: "white", display: "block" }}
-            >
-              Relatório
-            </Button>
-          </Box>
-
-          <Box>
-            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-              <Avatar alt="Amogus da Silva" src="/src/assets/paciente7.jpeg" />
-            </IconButton>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              <MenuItem
-                onClick={() => {
-                  logout();
-                  handleCloseUserMenu();
+          {pb.authStore.isValid ? (
+            <>
+              <Box
+                sx={{
+                  flexGrow: 1,
+                  display: "flex",
+                  justifyContent: "flex-end",
+                  mr: 1,
                 }}
-                key={"Logout"}
               >
-                Logout
-              </MenuItem>
-            </Menu>
-          </Box>
+                <Typography align="center" variant="h6" color="initial" sx={{ mr: 1, color: "white" }}>{data?.name}</Typography>
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                  <Avatar
+                    sx={{ backgroundColor: "black" }}
+
+                    src={isLoading || isError ? '#' : `http://127.0.0.1:8090/api/files/_pb_users_auth_/${pb.authStore.model.id}/${data?.avatar}`}
+                  />
+                </IconButton>
+                <Menu
+                  sx={{ mt: "45px" }}
+                  id="menu-appbar"
+                  anchorEl={anchorElUser}
+                  anchorOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  open={Boolean(anchorElUser)}
+                  onClose={handleCloseUserMenu}
+                >
+                  <MenuItem
+                    onClick={() => {
+                      logout();
+                      handleCloseUserMenu();
+                    }}
+                    key={"Logout"}
+                  >
+                    Logout
+                  </MenuItem>
+                </Menu>
+              </Box>
+            </>
+          ) : (
+            <></>
+          )}
         </Toolbar>
       </Container>
     </AppBar>

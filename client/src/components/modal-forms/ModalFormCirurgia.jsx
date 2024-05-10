@@ -6,6 +6,7 @@ import {
   DialogActions,
   IconButton,
   Tooltip,
+  Typography,
 } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { FormInputText } from "../form-components/FormInputText";
@@ -19,6 +20,8 @@ import { usePocket } from "contexts/PocketContext";
 import { useState } from "react";
 import AddBoxIcon from "@mui/icons-material/AddBox";
 import CloseIcon from "@mui/icons-material/Close";
+import AddCircleRoundedIcon from "@mui/icons-material/AddCircleRounded";
+
 
 import { useQueryClient } from "@tanstack/react-query";
 
@@ -78,11 +81,24 @@ export const ModalFormCirurgia = () => {
 
   return (
     <>
-      <Tooltip title="Cadastrar">
-        <IconButton onClick={handleOpen}>
-          <AddBoxIcon />
-        </IconButton>
-      </Tooltip>
+      <IconButton
+        onClick={handleOpen}
+        variant="contained"
+        sx={{
+          borderRadius: 5,
+          marginRight: 1,
+          backgroundColor: "primary.main",
+          color: "white",
+          "&:hover": {
+            backgroundColor: "primary.dark",
+          },
+        }}
+      >
+        <AddCircleRoundedIcon />
+        <Typography sx={{ display: { xs: "none", sm: "none", md: "block" } }}>
+          Adicionar
+        </Typography>
+      </IconButton>
 
       <Dialog open={open} onClose={handleClose} fullWidth>
         <DialogTitle>

@@ -51,6 +51,10 @@ export const PocketProvider = ({ children }) => {
     });
   });
 
+  const getById = useCallback(async ({table, id}) => {
+    return await pb.collection(table).getOne(id, {});
+  });
+
   const registerField = useCallback(async ({data, tabela}) => {
     return await pb
       .collection(tabela)
@@ -59,7 +63,7 @@ export const PocketProvider = ({ children }) => {
 
   return (
     <PocketContext.Provider
-      value={{ register, login, logout, user, pb, getAllData, registerField, getFilterData, getSinglePaciente }}
+      value={{ register, login, logout, user, pb, getAllData, registerField, getFilterData, getSinglePaciente, getById }}
     >
       {children}
     </PocketContext.Provider>

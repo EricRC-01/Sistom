@@ -47,7 +47,7 @@ export const DisplayCirurgia = () => {
 
   return (
     <>
-      <Grid container spacing={2}>
+      <Grid container spacing={2} mt={1}>
         {data.map((item, index) => (
           <Grid item xs={12} sm={6} md={4} key={item.id}>
             <Card sx={{ minWidth: 275 }}>

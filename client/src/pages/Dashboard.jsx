@@ -11,7 +11,7 @@ const Dashboard = () => {
       <Container
         maxWidth="lg"
         component={Paper}
-        sx={{ mb: 10, mt: 5 }}
+        sx={{ mb: 10, mt: 5, pt: 3 }}
       >
         <ToolbarTabelaPaciente />
         <hr />

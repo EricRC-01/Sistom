@@ -5,6 +5,8 @@ import {
   DialogContent,
   DialogActions,
   IconButton,
+  Typography,
+  DialogContentText,
 } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { FormInputText } from "../form-components/FormInputText";
@@ -71,7 +73,6 @@ export const ModalFormPaciente = () => {
   });
 
   const onSubmit = async (data) => {
-    console.log(data);
     mutate({
       data: {
         nome: data.nome,
@@ -95,17 +96,24 @@ export const ModalFormPaciente = () => {
 
   return (
     <>
-      <Button
-        startIcon={<AddCircleRoundedIcon />}
+      <IconButton
         onClick={handleOpen}
         variant="contained"
         sx={{
-          borderRadius: "1rem",
-          marginRight: "1rem",
+          borderRadius: 5,
+          marginRight: 1,
+          backgroundColor: "primary.main",
+          color: "white",
+          "&:hover": {
+            backgroundColor: "primary.dark",
+          },
         }}
       >
-        Adicionar
-      </Button>
+        <AddCircleRoundedIcon />
+        <Typography sx={{ display: { xs: "none", sm: "none", md: "block" } }}>
+          Adicionar
+        </Typography>
+      </IconButton>
 
       <Dialog open={open} onClose={handleClose} fullWidth>
         <DialogTitle>
@@ -122,8 +130,22 @@ export const ModalFormPaciente = () => {
             margin: "10px 10px",
           }}
         >
-          <FormInputText name="nome" control={control} label="Nome" />
-          <FormInputText name="cns" control={control} label="CNS" />
+          <FormInputText
+            name="nome"
+            control={control}
+            label="Nome"
+            required={true}
+            pattern={
+              /^[A-ZÁÉÍÓÚÂÊÎÔÛÃÕÇ][a-záéíóúâêîôûãõç]+(\s[A-ZÁÉÍÓÚÂÊÎÔÛÃÕÇ][a-záéíóúâêîôûãõç]+)+$/
+            }
+          />
+          <FormInputText
+            name="cns"
+            control={control}
+            label="CNS"
+            required={true}
+            pattern={/^\d{15}$/}
+          />
           <FormInputCheckbox
             name="esf"
             control={control}
@@ -140,14 +162,15 @@ export const ModalFormPaciente = () => {
             name={"sexo"}
             control={control}
             label={"Sexo"}
+            required={true}
             options={[
               {
                 label: "Masculino",
-                value: "masculino",
+                value: "Masculino",
               },
               {
                 label: "Feminino",
-                value: "feminino",
+                value: "Feminino",
               },
             ]}
           />
@@ -155,24 +178,30 @@ export const ModalFormPaciente = () => {
             name="dataNasc"
             control={control}
             label="Data de Nascimento"
+            required={true}
           />
           <FormInputRadio
             name={"recadastro"}
             control={control}
             label={"Forma de Recadastro"}
+            required={true}
             options={[
               {
                 label: "Presencial",
-                value: "presencial",
+                value: "Presencial",
               },
               {
                 label: "Remoto",
-                value: "remoto",
+                value: "Remoto",
               },
             ]}
           />
-          {/* Utiliza ESF */}
-          <FormInputText name="tel" control={control} label="Telefone" />
+          <FormInputText
+            name="tel"
+            control={control}
+            label="Telefone"
+            required={true}
+          />
           <FormInputDropdown
             name="convenio"
             control={control}
@@ -195,19 +224,19 @@ export const ModalFormPaciente = () => {
             options={[
               {
                 label: "Ausente",
-                value: "ausente",
+                value: "Ausente",
               },
               {
                 label: "Ensino Fundamental",
-                value: "fundamental",
+                value: "Ensino Fundamental",
               },
               {
                 label: "Ensino Médio",
-                value: "medio",
+                value: "Ensino Médio",
               },
               {
                 label: "Ensino Superior",
-                value: "superior",
+                value: "Ensino Superior",
               },
             ]}
           />
@@ -226,22 +255,23 @@ export const ModalFormPaciente = () => {
               },
             ]}
           />
-          <FormInputDropdown
+          <FormInputRadio
             name="mobilidade"
             control={control}
             label="Mobilidade"
+            required={true}
             options={[
               {
                 label: "Deambula",
-                value: "deambula",
+                value: "Deambula",
               },
               {
                 label: "Deambula com auxílio",
-                value: "auxilio",
+                value: "Deambula com auxílio",
               },
               {
                 label: "Não deambula",
-                value: "nao",
+                value: "Não deambula",
               },
             ]}
           />
@@ -253,27 +283,27 @@ export const ModalFormPaciente = () => {
             options={[
               {
                 label: "Fezes formadas",
-                value: "formada",
+                value: "Fezes formadas",
               },
               {
                 label: "Fezes pastosas",
-                value: "pastosa",
+                value: "Fezes pastosas",
               },
               {
                 label: "Fezes líquidas",
-                value: "liquida",
+                value: "Fezes líquidas",
               },
               {
                 label: "Fezes semilíquidas",
-                value: "semiliquida",
+                value: "Fezes semilíquidas",
               },
               {
                 label: "Muco",
-                value: "muco",
+                value: "Muco",
               },
               {
                 label: "Urina",
-                value: "urina",
+                value: "Urina",
               },
             ]}
           />
@@ -281,6 +311,7 @@ export const ModalFormPaciente = () => {
             name="dataInsc"
             control={control}
             label="Data de Inscrição"
+            required={true}
           />
         </DialogContent>
         <DialogActions>

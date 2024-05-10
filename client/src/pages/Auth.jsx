@@ -110,18 +110,6 @@ const Auth = () => {
           >
             {isLoading ? "Loading" : "Login"}
           </Button>
-          <Grid container>
-            <Grid item xs>
-              <Link href="#" variant="body2">
-                Esqueceu a senha?
-              </Link>
-            </Grid>
-            <Grid item>
-              <Link href="#" variant="body2">
-                {"Ainda não tem conta?"}
-              </Link>
-            </Grid>
-          </Grid>
         </Box>
       </Box>
     </Container>

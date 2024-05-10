@@ -24,7 +24,7 @@ export const PaginaPaciente = () => {
         <Box sx={{ width: "100%", typography: "body1" }}>
           <TabContext value={tabValue}>
             <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-              <TabList onChange={handleTabChange}>
+              <TabList onChange={handleTabChange} variant="scrollable">
                 <Tab label="Informações Pessoais" value="1" />
                 <Tab label="Estomas" value="2" />
                 <Tab label="Recebedores" value="3" />

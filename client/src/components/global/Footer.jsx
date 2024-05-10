@@ -25,7 +25,7 @@ const Footer = () => {
                   fontFamily: "monospace",
                   fontWeight: 700,
                   letterSpacing: ".3rem",
-                  color: "inherit",
+                  color: "white ",
                   textDecoration: "none",
                 }}
               >
@@ -33,7 +33,7 @@ const Footer = () => {
               </Typography>
             </Grid>
             <Grid item xs={12}>
-              <Typography color="textSecondary" variant="subtitle2">
+              <Typography color="white" variant="subtitle2">
                 USP São Carlos - ICMC - {`${new Date().getFullYear()}`}
               </Typography>
               {/* <Typography

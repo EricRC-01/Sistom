@@ -3,10 +3,13 @@ import {
   Table,
   TableBody,
   TableCell,
-  TableContainer,
+  Card,
+  CardContent,
+  CardActions,
+  Container,
   TableHead,
   TableRow,
-  Button,
+  Button, Typography,
 } from "@mui/material";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 
@@ -29,17 +32,17 @@ export const TabelaPaciente = () => {
 
   return (
     <>
-      <TableContainer >
-        <Table>
+      <Container sx={{ display: {xs: "none", sm: "none", md:"block"} }}>
+        <Table >
           <TableHead>
             <TableRow>
-              <TableCell>Nome</TableCell>
-              <TableCell>Telefone</TableCell>
-              <TableCell>CNS</TableCell>
-              <TableCell>Sexo</TableCell>
-              <TableCell>Data de Nascimento</TableCell>
-              <TableCell>Data de Inscrição</TableCell>
-              <TableCell>Ações</TableCell>
+              <TableCell><Typography variant="body1" color="initial">Nome</Typography></TableCell>
+              <TableCell><Typography variant="body1" color="initial">Telefone</Typography></TableCell>
+              <TableCell><Typography variant="body1" color="initial">CNS</Typography></TableCell>
+              <TableCell><Typography variant="body1" color="initial">Sexo</Typography></TableCell>
+              <TableCell><Typography variant="body1" color="initial">Data de Nascimento</Typography></TableCell>
+              <TableCell><Typography variant="body1" color="initial">Data de Inscrição</Typography></TableCell>
+              <TableCell><Typography variant="body1" color="initial">Ações</Typography></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -62,7 +65,28 @@ export const TabelaPaciente = () => {
             ))}
           </TableBody>
         </Table>
-      </TableContainer>
+        </Container>
+      <Container sx={{ display: {xs: "block", sm: "block", md:"none"}, py: 3 }}>
+        {data.map((d) => (
+        <Card sx={{ mb: 3 }} key={d.id}>
+          <CardContent>
+            <Typography variant="h6" color="initial">Nome: {d.nome}</Typography>
+            <Typography variant="body1" color="initial">Telefone: {d.tel}</Typography>
+            <Typography variant="body1" color="initial">CNS: {d.cns}</Typography>
+            <Typography variant="body1" color="initial">Sexo: {d.sexo.toString()}</Typography>
+            <Typography variant="body1" color="initial">Data de Nascimento: {d.dataNasc.split(' ')[0]}</Typography>
+            <Typography variant="body1" color="initial">Data de Inscrição: {d.dataInsc.split(' ')[0]}</Typography>
+          </CardContent>
+          <CardActions>
+            <Button
+              component={Link}
+              to={`/Paciente?userId=${d.id}`}
+              startIcon={<MoreHorizIcon />}
+            />
+          </CardActions>
+        </Card>
+        ))}
+      </Container>
     </>
   );
 };

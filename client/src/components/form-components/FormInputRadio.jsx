@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import { Controller } from "react-hook-form";
 
-export const FormInputRadio = ({ name, control, label, options, rules }) => {
+export const FormInputRadio = ({ name, control, label, options, rules, required }) => {
   const generateRadioOptions = () => {
     return options.map((singleOption) => (
       <FormControlLabel
@@ -21,11 +21,11 @@ export const FormInputRadio = ({ name, control, label, options, rules }) => {
   };
   return (
     <FormControl component="fieldset">
-      <FormLabel component="legend">{label}</FormLabel>
-      <Controller
+      <FormLabel component="legend">{label}{required && '*'}</FormLabel>
+        <Controller
         name={name}
         control={control}
-        rules={rules} // Set the error message here
+        rules={{ required: { value: required, message: 'Campo Obrigatório' } }}
         render={({ field: { onChange, value }, fieldState: { error } }) => (
           <>
             <RadioGroup value={value} onChange={onChange} >

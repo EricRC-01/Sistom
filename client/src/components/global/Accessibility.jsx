@@ -4,9 +4,15 @@ import ContrastSharpIcon from "@mui/icons-material/ContrastSharp";
 import TextDecreaseSharpIcon from "@mui/icons-material/TextDecreaseSharp";
 import TextIncreaseSharpIcon from "@mui/icons-material/TextIncreaseSharp";
 import SignLanguageRoundedIcon from "@mui/icons-material/SignLanguageRounded";
+import { useContext } from "react";
+import { ThemeContext } from "../../theme/Theme";
 
 export const Accessibility = () => {
+
+  const { colorMode, fontSize } = useContext(ThemeContext);
+
   return (
+    
     <Box
       sx={{
         position: "fixed",
@@ -23,8 +29,9 @@ export const Accessibility = () => {
           "&:hover": { backgroundColor: "tertiary.main" },
           padding: ".5rem",
           marginBottom: ".2rem",
+          color: "white"
         }}
-        color="secondary"
+        onClick={colorMode.toggleColorMode}
       >
         <ContrastSharpIcon fontSize="medium" />
       </IconButton>
@@ -35,8 +42,9 @@ export const Accessibility = () => {
           "&:hover": { backgroundColor: "tertiary.main" },
           padding: ".5rem",
           marginBottom: ".2rem",
+          color: "white"
         }}
-        color="secondary"
+        onClick={fontSize.decreaseFontSize}
       >
         <TextDecreaseSharpIcon fontSize="medium" />
       </IconButton>
@@ -47,23 +55,24 @@ export const Accessibility = () => {
           "&:hover": { backgroundColor: "tertiary.main" },
           padding: ".5rem",
           marginBottom: ".2rem",
+          color: "white"
         }}
-        color="secondary"
+        onClick={fontSize.increaseFontSize}
       >
         <TextIncreaseSharpIcon fontSize="medium" />
       </IconButton>
-      <IconButton
+      {/* <IconButton
         variant="contained"
         sx={{
           backgroundColor: "primary.main",
           "&:hover": { backgroundColor: "tertiary.main" },
           padding: ".5rem",
           marginBottom: ".2rem",
+          color: "white"
         }}
-        color="secondary"
       >
         <SignLanguageRoundedIcon fontSize="medium" />
-      </IconButton>
+      </IconButton> */}
     </Box>
   );
 };

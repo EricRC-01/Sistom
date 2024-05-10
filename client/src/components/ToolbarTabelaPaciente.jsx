@@ -37,7 +37,7 @@ export const ToolbarTabelaPaciente = () => {
             marginRight: "-1.5rem",
             height: "2.2rem",
             padding: "0.5rem",
-            width: "45%",
+            width: "75%",
           }}
           placeholder="Digite o nome do paciente"
           disableUnderline
@@ -69,6 +69,7 @@ export const ToolbarTabelaPaciente = () => {
         <IconButton
           /* onClick={handleOpen} */
           variant="contained"
+          onClick={() => alert("Estatisticado")}
           sx={{
             borderRadius: 5,
             marginRight: 1,

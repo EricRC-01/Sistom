@@ -17,7 +17,7 @@ export const Accessibility = () => {
       sx={{
         position: "fixed",
         right: ".5rem",
-        top: "7rem",
+        top: "calc(50% + 20px)",
         display: "flex",
         flexDirection: "column",
       }}
@@ -28,7 +28,7 @@ export const Accessibility = () => {
           backgroundColor: "primary.main",
           "&:hover": { backgroundColor: "tertiary.main" },
           padding: ".5rem",
-          marginBottom: ".2rem",
+          mt: 1,
           color: "white"
         }}
         onClick={colorMode.toggleColorMode}
@@ -41,7 +41,7 @@ export const Accessibility = () => {
           backgroundColor: "primary.main",
           "&:hover": { backgroundColor: "tertiary.main" },
           padding: ".5rem",
-          marginBottom: ".2rem",
+          mt: 1,
           color: "white"
         }}
         onClick={fontSize.decreaseFontSize}
@@ -54,7 +54,7 @@ export const Accessibility = () => {
           backgroundColor: "primary.main",
           "&:hover": { backgroundColor: "tertiary.main" },
           padding: ".5rem",
-          marginBottom: ".2rem",
+          mt: 1,
           color: "white"
         }}
         onClick={fontSize.increaseFontSize}

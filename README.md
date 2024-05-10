@@ -25,7 +25,7 @@ Inside the field `client`
 3. Execute: npm install
 4. Execute: npm run dev
 5. Take the hostServer address and copy it in a web navegator.
-6. Go to the file `server/pocketbase`
+6. Open a new terminal and go to the file `server/pocketbase`
 7. Execute `./pocketbase serve`
 
 (The usage of pocketbase is temporary in this project)

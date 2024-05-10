@@ -102,7 +102,7 @@ const Header = () => {
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                   <Avatar
                     sx={{ backgroundColor: "black" }}
-
+                    alt="Foto do usuário"
                     src={isLoading || isError ? '#' : `http://127.0.0.1:8090/api/files/_pb_users_auth_/${pb.authStore.model.id}/${data?.avatar}`}
                   />
                 </IconButton>

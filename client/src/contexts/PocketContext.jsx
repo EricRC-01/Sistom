@@ -8,7 +8,7 @@ import {
 } from "react";
 import PocketBase from "pocketbase";
 
-const BASE_URL = "http://127.0.0.1:8090";
+const BASE_URL = "http://fe80::8862:fb63:c124:8692%4:8090";
 
 const PocketContext = createContext({});
 

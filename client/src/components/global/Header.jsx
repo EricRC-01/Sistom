@@ -65,13 +65,14 @@ const Header = () => {
             mx: 1,
           }}
         >
-          <Link to="/">
-            <Box component="img" alt="Logo" src={Logo} height={65} />
-          </Link>
-
+        <Link to="/">
+          <Box component="img" alt="Logo" src={Logo} height={65} />
+        </Link>
+        <Link to="/">
           <Typography
             variant="h4"
             noWrap
+            color="white"
             sx={{
               ml: 1,
               fontFamily: "Varela Round",
@@ -80,6 +81,7 @@ const Header = () => {
           >
             Sistom
           </Typography>
+        </Link>
           {pb.authStore.isValid ? (
             <Box
               sx={{

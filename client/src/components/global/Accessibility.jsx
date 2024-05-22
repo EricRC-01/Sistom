@@ -1,13 +1,20 @@
 import { Box, IconButton } from "@mui/material";
-
 import ContrastSharpIcon from "@mui/icons-material/ContrastSharp";
 import TextDecreaseSharpIcon from "@mui/icons-material/TextDecreaseSharp";
 import TextIncreaseSharpIcon from "@mui/icons-material/TextIncreaseSharp";
+import ArrowUpwardRoundedIcon from '@mui/icons-material/ArrowUpwardRounded';
 import { useContext } from "react";
 import { ThemeContext } from "../../theme/Theme";
 
 export const Accessibility = () => {
   const { colorMode, fontSize } = useContext(ThemeContext);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
 
   return (
     <Box
@@ -57,6 +64,19 @@ export const Accessibility = () => {
         onClick={fontSize.increaseFontSize}
       >
         <TextIncreaseSharpIcon fontSize="medium" />
+      </IconButton>
+      <IconButton
+        variant="contained"
+        sx={{
+          backgroundColor: "primary.main",
+          "&:hover": { backgroundColor: "tertiary.main" },
+          padding: ".5rem",
+          mt: 1,
+          color: "white",
+        }}
+        onClick={scrollToTop}
+      >
+        <ArrowUpwardRoundedIcon fontSize="medium" />
       </IconButton>
     </Box>
   );

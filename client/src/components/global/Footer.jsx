@@ -21,19 +21,19 @@ const Footer = () => {
                 sx={{
                   ml: 1,
                   display: "flex",
-                  fontFamily: "monospace",
+                  fontFamily: "Varela Round",
                   fontWeight: 700,
-                  letterSpacing: ".3rem",
+                  letterSpacing: ".1rem",
                   color: "white ",
                   textDecoration: "none",
                 }}
               >
-                SISTOM
+                Sistom
               </Typography>
             </Grid>
             <Grid item xs={12}>
               <Typography color="white" variant="subtitle2">
-                USP São Carlos - ICMC - {`${new Date().getFullYear()}`}
+                USP São Carlos (ICMC) em parceria com SUS Piauí - ©{`${new Date().getFullYear()}`} Sistom
               </Typography>
             </Grid>
           </Grid>

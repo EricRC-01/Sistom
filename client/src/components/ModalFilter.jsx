@@ -79,7 +79,7 @@ export const ModalFilter = () => {
           />
         </DialogContent>
         <DialogActions>
-          <Button color="success" onClick={handleSubmit(onSubmit)}>
+          <Button color="primary" onClick={handleSubmit(onSubmit)}>
             Filtrar
           </Button>
           <Button color="inherit" onClick={handleClose}>

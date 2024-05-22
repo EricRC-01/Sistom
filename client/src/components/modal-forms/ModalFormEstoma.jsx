@@ -15,9 +15,10 @@ import { FormInputDate } from "../form-components/FormInputDate";
 import { useMutation } from "@tanstack/react-query";
 import { usePocket } from "contexts/PocketContext";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import AddCircleRoundedIcon from "@mui/icons-material/AddCircleRounded";
+import ArrowUpwardRoundedIcon from '@mui/icons-material/ArrowUpwardRounded';
 
 import { useQueryClient } from "@tanstack/react-query";
 
@@ -115,6 +116,9 @@ export const ModalFormEstoma = () => {
     });
   };
 
+  const modalRef = useRef(null);
+  console.log(modalRef)
+
   return (
     <>
       <IconButton
@@ -136,7 +140,7 @@ export const ModalFormEstoma = () => {
         </Typography>
       </IconButton>
 
-      <Dialog open={open} onClose={handleClose} maxWidth="sm" fullWidth>
+      <Dialog open={open} onClose={handleClose} maxWidth="sm" fullWidth >
         <DialogTitle>
           Registrar Novo Paciente
           <IconButton onClick={handleClose} sx={{ float: "right" }}>
@@ -150,6 +154,7 @@ export const ModalFormEstoma = () => {
             padding: "20px",
             margin: "10px 10px",
           }}
+          ref={modalRef}
         >
           <FormInputDropdown
             label="Tipo de Estoma"
@@ -359,7 +364,20 @@ export const ModalFormEstoma = () => {
           />
         </DialogContent>
         <DialogActions>
-          <Button color="success" onClick={handleSubmit(onSubmit)}>
+
+        <IconButton
+        variant="contained"
+        sx={{
+          color: "primary.main",
+        }}
+        onClick={() => {
+          modalRef.current?.scrollTo({top: 0, behavior: 'smooth'})
+        }}
+      >
+        <ArrowUpwardRoundedIcon fontSize="medium" />
+      </IconButton>
+
+          <Button color="primary" onClick={handleSubmit(onSubmit)}>
             Registrar
           </Button>
           <Button color="inherit" onClick={handleClose}>

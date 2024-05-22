@@ -250,7 +250,7 @@ export const ModalFormPaciente = () => {
           />
         </DialogContent>
         <DialogActions>
-          <Button color="success" onClick={handleSubmit(onSubmit)}>
+          <Button color="primary" onClick={handleSubmit(onSubmit)}>
             Registrar
           </Button>
           <Button color="inherit" onClick={handleClose}>

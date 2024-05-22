@@ -130,7 +130,7 @@ export const ModalFormCirurgia = () => {
           <FormInputText name="hospital" control={control} label="Hospital" />
         </DialogContent>
         <DialogActions>
-          <Button color="success" onClick={handleSubmit(onSubmit)}>
+          <Button color="primary" onClick={handleSubmit(onSubmit)}>
             Registrar
           </Button>
           <Button color="inherit" onClick={handleClose}>

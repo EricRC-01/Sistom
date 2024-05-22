@@ -95,7 +95,7 @@ export const DisplayPaciente = () => {
           <Button size="small" variant="contained" color="primary">
             Editar
           </Button>
-          <Button size="small" variant="contained" color="error">
+          <Button size="small">
             Remover
           </Button>
         </Box>

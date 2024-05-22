@@ -68,7 +68,7 @@ const Header = () => {
         <Link to="/">
           <Box component="img" alt="Logo" src={Logo} height={65} />
         </Link>
-        <Link to="/">
+        <Link to="/" style={{ textDecoration: 'none' }}>
           <Typography
             variant="h4"
             noWrap

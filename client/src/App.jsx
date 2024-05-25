@@ -10,7 +10,7 @@ const App = () => {
   const [theme, colorMode, fontSize] = useTheme();
 
   return (
-    <ThemeContext.Provider value={{colorMode, fontSize}}>
+    <ThemeContext.Provider value={{ colorMode, fontSize }}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Box

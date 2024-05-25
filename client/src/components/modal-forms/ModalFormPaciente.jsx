@@ -18,6 +18,8 @@ import { FormInputMultiCheckbox } from "components/form-components/FormInputMult
 import { useMutation } from "@tanstack/react-query";
 import { usePocket } from "contexts/PocketContext";
 
+import { useAPI } from "contexts/API";
+
 import { useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 
@@ -50,7 +52,7 @@ export const ModalFormPaciente = () => {
     reset();
   };
 
-  const queryClient = useQueryClient();
+  /* const queryClient = useQueryClient();
 
   const { registerField, pb } = usePocket();
 
@@ -63,13 +65,13 @@ export const ModalFormPaciente = () => {
     onError: () => {
       alert("ERROR");
     },
-  });
+  }); */
 
   const { handleSubmit, reset, control, setValue } = useForm({
     defaultValues: defaultValues,
   });
 
-  const onSubmit = async (data) => {
+  /* const onSubmit = async (data) => {
     mutate({
       data: {
         nome: data.nome,
@@ -89,6 +91,30 @@ export const ModalFormPaciente = () => {
       },
       tabela: "pacientes",
     });
+  }; */
+
+  const { adicionarPaciente } = useAPI();
+
+  const onSubmit = (data) => {
+    console.log(data);
+
+    adicionarPaciente({
+      nome: data.nome,
+      cns: data.cns,
+      sexo: data.sexo,
+      tel: data.tel,
+      escolaridade: data.escolaridade,
+      esf: data.esf,
+      convenio: data.convenio,
+      profissao: data.profissao,
+      recadastro: data.recadastro,
+      dataNasc: data.dataNasc,
+      dataInsc: data.dataInsc,
+      mobilidade: data.mobilidade,
+      cinto: data.cinto,
+      efluente: data.efluente,
+    });
+    handleClose();
   };
 
   return (

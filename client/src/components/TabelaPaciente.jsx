@@ -11,7 +11,7 @@ import {
   TableRow,
   Button,
   Typography,
-  Paper
+  Paper,
 } from "@mui/material";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 
@@ -21,8 +21,10 @@ import { useQuery } from "@tanstack/react-query";
 
 import { usePocket } from "contexts/PocketContext";
 
+import { useAPI } from "contexts/API";
+
 export const TabelaPaciente = () => {
-  const { getAllData } = usePocket();
+  /* const { getAllData } = usePocket();
 
   const { isLoading, isError, error, data } = useQuery({
     queryKey: ["pacientes"],
@@ -30,60 +32,54 @@ export const TabelaPaciente = () => {
   });
 
   if (isLoading) return <div>Carregando...</div>;
-  if (isError) return <div>{error}</div>;
+  if (isError) return <div>{error}</div>; */
+
+  const { pacientes } = useAPI();
 
   return (
     <>
-      <Container component={Paper} sx={{ display: { xs: "none", sm: "none", md: "block"}, overflow:'auto' }}>
+      <Container
+        component={Paper}
+        sx={{
+          display: { xs: "none", sm: "none", md: "block" },
+          overflow: "auto",
+        }}
+      >
         <Table>
           <TableHead>
             <TableRow>
               <TableCell>
-                <Typography variant="body1">
-                  Nome
-                </Typography>
+                <Typography variant="body1">Nome</Typography>
               </TableCell>
               <TableCell>
-                <Typography variant="body1">
-                  Telefone
-                </Typography>
+                <Typography variant="body1">Telefone</Typography>
               </TableCell>
               <TableCell>
-                <Typography variant="body1">
-                  CNS
-                </Typography>
+                <Typography variant="body1">CNS</Typography>
               </TableCell>
               <TableCell>
-                <Typography variant="body1">
-                  Sexo
-                </Typography>
+                <Typography variant="body1">Sexo</Typography>
               </TableCell>
               <TableCell>
-                <Typography variant="body1">
-                  Data de Nascimento
-                </Typography>
+                <Typography variant="body1">Data de Nascimento</Typography>
               </TableCell>
               <TableCell>
-                <Typography variant="body1">
-                  Data de Inscrição
-                </Typography>
+                <Typography variant="body1">Data de Inscrição</Typography>
               </TableCell>
               <TableCell>
-                <Typography variant="body1">
-                  Ações
-                </Typography>
+                <Typography variant="body1">Ações</Typography>
               </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {data.map((d) => (
+            {pacientes.map((d) => (
               <TableRow key={d.id}>
                 <TableCell>{d.nome}</TableCell>
                 <TableCell>{d.tel}</TableCell>
                 <TableCell>{d.cns}</TableCell>
                 <TableCell>{d.sexo.toString()}</TableCell>
-                <TableCell>{d.dataNasc.split(" ")[0]}</TableCell>
-                <TableCell>{d.dataInsc.split(" ")[0]}</TableCell>
+                <TableCell>{/* d.dataNasc.split(" ")[0] */}</TableCell>
+                <TableCell>{/* d.dataInsc.split(" ")[0] */}</TableCell>
                 <TableCell>
                   <Button
                     component={Link}
@@ -99,26 +95,18 @@ export const TabelaPaciente = () => {
       <Container
         sx={{ display: { xs: "block", sm: "block", md: "none" }, py: 3 }}
       >
-        {data.map((d) => (
+        {pacientes.map((d) => (
           <Card sx={{ mb: 3 }} key={d.id}>
             <CardContent>
-              <Typography variant="h6">
-                Nome: {d.nome}
+              <Typography variant="h6">Nome: {d.nome}</Typography>
+              <Typography variant="body1">Telefone: {d.tel}</Typography>
+              <Typography variant="body1">CNS: {d.cns}</Typography>
+              <Typography variant="body1">Sexo: {d.sexo.toString()}</Typography>
+              <Typography variant="body1">
+                Data de Nascimento: {/* d.dataNasc.split(" ")[0] */}
               </Typography>
               <Typography variant="body1">
-                Telefone: {d.tel}
-              </Typography>
-              <Typography variant="body1">
-                CNS: {d.cns}
-              </Typography>
-              <Typography variant="body1">
-                Sexo: {d.sexo.toString()}
-              </Typography>
-              <Typography variant="body1">
-                Data de Nascimento: {d.dataNasc.split(" ")[0]}
-              </Typography>
-              <Typography variant="body1">
-                Data de Inscrição: {d.dataInsc.split(" ")[0]}
+                Data de Inscrição: {/* d.dataInsc.split(" ")[0] */}
               </Typography>
             </CardContent>
             <CardActions>

@@ -14,6 +14,8 @@ import AddCircleRoundedIcon from "@mui/icons-material/AddCircleRounded";
 import { useMutation } from "@tanstack/react-query";
 import { usePocket } from "contexts/PocketContext";
 
+import { useAPI } from "contexts/API";
+
 import { useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 
@@ -36,11 +38,13 @@ export const ModalFormRecebedor = () => {
     reset();
   };
 
+  const { adicionarRecebedor } = useAPI();
+
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const userId = searchParams.get("userId");
 
-  const queryClient = useQueryClient();
+  /* const queryClient = useQueryClient();
 
   const { registerField } = usePocket();
 
@@ -53,13 +57,13 @@ export const ModalFormRecebedor = () => {
     onError: () => {
       alert("ERROR");
     },
-  });
+  }); */
 
   const { handleSubmit, reset, control, setValue } = useForm({
     defaultValues: defaultValues,
   });
 
-  const onSubmit = async (data) => {
+  /* const onSubmit = async (data) => {
     mutate({
       data: {
         nome: data.nome,
@@ -69,7 +73,18 @@ export const ModalFormRecebedor = () => {
       },
       tabela: "recebedores",
     });
-  };
+  }; */
+
+  const onSubmit = (data) => {
+    adicionarRecebedor(userId,{
+      nome: data.nome,
+      cpf: data.cpf,
+      sexo: data.sexo,
+    });
+
+    console.log(data);
+    handleClose();
+  }
 
   return (
     <>

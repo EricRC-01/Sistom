@@ -72,18 +72,18 @@ export const TabelaPaciente = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {pacientes.map((d) => (
-              <TableRow key={d.id}>
+            {pacientes.map((d, index) => (
+              <TableRow key={index}>
                 <TableCell>{d.nome}</TableCell>
                 <TableCell>{d.tel}</TableCell>
                 <TableCell>{d.cns}</TableCell>
                 <TableCell>{d.sexo.toString()}</TableCell>
-                <TableCell>{/* d.dataNasc.split(" ")[0] */}</TableCell>
-                <TableCell>{/* d.dataInsc.split(" ")[0] */}</TableCell>
+                <TableCell>{d.dataNasc}</TableCell>
+                <TableCell>{d.dataInsc}</TableCell>
                 <TableCell>
                   <Button
                     component={Link}
-                    to={`/Paciente?userId=${d.id}`}
+                    to={`/Paciente?userId=${index}`}
                     startIcon={<MoreHorizIcon />}
                   />
                 </TableCell>

@@ -25,17 +25,31 @@ export const APIProvider = ({ children }) => {
   };
 
   const adicionarPaciente = (paciente) => {
+    console.log(paciente);
     const updatedArray = [...pacientes, paciente];
     setPacientes(updatedArray);
     saveToLocalStorage("data", updatedArray);
   };
 
-  const adicionarEstoma = (paciente, estoma) => {
-    pacientes.estomas.push(estoma);
+  const adicionarEstoma = (index, estoma) => {
+    const updatedArray = [...pacientes];
+    updatedArray[index].estomas.push(estoma);
+    setPacientes(updatedArray);
+    saveToLocalStorage("data", updatedArray);
   };
 
-  const adicionarCirurgia = (paciente, cirurgia) => {
-    pacientes.cirurgias.push(cirurgia);
+  const adicionarCirurgia = (index, cirurgia) => {
+    const updatedArray = [...pacientes];
+    updatedArray[index].cirurgias.push(cirurgia);
+    setPacientes(updatedArray);
+    saveToLocalStorage("data", updatedArray);
+  };
+
+  const adicionarRecebedor = (index, recebedor) => {
+    const updatedArray = [...pacientes];
+    updatedArray[index].recebedores.push(recebedor);
+    setPacientes(updatedArray);
+    saveToLocalStorage("data", updatedArray);
   };
 
   const listarPacientes = () => {
@@ -53,6 +67,7 @@ export const APIProvider = ({ children }) => {
         adicionarPaciente,
         adicionarEstoma,
         adicionarCirurgia,
+        adicionarRecebedor,
         listarEstomas,
       }}
     >

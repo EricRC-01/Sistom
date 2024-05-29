@@ -18,8 +18,9 @@ import { useEffect, useState } from "react";
 
 const Auth = () => {
   const { register, handleSubmit, reset } = useForm();
-  const { login } = usePocket();
   const navigate = useNavigate();
+
+  /* const { login } = usePocket();
 
   const { mutate, isLoading, isError } = useMutation({
     mutationFn: login,
@@ -29,19 +30,31 @@ const Auth = () => {
     onError: () => {
       reset();
     },
-  });
+  }); */
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isError, setIsError] = useState(false);
 
-  const onSubmit = async (data) => {
+  /* const onSubmit = async (data) => {
     mutate({ email: data.email, password: data.password });
-  };
+  }; */
 
   useEffect(() => {
     if (isLoggedIn) {
       navigate("/");
     }
   }, [isLoggedIn]);
+
+  console.log(isError);
+
+  const onSubmit = (data) => {
+    if(data.email === "admin" && data.password === "admin") {
+      setIsLoggedIn(true);
+    } else {
+      setIsError(true);
+      reset();
+    }
+  }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -101,10 +114,11 @@ const Auth = () => {
             type="submit"
             fullWidth
             variant="contained"
-            disabled={isLoading}
+            /* disabled={isLoading} */
             sx={{ mt: 3, mb: 2 }}
           >
-            {isLoading ? "Loading" : "Login"}
+            {/* {isLoading ? "Loading" : "Login"} */}
+            Login
           </Button>
         </Box>
       </Box>

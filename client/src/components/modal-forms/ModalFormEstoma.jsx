@@ -15,6 +15,8 @@ import { FormInputDate } from "../form-components/FormInputDate";
 import { useMutation } from "@tanstack/react-query";
 import { usePocket } from "contexts/PocketContext";
 
+import { useAPI } from "contexts/API";
+
 import { useState, useRef } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import AddCircleRoundedIcon from "@mui/icons-material/AddCircleRounded";
@@ -60,10 +62,12 @@ export const ModalFormEstoma = () => {
     reset();
   };
 
+  const { adicionarEstoma } = useAPI();
+
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const userId = searchParams.get("userId");
-
+/* 
   const queryClient = useQueryClient();
 
   const { registerField } = usePocket();
@@ -78,11 +82,11 @@ export const ModalFormEstoma = () => {
       alert("ERROR");
     },
   });
-
+ */
   const { handleSubmit, reset, control, setValue } = useForm({
     defaultValues: defaultValues,
   });
-
+/* 
   const onSubmit = async (data) => {
     mutate({
       data: {
@@ -115,6 +119,40 @@ export const ModalFormEstoma = () => {
       tabela: "estomas",
     });
   };
+ */
+
+  const onSubmit = (data) => {
+    console.log(data);
+
+    adicionarEstoma(userId,{
+      diagnostico: data.diagnostico,
+      tipoEstoma: data.tipoEstoma,
+      demarcacao: data.demarcacao,
+      exteriorizacao: data.exteriorizacao,
+      abdome: data.abdome,
+      permanencia: data.permanencia,
+      localizacao: data.localizacao,
+      higiene: data.higiene,
+      medida: data.medida,
+      formato: data.formato,
+      forma: data.forma,
+      coloracao: data.coloracao,
+      haste: data.haste,
+      protusao: data.protusao,
+      funcao: data.funcao,
+      complicacao: data.complicacao,
+      periestoma: data.periestoma,
+      diametro: data.diametro,
+      sistema: data.sistema,
+      tipoPlaca: data.tipoPlaca,
+      adjuvante: data.adjuvante,
+      custoExtra: data.custoExtra,
+      adaptacao: data.adaptacao,
+      equipamento: data.equipamento,
+    });
+    handleClose();
+  };
+
 
   const modalRef = useRef(null);
   console.log(modalRef)

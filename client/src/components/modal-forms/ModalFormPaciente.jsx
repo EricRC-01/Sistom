@@ -102,17 +102,21 @@ export const ModalFormPaciente = () => {
       nome: data.nome,
       cns: data.cns,
       sexo: data.sexo,
-      tel: data.tel,
+      tel: data.tel,  
       escolaridade: data.escolaridade,
       esf: data.esf,
       convenio: data.convenio,
       profissao: data.profissao,
       recadastro: data.recadastro,
-      dataNasc: data.dataNasc,
-      dataInsc: data.dataInsc,
+      dataNasc: data.dataNasc.format("DD/MM/YYYY"),
+      dataInsc: data.dataInsc.format("DD/MM/YYYY"),
       mobilidade: data.mobilidade,
       cinto: data.cinto,
       efluente: data.efluente,
+      estomas: [],
+      recebedores: [],
+      cirurgias: [],
+
     });
     handleClose();
   };

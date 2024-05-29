@@ -14,13 +14,18 @@ import {
 
 import { useLocation } from "react-router-dom";
 
+import { useAPI } from "contexts/API";
+
 export const DisplayEstoma = () => {
-  const queryClient = useQueryClient();
+
+  const { pacientes } = useAPI();
+
+  //const queryClient = useQueryClient();
 
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const userId = searchParams.get("userId");
-
+/* 
   const { getFilterData } = usePocket();
 
   const { isLoading, isError, error, data } = useQuery({
@@ -40,6 +45,9 @@ export const DisplayEstoma = () => {
 
   if (isLoading) return <div>Carregando...</div>;
   if (isError) return <div>{error}</div>;
+ */
+
+  const data = pacientes[userId].estomas;
 
   if (!data.length) return <div>Sem estomas cadastrados!</div>;
 

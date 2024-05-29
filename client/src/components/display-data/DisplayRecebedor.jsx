@@ -3,6 +3,8 @@ import { usePocket } from "contexts/PocketContext";
 
 import { useEffect } from "react";
 
+import { useAPI } from "contexts/API";
+
 import {
   Grid,
   Card,
@@ -15,13 +17,13 @@ import {
 import { useLocation } from "react-router-dom";
 
 export const DisplayRecebedor = () => {
-
+/* 
   const queryClient = useQueryClient();
-    
+     */
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const userId = searchParams.get("userId");
-
+/* 
   const { getFilterData } = usePocket();
   
   const { isLoading, isError, error, data } = useQuery({
@@ -40,6 +42,11 @@ export const DisplayRecebedor = () => {
 
   if (isLoading) return <div>Carregando...</div>;
   if (isError) return <div>{error}</div>;
+ */
+
+  const { pacientes } = useAPI();
+
+  const data = pacientes[userId].recebedores;
 
   if(!data.length) return <div>Sem recebedores cadastrados!</div>
 

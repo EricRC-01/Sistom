@@ -28,10 +28,10 @@ const router = createBrowserRouter(
       }
     >
       <Route path="Auth" element={<Auth />} />
-      <Route element={<RequireAuth />}>
+      {/* <Route element={<RequireAuth />}> */}
         <Route index element={<Dashboard />} />
         <Route path="Paciente" element={<PaginaPaciente />} />
-      </Route>
+      {/* </Route> */}
     </Route>
   )
 );

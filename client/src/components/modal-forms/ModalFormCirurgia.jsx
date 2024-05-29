@@ -23,6 +23,8 @@ import { useQueryClient } from "@tanstack/react-query";
 
 import { useLocation } from "react-router-dom";
 
+import { useAPI } from "contexts/API";
+
 const defaultValues = {
   tipo: "",
   data: null,
@@ -41,7 +43,9 @@ export const ModalFormCirurgia = () => {
   const searchParams = new URLSearchParams(location.search);
   const userId = searchParams.get("userId");
 
-  const queryClient = useQueryClient();
+  const { adicionarCirurgia } = useAPI();
+
+  /* const queryClient = useQueryClient();
 
   const { registerField } = usePocket();
 
@@ -54,13 +58,13 @@ export const ModalFormCirurgia = () => {
     onError: () => {
       alert("ERROR");
     },
-  });
+  }); */
 
   const { handleSubmit, reset, control } = useForm({
     defaultValues: defaultValues,
   });
 
-  const onSubmit = async (data) => {
+  /* const onSubmit = async (data) => {
     mutate({
       data: {
         hospital: data.hospital,
@@ -70,7 +74,17 @@ export const ModalFormCirurgia = () => {
       },
       tabela: "cirurgias",
     });
-  };
+  }; */
+
+  const onSubmit = (data) => {
+    adicionarCirurgia(userId, {
+      hospital: data.hospital,
+      data: data.data.format("DD/MM/YYYY"),
+      tipo: data.tipo,
+    });
+
+    handleClose();
+  }
 
   return (
     <>

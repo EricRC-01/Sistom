@@ -15,11 +15,14 @@ import Logo from "../../../global/logo.png";
 import { usePocket } from "contexts/PocketContext";
 import { useQuery } from "@tanstack/react-query";
 
+import { useNavigate } from "react-router-dom";
+
+
 import { useEffect } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 
 const Header = () => {
-  const { logout, pb, getById } = usePocket();
+  //const { logout, pb, getById } = usePocket();
 
   const [anchorElUser, setAnchorElUser] = useState(null);
 
@@ -31,7 +34,7 @@ const Header = () => {
     setAnchorElUser(null);
   };
 
-  const queryClient = useQueryClient();
+  /* const queryClient = useQueryClient();
 
   const { isLoading, isError, error, data } = useQuery({
     queryKey: ["users"],
@@ -40,13 +43,20 @@ const Header = () => {
         table: "users",
         id: pb.authStore.model.id,
       }),
-  });
+  }); */
 
-  useEffect(() => {
+ /*  useEffect(() => {
     return () => {
       queryClient.removeQueries(["users", pb?.authStore?.model?.id]);
     };
   }, [queryClient, pb?.authStore?.model?.id]);
+ */
+
+  const navigate = useNavigate();
+
+  const logout = () => {
+    navigate("/Auth")
+  }
 
   return (
     <AppBar
@@ -61,7 +71,7 @@ const Header = () => {
         <Toolbar
           disableGutters
           sx={{
-            justifyContent: pb.authStore.isValid ? "flex-start" : "center",
+            justifyContent: /* pb.authStore.isValid */ true ? "flex-start" : "center",
             mx: 1,
           }}
         >
@@ -82,7 +92,7 @@ const Header = () => {
             Sistom
           </Typography>
         </Link>
-          {pb.authStore.isValid ? (
+          {true ? (
             <Box
               sx={{
                 flexGrow: 1,
@@ -96,15 +106,17 @@ const Header = () => {
                 color="initial"
                 sx={{ mr: 1, color: "white" }}
               >
-                {data?.name}
+                {/* {data?.name} */}
+                Enfermeira
               </Typography>
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar
                   alt="Foto do usuário"
-                  src={
+                  src={/* 
                     isLoading || isError
                       ? "#"
-                      : `http://127.0.0.1:8090/api/files/_pb_users_auth_/${pb.authStore.model.id}/${data?.avatar}`
+                      : `http://127.0.0.1:8090/api/files/_pb_users_auth_/${pb.authStore.model.id}/${data?.avatar}` */
+                      "#"
                   }
                 />
               </IconButton>

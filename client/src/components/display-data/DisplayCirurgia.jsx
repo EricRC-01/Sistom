@@ -3,6 +3,8 @@ import { usePocket } from "contexts/PocketContext";
 
 import { useEffect } from "react";
 
+import { useAPI } from "contexts/API";
+
 import {
   Grid,
   Card,
@@ -14,13 +16,13 @@ import {
 
 import { useLocation } from "react-router-dom";
 
-export const DisplayCirurgia = () => {
-  const queryClient = useQueryClient();
+export const DisplayCirurgia = () => { 
+  //const queryClient = useQueryClient();
 
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const userId = searchParams.get("userId");
-
+/* 
   const { getFilterData } = usePocket();
 
   const { isLoading, isError, error, data } = useQuery({
@@ -40,6 +42,11 @@ export const DisplayCirurgia = () => {
 
   if (isLoading) return <div>Carregando...</div>;
   if (isError) return <div>{error}</div>;
+  */
+
+  const { pacientes } = useAPI();
+  
+  const data = pacientes[userId].cirurgias;
 
   if (!data.length) return <div>Sem cirurgias cadastradas!</div>;
 
@@ -57,7 +64,7 @@ export const DisplayCirurgia = () => {
                   Hospital: {item.hospital}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Data: {item.data.split(" ")[0]}
+                  Data: {item.data}
                 </Typography>
               </CardContent>
               <CardActions sx={{ justifyContent: "flex-end" }}>

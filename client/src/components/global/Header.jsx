@@ -104,7 +104,7 @@ const Header = () => {
                   src={
                     isLoading || isError
                       ? "#"
-                      : `http://127.0.0.1:8090/api/files/_pb_users_auth_/${pb.authStore.model.id}/${data?.avatar}`
+                      : `https://sistom.pockethost.io/api/files/_pb_users_auth_/${pb.authStore.model.id}/${data?.avatar}`
                   }
                 />
               </IconButton>

@@ -19,7 +19,7 @@ import { useEffect } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 
 const Header = () => {
-  const { logout, pb, getById } = usePocket();
+  const { logout, pb, getDataById } = usePocket();
 
   const [anchorElUser, setAnchorElUser] = useState(null);
 
@@ -33,13 +33,9 @@ const Header = () => {
 
   const queryClient = useQueryClient();
 
-  const { isLoading, isError, error, data } = useQuery({
-    queryKey: ["users"],
-    queryFn: () =>
-      getById({
-        table: "users",
-        id: pb.authStore.model.id,
-      }),
+  const { isLoading, isError, data } = getDataById({
+    table: "users",
+    id: pb?.authStore?.model?.id,
   });
 
   useEffect(() => {
@@ -65,23 +61,23 @@ const Header = () => {
             mx: 1,
           }}
         >
-        <Link to="/">
-          <Box component="img" alt="Logo" src={Logo} height={65} />
-        </Link>
-        <Link to="/" style={{ textDecoration: 'none' }}>
-          <Typography
-            variant="h4"
-            noWrap
-            color="white"
-            sx={{
-              ml: 1,
-              fontFamily: "Varela Round",
-              fontWeight: 700,
-            }}
-          >
-            Sistom
-          </Typography>
-        </Link>
+          <Link to="/">
+            <Box component="img" alt="Logo" src={Logo} height={65} />
+          </Link>
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <Typography
+              variant="h4"
+              noWrap
+              color="white"
+              sx={{
+                ml: 1,
+                fontFamily: "Varela Round",
+                fontWeight: 700,
+              }}
+            >
+              Sistom
+            </Typography>
+          </Link>
           {pb.authStore.isValid ? (
             <Box
               sx={{

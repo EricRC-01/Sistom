@@ -1,9 +1,9 @@
 import { Grid, Typography, Button, Paper, Box } from "@mui/material";
 
+import { RemoveButton } from "components/RemoveButton";
+
 export const DisplayPaciente = ({ query }) => {
   const { isLoading, isError, error, data } = query;
-
-  console.log(data);
 
   if (isLoading) return <div>Carregando...</div>;
   if (isError) return <div>{error}</div>;
@@ -67,7 +67,7 @@ export const DisplayPaciente = ({ query }) => {
           <Button size="small" variant="contained" color="primary">
             Editar
           </Button>
-          <Button size="small">Remover</Button>
+          <RemoveButton table="pacientes" id={data.id} />
         </Box>
       </Grid>
     </>

@@ -8,7 +8,7 @@ import {
 } from "react";
 import PocketBase from "pocketbase";
 
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 const BASE_URL = "https://sistom.pockethost.io/";
 
@@ -16,6 +16,8 @@ const PocketContext = createContext({});
 
 export const PocketProvider = ({ children }) => {
   const pb = useMemo(() => new PocketBase(BASE_URL), []);
+
+  const queryClient = useQueryClient();
 
   const [user, setUser] = useState(pb.authStore.model);
 
@@ -60,13 +62,38 @@ export const PocketProvider = ({ children }) => {
     });
   });
 
-  const getById = useCallback(async ({ table, id }) => {
-    return await pb.collection(table).getOne(id, {});
+  const deleteRecord = useCallback(({ table }) => {
+    return useMutation({
+      mutationFn: async ({ id }) => {
+        return await pb.collection(table).delete(id);
+      },
+      onSuccess: () => {
+        queryClient.invalidateQueries({ queryKey: [table] });
+      },
+      onError: (error) => {
+        alert("Erro ao deletar");
+        console.log(error.response.data);
+        console.log(error.response.status);
+      },
+    });
   });
 
-  const registerField = useCallback(async ({ data, tabela }) => {
-    return await pb.collection(tabela).create(data);
-  }, []);
+  const registerField = useCallback(({ table }) => {
+    return useMutation({
+      mutationFn: async ({ data }) => {
+        console.log(data);
+        return await pb.collection(table).create(data);
+      },
+      onSuccess: () => {
+        queryClient.invalidateQueries({ queryKey: [table] });
+      },
+      onError: (error) => {
+        alert("Erro ao criar");
+        console.log(error.response.data);
+        console.log(error.response.status);
+      },
+    });
+  });
 
   return (
     <PocketContext.Provider
@@ -79,7 +106,7 @@ export const PocketProvider = ({ children }) => {
         getFullDataById,
         getFullData,
         registerField,
-        getById,
+        deleteRecord,
       }}
     >
       {children}

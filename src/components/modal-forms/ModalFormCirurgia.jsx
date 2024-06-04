@@ -5,19 +5,20 @@ import {
   DialogContent,
   DialogActions,
   IconButton,
-  Typography,
 } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { FormInputText } from "../form-components/FormInputText";
 import { FormInputDropdown } from "../form-components/FormInputDropdown";
 import { FormInputDate } from "../form-components/FormInputDate";
 
-import { useMutation } from "@tanstack/react-query";
 import { usePocket } from "contexts/PocketContext";
 
 import { useState } from "react";
-import AddCircleRoundedIcon from "@mui/icons-material/AddCircleRounded";
 import CloseIcon from "@mui/icons-material/Close";
+
+import { RegisterButton } from "components/RegisterButton";
+
+import { OpenModalButton } from "components/OpenModalButton";
 
 import { useQueryClient } from "@tanstack/react-query";
 
@@ -37,65 +38,16 @@ export const ModalFormCirurgia = () => {
     reset();
   };
 
-  const location = useLocation();
-  const searchParams = new URLSearchParams(location.search);
-  const userId = searchParams.get("userId");
-
-  const queryClient = useQueryClient();
-
-  const { registerField } = usePocket();
-
-  const { mutate } = useMutation({
-    mutationFn: registerField,
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: [userId] });
-      handleClose();
-    },
-    onError: () => {
-      alert("ERROR");
-    },
-  });
-
   const { handleSubmit, reset, control } = useForm({
     defaultValues: defaultValues,
   });
 
-  const onSubmit = async (data) => {
-    mutate({
-      data: {
-        hospital: data.hospital,
-        data: data.data,
-        tipo: data.tipo,
-        paciente: userId,
-      },
-      tabela: "cirurgias",
-    });
-  };
-
   return (
     <>
-      <IconButton
-        onClick={handleOpen}
-        variant="contained"
-        sx={{
-          borderRadius: 5,
-          marginRight: 1,
-          backgroundColor: "primary.main",
-          color: "white",
-          "&:hover": {
-            backgroundColor: "primary.dark",
-          },
-        }}
-      >
-        <AddCircleRoundedIcon />
-        <Typography sx={{ display: { xs: "none", sm: "none", md: "block" } }}>
-          Adicionar
-        </Typography>
-      </IconButton>
-
+      <OpenModalButton handleOpen={handleOpen} />
       <Dialog open={open} onClose={handleClose} fullWidth>
         <DialogTitle>
-          Registrar Novo Paciente
+          Registrar Nova Cirurgia
           <IconButton onClick={handleClose} sx={{ float: "right" }}>
             <CloseIcon color="primary"></CloseIcon>
           </IconButton>
@@ -131,9 +83,11 @@ export const ModalFormCirurgia = () => {
           <FormInputText name="hospital" control={control} label="Hospital" />
         </DialogContent>
         <DialogActions>
-          <Button color="primary" onClick={handleSubmit(onSubmit)}>
-            Registrar
-          </Button>
+          <RegisterButton
+            table="cirurgias"
+            handleSubmit={handleSubmit}
+            handleClose={handleClose}
+          />
           <Button color="inherit" onClick={handleClose}>
             Cancelar
           </Button>

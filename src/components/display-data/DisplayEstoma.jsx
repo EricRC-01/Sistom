@@ -7,6 +7,8 @@ import {
   Button,
 } from "@mui/material";
 
+import { RemoveButton } from "components/RemoveButton";
+
 export const DisplayEstoma = ({ query }) => {
   const { isLoading, isError, error, data } = query;
 
@@ -93,7 +95,7 @@ export const DisplayEstoma = ({ query }) => {
                 <Button size="small" variant="contained" color="primary">
                   Editar
                 </Button>
-                <Button size="small">Remover</Button>
+                <RemoveButton table="estomas" id={item.id} />
               </CardActions>
             </Card>
           </Grid>

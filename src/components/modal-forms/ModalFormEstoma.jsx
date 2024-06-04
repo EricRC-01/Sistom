@@ -20,6 +20,9 @@ import CloseIcon from "@mui/icons-material/Close";
 import AddCircleRoundedIcon from "@mui/icons-material/AddCircleRounded";
 import ArrowUpwardRoundedIcon from "@mui/icons-material/ArrowUpwardRounded";
 
+import { RegisterButton } from "components/RegisterButton";
+import { OpenModalButton } from "components/OpenModalButton";
+
 import { useQueryClient } from "@tanstack/react-query";
 
 import { Form, useLocation } from "react-router-dom";
@@ -60,85 +63,15 @@ export const ModalFormEstoma = () => {
     reset();
   };
 
-  const location = useLocation();
-  const searchParams = new URLSearchParams(location.search);
-  const userId = searchParams.get("userId");
-
-  const queryClient = useQueryClient();
-
-  const { registerField } = usePocket();
-
-  const { mutate } = useMutation({
-    mutationFn: registerField,
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: [userId] });
-      handleClose();
-    },
-    onError: () => {
-      alert("ERROR");
-    },
-  });
-
-  const { handleSubmit, reset, control, setValue } = useForm({
+  const { handleSubmit, reset, control } = useForm({
     defaultValues: defaultValues,
   });
 
-  const onSubmit = async (data) => {
-    mutate({
-      data: {
-        diagnostico: data.diagnostico,
-        tipoEstoma: data.tipoEstoma,
-        demarcacao: data.demarcacao,
-        exteriorizacao: data.exteriorizacao,
-        abdome: data.abdome,
-        permanencia: data.permanencia,
-        localizacao: data.localizacao,
-        higiene: data.higiene,
-        medida: data.medida,
-        formato: data.formato,
-        forma: data.forma,
-        coloracao: data.coloracao,
-        haste: data.haste,
-        protusao: data.protusao,
-        funcao: data.funcao,
-        complicacao: data.complicacao,
-        periestoma: data.periestoma,
-        diametro: data.diametro,
-        sistema: data.sistema,
-        tipoPlaca: data.tipoPlaca,
-        adjuvante: data.adjuvante,
-        custoExtra: data.custoExtra,
-        adaptacao: data.adaptacao,
-        equipamento: data.equipamento,
-        paciente: userId,
-      },
-      tabela: "estomas",
-    });
-  };
-
   const modalRef = useRef(null);
-  console.log(modalRef);
 
   return (
     <>
-      <IconButton
-        onClick={handleOpen}
-        variant="contained"
-        sx={{
-          borderRadius: 5,
-          marginRight: 1,
-          backgroundColor: "primary.main",
-          color: "white",
-          "&:hover": {
-            backgroundColor: "primary.dark",
-          },
-        }}
-      >
-        <AddCircleRoundedIcon />
-        <Typography sx={{ display: { xs: "none", sm: "none", md: "block" } }}>
-          Adicionar
-        </Typography>
-      </IconButton>
+      <OpenModalButton handleOpen={handleOpen} />
 
       <Dialog open={open} onClose={handleClose} maxWidth="sm" fullWidth>
         <DialogTitle>
@@ -377,9 +310,11 @@ export const ModalFormEstoma = () => {
             <ArrowUpwardRoundedIcon fontSize="medium" />
           </IconButton>
 
-          <Button color="primary" onClick={handleSubmit(onSubmit)}>
-            Registrar
-          </Button>
+          <RegisterButton
+            table="estomas"
+            handleSubmit={handleSubmit}
+            handleClose={handleClose}
+          />
           <Button color="inherit" onClick={handleClose}>
             Cancelar
           </Button>

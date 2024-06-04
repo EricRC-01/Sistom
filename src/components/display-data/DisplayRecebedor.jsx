@@ -7,6 +7,8 @@ import {
   Button,
 } from "@mui/material";
 
+import { RemoveButton } from "components/RemoveButton";
+
 export const DisplayRecebedor = ({ query }) => {
   const { isLoading, isError, error, data } = query;
 
@@ -33,7 +35,7 @@ export const DisplayRecebedor = ({ query }) => {
                 <Button size="small" variant="contained" color="primary">
                   Editar
                 </Button>
-                <Button size="small">Remover</Button>
+                <RemoveButton table="recebedores" id={item.id} />
               </CardActions>
             </Card>
           </Grid>

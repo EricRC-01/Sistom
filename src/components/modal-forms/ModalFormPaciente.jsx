@@ -15,8 +15,8 @@ import { FormInputDate } from "../form-components/FormInputDate";
 import { FormInputRadio } from "../form-components/FormInputRadio";
 import { FormInputMultiCheckbox } from "components/form-components/FormInputMultiCheckbox";
 
-import { useMutation } from "@tanstack/react-query";
-import { usePocket } from "contexts/PocketContext";
+import { RegisterButton } from "components/RegisterButton";
+import { OpenModalButton } from "components/OpenModalButton";
 
 import { useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
@@ -50,67 +50,13 @@ export const ModalFormPaciente = () => {
     reset();
   };
 
-  const queryClient = useQueryClient();
-
-  const { registerField, pb } = usePocket();
-
-  const { mutate, isLoading, isError } = useMutation({
-    mutationFn: registerField,
-    onSuccess: () => {
-      handleClose();
-      queryClient.invalidateQueries({ queryKey: ["pacientes"] });
-    },
-    onError: () => {
-      alert("ERROR");
-    },
-  });
-
   const { handleSubmit, reset, control, setValue } = useForm({
     defaultValues: defaultValues,
   });
 
-  const onSubmit = async (data) => {
-    mutate({
-      data: {
-        nome: data.nome,
-        cns: data.cns,
-        sexo: data.sexo,
-        tel: data.tel,
-        escolaridade: data.escolaridade,
-        esf: data.esf,
-        convenio: data.convenio,
-        profissao: data.profissao,
-        recadastro: data.recadastro,
-        dataNasc: data.dataNasc,
-        dataInsc: data.dataInsc,
-        mobilidade: data.mobilidade,
-        cinto: data.cinto,
-        efluente: data.efluente,
-      },
-      tabela: "pacientes",
-    });
-  };
-
   return (
     <>
-      <IconButton
-        onClick={handleOpen}
-        variant="contained"
-        sx={{
-          borderRadius: 5,
-          marginRight: 1,
-          backgroundColor: "primary.main",
-          color: "white",
-          "&:hover": {
-            backgroundColor: "primary.dark",
-          },
-        }}
-      >
-        <AddCircleRoundedIcon />
-        <Typography sx={{ display: { xs: "none", sm: "none", md: "block" } }}>
-          Adicionar
-        </Typography>
-      </IconButton>
+      <OpenModalButton handleOpen={handleOpen} />
 
       <Dialog open={open} onClose={handleClose} fullWidth>
         <DialogTitle>
@@ -250,9 +196,11 @@ export const ModalFormPaciente = () => {
           />
         </DialogContent>
         <DialogActions>
-          <Button color="primary" onClick={handleSubmit(onSubmit)}>
-            Registrar
-          </Button>
+          <RegisterButton
+            table="pacientes"
+            handleSubmit={handleSubmit}
+            handleClose={handleClose}
+          />
           <Button color="inherit" onClick={handleClose}>
             Cancelar
           </Button>

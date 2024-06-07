@@ -1,10 +1,12 @@
 import {
   Grid,
+  Typography,
+  Button,
+  Paper,
+  Box,
   Card,
   CardContent,
   CardActions,
-  Typography,
-  Button,
 } from "@mui/material";
 
 import { RemoveButton } from "components/RemoveButton";
@@ -12,29 +14,42 @@ import { RemoveButton } from "components/RemoveButton";
 export const DisplayEstoma = ({ query }) => {
   const { isLoading, isError, error, data } = query;
 
+  console.log(data);
+
   if (isLoading) return <div>Carregando...</div>;
   if (isError) return <div>{error}</div>;
   return (
     <>
-      <Grid container spacing={2} mt={1} position={"relative"}>
-        {data.map((item, index) => (
-          <Grid item xs={12} sm={12} md={12} key={item.id}>
+      <Grid container spacing={2} mt={1}>
+        {data.map((item) => (
+          <Grid item sx={{ width: "100%" }} key={item.id}>
             <Card>
               <CardContent>
                 <Typography variant="h4" component="div" mb={2}>
-                  {item.tipoEstoma}
+                  {item.tipo}
                 </Typography>
                 <Typography variant="body1" color="text.secondary" mb={1}>
-                  Realizado demarcação no pré-operatório: {item.demarcacao}
+                  CID: {item.CID ? item.CID : "Não informado"}
                 </Typography>
                 <Typography variant="body1" color="text.secondary" mb={1}>
-                  Modo de exteriorização: {item.exteriorizacao}
+                  Doença de base: {item.doenca ? item.doenca : "Não informado"}
                 </Typography>
                 <Typography variant="body1" color="text.secondary" mb={1}>
-                  Tipo de abdome: {item.abdome}
+                  Houve demarcação?{" "}
+                  {item.demarcacao ? item.demarcacao : "Não informado"}
                 </Typography>
                 <Typography variant="body1" color="text.secondary" mb={1}>
-                  Tempo de permanência do estoma: {item.permanencia}
+                  Modo de exteriorização:{" "}
+                  {item.exteriorizacao ? item.exteriorizacao : "Não informado"}
+                </Typography>
+                <Typography variant="body1" color="text.secondary" mb={1}>
+                  Tipo de abdome: {item.abdome ? item.abdome : "Não informado"}
+                </Typography>
+                <Typography variant="body1" color="text.secondary" mb={1}>
+                  Permanência: {item.permanencia}{" "}
+                  {item.permanencia === "Indeterminado"
+                    ? `(${item.indeterminadoMotivo})`
+                    : ""}
                 </Typography>
                 <Typography variant="body1" color="text.secondary" mb={1}>
                   Localização abdominal: {item.localizacao}
@@ -43,52 +58,40 @@ export const DisplayEstoma = ({ query }) => {
                   Higiene: {item.higiene}
                 </Typography>
                 <Typography variant="body1" color="text.secondary" mb={1}>
-                  Medida do Estoma: {item.medida}
+                  Forma: {item.formato} e {item.forma}
                 </Typography>
                 <Typography variant="body1" color="text.secondary" mb={1}>
-                  Formato do Estoma: {item.formato}
+                  Coloração: {item.coloracao ? item.coloracao : "Não informado"}
                 </Typography>
                 <Typography variant="body1" color="text.secondary" mb={1}>
-                  Forma do Estoma: {item.forma}
+                  Haste: {item.haste}
                 </Typography>
                 <Typography variant="body1" color="text.secondary" mb={1}>
-                  Coloração do Estoma: {item.coloracao}
+                  Protusão: {item.protusao ? item.protusao : "Não informado"}
                 </Typography>
                 <Typography variant="body1" color="text.secondary" mb={1}>
-                  Tubete/haste fixa: {item.haste}
+                  É funcional? {item.funcional}
                 </Typography>
                 <Typography variant="body1" color="text.secondary" mb={1}>
-                  Estoma: {item.estoma}
+                  Complicações:{" "}
+                  {item.complicacao.length
+                    ? item.complicacao.join(", ")
+                    : "Não informado"}
                 </Typography>
                 <Typography variant="body1" color="text.secondary" mb={1}>
-                  Função: {item.funcao}
+                  Pele periestoma:{" "}
+                  {item.periestoma.length
+                    ? item.periestoma.join(", ")
+                    : "Não informado"}
                 </Typography>
                 <Typography variant="body1" color="text.secondary" mb={1}>
-                  Complicações presentes: {item.complicacao}
+                  Usa cinto: {item.cinto ? "Sim" : "Não"}
                 </Typography>
                 <Typography variant="body1" color="text.secondary" mb={1}>
-                  Pele periestoma: {item.periestoma}
-                </Typography>
-                <Typography variant="body1" color="text.secondary" mb={1}>
-                  Diâmetro do equipamento em mm: {item.diametro}
-                </Typography>
-                <Typography variant="body1" color="text.secondary" mb={1}>
-                  Sistema: {item.sistema}
-                </Typography>
-                <Typography variant="body1" color="text.secondary" mb={1}>
-                  Tipo de placa: {item.tipoPlaca}
-                </Typography>
-                <Typography variant="body1" color="text.secondary" mb={1}>
-                  Uso de adjuvante: {item.adjuvante}
-                </Typography>
-                <Typography variant="body1" color="text.secondary" mb={1}>
-                  Custo extra com equipamento/adjuvante: {item.custoExtra}
-                </Typography>
-                <Typography variant="body1" color="text.secondary" mb={1}>
-                  Como está sua adaptação: {item.adaptacao}
-                </Typography>
-                <Typography variant="body1" color="text.secondary" mb={1}>
-                  Equipamentos indicados: {item.equipamento}
+                  Efluente:{" "}
+                  {item.efluente.length
+                    ? item.efluente.join(", ")
+                    : "Não informado"}
                 </Typography>
               </CardContent>
               <CardActions sx={{ justifyContent: "flex-end" }}>

@@ -9,6 +9,8 @@ import {
 
 import { RemoveButton } from "components/RemoveButton";
 
+import { formatPhoneNumber, formatCPF } from "../../utils/Format";
+
 export const DisplayRecebedor = ({ query }) => {
   const { isLoading, isError, error, data } = query;
 
@@ -25,10 +27,16 @@ export const DisplayRecebedor = ({ query }) => {
                   {item.nome}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  CPF: {item.cpf}
+                  CPF: {formatCPF(item.cpf)}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                   Sexo: {item.sexo}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Telefone: {formatPhoneNumber(item.tel)}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Representante: {item.orgao ? item.orgao : "Não informado"}
                 </Typography>
               </CardContent>
               <CardActions sx={{ justifyContent: "flex-end" }}>

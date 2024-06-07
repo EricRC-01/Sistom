@@ -53,7 +53,7 @@ const Auth = () => {
           alignItems: "center",
         }}
       >
-        {isError && <p style={{ color: "red" }}>Invalid email or password</p>}
+        {isError && <p style={{ color: "red" }}>Email ou senha inválido</p>}
         <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
           <LockOutlinedIcon />
         </Avatar>
@@ -91,11 +91,6 @@ const Auth = () => {
             {...register("password", {
               required: "Password is required",
             })}
-          />
-          <FormControlLabel
-            control={<Checkbox name="remember" color="primary" />}
-            label="Lembrar do usuário"
-            {...register("remember")}
           />
           <Button
             type="submit"

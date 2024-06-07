@@ -1,8 +1,5 @@
 import React, { useEffect } from "react";
 import {
-  Table,
-  TableBody,
-  TableCell,
   Card,
   CardContent,
   CardActions,
@@ -13,107 +10,72 @@ import {
   Typography,
   Paper,
 } from "@mui/material";
+import dayjs from "dayjs";
+import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+
+import { useNavigate } from "react-router-dom";
 
 import { Link } from "react-router-dom";
 
-import { useQuery } from "@tanstack/react-query";
+import { formatPhoneNumber, formatDate } from "../utils/Format";
 
-import { usePocket } from "contexts/PocketContext";
+export const TabelaPaciente = ({ query }) => {
+  const { isLoading, isError, error, data } = query;
+  console.log("aqui");
 
-export const TabelaPaciente = () => {
-  const { getFullData } = usePocket();
+  const navigate = useNavigate();
 
-  const { isLoading, isError, error, data } = getFullData({
-    table: "pacientes",
-  });
+  const columns = [
+    { field: "nome", headerName: "Nome", width: 150 },
+    { field: "cns", headerName: "CNS", width: 150 },
+    { field: "tel", headerName: "Telefone", width: 150 },
+    { field: "idade", headerName: "Idade", width: 70 },
+    {
+      field: "dataNasc",
+      headerName: "Nascimento",
+      width: 150,
+      valueFormatter: (params) => formatDate(params),
+    },
+    {
+      field: "dataInsc",
+      headerName: "Inscrição",
+      width: 150,
+      valueFormatter: (params) => formatDate(params),
+    },
+    { field: "recadastro", headerName: "Recadastro", width: 150 },
+    { field: "convenio", headerName: "Convenio", width: 150 },
+    { field: "esf", headerName: "ESF", width: 150 },
+    { field: "escolaridade", headerName: "Escolaridade", width: 150 },
+    { field: "profissao", headerName: "Profissão", width: 150 },
+    { field: "mobilidade", headerName: "Mobilidade", width: 150 },
+    { field: "renda", headerName: "Renda", width: 150 },
+    { field: "condicoes", headerName: "Condições", width: 150 },
+    { field: "ativo", headerName: "Status", width: 150 },
+  ];
+
+  const handleRowClick = (
+    params, // GridRowParams
+    event, // MuiEvent<React.MouseEvent<HTMLElement>>
+    details // GridCallbackDetails
+  ) => {
+    navigate(`/Paciente?userId=${params.id}`);
+  };
 
   if (isLoading) return <div>Carregando...</div>;
   if (isError) return <div>{error}</div>;
 
   return (
     <>
-      <Container
-        component={Paper}
-        sx={{
-          display: { xs: "none", sm: "none", md: "block" },
-          overflow: "auto",
-        }}
-      >
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>
-                <Typography variant="body1">Nome</Typography>
-              </TableCell>
-              <TableCell>
-                <Typography variant="body1">Telefone</Typography>
-              </TableCell>
-              <TableCell>
-                <Typography variant="body1">CNS</Typography>
-              </TableCell>
-              <TableCell>
-                <Typography variant="body1">Sexo</Typography>
-              </TableCell>
-              <TableCell>
-                <Typography variant="body1">Data de Nascimento</Typography>
-              </TableCell>
-              <TableCell>
-                <Typography variant="body1">Data de Inscrição</Typography>
-              </TableCell>
-              <TableCell>
-                <Typography variant="body1">Ações</Typography>
-              </TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {data.map((d) => (
-              <TableRow key={d.id}>
-                <TableCell>{d.nome}</TableCell>
-                <TableCell>{d.tel}</TableCell>
-                <TableCell>{d.cns}</TableCell>
-                <TableCell>{d.sexo.toString()}</TableCell>
-                <TableCell>{d.dataNasc.split(" ")[0]}</TableCell>
-                <TableCell>{d.dataInsc.split(" ")[0]}</TableCell>
-                <TableCell>
-                  <Button
-                    component={Link}
-                    to={`/Paciente?userId=${d.id}`}
-                    startIcon={<MoreHorizIcon />}
-                  />
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </Container>
-      <Container
-        sx={{ display: { xs: "block", sm: "block", md: "none" }, py: 3 }}
-      >
-        {data.map((d) => (
-          <Card sx={{ mb: 3 }} key={d.id}>
-            <CardContent>
-              <Typography variant="h6">Nome: {d.nome}</Typography>
-              <Typography variant="body1">Telefone: {d.tel}</Typography>
-              <Typography variant="body1">CNS: {d.cns}</Typography>
-              <Typography variant="body1">Sexo: {d.sexo.toString()}</Typography>
-              <Typography variant="body1">
-                Data de Nascimento: {d.dataNasc.split(" ")[0]}
-              </Typography>
-              <Typography variant="body1">
-                Data de Inscrição: {d.dataInsc.split(" ")[0]}
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button
-                component={Link}
-                to={`/Paciente?userId=${d.id}`}
-                startIcon={<MoreHorizIcon />}
-              />
-            </CardActions>
-          </Card>
-        ))}
-      </Container>
+      <DataGrid
+        rows={data}
+        columns={columns}
+        pageSize={5}
+        rowsPerPageOptions={[5]}
+        disableSelectionOnClick
+        onRowDoubleClick={handleRowClick}
+        disableRowSelectionOnClick
+      />
     </>
   );
 };

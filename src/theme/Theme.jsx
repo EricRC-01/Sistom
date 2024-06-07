@@ -6,6 +6,8 @@ import { createContext } from "react";
 
 import { useMemo, useState } from "react";
 
+import { ptBR } from "@mui/x-data-grid/locales";
+
 export const themeSettings = (mode, size) => {
   return {
     palette: {
@@ -58,7 +60,7 @@ export const useTheme = () => {
   );
 
   const theme = useMemo(
-    () => responsiveFontSizes(createTheme(themeSettings(mode, size))),
+    () => responsiveFontSizes(createTheme(themeSettings(mode, size), ptBR)),
     [mode, size]
   );
   return [theme, colorMode, fontSize];

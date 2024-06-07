@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Container, Box, Tab } from "@mui/material";
+import { Container, Box, Tab, Modal } from "@mui/material";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 
 import { useQuery, useQueryClient } from "@tanstack/react-query";
@@ -13,10 +13,10 @@ import { DisplayCirurgia } from "components/display-data/DisplayCirurgia";
 import { DisplayEstoma } from "components/display-data/DisplayEstoma";
 import { DisplayPaciente } from "components/display-data/DisplayPaciente";
 import { DisplayRecebedor } from "components/display-data/DisplayRecebedor";
+import { DisplayConsulta } from "components/display-data/DisplayConsulta";
+import { DisplayEquipamento } from "components/display-data/DisplayEquipamento";
 
-import { ModalFormCirurgia } from "components/modal-forms/ModalFormCirurgia";
-import { ModalFormEstoma } from "components/modal-forms/ModalFormEstoma";
-import { ModalFormRecebedor } from "components/modal-forms/ModalFormRecebedor";
+import { ModalForm } from "components/ModalForm";
 
 export const PaginaPaciente = () => {
   const [tabValue, setTabValue] = useState("1");
@@ -30,12 +30,29 @@ export const PaginaPaciente = () => {
   const searchParams = new URLSearchParams(location.search);
   const userId = searchParams.get("userId");
 
-  const { getFullDataById, getDataById } = usePocket();
+  const { getDataById, getFullList } = usePocket();
 
   const pacienteQuery = getDataById({ table: "pacientes", id: userId });
-  const estomaQuery = getFullDataById({ table: "estomas", id: userId });
-  const recebedorQuery = getFullDataById({ table: "recebedores", id: userId });
-  const cirurgiaQuery = getFullDataById({ table: "cirurgias", id: userId });
+  const estomaQuery = getFullList({
+    table: "estomas",
+    filter: `paciente.id="${userId}"`,
+  });
+  const recebedorQuery = getFullList({
+    table: "recebedores",
+    filter: `paciente.id="${userId}"`,
+  });
+  const cirurgiaQuery = getFullList({
+    table: "cirurgias",
+    filter: `paciente.id="${userId}"`,
+  });
+  const consultaQuery = getFullList({
+    table: "consultas",
+    filter: `paciente.id="${userId}"`,
+  });
+  const equipamentoQuery = getFullList({
+    table: "equipamentos",
+    filter: `paciente.id="${userId}"`,
+  });
 
   useEffect(() => {
     return () => {
@@ -54,22 +71,32 @@ export const PaginaPaciente = () => {
                 <Tab label="Estomas" value="2" />
                 <Tab label="Recebedores" value="3" />
                 <Tab label="Cirurgias" value="4" />
+                <Tab label="Consultas" value="5" />
+                <Tab label="Equipamentos" value="6" />
               </TabList>
             </Box>
             <TabPanel value="1">
               <DisplayPaciente query={pacienteQuery} />
             </TabPanel>
             <TabPanel value="2">
-              <ModalFormEstoma />
+              <ModalForm table={"estomas"} />
               <DisplayEstoma query={estomaQuery} />
             </TabPanel>
             <TabPanel value="3">
-              <ModalFormRecebedor />
+              <ModalForm table={"recebedores"} />
               <DisplayRecebedor query={recebedorQuery} />
             </TabPanel>
             <TabPanel value="4">
-              <ModalFormCirurgia />
+              <ModalForm table={"cirurgias"} />
               <DisplayCirurgia query={cirurgiaQuery} />
+            </TabPanel>
+            <TabPanel value="5">
+              <ModalForm table={"consultas"} />
+              <DisplayConsulta query={consultaQuery} />
+            </TabPanel>
+            <TabPanel value="6">
+              <ModalForm table={"equipamentos"} />
+              <DisplayEquipamento query={equipamentoQuery} />
             </TabPanel>
           </TabContext>
         </Box>

@@ -14,7 +14,7 @@ import FilterListRoundedIcon from "@mui/icons-material/FilterListRounded";
 import { useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 
-import { FormInputRadio } from "components/form-components/FormInputRadio";
+import { RadioButtonGroup } from "react-hook-form-mui";
 
 const defaultValues = {
   sexo: "",
@@ -71,11 +71,14 @@ export const ModalFilter = () => {
             margin: "10px 10px",
           }}
         >
-          <FormInputRadio
+          <RadioButtonGroup
             name="sexo"
             control={control}
             label="Sexo"
-            options={["Masculino", "Feminino"]}
+            options={[
+              { id: "Masculino", label: "Masculino" },
+              { id: "Feminino", label: "Feminino" },
+            ]}
           />
         </DialogContent>
         <DialogActions>

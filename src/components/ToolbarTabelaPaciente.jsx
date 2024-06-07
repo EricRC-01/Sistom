@@ -3,15 +3,18 @@ import {
   Typography,
   Input,
   IconButton,
+  TextField,
 } from "@mui/material";
 
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import LeaderboardRoundedIcon from "@mui/icons-material/LeaderboardRounded";
 
-import { ModalFormPaciente } from "./modal-forms/ModalFormPaciente";
+import { Controller } from "react-hook-form";
+
+import { ModalForm } from "./ModalForm";
 import { ModalFilter } from "./ModalFilter";
 
-export const ToolbarTabelaPaciente = () => {
+export const ToolbarTabelaPaciente = ({ control, handleSubmit, onSubmit }) => {
   return (
     <>
       <Toolbar
@@ -21,21 +24,28 @@ export const ToolbarTabelaPaciente = () => {
           justifyContent: "space-between",
         }}
       >
-        <Input
-          sx={{
-            border: "0.1rem solid #cccccc",
-            borderRadius: 4,
-            marginRight: "-1.5rem",
-            height: "2.2rem",
-            padding: "0.5rem",
-            width: "75%",
-          }}
-          placeholder="Digite o nome do paciente"
-          disableUnderline
+        <Controller
+          control={control}
+          name="busca"
+          render={({ field: { onChange, onBlur, value, ref } }) => (
+            <Input
+              sx={{
+                border: "0.1rem solid #cccccc",
+                borderRadius: 4,
+                marginRight: "-1.5rem",
+                height: "2.2rem",
+                padding: "0.5rem",
+                width: "75%",
+              }}
+              placeholder="Digite o nome do paciente"
+              disableUnderline
+              onChange={onChange}
+            />
+          )}
         />
 
         <IconButton
-          onClick={() => alert("Buscando...")}
+          onClick={handleSubmit(onSubmit)}
           variant="contained"
           sx={{
             borderRadius: 5,
@@ -55,7 +65,7 @@ export const ToolbarTabelaPaciente = () => {
 
         <ModalFilter />
 
-        <ModalFormPaciente />
+        <ModalForm table={"pacientes"} />
 
         <IconButton
           variant="contained"

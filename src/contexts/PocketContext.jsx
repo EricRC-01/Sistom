@@ -42,22 +42,11 @@ export const PocketProvider = ({ children }) => {
     });
   });
 
-  const getFullDataById = useCallback(({ table, id }) => {
+  const getFullList = useCallback(({ table, filter = "" }) => {
     return useQuery({
-      queryKey: [table, id],
+      queryKey: [table, filter],
       queryFn: async () => {
-        return await pb
-          .collection(table)
-          .getFullList({ filter: `paciente.id="${id}"` });
-      },
-    });
-  });
-
-  const getFullData = useCallback(({ table }) => {
-    return useQuery({
-      queryKey: [table],
-      queryFn: async () => {
-        return await pb.collection(table).getFullList();
+        return await pb.collection(table).getFullList({ filter: `${filter}` });
       },
     });
   });
@@ -103,8 +92,7 @@ export const PocketProvider = ({ children }) => {
         user,
         pb,
         getDataById,
-        getFullDataById,
-        getFullData,
+        getFullList,
         registerField,
         deleteRecord,
       }}

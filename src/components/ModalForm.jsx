@@ -15,15 +15,60 @@ import { FormConsulta } from "./form-components/FormConsulta";
 import { FormEquipamento } from "./form-components/FormEquipamento";
 
 import { useForm } from "react-hook-form";
-
+import { usePocket } from "contexts/PocketContext";
+import { useLocation } from "react-router-dom";
 import { useState } from "react";
+import { useQueryClient } from "@tanstack/react-query";
+
+import {
+  defaultValuePaciente,
+  defaultValueCirurgia,
+  defaultValueConsulta,
+  defaultValueEquipamento,
+  defaultValueRecebedor,
+  defaultValueEstoma,
+} from "../utils/defaultValues";
+
 import CloseIcon from "@mui/icons-material/Close";
 
 import { RegisterButton } from "components/RegisterButton";
-
 import { OpenModalButton } from "components/OpenModalButton";
 
-export const ModalForm = ({ table }) => {
+export const ModalForm = ({ table, mode, defaultValuesEdit = {} }) => {
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const userId = searchParams.get("userId");
+
+  const queryClient = useQueryClient();
+
+  var defaultValuesRegister = {};
+  switch (table) {
+    case "pacientes":
+      defaultValuesRegister = defaultValuePaciente;
+      break;
+    case "cirurgias":
+      defaultValuesRegister = defaultValueCirurgia;
+      break;
+    case "consultas":
+      defaultValuesRegister = defaultValueConsulta;
+      break;
+    case "equipamentos":
+      defaultValuesRegister = defaultValueEquipamento;
+      break;
+    case "recebedores":
+      defaultValuesRegister = defaultValueRecebedor;
+      break;
+    case "estomas":
+      defaultValuesRegister = defaultValueEstoma;
+      break;
+  }
+
+  const defaultValues =
+    mode === "edit" ? defaultValuesEdit : defaultValuesRegister;
+  const { handleSubmit, reset, control, watch } = useForm({
+    values: defaultValues,
+  });
+
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => {
@@ -31,20 +76,60 @@ export const ModalForm = ({ table }) => {
     reset();
   };
 
-  const { handleSubmit, reset, control } = useForm();
+  const { mutateRecord } = usePocket();
+  const { mutate, isPending } = mutateRecord({ table, mode });
+  console.log(defaultValuesEdit);
+
+  const onSubmit = async (data) => {
+    switch (mode) {
+      case "register":
+        console.log(data);
+        data.paciente = userId;
+        mutate(
+          { data },
+          {
+            onSuccess: () => {
+              if (table === "pacientes") {
+                queryClient.invalidateQueries({
+                  queryKey: ["pacientes_completo"],
+                });
+                queryClient.invalidateQueries({
+                  queryKey: ["pacientes_ativos"],
+                });
+                queryClient.invalidateQueries({
+                  queryKey: ["pacientes_consulta_atrasada"],
+                });
+                queryClient.invalidateQueries({
+                  queryKey: ["pacientes_sem_consulta"],
+                });
+              }
+              handleClose();
+              console.log("sucesso");
+            },
+          }
+        );
+        break;
+      case "edit":
+        const id = defaultValuesEdit.id;
+        mutate({ id, data }, { onSuccess: () => handleClose() });
+        break;
+      default:
+        break;
+    }
+  };
 
   const form = () => {
     switch (table) {
       case "cirurgias":
         return <FormCirurgia control={control} />;
       case "pacientes":
-        return <FormPaciente control={control} />;
+        return <FormPaciente control={control} mode={mode} watch={watch} />;
       case "estomas":
         return <FormEstoma control={control} />;
       case "recebedores":
         return <FormRecebedor control={control} />;
       case "consultas":
-        return <FormConsulta control={control} />;
+        return <FormConsulta control={control} mode={mode} />;
       case "equipamentos":
         return <FormEquipamento control={control} />;
       default:
@@ -54,12 +139,12 @@ export const ModalForm = ({ table }) => {
 
   return (
     <>
-      <OpenModalButton handleOpen={handleOpen} />
+      <OpenModalButton handleOpen={handleOpen} mode={mode} />
       <Dialog open={open} onClose={handleClose} fullWidth>
         <DialogTitle>
-          Registrar novo campo
+          {mode === "register" ? "Registrar novo campo" : "Editar campo"}
           <IconButton onClick={handleClose} sx={{ float: "right" }}>
-            <CloseIcon color="primary"></CloseIcon>
+            <CloseIcon color="primary" />
           </IconButton>
         </DialogTitle>
         <DialogContent
@@ -73,9 +158,9 @@ export const ModalForm = ({ table }) => {
         </DialogContent>
         <DialogActions>
           <RegisterButton
-            table={table}
+            onSubmit={onSubmit}
             handleSubmit={handleSubmit}
-            handleClose={handleClose}
+            isPending={isPending}
           />
           <Button color="inherit" onClick={handleClose}>
             Cancelar

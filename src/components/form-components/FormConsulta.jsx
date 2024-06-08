@@ -2,8 +2,24 @@ import { TextFieldElement } from "react-hook-form-mui";
 import { DateTimePickerElement } from "react-hook-form-mui/date-pickers";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { SelectElement } from "react-hook-form-mui";
 
-export const FormConsulta = ({ control }) => {
+const optionsStatusConsulta = [
+  {
+    id: "Pendente",
+    label: "Pendente",
+  },
+  {
+    id: "Realizada",
+    label: "Realizada",
+  },
+  {
+    id: "Cancelada",
+    label: "Cancelada",
+  },
+];
+
+export const FormConsulta = ({ control, mode }) => {
   return (
     <>
       <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="pt-br">
@@ -25,6 +41,17 @@ export const FormConsulta = ({ control }) => {
           required: "Campo obrigatório",
         }}
       />
+
+      {mode === "edit" && (
+        <SelectElement
+          label="Status"
+          name="status"
+          control={control}
+          required
+          rules={{ required: "Campo obrigatório" }}
+          options={optionsStatusConsulta}
+        />
+      )}
     </>
   );
 };

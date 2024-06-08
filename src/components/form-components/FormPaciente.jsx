@@ -4,6 +4,7 @@ import {
   CheckboxElement,
   RadioButtonGroup,
   SelectElement,
+  SwitchElement,
   TextFieldElement,
 } from "react-hook-form-mui";
 import { DatePickerElement } from "react-hook-form-mui/date-pickers";
@@ -298,9 +299,44 @@ const optionsRendaPaciente = [
   },
 ];
 
-export const FormPaciente = ({ control }) => {
+const optionsMotivoInatividadePaciente = [
+  {
+    id: "Óbito",
+    label: "Óbito",
+  },
+  {
+    id: "Transferência",
+    label: "Transferência",
+  },
+  {
+    id: "Abandono",
+    label: "Abandono",
+  },
+];
+
+export const FormPaciente = ({ control, mode, watch }) => {
+  const inativo = watch("ativo");
   return (
     <>
+      {mode === "edit" && (
+        <SwitchElement label="Ativo" name="ativo" control={control} />
+      )}
+
+      {inativo ? (
+        <></>
+      ) : (
+        <SelectElement
+          label="Motivo da inatividade"
+          name="motivoInatividade"
+          control={control}
+          required
+          rules={{
+            required: "Campo obrigatório",
+          }}
+          options={optionsMotivoInatividadePaciente}
+        />
+      )}
+
       <TextFieldElement
         label="Nome"
         name="nome"

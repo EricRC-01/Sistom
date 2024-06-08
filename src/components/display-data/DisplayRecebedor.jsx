@@ -10,6 +10,7 @@ import {
 import { RemoveButton } from "components/RemoveButton";
 
 import { formatPhoneNumber, formatCPF } from "../../utils/Format";
+import { ModalForm } from "components/ModalForm";
 
 export const DisplayRecebedor = ({ query }) => {
   const { isLoading, isError, error, data } = query;
@@ -40,9 +41,11 @@ export const DisplayRecebedor = ({ query }) => {
                 </Typography>
               </CardContent>
               <CardActions sx={{ justifyContent: "flex-end" }}>
-                <Button size="small" variant="contained" color="primary">
-                  Editar
-                </Button>
+                <ModalForm
+                  table="recebedores"
+                  mode="edit"
+                  defaultValuesEdit={item}
+                />
                 <RemoveButton table="recebedores" id={item.id} />
               </CardActions>
             </Card>

@@ -22,7 +22,6 @@ import { formatPhoneNumber, formatDate } from "../utils/Format";
 
 export const TabelaPaciente = ({ query }) => {
   const { isLoading, isError, error, data } = query;
-  console.log("aqui");
 
   const navigate = useNavigate();
 

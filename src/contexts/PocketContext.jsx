@@ -67,11 +67,21 @@ export const PocketProvider = ({ children }) => {
     });
   });
 
-  const registerField = useCallback(({ table }) => {
+  const mutateRecord = useCallback(({ table, mode }) => {
     return useMutation({
-      mutationFn: async ({ data }) => {
-        console.log(data);
-        return await pb.collection(table).create(data);
+      mutationFn: async ({ data = "", id = "" }) => {
+        switch (mode) {
+          case "register":
+            console.log(table, mode);
+            return await pb.collection(table).create(data);
+            break;
+          case "edit":
+            return await pb.collection(table).update(id, data);
+            break;
+          case "delete":
+            return await pb.collection(table).delete(id);
+            break;
+        }
       },
       onSuccess: () => {
         queryClient.invalidateQueries({ queryKey: [table] });
@@ -91,9 +101,9 @@ export const PocketProvider = ({ children }) => {
         logout,
         user,
         pb,
+        mutateRecord,
         getDataById,
         getFullList,
-        registerField,
         deleteRecord,
       }}
     >

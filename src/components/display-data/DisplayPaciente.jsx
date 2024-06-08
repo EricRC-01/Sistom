@@ -9,9 +9,12 @@ import {
   CardContent,
 } from "@mui/material";
 
+import dayjs from "dayjs";
+
 import { RemoveButton } from "components/RemoveButton";
 
 import { formatPhoneNumber, formatDate } from "../../utils/Format";
+import { ModalForm } from "components/ModalForm";
 
 export const DisplayPaciente = ({ query }) => {
   const { isLoading, isError, error, data } = query;
@@ -28,7 +31,7 @@ export const DisplayPaciente = ({ query }) => {
                 {data.nome}
               </Typography>
               <Typography variant="h5" mb={2}>
-                {data.ativo ? "Ativo" : "Inativo"}
+                {data.ativo ? "Ativo" : `Inativo - ${data.motivoInatividade}`}
               </Typography>
               <Typography variant="body1" color="text.secondary" mb={1}>
                 CNS: {data.cns}
@@ -73,9 +76,15 @@ export const DisplayPaciente = ({ query }) => {
               </Typography>
             </CardContent>
             <CardActions sx={{ justifyContent: "flex-end" }}>
-              <Button size="small" variant="contained" color="primary">
-                Editar
-              </Button>
+              <ModalForm
+                table="pacientes"
+                mode="edit"
+                defaultValuesEdit={{
+                  ...data,
+                  dataNasc: dayjs(data.dataNasc),
+                  dataInsc: dayjs(data.dataInsc),
+                }}
+              />
               <RemoveButton table="pacientes" id={data.id} />
             </CardActions>
           </Card>

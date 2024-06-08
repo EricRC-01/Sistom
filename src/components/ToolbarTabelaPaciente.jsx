@@ -65,7 +65,7 @@ export const ToolbarTabelaPaciente = ({ control, handleSubmit, onSubmit }) => {
 
         <ModalFilter />
 
-        <ModalForm table={"pacientes"} />
+        <ModalForm table={"pacientes"} mode={"register"} />
 
         <IconButton
           variant="contained"

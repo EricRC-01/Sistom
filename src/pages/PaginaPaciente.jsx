@@ -79,23 +79,23 @@ export const PaginaPaciente = () => {
               <DisplayPaciente query={pacienteQuery} />
             </TabPanel>
             <TabPanel value="2">
-              <ModalForm table={"estomas"} />
+              <ModalForm table={"estomas"} mode={"register"} />
               <DisplayEstoma query={estomaQuery} />
             </TabPanel>
             <TabPanel value="3">
-              <ModalForm table={"recebedores"} />
+              <ModalForm table={"recebedores"} mode={"register"} />
               <DisplayRecebedor query={recebedorQuery} />
             </TabPanel>
             <TabPanel value="4">
-              <ModalForm table={"cirurgias"} />
+              <ModalForm table={"cirurgias"} mode={"register"} />
               <DisplayCirurgia query={cirurgiaQuery} />
             </TabPanel>
             <TabPanel value="5">
-              <ModalForm table={"consultas"} />
+              <ModalForm table={"consultas"} mode={"register"} />
               <DisplayConsulta query={consultaQuery} />
             </TabPanel>
             <TabPanel value="6">
-              <ModalForm table={"equipamentos"} />
+              <ModalForm table={"equipamentos"} mode={"register"} />
               <DisplayEquipamento query={equipamentoQuery} />
             </TabPanel>
           </TabContext>

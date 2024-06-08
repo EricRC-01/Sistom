@@ -7,9 +7,12 @@ import {
   Button,
 } from "@mui/material";
 
+import dayjs from "dayjs";
+
 import { RemoveButton } from "components/RemoveButton";
 
 import { formatDate } from "../../utils/Format.js";
+import { ModalForm } from "components/ModalForm.jsx";
 
 export const DisplayCirurgia = ({ query }) => {
   const { isLoading, isError, error, data } = query;
@@ -40,9 +43,11 @@ export const DisplayCirurgia = ({ query }) => {
                 </Typography>
               </CardContent>
               <CardActions sx={{ justifyContent: "flex-end" }}>
-                <Button size="small" variant="contained" color="primary">
-                  Editar
-                </Button>
+                <ModalForm
+                  table="cirurgias"
+                  mode="edit"
+                  defaultValuesEdit={{ ...item, data: dayjs(item.data) }}
+                />
                 <RemoveButton table="cirurgias" id={item.id} />
               </CardActions>
             </Card>

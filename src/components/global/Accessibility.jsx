@@ -36,6 +36,7 @@ export const Accessibility = () => {
           color: "white",
         }}
         onClick={colorMode.toggleColorMode}
+        aria-label="Contraste"
       >
         <ContrastSharpIcon fontSize="medium" />
       </IconButton>
@@ -49,6 +50,7 @@ export const Accessibility = () => {
           color: "white",
         }}
         onClick={fontSize.decreaseFontSize}
+        aria-label="Diminuição de fonte"
       >
         <TextDecreaseSharpIcon fontSize="medium" />
       </IconButton>
@@ -62,6 +64,7 @@ export const Accessibility = () => {
           color: "white",
         }}
         onClick={fontSize.increaseFontSize}
+        aria-label="Aumento de fonte"
       >
         <TextIncreaseSharpIcon fontSize="medium" />
       </IconButton>
@@ -75,6 +78,7 @@ export const Accessibility = () => {
           color: "white",
         }}
         onClick={scrollToTop}
+        aria-label="Voltar ao topo"
       >
         <ArrowUpwardRoundedIcon fontSize="medium" />
       </IconButton>

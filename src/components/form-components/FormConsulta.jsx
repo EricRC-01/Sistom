@@ -29,6 +29,9 @@ export const FormConsulta = ({ control, mode }) => {
           control={control}
           required
           rules={{ required: "Campo obrigatório" }}
+          inputProps={{"aria-required":"true",
+            "aria-label":"Data e horário da Consulta",
+          }}
         />
       </LocalizationProvider>
 
@@ -40,6 +43,9 @@ export const FormConsulta = ({ control, mode }) => {
         rules={{
           required: "Campo obrigatório",
         }}
+        inputProps={{"aria-required":"true",
+          "aria-label":"Hospital",
+        }}
       />
 
       {mode === "edit" && (
@@ -50,6 +56,10 @@ export const FormConsulta = ({ control, mode }) => {
           required
           rules={{ required: "Campo obrigatório" }}
           options={optionsStatusConsulta}
+          inputProps={{"aria-required":"true",
+            "aria-role":"combobox",
+            "aria-label":"Status",
+          }}
         />
       )}
     </>

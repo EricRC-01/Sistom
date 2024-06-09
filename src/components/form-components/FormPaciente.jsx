@@ -334,6 +334,11 @@ export const FormPaciente = ({ control, mode, watch }) => {
             required: "Campo obrigatório",
           }}
           options={optionsMotivoInatividadePaciente}
+          inputProps={{
+            "aria-required":"true",
+            "aria-role":"combobox",
+            "aria-label":"Motivo da inatividade",
+          }}
         />
       )}
 
@@ -349,6 +354,10 @@ export const FormPaciente = ({ control, mode, watch }) => {
             message: "Nome deve ser completo e válido",
           },
         }}
+        inputProps={{
+          "aria-required":"true",
+          "aria-label":"Nome",
+        }}
       />
 
       <TextFieldElement
@@ -363,12 +372,19 @@ export const FormPaciente = ({ control, mode, watch }) => {
             message: "CNS deve conter 15 dígitos",
           },
         }}
+        inputProps={{
+          "aria-required":"true",
+          "aria-label":"Cartão Nacional de Saúde",
+        }}
       />
 
       <CheckboxElement
         label="Participa da Estratégia Saúde da Família?"
         name="esf"
         control={control}
+        inputProps={{
+          "aria-label":"Participa da Estratégia Saúde da Família?",
+        }}
       />
 
       <RadioButtonGroup
@@ -379,6 +395,10 @@ export const FormPaciente = ({ control, mode, watch }) => {
         rules={{ required: "Campo obrigatório" }}
         options={optionsSexoPaciente}
         row
+        inputProps={{
+          "aria-required":"true",
+          "aria-label":"Sexo",
+        }}
       />
 
       <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="pt-br">
@@ -389,6 +409,10 @@ export const FormPaciente = ({ control, mode, watch }) => {
           required
           rules={{ required: "Campo obrigatório" }}
           disableFuture
+          inputProps={{
+            "aria-required":"true",
+            "aria-label":"Data de Nascimento",
+          }}
         />
       </LocalizationProvider>
 
@@ -399,6 +423,10 @@ export const FormPaciente = ({ control, mode, watch }) => {
         required
         rules={{ required: "Campo obrigatório" }}
         options={optionsRecadastroPaciente}
+        inputProps={{
+          "aria-required":"true",
+          "aria-label":"Recadastro",
+        }}
       />
 
       <TextFieldElement
@@ -413,6 +441,10 @@ export const FormPaciente = ({ control, mode, watch }) => {
             message: "Telefone deve conter 10 ou 11 dígitos",
           },
         }}
+        inputProps={{
+          "aria-required":"true",
+          "aria-label":"Telefone",
+        }}
       />
 
       <AutocompleteElement
@@ -421,6 +453,11 @@ export const FormPaciente = ({ control, mode, watch }) => {
         control={control}
         options={optionsCondicoesPaciente}
         multiple
+        inputProps={{
+          "aria-multiselectable": "true",
+          "aria-role":"combobox",
+          "aria-label":"Condições clínicas e fatores associados",
+        }}
       />
 
       <SelectElement
@@ -428,6 +465,10 @@ export const FormPaciente = ({ control, mode, watch }) => {
         name="convenio"
         control={control}
         options={optionsConvenioPaciente}
+        inputProps={{
+          "aria-role":"combobox",
+          "aria-label":"Convênio",
+        }}
       />
 
       <SelectElement
@@ -435,6 +476,10 @@ export const FormPaciente = ({ control, mode, watch }) => {
         name="escolaridade"
         control={control}
         options={optionsEscolaridadePaciente}
+        inputProps={{
+          "aria-role":"combobox",
+          "aria-label":"Escolaridade",
+        }}
       />
 
       <SelectElement
@@ -442,6 +487,10 @@ export const FormPaciente = ({ control, mode, watch }) => {
         name="profissao"
         control={control}
         options={optionsProfissaoPaciente}
+        inputProps={{
+          "aria-role":"combobox",
+          "aria-label":"Profissão",
+        }}
       />
 
       <SelectElement
@@ -449,6 +498,10 @@ export const FormPaciente = ({ control, mode, watch }) => {
         name="renda"
         control={control}
         options={optionsRendaPaciente}
+        inputProps={{
+          "aria-role":"combobox",
+          "aria-label":"Renda",
+        }}
       />
 
       <RadioButtonGroup
@@ -458,6 +511,11 @@ export const FormPaciente = ({ control, mode, watch }) => {
         required
         rules={{ required: "Campo obrigatório" }}
         options={optionsMobilidadePaciente}
+        inputProps={{
+          "aria-required":"true",
+          "aria-role":"combobox",
+          "aria-label":"Mobilidade",
+        }}
       />
 
       <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="pt-br">
@@ -468,6 +526,10 @@ export const FormPaciente = ({ control, mode, watch }) => {
           required
           rules={{ required: "Campo obrigatório" }}
           disableFuture
+          inputProps={{
+            "aria-required":"true",
+            "aria-label":"Data de Inscrição",
+          }}
         />
       </LocalizationProvider>
     </>

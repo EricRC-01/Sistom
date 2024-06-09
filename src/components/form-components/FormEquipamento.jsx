@@ -70,6 +70,10 @@ export const FormEquipamento = ({ control }) => {
         options={optionsTipoEstoma}
         required
         rules={{ required: "Campo obrigatório" }}
+        inputProps={{"aria-required":"true",
+          "aria-role":"combobox",
+          "aria-label":"Estoma",
+        }}
       />
 
       <TextFieldElement
@@ -84,6 +88,10 @@ export const FormEquipamento = ({ control }) => {
             message: "Diâmetro deve ser um número inteiro de até 3 dígitos",
           },
         }}
+        inputProps={{"aria-required":"true",
+          "aria-role":"combobox",
+          "aria-label":"Diâmetro do equipamento em mm",
+        }}
       />
 
       <RadioButtonGroup
@@ -94,6 +102,9 @@ export const FormEquipamento = ({ control }) => {
         required
         rules={{ required: "Campo obrigatório" }}
         row
+        inputProps={{"aria-required":"true",
+          "aria-label":"Quantidade de peças do sistema",
+        }}
       />
 
       <RadioButtonGroup
@@ -102,12 +113,18 @@ export const FormEquipamento = ({ control }) => {
         control={control}
         options={optionsSistemaOpacidade}
         row
+        inputProps={{
+          "aria-label":"Opacidade do sistema",
+        }}
       />
 
       <CheckboxElement
         label="O sistema é drenável"
         name="sistemaDrenavel"
         control={control}
+        inputProps={{
+          "aria-label":"O sistema é drenável",
+        }}
       />
 
       <RadioButtonGroup
@@ -118,12 +135,19 @@ export const FormEquipamento = ({ control }) => {
         required
         rules={{ required: "Campo obrigatório" }}
         row
+        inputProps={{
+          "aria-label":"Tipo de Placa",
+          "aria-required":"true"
+        }}
       />
 
       <CheckboxElement
         label="A placa é recortável"
         name="placaRecortavel"
         control={control}
+        inputProps={{
+          "aria-label":"A placa é recortável",
+        }}
       />
 
       <AutocompleteElement
@@ -132,12 +156,20 @@ export const FormEquipamento = ({ control }) => {
         name="adjuvante"
         control={control}
         options={optionsAdjuvanteEquipamento}
+        inputProps={{
+          "aria-multiselectable": "true",
+          "aria-role":"combobox",
+          "aria-label":"Adjuvante",
+        }}
       />
 
       <TextFieldElement
         label="Custo Extra"
         name="custoExtra"
         control={control}
+        inputProps={{
+          "aria-label":"Custo Extra",
+        }}
       />
 
       {/* TODO */}
@@ -145,6 +177,9 @@ export const FormEquipamento = ({ control }) => {
         label="Equipamentos indicados"
         name="equipamento"
         control={control}
+        inputProps={{
+          "aria-label":"Equipamentos indicados",
+        }}
       />
 
       <SelectElement
@@ -152,12 +187,19 @@ export const FormEquipamento = ({ control }) => {
         name="adaptacao"
         control={control}
         options={optionsAdaptacaoEquipamento}
+        inputProps={{
+          "aria-label":"Adaptação",
+          "aria-role":"combobox",
+        }}
       />
 
       <TextareaAutosizeElement
         label="Observações do avaliador"
         name="obs"
         control={control}
+        inputProps={{
+          "aria-label":"Observações do avaliador",
+        }}
       />
     </>
   );

@@ -182,6 +182,11 @@ export const FormEstoma = ({ control }) => {
         options={optionsTipoEstoma}
         required
         rules={{ required: "Campo obrigatório" }}
+        inputProps={{
+          "aria-required":"true",
+          "aria-role":"combobox",
+          "aria-label":"Tipo de Estoma",
+        }}
       />
 
       <TextFieldElement
@@ -194,12 +199,18 @@ export const FormEstoma = ({ control }) => {
             message: "CID inválido. Exemplo: A00",
           },
         }}
+        inputProps={{
+          "aria-label":"CID",
+        }}
       />
 
       <TextFieldElement
         label="Doença de base para o estoma"
         name="doenca"
         control={control}
+        inputProps={{
+          "aria-label":"Doença de base para o estoma",
+        }}
       />
 
       <RadioButtonGroup
@@ -210,6 +221,10 @@ export const FormEstoma = ({ control }) => {
         rules={{ required: "Campo obrigatório" }}
         options={optionsDemarcacaoEstoma}
         row
+        inputProps={{
+          "aria-label":"Demarcação",
+          "aria-required":"true",
+        }}
       />
 
       <SelectElement
@@ -217,6 +232,10 @@ export const FormEstoma = ({ control }) => {
         name="exteriorizacao"
         control={control}
         options={optionsExteriorizacaoEstoma}
+        inputProps={{
+          "aria-label":"Modo de exteriorização",
+          "aria-role":"combobox",
+        }}
       />
 
       <RadioButtonGroup
@@ -224,6 +243,9 @@ export const FormEstoma = ({ control }) => {
         name={"abdome"}
         control={control}
         options={optionsAbdomeEstoma}
+        inputProps={{
+          "aria-label":"Tipo de abdome",
+        }}
       />
 
       <RadioButtonGroup
@@ -233,12 +255,19 @@ export const FormEstoma = ({ control }) => {
         options={optionsPermanenciaEstoma}
         required
         rules={{ required: "Campo obrigatório" }}
+        inputProps={{
+          "aria-label":"Permanência",
+          "aria-required":"true",
+        }}
       />
 
       <TextareaAutosizeElement
         label="Motivo para ser indeterminado"
         name="indeterminadoMotivo"
         control={control}
+        inputProps={{
+          "aria-label":"Motivo para ser indeterminad",
+        }}
       />
 
       <RadioButtonGroup
@@ -248,6 +277,10 @@ export const FormEstoma = ({ control }) => {
         options={optionsLocalizacaoEstoma}
         required
         rules={{ required: "Campo obrigatório" }}
+        inputProps={{
+          "aria-label":"Localização abdominal",
+          "aria-required":"true",
+        }}
       />
 
       <RadioButtonGroup
@@ -257,6 +290,10 @@ export const FormEstoma = ({ control }) => {
         options={optionsHigieneEstoma}
         required
         rules={{ required: "Campo obrigatório" }}
+        inputProps={{
+          "aria-label":"Como está a higiene do estoma",
+          "aria-required":"true",
+        }}
       />
 
       <RadioButtonGroup
@@ -267,6 +304,10 @@ export const FormEstoma = ({ control }) => {
         required
         rules={{ required: "Campo obrigatório" }}
         row
+        inputProps={{
+          "aria-label":"Formato",
+          "aria-required":"true",
+        }}
       />
 
       <RadioButtonGroup
@@ -277,6 +318,10 @@ export const FormEstoma = ({ control }) => {
         required
         rules={{ required: "Campo obrigatório" }}
         row
+        inputProps={{
+          "aria-label":"Forma",
+          "aria-required":"true",
+        }}
       />
 
       <RadioButtonGroup
@@ -284,6 +329,9 @@ export const FormEstoma = ({ control }) => {
         name="coloracao"
         control={control}
         options={optionsColoracaoEstoma}
+        inputProps={{
+          "aria-label":"Coloração",
+        }}
       />
 
       <RadioButtonGroup
@@ -293,6 +341,10 @@ export const FormEstoma = ({ control }) => {
         options={optionsHasteEstoma}
         required
         rules={{ required: "Campo obrigatório" }}
+        inputProps={{
+          "aria-label":"Haste",
+          "aria-required":"true",
+        }}
       />
 
       <RadioButtonGroup
@@ -300,6 +352,9 @@ export const FormEstoma = ({ control }) => {
         name="protusao"
         control={control}
         options={optionsProtusaoEstoma}
+        inputProps={{
+          "aria-label":"Protusão",
+        }}
       />
 
       <RadioButtonGroup
@@ -309,6 +364,10 @@ export const FormEstoma = ({ control }) => {
         options={optionsFuncaoEstoma}
         required
         rules={{ required: "Campo obrigatório" }}
+        inputProps={{
+          "aria-label":"É funcional?",
+          "aria-required":"true",
+        }}
       />
 
       <AutocompleteElement
@@ -317,6 +376,11 @@ export const FormEstoma = ({ control }) => {
         name="complicacao"
         control={control}
         options={optionsComplicacaoEstoma}
+        inputProps={{
+          "aria-label":"Complicações presentes",
+          "aria-multiselectable": "true",
+          "aria-role":"combobox",
+        }}
       />
 
       <AutocompleteElement
@@ -325,6 +389,11 @@ export const FormEstoma = ({ control }) => {
         name="efluente"
         control={control}
         options={optionsEfluentePaciente}
+        inputProps={{
+          "aria-label":"Efluente",
+          "aria-multiselectable": "true",
+          "aria-role":"combobox",
+        }}
       />
 
       <AutocompleteElement
@@ -333,12 +402,20 @@ export const FormEstoma = ({ control }) => {
         name="periestoma"
         control={control}
         options={optionsPeriestomaEstoma}
+        inputProps={{
+          "aria-label":"Pele Periestoma",
+          "aria-multiselectable": "true",
+          "aria-role":"combobox",
+        }}
       />
 
       <CheckboxElement
         label="Usa cinto de sustentação?"
         name="cinto"
         control={control}
+        inputProps={{
+          "aria-label":"Usa cinto de sustentação?",
+        }}
       />
     </>
   );

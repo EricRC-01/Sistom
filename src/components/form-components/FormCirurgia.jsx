@@ -75,6 +75,11 @@ export const FormCirurgia = ({ control }) => {
         options={optionsTipoCirurgia}
         required
         rules={{ required: "Campo obrigatório" }}
+        inputProps={{"aria-required":"true",
+          "aria-role":"combobox",
+          "aria-label":"Tipo de cirurgia",
+        }}
+        
       />
 
       <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="pt-br">
@@ -85,6 +90,9 @@ export const FormCirurgia = ({ control }) => {
           required
           rules={{ required: "Campo obrigatório" }}
           disableFuture
+          inputProps={{"aria-required":"true",
+            "aria-label":"Data da cirurgia",
+          }}
         />
       </LocalizationProvider>
 
@@ -101,6 +109,9 @@ export const FormCirurgia = ({ control }) => {
             message: "Nome deve ser completo e válido",
           },
         }}
+        inputProps={{"aria-required":"true",
+          "aria-label":"Médico responsável",
+        }}
       />
 
       <Box sx={{ flexDirection: "row" }}>
@@ -112,6 +123,10 @@ export const FormCirurgia = ({ control }) => {
           required
           rules={{ required: "Campo obrigatório" }}
           sx={{ width: "20%" }}
+          inputProps={{"aria-required":"true",
+            "aria-role":"combobox",
+            "aria-label":"UF",
+          }}
         />
 
         <TextFieldElement
@@ -127,6 +142,9 @@ export const FormCirurgia = ({ control }) => {
             },
           }}
           sx={{ width: "80%" }}
+          inputProps={{"aria-required":"true",
+            "aria-label":"CRM",
+          }}
         />
       </Box>
     </>

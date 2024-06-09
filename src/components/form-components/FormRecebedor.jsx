@@ -41,6 +41,10 @@ export const FormRecebedor = ({ control }) => {
             message: "Nome deve ser completo e válido",
           },
         }}
+        inputProps={{
+          "aria-required":"true",
+          "aria-label":"Nome",
+        }}
       />
 
       <TextFieldElement
@@ -55,6 +59,10 @@ export const FormRecebedor = ({ control }) => {
             message: "CPF deve conter 11 dígitos",
           },
         }}
+        inputProps={{
+          "aria-required":"true",
+          "aria-label":"CPF",
+        }}
       />
 
       <RadioButtonGroup
@@ -65,6 +73,10 @@ export const FormRecebedor = ({ control }) => {
         rules={{ required: "Campo obrigatório" }}
         options={optionsSexoRecebedor}
         row
+        inputProps={{
+          "aria-required":"true",
+          "aria-label":"Sexo",
+        }}
       />
 
       <TextFieldElement
@@ -79,6 +91,10 @@ export const FormRecebedor = ({ control }) => {
             message: "Telefone deve conter 10 ou 11 dígitos",
           },
         }}
+        inputProps={{
+          "aria-required":"true",
+          "aria-label":"Telefone",
+        }}
       />
 
       <SelectElement
@@ -86,6 +102,10 @@ export const FormRecebedor = ({ control }) => {
         name="orgao"
         control={control}
         options={optionsOrgaoRecebedor}
+        inputProps={{
+          "aria-role":"combobox",
+          "aria-label":"Órgão Receptor",
+        }}
       />
     </>
   );

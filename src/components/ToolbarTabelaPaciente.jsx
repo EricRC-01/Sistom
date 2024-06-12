@@ -9,12 +9,27 @@ import {
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import LeaderboardRoundedIcon from "@mui/icons-material/LeaderboardRounded";
 
+import { useForm } from "react-hook-form";
+
 import { Controller } from "react-hook-form";
 
 import { ModalForm } from "./ModalForm";
 import { ModalFilter } from "./ModalFilter";
 
-export const ToolbarTabelaPaciente = ({ control, handleSubmit, onSubmit }) => {
+export const ToolbarTabelaPaciente = ({ setBusca, setFiltro }) => {
+  const { handleSubmit, control } = useForm();
+
+  const onSubmit = (data) => {
+    if (data.busca === undefined) {
+      return;
+    }
+    if (data.busca === "") {
+      setBusca("");
+    } else {
+      setBusca(`nome~"${data.busca}"`);
+    }
+  };
+
   return (
     <>
       <Toolbar
@@ -43,7 +58,6 @@ export const ToolbarTabelaPaciente = ({ control, handleSubmit, onSubmit }) => {
             />
           )}
         />
-
         <IconButton
           onClick={handleSubmit(onSubmit)}
           variant="contained"
@@ -63,10 +77,9 @@ export const ToolbarTabelaPaciente = ({ control, handleSubmit, onSubmit }) => {
           </Typography>
         </IconButton>
 
-        <ModalFilter />
+        <ModalFilter setFiltro={setFiltro} />
 
         <ModalForm table={"pacientes"} mode={"register"} />
-
         <IconButton
           variant="contained"
           onClick={() => alert("Estatisticando...")}

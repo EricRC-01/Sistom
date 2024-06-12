@@ -16,25 +16,27 @@ import CloseIcon from "@mui/icons-material/Close";
 
 import { RadioButtonGroup } from "react-hook-form-mui";
 
-const defaultValues = {
-  sexo: "",
-};
-
-export const ModalFilter = () => {
+export const ModalFilter = ({ setFiltro }) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => {
     setOpen(false);
-    reset();
   };
 
-  const { handleSubmit, reset, control } = useForm({
-    defaultValues: defaultValues,
-  });
+  const { handleSubmit, control } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    if (data.filtro === undefined) {
+      return;
+    }
+    if (data.filtro === "") {
+      setFiltro("pacientes_completo");
+    } else {
+      setFiltro(data.filtro);
+    }
+    handleClose();
   };
+
   return (
     <>
       <IconButton
@@ -72,12 +74,16 @@ export const ModalFilter = () => {
           }}
         >
           <RadioButtonGroup
-            name="sexo"
+            name="filtro"
             control={control}
-            label="Sexo"
             options={[
-              { id: "Masculino", label: "Masculino" },
-              { id: "Feminino", label: "Feminino" },
+              { id: "", label: "Sem filtros" },
+              { id: "pacientes_ativos", label: "Ativos" },
+              {
+                id: "pacientes_consulta_atrasada",
+                label: "Com consulta atrasada",
+              },
+              { id: "pacientes_sem_consulta", label: "Sem consulta" },
             ]}
           />
         </DialogContent>

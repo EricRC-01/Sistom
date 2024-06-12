@@ -9,34 +9,19 @@ import { usePocket } from "contexts/PocketContext";
 
 const Dashboard = () => {
   const [busca, setBusca] = useState("");
+  const [filtro, setFiltro] = useState("pacientes_completo");
 
-  const { handleSubmit, control } = useForm();
   const { getFullList } = usePocket();
 
-  const onSubmit = (data) => {
-    if (data.busca === undefined) {
-      return;
-    }
-    if (data.busca === "") {
-      setBusca("");
-    } else {
-      setBusca(`nome~"${data.busca}"`);
-    }
-  };
-
   const pacienteQuery = getFullList({
-    table: "pacientes_completo",
+    table: filtro,
     filter: busca,
   });
 
   return (
     <Box sx={{ pt: 1, pb: 10 }}>
       <Container maxWidth="lg" sx={{ mt: 3 }}>
-        <ToolbarTabelaPaciente
-          control={control}
-          handleSubmit={handleSubmit}
-          onSubmit={onSubmit}
-        />
+        <ToolbarTabelaPaciente setBusca={setBusca} setFiltro={setFiltro} />
         <hr />
         <TabelaPaciente query={pacienteQuery} />
       </Container>

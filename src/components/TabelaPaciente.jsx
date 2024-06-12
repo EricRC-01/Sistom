@@ -27,8 +27,13 @@ export const TabelaPaciente = ({ query }) => {
 
   const columns = [
     { field: "nome", headerName: "Nome", width: 150 },
-    { field: "cns", headerName: "CNS", width: 150 },
-    { field: "tel", headerName: "Telefone", width: 150 },
+    { field: "cns", headerName: "CNS", width: 200 },
+    {
+      field: "tel",
+      headerName: "Telefone",
+      width: 150,
+      valueFormatter: (params) => formatPhoneNumber(params),
+    },
     { field: "idade", headerName: "Idade", width: 70 },
     {
       field: "dataNasc",
@@ -74,6 +79,23 @@ export const TabelaPaciente = ({ query }) => {
         disableSelectionOnClick
         onRowDoubleClick={handleRowClick}
         disableRowSelectionOnClick
+        initialState={{
+          ...data.initialState,
+          columns: {
+            ...data.initialState?.columns,
+            columnVisibilityModel: {
+              ativo: false,
+              condicoes: false,
+              renda: false,
+              mobilidade: false,
+              profissao: false,
+              escolaridade: false,
+              esf: false,
+              convenio: false,
+              recacdastro: false,
+            },
+          },
+        }}
       />
     </>
   );

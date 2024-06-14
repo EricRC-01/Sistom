@@ -8,7 +8,7 @@ Most of the project is in the `src` folder, where the components used in the web
 
 ## Access and usage
 
-Access the web system via the following link: https://sistom.vercel.app/ with login: grupo@email.com and password: 12345678)
+Access the web system via the following link: https://sistom.vercel.app/ with login: grupo@email.com and password: 12345678
 
 ## Dependencies
 

@@ -1,46 +1,26 @@
 # Sistom :)
 
-<!-- descrição geral do projeto-->
-
-The Web page consists of data tables from patients of a public hospital from Piauí/Brazil, permiting nurses and medics to save and menage data from their pacients, including general informations, stomas, cirurgies, appointments as well as  
+The Web page consists of data tables from patients of a public hospital from Piauí/Brazil, permiting nurses and medics to save and menage data from their pacients, including general informations, stomas, cirurgies, appointments as well as statistics of specific data for analysis and research.
 
 ## Project Structure
 
-The project have 3 fields: 
-- `client`: Contains all the elements of the website
-- `server/pocketbase`: Open Source backend to test some functionalities of the website
-- `views`: This folder is deprecated
+Most of the project is in the `src` folder, where the components used in the web system, the pages, and other useful files for the system's functionality are located. 
 
-Inside the field `client`
-- `index.html`: Main HTML file.
-- `global`: Images of the project
-- `src`: Contains all the elements of the project
-  - `main.jsx`: Renderize all the website
+## Access and usage
 
-## Installation
-
-1. Clone the repository.
-2. Go to the cloned repository directory.
-3. Go to the file `client`
-3. Execute: npm install
-4. Execute: npm run dev
-5. Take the hostServer address and copy it in a web navegator.
-6. Open a new terminal and go to the file `server/pocketbase`
-7. If you are using Linux and having trouble executing the server, digit the command `sudo chmod +x          pocketbase`
-8. Execute `./pocketbase serve`
-
-(The usage of pocketbase is temporary in this project)
-(You can access the App with login: grupo@email.com and password: 12345678)
-
-## Usage
-
-<!-- Describe how to use the web page and its features. -->
-
+Access the web system via the following link: https://sistom.vercel.app/ with login: grupo@email.com and password: 12345678)
 
 ## Dependencies
 
 - Web browser (Chrome, Firefox, Safari, etc.)
-- [NPM](https://www.npmjs.com/)
+
+## What is needed for its continuation
+
+- Improve system performance
+- Expand the database to support more patients and images
+- Transfer from Pocketbase to a dedicated server
+- Add more functionalities
+- Integration with the SUS platform
 
 ## License
 
@@ -55,3 +35,6 @@ This project is licensed under the [Universidade de São Paulo (USP)](https://ww
 - Marcos Patricio Nogueira Filho - 11819063 
 - Rui Emanuel Lima Vieira - 11810182 
 - Théo Bruno Frey Riffel - 12547812
+- Pedro José Garcia - 11846943
+- Jefferson Eduardo Muniz Bueno - 11275255
+- Daniel Martins Arrais - 11819445

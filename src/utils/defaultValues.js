@@ -15,6 +15,10 @@ export const defaultValuePaciente = {
   condicoes: [],
   ativo: true,
   motivoInatividade: "",
+  territorio: "",
+  mesorregiao: "",
+  microrregiao: "",
+  municipio: "",
 };
 
 export const defaultValueCirurgia = {

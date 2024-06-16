@@ -314,8 +314,41 @@ const optionsMotivoInatividadePaciente = [
   },
 ];
 
-export const FormPaciente = ({ control, mode, watch }) => {
+import { useData } from "contexts/PocketContext";
+import { Key } from "@mui/icons-material";
+
+// Território : 27 unidades federativas: SP, RJ, PI...
+// Mesorregiao:
+// Microrregião:
+// Município:
+
+export const FormPaciente = ({ control, mode, watch, setValue }) => {
   const inativo = watch("ativo");
+  const territorioSelecionado = watch("territorio");
+  const mesorregiaoSelecionado = watch("mesorregiao");
+  const microrregiaoSelecionado = watch("microrregiao");
+
+  const { data: territorio } = useData({
+    tabela: "territorio",
+  });
+
+  const { data: mesorregiao } = useData({
+    tabela: "mesorregiao",
+    filtro: territorioSelecionado ? JSON.parse(territorioSelecionado).id : "",
+  });
+
+  const { data: microrregiao } = useData({
+    tabela: "microrregiao",
+    filtro: mesorregiaoSelecionado ? JSON.parse(mesorregiaoSelecionado).id : "",
+  });
+
+  const { data: municipio } = useData({
+    tabela: "municipio",
+    filtro: microrregiaoSelecionado
+      ? JSON.parse(microrregiaoSelecionado).id
+      : "",
+  });
+
   return (
     <>
       {mode === "edit" && (
@@ -335,9 +368,9 @@ export const FormPaciente = ({ control, mode, watch }) => {
           }}
           options={optionsMotivoInatividadePaciente}
           inputProps={{
-            "aria-required":"true",
-            "aria-role":"combobox",
-            "aria-label":"Motivo da inatividade",
+            "aria-required": "true",
+            "aria-role": "combobox",
+            "aria-label": "Motivo da inatividade",
           }}
         />
       )}
@@ -355,8 +388,8 @@ export const FormPaciente = ({ control, mode, watch }) => {
           },
         }}
         inputProps={{
-          "aria-required":"true",
-          "aria-label":"Nome",
+          "aria-required": "true",
+          "aria-label": "Nome",
         }}
       />
 
@@ -373,8 +406,8 @@ export const FormPaciente = ({ control, mode, watch }) => {
           },
         }}
         inputProps={{
-          "aria-required":"true",
-          "aria-label":"Cartão Nacional de Saúde",
+          "aria-required": "true",
+          "aria-label": "Cartão Nacional de Saúde",
         }}
       />
 
@@ -383,7 +416,7 @@ export const FormPaciente = ({ control, mode, watch }) => {
         name="esf"
         control={control}
         inputProps={{
-          "aria-label":"Participa da Estratégia Saúde da Família?",
+          "aria-label": "Participa da Estratégia Saúde da Família?",
         }}
       />
 
@@ -396,8 +429,8 @@ export const FormPaciente = ({ control, mode, watch }) => {
         options={optionsSexoPaciente}
         row
         inputProps={{
-          "aria-required":"true",
-          "aria-label":"Sexo",
+          "aria-required": "true",
+          "aria-label": "Sexo",
         }}
       />
 
@@ -410,8 +443,8 @@ export const FormPaciente = ({ control, mode, watch }) => {
           rules={{ required: "Campo obrigatório" }}
           disableFuture
           inputProps={{
-            "aria-required":"true",
-            "aria-label":"Data de Nascimento",
+            "aria-required": "true",
+            "aria-label": "Data de Nascimento",
           }}
         />
       </LocalizationProvider>
@@ -424,8 +457,8 @@ export const FormPaciente = ({ control, mode, watch }) => {
         rules={{ required: "Campo obrigatório" }}
         options={optionsRecadastroPaciente}
         inputProps={{
-          "aria-required":"true",
-          "aria-label":"Recadastro",
+          "aria-required": "true",
+          "aria-label": "Recadastro",
         }}
       />
 
@@ -442,8 +475,8 @@ export const FormPaciente = ({ control, mode, watch }) => {
           },
         }}
         inputProps={{
-          "aria-required":"true",
-          "aria-label":"Telefone",
+          "aria-required": "true",
+          "aria-label": "Telefone",
         }}
       />
 
@@ -455,8 +488,8 @@ export const FormPaciente = ({ control, mode, watch }) => {
         multiple
         inputProps={{
           "aria-multiselectable": "true",
-          "aria-role":"combobox",
-          "aria-label":"Condições clínicas e fatores associados",
+          "aria-role": "combobox",
+          "aria-label": "Condições clínicas e fatores associados",
         }}
       />
 
@@ -466,8 +499,8 @@ export const FormPaciente = ({ control, mode, watch }) => {
         control={control}
         options={optionsConvenioPaciente}
         inputProps={{
-          "aria-role":"combobox",
-          "aria-label":"Convênio",
+          "aria-role": "combobox",
+          "aria-label": "Convênio",
         }}
       />
 
@@ -477,8 +510,8 @@ export const FormPaciente = ({ control, mode, watch }) => {
         control={control}
         options={optionsEscolaridadePaciente}
         inputProps={{
-          "aria-role":"combobox",
-          "aria-label":"Escolaridade",
+          "aria-role": "combobox",
+          "aria-label": "Escolaridade",
         }}
       />
 
@@ -488,8 +521,8 @@ export const FormPaciente = ({ control, mode, watch }) => {
         control={control}
         options={optionsProfissaoPaciente}
         inputProps={{
-          "aria-role":"combobox",
-          "aria-label":"Profissão",
+          "aria-role": "combobox",
+          "aria-label": "Profissão",
         }}
       />
 
@@ -499,8 +532,8 @@ export const FormPaciente = ({ control, mode, watch }) => {
         control={control}
         options={optionsRendaPaciente}
         inputProps={{
-          "aria-role":"combobox",
-          "aria-label":"Renda",
+          "aria-role": "combobox",
+          "aria-label": "Renda",
         }}
       />
 
@@ -512,9 +545,9 @@ export const FormPaciente = ({ control, mode, watch }) => {
         rules={{ required: "Campo obrigatório" }}
         options={optionsMobilidadePaciente}
         inputProps={{
-          "aria-required":"true",
-          "aria-role":"combobox",
-          "aria-label":"Mobilidade",
+          "aria-required": "true",
+          "aria-role": "combobox",
+          "aria-label": "Mobilidade",
         }}
       />
 
@@ -527,11 +560,98 @@ export const FormPaciente = ({ control, mode, watch }) => {
           rules={{ required: "Campo obrigatório" }}
           disableFuture
           inputProps={{
-            "aria-required":"true",
-            "aria-label":"Data de Inscrição",
+            "aria-required": "true",
+            "aria-label": "Data de Inscrição",
           }}
         />
       </LocalizationProvider>
+
+      <SelectElement
+        label="Território"
+        name="territorio"
+        control={control}
+        options={
+          territorio
+            ? territorio
+                .map((item) => ({
+                  id: JSON.stringify({ id: item.id, nome: item.nome }),
+                  label: item.nome,
+                }))
+                .sort((a, b) => a.label.localeCompare(b.label))
+            : []
+        }
+        onChange={() => {
+          setValue("mesorregiao", "");
+          setValue("microrregiao", "");
+          setValue("municipio", "");
+        }}
+        required
+        rules={{ required: "Campo obrigatório" }}
+      />
+
+      <SelectElement
+        label="Mesorregião"
+        name="mesorregiao"
+        control={control}
+        options={
+          mesorregiao
+            ? mesorregiao
+                .map((item) => ({
+                  id: JSON.stringify({ id: item.id, nome: item.nome }),
+                  label: item.nome,
+                }))
+                .sort((a, b) => a.label.localeCompare(b.label))
+            : []
+        }
+        onChange={() => {
+          setValue("microrregiao", "");
+          setValue("municipio", "");
+        }}
+        required
+        rules={{ required: "Campo obrigatório" }}
+        disabled={!territorioSelecionado}
+      />
+
+      <SelectElement
+        label="Micorregião"
+        name="microrregiao"
+        control={control}
+        options={
+          microrregiao
+            ? microrregiao
+                .map((item) => ({
+                  id: JSON.stringify({ id: item.id, nome: item.nome }),
+                  label: item.nome,
+                }))
+                .sort((a, b) => a.label.localeCompare(b.label))
+            : []
+        }
+        onChange={() => {
+          setValue("municipio", "");
+        }}
+        required
+        rules={{ required: "Campo obrigatório" }}
+        disabled={!mesorregiaoSelecionado}
+      />
+
+      <SelectElement
+        label="Município"
+        name="municipio"
+        control={control}
+        options={
+          municipio
+            ? municipio
+                .map((item) => ({
+                  id: JSON.stringify({ id: item.id, nome: item.nome }),
+                  label: item.nome,
+                }))
+                .sort((a, b) => a.label.localeCompare(b.label))
+            : []
+        }
+        required
+        rules={{ required: "Campo obrigatório" }}
+        disabled={!microrregiaoSelecionado}
+      />
     </>
   );
 };

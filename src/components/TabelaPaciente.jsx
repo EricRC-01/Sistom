@@ -70,17 +70,18 @@ export const TabelaPaciente = ({ query }) => {
   if (isError) return <div>{error}</div>;
 
   return (
-    <>
+    <div>
       <DataGrid
+        autoHeight={true}
         rows={data}
         columns={columns}
-        pageSize={5}
         rowsPerPageOptions={[5]}
         disableSelectionOnClick
         onRowDoubleClick={handleRowClick}
         disableRowSelectionOnClick
         initialState={{
           ...data.initialState,
+          pagination: { paginationModel: { pageSize: 25 } },
           columns: {
             ...data.initialState?.columns,
             columnVisibilityModel: {
@@ -97,6 +98,6 @@ export const TabelaPaciente = ({ query }) => {
           },
         }}
       />
-    </>
+    </div>
   );
 };

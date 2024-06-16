@@ -55,7 +55,7 @@ export const DisplayPaciente = ({ query }) => {
                 Forma de Recadastro: {data.recadastro}
               </Typography>
               <Typography variant="body1" color="text.secondary" mb={1}>
-                Convênio: {data.convenio}
+                Convênio: {data.convenio ? data.convenio : "Não informado"}
               </Typography>
               <Typography variant="body1" color="text.secondary" mb={1}>
                 Escolaridade:{" "}
@@ -74,6 +74,18 @@ export const DisplayPaciente = ({ query }) => {
               <Typography variant="body1" color="text.secondary" mb={1}>
                 Mobilidade: {data.mobilidade}
               </Typography>
+              <Typography variant="body1" color="text.secondary" mb={1}>
+                Território: {data.territorio.nome}
+              </Typography>
+              <Typography variant="body1" color="text.secondary" mb={1}>
+                Mesorregião: {data.mesorregiao.nome}
+              </Typography>
+              <Typography variant="body1" color="text.secondary" mb={1}>
+                Microrregião: {data.microrregiao.nome}
+              </Typography>
+              <Typography variant="body1" color="text.secondary" mb={1}>
+                Município: {data.municipio.nome}
+              </Typography>
             </CardContent>
             <CardActions sx={{ justifyContent: "flex-end" }}>
               <ModalForm
@@ -81,6 +93,10 @@ export const DisplayPaciente = ({ query }) => {
                 mode="edit"
                 defaultValuesEdit={{
                   ...data,
+                  territorio: JSON.stringify(data.territorio),
+                  mesorregiao: JSON.stringify(data.mesorregiao),
+                  microrregiao: JSON.stringify(data.microrregiao),
+                  municipio: JSON.stringify(data.municipio),
                   dataNasc: dayjs(data.dataNasc),
                   dataInsc: dayjs(data.dataInsc),
                 }}

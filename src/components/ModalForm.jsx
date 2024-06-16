@@ -65,7 +65,7 @@ export const ModalForm = ({ table, mode, defaultValuesEdit = {} }) => {
 
   const defaultValues =
     mode === "edit" ? defaultValuesEdit : defaultValuesRegister;
-  const { handleSubmit, reset, control, watch } = useForm({
+  const { handleSubmit, reset, control, watch, setValue } = useForm({
     values: defaultValues,
   });
 
@@ -78,12 +78,10 @@ export const ModalForm = ({ table, mode, defaultValuesEdit = {} }) => {
 
   const { mutateRecord } = usePocket();
   const { mutate, isPending } = mutateRecord({ table, mode });
-  console.log(defaultValuesEdit);
 
   const onSubmit = async (data) => {
     switch (mode) {
       case "register":
-        console.log(data);
         data.paciente = userId;
         mutate(
           { data },
@@ -104,7 +102,6 @@ export const ModalForm = ({ table, mode, defaultValuesEdit = {} }) => {
                 });
               }
               handleClose();
-              console.log("sucesso");
             },
           }
         );
@@ -123,7 +120,14 @@ export const ModalForm = ({ table, mode, defaultValuesEdit = {} }) => {
       case "cirurgias":
         return <FormCirurgia control={control} />;
       case "pacientes":
-        return <FormPaciente control={control} mode={mode} watch={watch} />;
+        return (
+          <FormPaciente
+            control={control}
+            mode={mode}
+            watch={watch}
+            setValue={setValue}
+          />
+        );
       case "estomas":
         return <FormEstoma control={control} />;
       case "recebedores":

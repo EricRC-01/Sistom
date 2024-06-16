@@ -15,8 +15,6 @@ import { RemoveButton } from "components/RemoveButton";
 export const DisplayEstoma = ({ query }) => {
   const { isLoading, isError, error, data } = query;
 
-  console.log(data);
-
   if (isLoading) return <div>Carregando...</div>;
   if (isError) return <div>{error}</div>;
   return (

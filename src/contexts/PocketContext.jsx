@@ -14,6 +14,35 @@ const BASE_URL = "https://sistom.pockethost.io/";
 
 const PocketContext = createContext({});
 
+export const useData = ({ tabela, filtro = "" }) => {
+  return useQuery({
+    queryKey: [tabela, filtro, "ibge"],
+    queryFn: async () => {
+      if (filtro === "" && tabela !== "territorio") return [];
+      let url = "";
+      switch (tabela) {
+        case "territorio":
+          url = "https://servicodados.ibge.gov.br/api/v1/localidades/estados";
+          break;
+        case "mesorregiao":
+          url = `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${filtro}/mesorregioes`;
+          break;
+        case "microrregiao":
+          url = `https://servicodados.ibge.gov.br/api/v1/localidades/mesorregioes/${filtro}/microrregioes`;
+          break;
+        case "municipio":
+          url = `https://servicodados.ibge.gov.br/api/v1/localidades/microrregioes/${filtro}/municipios`;
+          break;
+      }
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    },
+  });
+};
+
 export const PocketProvider = ({ children }) => {
   const pb = useMemo(() => new PocketBase(BASE_URL), []);
 
@@ -42,11 +71,13 @@ export const PocketProvider = ({ children }) => {
     });
   });
 
-  const getFullList = useCallback(({ table, filter = "" }) => {
+  const getFullList = useCallback(({ table, filter = "", sort = "" }) => {
     return useQuery({
-      queryKey: [table, filter],
+      queryKey: [table, filter, sort],
       queryFn: async () => {
-        return await pb.collection(table).getFullList({ filter: `${filter}` });
+        return await pb
+          .collection(table)
+          .getFullList({ filter: `${filter}` }, { sort: `${sort}` });
       },
     });
   });
@@ -72,7 +103,6 @@ export const PocketProvider = ({ children }) => {
       mutationFn: async ({ data = "", id = "" }) => {
         switch (mode) {
           case "register":
-            console.log(table, mode);
             return await pb.collection(table).create(data);
             break;
           case "edit":

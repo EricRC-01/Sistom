@@ -7,6 +7,7 @@ import {
 import Auth from "pages/Auth.jsx";
 import Dashboard from "pages/Dashboard.jsx";
 import { PaginaPaciente } from "pages/PaginaPaciente.jsx";
+import { Relatorio } from "pages/Relatorio";
 import { Outlet } from "react-router-dom";
 import { RequireAuth } from "../utils/RequireAuth";
 
@@ -31,6 +32,7 @@ const router = createBrowserRouter(
       <Route element={<RequireAuth />}>
         <Route index element={<Dashboard />} />
         <Route path="Paciente" element={<PaginaPaciente />} />
+        <Route path="Relatorio" element={<Relatorio />} />
       </Route>
     </Route>
   )

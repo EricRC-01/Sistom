@@ -7,9 +7,23 @@ import {
   SwitchElement,
   TextFieldElement,
 } from "react-hook-form-mui";
+
+import { TextField } from "@mui/material";
+
 import { DatePickerElement } from "react-hook-form-mui/date-pickers";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+
+import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
+
+import { Controller } from "react-hook-form";
+import { Button } from "@mui/material";
+
+import { MuiFileInput } from "mui-file-input";
+
+import InputFileUpload from "components/InputFileUpload";
+
+//import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 
 const optionsSexoPaciente = [
   {
@@ -651,6 +665,18 @@ export const FormPaciente = ({ control, mode, watch, setValue }) => {
         required
         rules={{ required: "Campo obrigatório" }}
         disabled={!microrregiaoSelecionado}
+      />
+
+      <Controller
+        name="pfp"
+        control={control}
+        render={({ field, fieldState }) => (
+          <MuiFileInput
+            {...field}
+            helperText={fieldState.invalid ? "File is invalid" : ""}
+            error={fieldState.invalid}
+          />
+        )}
       />
     </>
   );

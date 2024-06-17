@@ -19,6 +19,7 @@ export const defaultValuePaciente = {
   mesorregiao: "",
   microrregiao: "",
   municipio: "",
+  pfp: undefined,
 };
 
 export const defaultValueCirurgia = {

@@ -44,6 +44,42 @@ const Header = () => {
     };
   }, [queryClient, pb?.authStore?.model?.id]);
 
+  const checkForInactivity = () => {
+    const expireTime = localStorage.getItem("expireTime");
+
+    if (expireTime < Date.now()) {
+      logout();
+    }
+  };
+
+  const updateExpireTime = () => {
+    const expireTime = Date.now() + 600000; //10 minutos
+
+    localStorage.setItem("expireTime", expireTime);
+  };
+
+  useEffect(() => {
+    const interval = setInterval(checkForInactivity, 600000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    updateExpireTime();
+
+    window.addEventListener("click", updateExpireTime);
+    window.addEventListener("keypress", updateExpireTime);
+    window.addEventListener("mousemove", updateExpireTime);
+    window.addEventListener("scroll", updateExpireTime);
+
+    return () => {
+      window.removeEventListener("click", updateExpireTime);
+      window.removeEventListener("keypress", updateExpireTime);
+      window.removeEventListener("mousemove", updateExpireTime);
+      window.removeEventListener("scroll", updateExpireTime);
+    };
+  }, []);
+
   return (
     <AppBar
       position="static"

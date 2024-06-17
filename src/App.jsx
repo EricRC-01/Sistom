@@ -6,11 +6,13 @@ import { Box, CssBaseline } from "@mui/material";
 import { ThemeProvider } from "@mui/material";
 import { useTheme, ThemeContext } from "./theme/Theme.jsx";
 
+import { useEffect } from "react";
+
 const App = () => {
   const [theme, colorMode, fontSize] = useTheme();
 
   return (
-    <ThemeContext.Provider value={{colorMode, fontSize}}>
+    <ThemeContext.Provider value={{ colorMode, fontSize }}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Box

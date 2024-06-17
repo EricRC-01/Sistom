@@ -7,6 +7,7 @@ import {
   Card,
   CardActions,
   CardContent,
+  CardMedia,
 } from "@mui/material";
 
 import dayjs from "dayjs";
@@ -21,11 +22,22 @@ export const DisplayPaciente = ({ query }) => {
 
   if (isLoading) return <div>Carregando...</div>;
   if (isError) return <div>{error}</div>;
+
+  console.log(
+    `https://sistom.pockethost.io/api/files/pacientes/${data.id}/${data.pfp}`
+  );
   return (
     <>
       <Grid container spacing={2}>
         <Grid item sx={{ width: "100%" }}>
           <Card>
+            <CardMedia
+              component="img"
+              height="500"
+              image={`https://sistom.pockethost.io/api/files/pacientes/${data.id}/${data.pfp}`}
+              alt="Foto do Paciente"
+              sx={{ padding: "1em 1em 0 1em", objectFit: "contain" }}
+            />
             <CardContent>
               <Typography variant="h4" component="div" mb={2}>
                 {data.nome}

@@ -32,7 +32,10 @@ export const PaginaPaciente = () => {
 
   const { getDataById, getFullList } = usePocket();
 
-  const pacienteQuery = getDataById({ table: "pacientes", id: userId });
+  const pacienteQuery = getDataById({
+    table: "pacientes_completo",
+    id: userId,
+  });
   const estomaQuery = getFullList({
     table: "estomas",
     filter: `paciente.id="${userId}"`,

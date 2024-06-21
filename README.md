@@ -25,6 +25,7 @@ To host a local server, follow the steps:
     <ol>
       <li>npm run dev</li>
     </ol>
+  <li>Acess the localhost port in your navegator</li>
 </ol>
 
 ## Dependencies

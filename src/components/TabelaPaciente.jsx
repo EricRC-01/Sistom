@@ -26,17 +26,17 @@ export const TabelaPaciente = ({ query }) => {
   const navigate = useNavigate();
 
   const columns = [
-    { field: "nome", headerName: "Nome", width: 150 },
-    { field: "cns", headerName: "CNS", width: 200 },
+    { field: "name", headerName: "Nome", width: 150 },
+    { field: "sus_card", headerName: "CNS", width: 200 },
     {
       field: "tel",
       headerName: "Telefone",
       width: 150,
       valueFormatter: (params) => formatPhoneNumber(params),
     },
-    { field: "idade", headerName: "Idade", width: 70 },
+    { field: "age", headerName: "Idade", width: 70 },
     {
-      field: "dataNasc",
+      field: "birth_date",
       headerName: "Nascimento",
       width: 150,
       valueFormatter: (params) => formatDate(params),
@@ -48,11 +48,11 @@ export const TabelaPaciente = ({ query }) => {
       valueFormatter: (params) => formatDate(params),
     },
     { field: "recadastro", headerName: "Recadastro", width: 150 },
-    { field: "convenio", headerName: "Convenio", width: 150 },
+    { field: "health_insurance", headerName: "Convenio", width: 150 },
     { field: "esf", headerName: "ESF", width: 150 },
-    { field: "escolaridade", headerName: "Escolaridade", width: 150 },
-    { field: "profissao", headerName: "Profissão", width: 150 },
-    { field: "mobilidade", headerName: "Mobilidade", width: 150 },
+    { field: "education", headerName: "Escolaridade", width: 150 },
+    { field: "profession", headerName: "Profissão", width: 150 },
+    { field: "mobility", headerName: "Mobilidade", width: 150 },
     { field: "renda", headerName: "Renda", width: 150 },
     { field: "condicoes", headerName: "Condições", width: 150 },
     { field: "ativo", headerName: "Status", width: 150 },

@@ -40,22 +40,22 @@ export const DisplayPaciente = ({ query }) => {
             />
             <CardContent>
               <Typography variant="h4" component="div" mb={2}>
-                {data.nome}
+                {data.name}
               </Typography>
               <Typography variant="h5" mb={2}>
                 {data.ativo ? "Ativo" : `Inativo - ${data.motivoInatividade}`}
               </Typography>
               <Typography variant="body1" color="text.secondary" mb={1}>
-                CNS: {data.cns}
+                CNS: {data.sus_card}
               </Typography>
               <Typography variant="body1" color="text.secondary" mb={1}>
-                Sexo: {data.sexo}
+                Sexo: {data.gender}
               </Typography>
               <Typography variant="body1" color="text.secondary" mb={1}>
                 Telefone: {formatPhoneNumber(data.tel)}
               </Typography>
               <Typography variant="body1" color="text.secondary" mb={1}>
-                Data de Nascimento: {formatDate(data.dataNasc)}
+                Data de Nascimento: {formatDate(data.birth_date)}
               </Typography>
               <Typography variant="body1" color="text.secondary" mb={1}>
                 Utiliza ESF: {data.esf ? "Sim" : "Não"}
@@ -67,14 +67,14 @@ export const DisplayPaciente = ({ query }) => {
                 Forma de Recadastro: {data.recadastro}
               </Typography>
               <Typography variant="body1" color="text.secondary" mb={1}>
-                Convênio: {data.convenio ? data.convenio : "Não informado"}
+                Convênio: {data.health_insurance ? data.health_insurance : "Não informado"}
               </Typography>
               <Typography variant="body1" color="text.secondary" mb={1}>
                 Escolaridade:{" "}
-                {data.escolaridade ? data.escolaridade : "Não informado"}
+                {data.education ? data.education : "Não informado"}
               </Typography>
               <Typography variant="body1" color="text.secondary" mb={1}>
-                Profissão: {data.profissao ? data.profissao : "Não informado"}
+                Profissão: {data.profession ? data.profession : "Não informado"}
               </Typography>
               <Typography variant="body1" color="text.secondary" mb={1}>
                 Renda: {data.renda ? data.renda : "Não informado"}
@@ -84,7 +84,7 @@ export const DisplayPaciente = ({ query }) => {
                 {data.condicoes.length ? data.condicoes.join(", ") : "Nenhuma"}
               </Typography>
               <Typography variant="body1" color="text.secondary" mb={1}>
-                Mobilidade: {data.mobilidade}
+                Mobilidade: {data.mobility}
               </Typography>
               <Typography variant="body1" color="text.secondary" mb={1}>
                 Território: {data.territorio.nome}

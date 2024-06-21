@@ -75,11 +75,18 @@ export const PocketProvider = ({ children }) => {
     return useQuery({
       queryKey: [table, filter, sort],
       queryFn: async () => {
-        return await pb
-          .collection(table)
-          .getFullList({ filter: `${filter}` }, { sort: `${sort}` });
+        const etc = (await (await fetch("http://localhost:8080/patient/list")).json()).map(e => ({id: e.cpf, tel: '0000000000', ...e}));
+
+        // const etc = await pb
+        // .collection(table)
+        // .getFullList({ filter: `${filter}` }, { sort: `${sort}` });
+        console.log(await (await fetch("http://localhost:8080/patient/list")).json())
+        console.log(etc);
+        return etc
+        // return await (await fetch("localhost:8080/patient/list")).json() 
       },
     });
+    // return await (await fetch("localhost:8080/patient/list")).json() 
   });
 
   const deleteRecord = useCallback(({ table }) => {
@@ -103,7 +110,19 @@ export const PocketProvider = ({ children }) => {
       mutationFn: async ({ data = "", id = "" }) => {
         switch (mode) {
           case "register":
-            return await pb.collection(table).create(data);
+            // return await pb.collection(table).create(data);
+            console.log(data);
+            data.cpf = '12345678900';
+            data.rg = '123456789';
+            data.age = 12;
+            const response = await fetch(`http://localhost:8080/patient/create`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(data),
+            });
+            return response;
             break;
           case "edit":
             return await pb.collection(table).update(id, data);

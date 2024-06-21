@@ -27,22 +27,22 @@ import InputFileUpload from "components/InputFileUpload";
 
 const optionsSexoPaciente = [
   {
-    id: "Masculino",
+    id: "M",
     label: "Masculino",
   },
   {
-    id: "Feminino",
+    id: "F",
     label: "Feminino",
   },
 ];
 
 const optionsRecadastroPaciente = [
   {
-    id: "Presencial",
+    id: "P",
     label: "Presencial",
   },
   {
-    id: "Remoto",
+    id: "R",
     label: "Remoto",
   },
 ];
@@ -391,7 +391,7 @@ export const FormPaciente = ({ control, mode, watch, setValue }) => {
 
       <TextFieldElement
         label="Nome"
-        name="nome"
+        name="name"
         control={control}
         required
         rules={{
@@ -409,7 +409,7 @@ export const FormPaciente = ({ control, mode, watch, setValue }) => {
 
       <TextFieldElement
         label="Cartão Nacional de Saúde"
-        name="cns"
+        name="sus_card"
         control={control}
         required
         rules={{
@@ -436,7 +436,7 @@ export const FormPaciente = ({ control, mode, watch, setValue }) => {
 
       <RadioButtonGroup
         label={"Sexo"}
-        name={"sexo"}
+        name={"gender"}
         control={control}
         required
         rules={{ required: "Campo obrigatório" }}
@@ -451,7 +451,7 @@ export const FormPaciente = ({ control, mode, watch, setValue }) => {
       <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="pt-br">
         <DatePickerElement
           label="Data de Nascimento"
-          name="dataNasc"
+          name="birth_date"
           control={control}
           required
           rules={{ required: "Campo obrigatório" }}
@@ -465,7 +465,7 @@ export const FormPaciente = ({ control, mode, watch, setValue }) => {
 
       <RadioButtonGroup
         label="Recadastro"
-        name="recadastro"
+        name="reRegistration_form"
         control={control}
         required
         rules={{ required: "Campo obrigatório" }}
@@ -478,7 +478,7 @@ export const FormPaciente = ({ control, mode, watch, setValue }) => {
 
       <TextFieldElement
         label="Telefone"
-        name="tel"
+        name="phone"
         control={control}
         required
         rules={{
@@ -509,7 +509,7 @@ export const FormPaciente = ({ control, mode, watch, setValue }) => {
 
       <SelectElement
         label="Convênio"
-        name="convenio"
+        name="health_insurance"
         control={control}
         options={optionsConvenioPaciente}
         inputProps={{
@@ -520,7 +520,7 @@ export const FormPaciente = ({ control, mode, watch, setValue }) => {
 
       <SelectElement
         label="Escolaridade"
-        name="escolaridade"
+        name="education"
         control={control}
         options={optionsEscolaridadePaciente}
         inputProps={{
@@ -531,7 +531,7 @@ export const FormPaciente = ({ control, mode, watch, setValue }) => {
 
       <SelectElement
         label="Profissão"
-        name="profissao"
+        name="profession"
         control={control}
         options={optionsProfissaoPaciente}
         inputProps={{
@@ -553,7 +553,7 @@ export const FormPaciente = ({ control, mode, watch, setValue }) => {
 
       <RadioButtonGroup
         label="Mobilidade"
-        name="mobilidade"
+        name="mobility"
         control={control}
         required
         rules={{ required: "Campo obrigatório" }}

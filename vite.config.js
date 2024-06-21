@@ -18,4 +18,7 @@ export default defineConfig({
       theme: "/src/theme",
     },
   },
+  build: {
+    outDir: '../Sistom-BackEnd/dist_client'
+  }
 });

@@ -15,6 +15,7 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useMutation } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
+import { listPatients } from "api/patients";
 
 const Auth = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -35,6 +36,7 @@ const Auth = () => {
 
   const onSubmit = async (data) => {
     mutate({ email: data.email, password: data.password });
+    console.log(await listPatients());
   };
 
   useEffect(() => {

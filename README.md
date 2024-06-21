@@ -10,6 +10,15 @@ Most of the project is in the `src` folder, where the components used in the web
 
 Access the web system via the following link: https://sistom.vercel.app/ with login: grupo@email.com and password: 12345678
 
+To host a local server, follow the steps:
+  -> clone the BackEnd github repository: https://github.com/EricRC-01/Sistom-BackEnd/tree/main.
+  -> Download Docker Desktop (https://docs.docker.com/get-docker/) and open it.
+  -> Execute the following commands in the BackEnd directory: 
+      -> docker-compose build
+      -> docker-compose up
+  -> Execute the following commands in this Sistom directory:
+      -> npm run dev
+  
 ## Dependencies
 
 - Web browser (Chrome, Firefox, Safari, etc.)

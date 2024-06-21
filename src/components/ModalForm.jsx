@@ -108,7 +108,15 @@ export const ModalForm = ({ table, mode, defaultValuesEdit = {} }) => {
         break;
       case "edit":
         const id = defaultValuesEdit.id;
-        mutate({ id, data }, { onSuccess: () => handleClose() });
+        mutate(
+          { id, data },
+          {
+            onSuccess: () => {
+              handleClose();
+              queryClient.invalidateQueries([id, data]);
+            },
+          }
+        );
         break;
       default:
         break;

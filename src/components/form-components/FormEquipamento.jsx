@@ -155,7 +155,7 @@ export const FormEquipamento = ({ control }) => {
 
       <MultiSelectElement
         multiple
-        label="Adjuvante"
+        label="Uso de adjuvante"
         name="adjuvante"
         control={control}
         options={optionsAdjuvanteEquipamento}
@@ -172,16 +172,6 @@ export const FormEquipamento = ({ control }) => {
         control={control}
         inputProps={{
           "aria-label": "Custo Extra",
-        }}
-      />
-
-      {/* TODO */}
-      <TextFieldElement
-        label="Equipamentos indicados"
-        name="equipamento"
-        control={control}
-        inputProps={{
-          "aria-label": "Equipamentos indicados",
         }}
       />
 

@@ -50,10 +50,6 @@ export const DisplayEquipamento = ({ query }) => {
                   {item.custoExtra ? item.custoExtra : "Não informado"}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Equipamento:{" "}
-                  {item.equipamento ? item.equipamento : "Não informado"}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
                   Adaptação: {item.adaptacao}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">

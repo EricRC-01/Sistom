@@ -13,6 +13,7 @@ import { FormEstoma } from "./form-components/FormEstoma";
 import { FormRecebedor } from "./form-components/FormRecebedor";
 import { FormConsulta } from "./form-components/FormConsulta";
 import { FormEquipamento } from "./form-components/FormEquipamento";
+import { FormMaterialRetirado } from "./form-components/FormMaterialRetirado";
 
 import { useForm } from "react-hook-form";
 import { usePocket } from "contexts/PocketContext";
@@ -27,6 +28,7 @@ import {
   defaultValueEquipamento,
   defaultValueRecebedor,
   defaultValueEstoma,
+  defaultValueMaterialRetirado,
 } from "../utils/defaultValues";
 
 import CloseIcon from "@mui/icons-material/Close";
@@ -61,6 +63,9 @@ export const ModalForm = ({ table, mode, defaultValuesEdit = {} }) => {
     case "estomas":
       defaultValuesRegister = defaultValueEstoma;
       break;
+    case "materialRetirado":
+      defaultValuesRegister = defaultValueMaterialRetirado;
+      break;
   }
 
   const defaultValues =
@@ -76,6 +81,8 @@ export const ModalForm = ({ table, mode, defaultValuesEdit = {} }) => {
     setOpen(false);
     reset();
   };
+
+  console.log("aqui");
 
   const { mutateRecord } = usePocket();
   const { mutate, isPending } = mutateRecord({ table, mode });
@@ -150,6 +157,8 @@ export const ModalForm = ({ table, mode, defaultValuesEdit = {} }) => {
         return <FormConsulta control={control} mode={mode} />;
       case "equipamentos":
         return <FormEquipamento control={control} />;
+      case "materialRetirado":
+        return <FormMaterialRetirado control={control} />;
       default:
         return null;
     }

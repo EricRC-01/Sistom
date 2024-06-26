@@ -17,6 +17,7 @@ import { DisplayConsulta } from "components/display-data/DisplayConsulta";
 import { DisplayEquipamento } from "components/display-data/DisplayEquipamento";
 
 import { ModalForm } from "components/ModalForm";
+import { DisplayMaterialRetirado } from "components/display-data/DisplayMaterialRetirado";
 
 export const PaginaPaciente = () => {
   const [tabValue, setTabValue] = useState("1");
@@ -56,6 +57,10 @@ export const PaginaPaciente = () => {
     table: "equipamentos",
     filter: `paciente.id="${userId}"`,
   });
+  const materialRetiradoQuery = getFullList({
+    table: "materialRetirado",
+    filter: `paciente.id="${userId}"`,
+  });
 
   useEffect(() => {
     return () => {
@@ -75,7 +80,8 @@ export const PaginaPaciente = () => {
                 <Tab label="Recebedores" value="3" />
                 <Tab label="Cirurgias" value="4" />
                 <Tab label="Consultas" value="5" />
-                <Tab label="Equipamentos" value="6" />
+                <Tab label="Equipamento indicado" value="6" />
+                <Tab label="Materiais retirados" value="7" />
               </TabList>
             </Box>
             <TabPanel value="1">
@@ -100,6 +106,10 @@ export const PaginaPaciente = () => {
             <TabPanel value="6">
               <ModalForm table={"equipamentos"} mode={"register"} />
               <DisplayEquipamento query={equipamentoQuery} />
+            </TabPanel>
+            <TabPanel value="7">
+              <ModalForm table={"materialRetirado"} mode={"register"} />
+              <DisplayMaterialRetirado query={materialRetiradoQuery} />
             </TabPanel>
           </TabContext>
         </Box>

@@ -70,9 +70,10 @@ export const FormEquipamento = ({ control }) => {
         options={optionsTipoEstoma}
         required
         rules={{ required: "Campo obrigatório" }}
-        inputProps={{"aria-required":"true",
-          "aria-role":"combobox",
-          "aria-label":"Estoma",
+        inputProps={{
+          "aria-required": "true",
+          "aria-role": "combobox",
+          "aria-label": "Estoma",
         }}
       />
 
@@ -88,9 +89,10 @@ export const FormEquipamento = ({ control }) => {
             message: "Diâmetro deve ser um número inteiro de até 3 dígitos",
           },
         }}
-        inputProps={{"aria-required":"true",
-          "aria-role":"combobox",
-          "aria-label":"Diâmetro do equipamento em mm",
+        inputProps={{
+          "aria-required": "true",
+          "aria-role": "combobox",
+          "aria-label": "Diâmetro do equipamento em mm",
         }}
       />
 
@@ -102,8 +104,9 @@ export const FormEquipamento = ({ control }) => {
         required
         rules={{ required: "Campo obrigatório" }}
         row
-        inputProps={{"aria-required":"true",
-          "aria-label":"Quantidade de peças do sistema",
+        inputProps={{
+          "aria-required": "true",
+          "aria-label": "Quantidade de peças do sistema",
         }}
       />
 
@@ -114,7 +117,7 @@ export const FormEquipamento = ({ control }) => {
         options={optionsSistemaOpacidade}
         row
         inputProps={{
-          "aria-label":"Opacidade do sistema",
+          "aria-label": "Opacidade do sistema",
         }}
       />
 
@@ -123,7 +126,7 @@ export const FormEquipamento = ({ control }) => {
         name="sistemaDrenavel"
         control={control}
         inputProps={{
-          "aria-label":"O sistema é drenável",
+          "aria-label": "O sistema é drenável",
         }}
       />
 
@@ -136,8 +139,8 @@ export const FormEquipamento = ({ control }) => {
         rules={{ required: "Campo obrigatório" }}
         row
         inputProps={{
-          "aria-label":"Tipo de Placa",
-          "aria-required":"true"
+          "aria-label": "Tipo de Placa",
+          "aria-required": "true",
         }}
       />
 
@@ -146,11 +149,11 @@ export const FormEquipamento = ({ control }) => {
         name="placaRecortavel"
         control={control}
         inputProps={{
-          "aria-label":"A placa é recortável",
+          "aria-label": "A placa é recortável",
         }}
       />
 
-      <AutocompleteElement
+      <MultiSelectElement
         multiple
         label="Adjuvante"
         name="adjuvante"
@@ -158,8 +161,8 @@ export const FormEquipamento = ({ control }) => {
         options={optionsAdjuvanteEquipamento}
         inputProps={{
           "aria-multiselectable": "true",
-          "aria-role":"combobox",
-          "aria-label":"Adjuvante",
+          "aria-role": "combobox",
+          "aria-label": "Adjuvante",
         }}
       />
 
@@ -168,7 +171,7 @@ export const FormEquipamento = ({ control }) => {
         name="custoExtra"
         control={control}
         inputProps={{
-          "aria-label":"Custo Extra",
+          "aria-label": "Custo Extra",
         }}
       />
 
@@ -178,7 +181,7 @@ export const FormEquipamento = ({ control }) => {
         name="equipamento"
         control={control}
         inputProps={{
-          "aria-label":"Equipamentos indicados",
+          "aria-label": "Equipamentos indicados",
         }}
       />
 
@@ -188,8 +191,8 @@ export const FormEquipamento = ({ control }) => {
         control={control}
         options={optionsAdaptacaoEquipamento}
         inputProps={{
-          "aria-label":"Adaptação",
-          "aria-role":"combobox",
+          "aria-label": "Adaptação",
+          "aria-role": "combobox",
         }}
       />
 
@@ -198,7 +201,7 @@ export const FormEquipamento = ({ control }) => {
         name="obs"
         control={control}
         inputProps={{
-          "aria-label":"Observações do avaliador",
+          "aria-label": "Observações do avaliador",
         }}
       />
     </>

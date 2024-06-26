@@ -7,6 +7,8 @@ import {
   Button,
 } from "@mui/material";
 
+import { ModalForm } from "components/ModalForm";
+
 import { RemoveButton } from "components/RemoveButton";
 
 export const DisplayEquipamento = ({ query }) => {
@@ -59,9 +61,11 @@ export const DisplayEquipamento = ({ query }) => {
                 </Typography>
               </CardContent>
               <CardActions sx={{ justifyContent: "flex-end" }}>
-                <Button size="small" variant="contained" color="primary">
-                  Editar
-                </Button>
+                <ModalForm
+                  table="equipamentos"
+                  mode="edit"
+                  defaultValuesEdit={item}
+                />
                 <RemoveButton table="equipamentos" id={item.id} />
               </CardActions>
             </Card>

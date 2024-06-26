@@ -2,6 +2,7 @@ import {
   AutocompleteElement,
   CheckboxButtonGroup,
   CheckboxElement,
+  MultiSelectElement,
   RadioButtonGroup,
   SelectElement,
   SwitchElement,
@@ -363,6 +364,8 @@ export const FormPaciente = ({ control, mode, watch, setValue }) => {
       : "",
   });
 
+  console.log(watch("condicoes"));
+
   return (
     <>
       {mode === "edit" && (
@@ -494,17 +497,17 @@ export const FormPaciente = ({ control, mode, watch, setValue }) => {
         }}
       />
 
-      <AutocompleteElement
+      <MultiSelectElement
         label="Condições clínicas e fatores associados"
         name="condicoes"
         control={control}
         options={optionsCondicoesPaciente}
         multiple
-        inputProps={{
+        /* inputProps={{
           "aria-multiselectable": "true",
           "aria-role": "combobox",
           "aria-label": "Condições clínicas e fatores associados",
-        }}
+        }} */
       />
 
       <SelectElement

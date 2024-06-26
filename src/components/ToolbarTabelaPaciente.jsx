@@ -41,6 +41,7 @@ export const ToolbarTabelaPaciente = ({ setBusca, setFiltro }) => {
           pl: { sm: 2 },
           pr: { xs: 1, sm: 1 },
           justifyContent: "space-between",
+          displayPrint: "none",
         }}
       >
         <Controller

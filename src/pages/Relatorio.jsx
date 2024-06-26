@@ -19,7 +19,13 @@ export const Relatorio = () => {
     <div>
       <Container maxWidth="lg" sx={{ pb: 10 }}>
         <TabContext value={tabValue}>
-          <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+          <Box
+            sx={{
+              borderBottom: 1,
+              borderColor: "divider",
+              displayPrint: "none",
+            }}
+          >
             <TabList onChange={handleTabChange} variant="scrollable">
               <Tab label="Perfil geral dos usuários" value="1" />
               <Tab label="Estomias" value="2" />
@@ -34,7 +40,10 @@ export const Relatorio = () => {
                 <Pie table="escolaridade" label="Escolaridade" />
               </Grid>
               <Grid xs={6}>
-                <Bar table="territorio" label="Território" />
+                <Bar table="territorio" label="Territórios" />
+              </Grid>
+              <Grid xs={6}>
+                <Bar table="municipio_piaui" label="Municípios" />
               </Grid>
             </Grid>
           </TabPanel>
@@ -42,6 +51,9 @@ export const Relatorio = () => {
             <Grid container spacing={2}>
               <Grid xs={6}>
                 <Pie table="tipo_estoma" label="Tipo de Estoma" />
+              </Grid>
+              <Grid xs={6}>
+                <Pie table="permanencia_estoma" label="Tempo de Permanência" />
               </Grid>
             </Grid>
           </TabPanel>

@@ -2,13 +2,19 @@ import { Typography } from "@mui/material";
 import { PieChart } from "@mui/x-charts/PieChart";
 import { usePocket } from "contexts/PocketContext";
 
+const permanenciaEstoma = () => {
+  const { getFullList } = usePocket();
+  const { data, isLoading } = getFullList({
+    table: "permanencia_estoma",
+  });
+  return { data: data, isLoading: isLoading };
+};
+
 const escolaridade = () => {
   const { getFullList } = usePocket();
   const { data, isLoading } = getFullList({
     table: "escolaridade",
   });
-
-  console.log(data, isLoading);
 
   const updatedArray = data?.map((item) => {
     if (item.label === "") {
@@ -53,6 +59,10 @@ export const Pie = ({ table, label }) => {
     case "genero":
       updatedArray = genero().data;
       isLoading = genero().isLoading;
+      break;
+    case "permanencia_estoma":
+      updatedArray = permanenciaEstoma().data;
+      isLoading = permanenciaEstoma().isLoading;
       break;
   }
 

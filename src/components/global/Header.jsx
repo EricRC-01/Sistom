@@ -87,6 +87,7 @@ const Header = () => {
         backgroundColor: "primary.main",
         pt: 2,
         pb: 1,
+        displayPrint: "none",
       }}
     >
       <Container>

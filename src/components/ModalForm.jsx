@@ -39,8 +39,6 @@ export const ModalForm = ({ table, mode, defaultValuesEdit = {} }) => {
   const searchParams = new URLSearchParams(location.search);
   const userId = searchParams.get("userId");
 
-  console.log(defaultValuesEdit);
-
   const queryClient = useQueryClient();
 
   var defaultValuesRegister = {};
@@ -83,6 +81,8 @@ export const ModalForm = ({ table, mode, defaultValuesEdit = {} }) => {
   const { mutate, isPending } = mutateRecord({ table, mode });
 
   const onSubmit = async (data) => {
+    console.log(data);
+
     switch (mode) {
       case "register":
         data.paciente = userId;
@@ -114,7 +114,6 @@ export const ModalForm = ({ table, mode, defaultValuesEdit = {} }) => {
           delete data.fotos;
         }
         const id = defaultValuesEdit.id;
-        console.log(data);
         mutate(
           { id, data },
           {

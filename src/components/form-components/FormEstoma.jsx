@@ -375,7 +375,7 @@ export const FormEstoma = ({ control, mode, setValue }) => {
         }}
       />
 
-      <AutocompleteElement
+      <MultiSelectElement
         multiple
         label="Complicações presentes"
         name="complicacao"
@@ -388,7 +388,7 @@ export const FormEstoma = ({ control, mode, setValue }) => {
         }}
       />
 
-      <AutocompleteElement
+      <MultiSelectElement
         multiple
         label="Efluente"
         name="efluente"
@@ -401,7 +401,7 @@ export const FormEstoma = ({ control, mode, setValue }) => {
         }}
       />
 
-      <AutocompleteElement
+      <MultiSelectElement
         multiple
         label="Pele Periestoma"
         name="periestoma"

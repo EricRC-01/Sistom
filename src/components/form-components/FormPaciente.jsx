@@ -675,6 +675,7 @@ export const FormPaciente = ({ control, mode, watch, setValue }) => {
             {...field}
             helperText={fieldState.invalid ? "File is invalid" : ""}
             error={fieldState.invalid}
+            label="Foto do Paciente"
           />
         )}
       />

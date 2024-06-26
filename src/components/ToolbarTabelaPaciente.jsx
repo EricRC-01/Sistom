@@ -23,6 +23,7 @@ export const ToolbarTabelaPaciente = ({ setBusca, setFiltro }) => {
   const { handleSubmit, control } = useForm();
 
   const onSubmit = (data) => {
+    console.log("aqui");
     if (data.busca === undefined) {
       return;
     }
@@ -58,6 +59,11 @@ export const ToolbarTabelaPaciente = ({ setBusca, setFiltro }) => {
               placeholder="Digite o nome do paciente"
               disableUnderline
               onChange={onChange}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  handleSubmit(onSubmit)();
+                }
+              }}
             />
           )}
         />

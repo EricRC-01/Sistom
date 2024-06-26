@@ -5,6 +5,7 @@ import {
   CardActions,
   Typography,
   Button,
+  CardMedia,
 } from "@mui/material";
 
 import { RemoveButton } from "components/RemoveButton";
@@ -23,6 +24,17 @@ export const DisplayRecebedor = ({ query }) => {
         {data.map((item) => (
           <Grid item xs={12} sm={6} md={4} key={item.id}>
             <Card key={item.key} sx={{ minWidth: 275 }}>
+              <CardMedia
+                component="img"
+                height="140"
+                image={
+                  item.pfp
+                    ? `https://sistom.pockethost.io/api/files/recebedores/${item.id}/${item.pfp}`
+                    : "../../global/sem_imagem.jpg"
+                }
+                alt="Foto do Recebedor"
+                sx={{ paddingTop: 2, objectFit: "contain" }}
+              />
               <CardContent>
                 <Typography variant="h5" component="div">
                   {item.nome}

@@ -23,9 +23,6 @@ export const DisplayPaciente = ({ query }) => {
   if (isLoading) return <div>Carregando...</div>;
   if (isError) return <div>{error}</div>;
 
-  console.log(
-    `https://sistom.pockethost.io/api/files/pacientes/${data.id}/${data.pfp}`
-  );
   return (
     <>
       <Grid container spacing={2}>
@@ -34,7 +31,11 @@ export const DisplayPaciente = ({ query }) => {
             <CardMedia
               component="img"
               height="500"
-              image={`https://sistom.pockethost.io/api/files/pacientes/${data.id}/${data.pfp}`}
+              image={
+                data.pfp
+                  ? `https://sistom.pockethost.io/api/files/pacientes/${data.id}/${data.pfp}`
+                  : "../../global/sem_imagem.jpg"
+              }
               alt="Foto do Paciente"
               sx={{ padding: "1em 1em 0 1em", objectFit: "contain" }}
             />

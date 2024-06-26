@@ -4,6 +4,9 @@ import {
   SelectElement,
 } from "react-hook-form-mui";
 
+import { Controller } from "react-hook-form";
+import { MuiFileInput } from "mui-file-input";
+
 const optionsSexoRecebedor = [
   {
     id: "Masculino",
@@ -42,8 +45,8 @@ export const FormRecebedor = ({ control }) => {
           },
         }}
         inputProps={{
-          "aria-required":"true",
-          "aria-label":"Nome",
+          "aria-required": "true",
+          "aria-label": "Nome",
         }}
       />
 
@@ -60,8 +63,8 @@ export const FormRecebedor = ({ control }) => {
           },
         }}
         inputProps={{
-          "aria-required":"true",
-          "aria-label":"CPF",
+          "aria-required": "true",
+          "aria-label": "CPF",
         }}
       />
 
@@ -74,8 +77,8 @@ export const FormRecebedor = ({ control }) => {
         options={optionsSexoRecebedor}
         row
         inputProps={{
-          "aria-required":"true",
-          "aria-label":"Sexo",
+          "aria-required": "true",
+          "aria-label": "Sexo",
         }}
       />
 
@@ -92,8 +95,8 @@ export const FormRecebedor = ({ control }) => {
           },
         }}
         inputProps={{
-          "aria-required":"true",
-          "aria-label":"Telefone",
+          "aria-required": "true",
+          "aria-label": "Telefone",
         }}
       />
 
@@ -103,9 +106,23 @@ export const FormRecebedor = ({ control }) => {
         control={control}
         options={optionsOrgaoRecebedor}
         inputProps={{
-          "aria-role":"combobox",
-          "aria-label":"Órgão Receptor",
+          "aria-role": "combobox",
+          "aria-label": "Órgão Receptor",
         }}
+      />
+
+      <Controller
+        label="Foto"
+        name="pfp"
+        control={control}
+        render={({ field, fieldState }) => (
+          <MuiFileInput
+            {...field}
+            helperText={fieldState.invalid ? "File is invalid" : ""}
+            error={fieldState.invalid}
+            label="Foto do Recebedor"
+          />
+        )}
       />
     </>
   );

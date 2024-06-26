@@ -17,6 +17,9 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { Radio } from "@mui/material";
 
+import { Controller } from "react-hook-form-mui";
+import { MuiFileInput } from "mui-file-input";
+
 const optionsTipoEstoma = [
   { id: "Colostomia", label: "Colostomia" },
   { id: "Ileostomia", label: "Ileostomia" },
@@ -172,7 +175,9 @@ const optionsPeriestomaEstoma = [
   { id: "Deiscencia nos pontos", label: "Deiscencia nos pontos" },
 ];
 
-export const FormEstoma = ({ control }) => {
+export const FormEstoma = ({ control, mode, setValue }) => {
+  //if (mode === "edit") setValue("fotos", []);
+
   return (
     <>
       <SelectElement
@@ -183,9 +188,9 @@ export const FormEstoma = ({ control }) => {
         required
         rules={{ required: "Campo obrigatório" }}
         inputProps={{
-          "aria-required":"true",
-          "aria-role":"combobox",
-          "aria-label":"Tipo de Estoma",
+          "aria-required": "true",
+          "aria-role": "combobox",
+          "aria-label": "Tipo de Estoma",
         }}
       />
 
@@ -200,7 +205,7 @@ export const FormEstoma = ({ control }) => {
           },
         }}
         inputProps={{
-          "aria-label":"CID",
+          "aria-label": "CID",
         }}
       />
 
@@ -209,7 +214,7 @@ export const FormEstoma = ({ control }) => {
         name="doenca"
         control={control}
         inputProps={{
-          "aria-label":"Doença de base para o estoma",
+          "aria-label": "Doença de base para o estoma",
         }}
       />
 
@@ -222,8 +227,8 @@ export const FormEstoma = ({ control }) => {
         options={optionsDemarcacaoEstoma}
         row
         inputProps={{
-          "aria-label":"Demarcação",
-          "aria-required":"true",
+          "aria-label": "Demarcação",
+          "aria-required": "true",
         }}
       />
 
@@ -233,8 +238,8 @@ export const FormEstoma = ({ control }) => {
         control={control}
         options={optionsExteriorizacaoEstoma}
         inputProps={{
-          "aria-label":"Modo de exteriorização",
-          "aria-role":"combobox",
+          "aria-label": "Modo de exteriorização",
+          "aria-role": "combobox",
         }}
       />
 
@@ -244,7 +249,7 @@ export const FormEstoma = ({ control }) => {
         control={control}
         options={optionsAbdomeEstoma}
         inputProps={{
-          "aria-label":"Tipo de abdome",
+          "aria-label": "Tipo de abdome",
         }}
       />
 
@@ -256,8 +261,8 @@ export const FormEstoma = ({ control }) => {
         required
         rules={{ required: "Campo obrigatório" }}
         inputProps={{
-          "aria-label":"Permanência",
-          "aria-required":"true",
+          "aria-label": "Permanência",
+          "aria-required": "true",
         }}
       />
 
@@ -266,7 +271,7 @@ export const FormEstoma = ({ control }) => {
         name="indeterminadoMotivo"
         control={control}
         inputProps={{
-          "aria-label":"Motivo para ser indeterminad",
+          "aria-label": "Motivo para ser indeterminad",
         }}
       />
 
@@ -278,8 +283,8 @@ export const FormEstoma = ({ control }) => {
         required
         rules={{ required: "Campo obrigatório" }}
         inputProps={{
-          "aria-label":"Localização abdominal",
-          "aria-required":"true",
+          "aria-label": "Localização abdominal",
+          "aria-required": "true",
         }}
       />
 
@@ -291,8 +296,8 @@ export const FormEstoma = ({ control }) => {
         required
         rules={{ required: "Campo obrigatório" }}
         inputProps={{
-          "aria-label":"Como está a higiene do estoma",
-          "aria-required":"true",
+          "aria-label": "Como está a higiene do estoma",
+          "aria-required": "true",
         }}
       />
 
@@ -305,8 +310,8 @@ export const FormEstoma = ({ control }) => {
         rules={{ required: "Campo obrigatório" }}
         row
         inputProps={{
-          "aria-label":"Formato",
-          "aria-required":"true",
+          "aria-label": "Formato",
+          "aria-required": "true",
         }}
       />
 
@@ -319,8 +324,8 @@ export const FormEstoma = ({ control }) => {
         rules={{ required: "Campo obrigatório" }}
         row
         inputProps={{
-          "aria-label":"Forma",
-          "aria-required":"true",
+          "aria-label": "Forma",
+          "aria-required": "true",
         }}
       />
 
@@ -330,7 +335,7 @@ export const FormEstoma = ({ control }) => {
         control={control}
         options={optionsColoracaoEstoma}
         inputProps={{
-          "aria-label":"Coloração",
+          "aria-label": "Coloração",
         }}
       />
 
@@ -342,8 +347,8 @@ export const FormEstoma = ({ control }) => {
         required
         rules={{ required: "Campo obrigatório" }}
         inputProps={{
-          "aria-label":"Haste",
-          "aria-required":"true",
+          "aria-label": "Haste",
+          "aria-required": "true",
         }}
       />
 
@@ -353,7 +358,7 @@ export const FormEstoma = ({ control }) => {
         control={control}
         options={optionsProtusaoEstoma}
         inputProps={{
-          "aria-label":"Protusão",
+          "aria-label": "Protusão",
         }}
       />
 
@@ -365,8 +370,8 @@ export const FormEstoma = ({ control }) => {
         required
         rules={{ required: "Campo obrigatório" }}
         inputProps={{
-          "aria-label":"É funcional?",
-          "aria-required":"true",
+          "aria-label": "É funcional?",
+          "aria-required": "true",
         }}
       />
 
@@ -377,9 +382,9 @@ export const FormEstoma = ({ control }) => {
         control={control}
         options={optionsComplicacaoEstoma}
         inputProps={{
-          "aria-label":"Complicações presentes",
+          "aria-label": "Complicações presentes",
           "aria-multiselectable": "true",
-          "aria-role":"combobox",
+          "aria-role": "combobox",
         }}
       />
 
@@ -390,9 +395,9 @@ export const FormEstoma = ({ control }) => {
         control={control}
         options={optionsEfluentePaciente}
         inputProps={{
-          "aria-label":"Efluente",
+          "aria-label": "Efluente",
           "aria-multiselectable": "true",
-          "aria-role":"combobox",
+          "aria-role": "combobox",
         }}
       />
 
@@ -403,9 +408,9 @@ export const FormEstoma = ({ control }) => {
         control={control}
         options={optionsPeriestomaEstoma}
         inputProps={{
-          "aria-label":"Pele Periestoma",
+          "aria-label": "Pele Periestoma",
           "aria-multiselectable": "true",
-          "aria-role":"combobox",
+          "aria-role": "combobox",
         }}
       />
 
@@ -414,8 +419,22 @@ export const FormEstoma = ({ control }) => {
         name="cinto"
         control={control}
         inputProps={{
-          "aria-label":"Usa cinto de sustentação?",
+          "aria-label": "Usa cinto de sustentação?",
         }}
+      />
+
+      <Controller
+        name="fotos"
+        control={control}
+        render={({ field, fieldState }) => (
+          <MuiFileInput
+            {...field}
+            helperText={fieldState.invalid ? "File is invalid" : ""}
+            error={fieldState.invalid}
+            label="Fotos do Estoma"
+            multiple
+          />
+        )}
       />
     </>
   );

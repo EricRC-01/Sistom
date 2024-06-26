@@ -39,6 +39,8 @@ export const ModalForm = ({ table, mode, defaultValuesEdit = {} }) => {
   const searchParams = new URLSearchParams(location.search);
   const userId = searchParams.get("userId");
 
+  console.log(defaultValuesEdit);
+
   const queryClient = useQueryClient();
 
   var defaultValuesRegister = {};
@@ -65,6 +67,7 @@ export const ModalForm = ({ table, mode, defaultValuesEdit = {} }) => {
 
   const defaultValues =
     mode === "edit" ? defaultValuesEdit : defaultValuesRegister;
+
   const { handleSubmit, reset, control, watch, setValue } = useForm({
     values: defaultValues,
   });
@@ -107,8 +110,20 @@ export const ModalForm = ({ table, mode, defaultValuesEdit = {} }) => {
         );
         break;
       case "edit":
+        if (mode === "edit" && table === "estomas" && data.fotos.length === 0) {
+          delete data.fotos;
+        }
         const id = defaultValuesEdit.id;
-        mutate({ id, data }, { onSuccess: () => handleClose() });
+        console.log(data);
+        mutate(
+          { id, data },
+          {
+            onSuccess: () => {
+              handleClose();
+              queryClient.invalidateQueries([id, data]);
+            },
+          }
+        );
         break;
       default:
         break;
@@ -129,7 +144,7 @@ export const ModalForm = ({ table, mode, defaultValuesEdit = {} }) => {
           />
         );
       case "estomas":
-        return <FormEstoma control={control} />;
+        return <FormEstoma control={control} mode={mode} setValue={setValue} />;
       case "recebedores":
         return <FormRecebedor control={control} />;
       case "consultas":

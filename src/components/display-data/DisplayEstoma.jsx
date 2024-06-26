@@ -7,6 +7,7 @@ import {
   Card,
   CardContent,
   CardActions,
+  CardMedia,
 } from "@mui/material";
 import { ModalForm } from "components/ModalForm";
 
@@ -17,6 +18,9 @@ export const DisplayEstoma = ({ query }) => {
 
   if (isLoading) return <div>Carregando...</div>;
   if (isError) return <div>{error}</div>;
+
+  console.log(data);
+
   return (
     <>
       <Grid container spacing={2} mt={1}>
@@ -92,12 +96,29 @@ export const DisplayEstoma = ({ query }) => {
                     ? item.efluente.join(", ")
                     : "Não informado"}
                 </Typography>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-evenly",
+                    overflowX: "scroll",
+                  }}
+                >
+                  {item.fotos.map((foto) => (
+                    <CardMedia
+                      component="img"
+                      height="300"
+                      image={`https://sistom.pockethost.io/api/files/estomas/${item.id}/${foto}`}
+                      alt="Foto do Estoma"
+                      sx={{ paddingTop: 2, mr: 1, objectFit: "contain" }}
+                    />
+                  ))}
+                </Box>
               </CardContent>
               <CardActions sx={{ justifyContent: "flex-end" }}>
                 <ModalForm
                   table="estomas"
                   mode="edit"
-                  defaultValuesEdit={item}
+                  defaultValuesEdit={{ ...item, fotos: [] }}
                 />
                 <RemoveButton table="estomas" id={item.id} />
               </CardActions>

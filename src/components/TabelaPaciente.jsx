@@ -69,6 +69,18 @@ export const TabelaPaciente = ({ query }) => {
   if (isLoading) return <div>Carregando...</div>;
   if (isError) return <div>{error}</div>;
 
+  if (data.some((item) => item.hasOwnProperty("data_consulta"))) {
+    console.log("data_consulta");
+    columns.push({
+      field: "data_consulta",
+      headerName: "Tempo de Atraso",
+      width: 150,
+      valueFormatter: (params) => `${dayjs().diff(dayjs(params), "day")} dias`,
+    });
+  }
+
+  console.log(data);
+
   return (
     <div>
       <DataGrid
@@ -81,6 +93,7 @@ export const TabelaPaciente = ({ query }) => {
         disableRowSelectionOnClick
         initialState={{
           ...data.initialState,
+          sorting: { sortModel: [{ field: "data_consulta", sort: "asc" }] },
           pagination: { paginationModel: { pageSize: 25 } },
           columns: {
             ...data.initialState?.columns,

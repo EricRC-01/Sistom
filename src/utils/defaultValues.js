@@ -53,6 +53,7 @@ export const defaultValueEstoma = {
   efluente: [],
   periestoma: [],
   cinto: "",
+  fotos: undefined,
 };
 export const defaultValueRecebedor = {
   nome: "",
@@ -61,6 +62,7 @@ export const defaultValueRecebedor = {
   paciente: "",
   tel: "",
   orgao: "",
+  pfp: undefined,
 };
 export const defaultValueConsulta = {
   data: null,

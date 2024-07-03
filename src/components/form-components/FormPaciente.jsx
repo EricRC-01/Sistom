@@ -230,19 +230,48 @@ const optionsCondicoesPaciente = [
     label: "Paciente especial",
   },
 ];
+//SUS, Unimed, Humana, Amil, Medplan, GEAP, PLAMTA, IASPI/IAPEP, Intermédica, Hapvida
 
 const optionsConvenioPaciente = [
-  {
-    id: "Amil",
-    label: "Amil",
-  },
   {
     id: "Unimed",
     label: "Unimed",
   },
   {
-    id: "Outro",
-    label: "Outro",
+    id: "Humana",
+    label: "Humana",
+  },
+  {
+    id: "Amil",
+    label: "Amil",
+  },
+  {
+    id: "Medplan",
+    label: "Medplan",
+  },
+  {
+    id: "GEAP",
+    label: "GEAP",
+  },
+  {
+    id: "PLAMTA",
+    label: "PLAMTA",
+  },
+  {
+    id: "IASPI/IAPEP",
+    label: "IASPI/IAPEP",
+  },
+  {
+    id: "Intermédica",
+    label: "Intermédica",
+  },
+  {
+    id: "Hapvida",
+    label: "Hapvida",
+  },
+  {
+    id: "SUS",
+    label: "SUS",
   },
 ];
 
@@ -262,17 +291,6 @@ const optionsEscolaridadePaciente = [
   {
     id: "Ensino Superior",
     label: "Ensino Superior",
-  },
-];
-
-const optionsProfissaoPaciente = [
-  {
-    id: "Placeholder 1",
-    label: "Placeholder 1",
-  },
-  {
-    id: "Placeholder 2",
-    label: "Placeholder 2",
   },
 ];
 
@@ -532,16 +550,7 @@ export const FormPaciente = ({ control, mode, watch, setValue }) => {
         }}
       />
 
-      <SelectElement
-        label="Profissão"
-        name="profissao"
-        control={control}
-        options={optionsProfissaoPaciente}
-        inputProps={{
-          "aria-role": "combobox",
-          "aria-label": "Profissão",
-        }}
-      />
+      <TextFieldElement label="Profissão" name="profissao" control={control} />
 
       <SelectElement
         label="Renda"

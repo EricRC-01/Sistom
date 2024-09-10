@@ -1,6 +1,5 @@
 import {
   AutocompleteElement,
-  CheckboxButtonGroup,
   CheckboxElement,
   MultiSelectElement,
   RadioButtonGroup,
@@ -9,20 +8,15 @@ import {
   TextFieldElement,
 } from "react-hook-form-mui";
 
-import { TextField } from "@mui/material";
+import { listaProfissoes } from "../../utils/data";
 
 import { DatePickerElement } from "react-hook-form-mui/date-pickers";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
-import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
-
 import { Controller } from "react-hook-form";
-import { Button } from "@mui/material";
 
 import { MuiFileInput } from "mui-file-input";
-
-import InputFileUpload from "components/InputFileUpload";
 
 //import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 
@@ -348,7 +342,6 @@ const optionsMotivoInatividadePaciente = [
 ];
 
 import { useData } from "contexts/PocketContext";
-import { Key } from "@mui/icons-material";
 
 // Território : 27 unidades federativas: SP, RJ, PI...
 // Mesorregiao:
@@ -550,7 +543,16 @@ export const FormPaciente = ({ control, mode, watch, setValue }) => {
         }}
       />
 
-      <TextFieldElement label="Profissão" name="profissao" control={control} />
+      <AutocompleteElement
+        label="Profissão"
+        name="profissao"
+        control={control}
+        options={listaProfissoes}
+        inputProps={{
+          "aria-role": "combobox",
+          "aria-label": "Profissão",
+        }}
+      />
 
       <SelectElement
         label="Renda"

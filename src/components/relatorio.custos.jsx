@@ -2,17 +2,19 @@ import { Typography } from "@mui/material";
 import { BarChart } from "@mui/x-charts";
 import { usePocket } from "contexts/PocketContext";
 
-const chartSettingPacientes = {
-  xAxis: [
-    {
-      label: "Quantidade de Pacientes",
-    },
-  ],
-  width: 500,
-  height: 500,
-};
+export const RelatorioCustos = ({ table, label }) => {
+  console.log(table, label);
 
-export const Bar = ({ table, label }) => {
+  const chartSettingPacientes = {
+    xAxis: [
+      {
+        label: `Preço por ${label}`,
+      },
+    ],
+    width: 500,
+    height: 500,
+  };
+
   const { getFullList } = usePocket();
   const { data, isLoading } = getFullList({
     table: table,
@@ -22,10 +24,14 @@ export const Bar = ({ table, label }) => {
   if (isLoading) {
     return <div>Carregando...</div>;
   }
-  const formattedData = data.map((item) => ({
-    ...item,
-    label: item.label.nome,
-  }));
+  const formattedData =
+    table === "custo_municipio" &&
+    data.map((item) => ({
+      ...item,
+      label: item.label.nome,
+    }));
+
+  console.log(formattedData);
 
   return (
     <>
@@ -34,9 +40,9 @@ export const Bar = ({ table, label }) => {
       </Typography>
       <BarChart
         margin={{ left: 125 }}
-        dataset={formattedData}
+        dataset={table === "custo_municipio" ? formattedData : data}
         yAxis={[{ scaleType: "band", dataKey: "label" }]}
-        series={[{ dataKey: "value", label: "Pacientes" }]}
+        series={[{ dataKey: "value", label: "R$" }]}
         layout="horizontal"
         {...chartSettingPacientes}
       />

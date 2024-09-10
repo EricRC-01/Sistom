@@ -1,13 +1,11 @@
 import { useState } from "react";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { Box, Container, Tab } from "@mui/material";
-import { ChartContainer, ResponsiveChartContainer } from "@mui/x-charts";
-import { PieChart } from "@mui/x-charts/PieChart";
-import { PiePlot } from "@mui/x-charts/PieChart";
 import Grid from "@mui/material/Unstable_Grid2";
 
 import { Pie } from "components/charts/Pie";
 import { Bar } from "components/charts/Bar";
+import { RelatorioCustosPage } from "components/relatorio.custos.page";
 
 export const Relatorio = () => {
   const [tabValue, setTabValue] = useState("1");
@@ -29,6 +27,7 @@ export const Relatorio = () => {
             <TabList onChange={handleTabChange} variant="scrollable">
               <Tab label="Perfil geral dos usuários" value="1" />
               <Tab label="Estomias" value="2" />
+              <Tab label="Custos" value="3" />
             </TabList>
           </Box>
           <TabPanel value="1">
@@ -56,6 +55,9 @@ export const Relatorio = () => {
                 <Pie table="permanencia_estoma" label="Tempo de Permanência" />
               </Grid>
             </Grid>
+          </TabPanel>
+          <TabPanel value="3">
+            <RelatorioCustosPage />
           </TabPanel>
         </TabContext>
       </Container>

@@ -23,7 +23,6 @@ const escolaridade = () => {
       return item;
     }
   });
-  console.log(updatedArray, isLoading);
   return { data: updatedArray, isLoading: isLoading };
 };
 
@@ -69,8 +68,6 @@ export const Pie = ({ table, label }) => {
   if (isLoading) {
     return <div>Carregando...</div>;
   }
-
-  console.log(updatedArray);
 
   return (
     <>

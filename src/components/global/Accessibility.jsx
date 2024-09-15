@@ -3,6 +3,7 @@ import ContrastSharpIcon from "@mui/icons-material/ContrastSharp";
 import TextDecreaseSharpIcon from "@mui/icons-material/TextDecreaseSharp";
 import TextIncreaseSharpIcon from "@mui/icons-material/TextIncreaseSharp";
 import ArrowUpwardRoundedIcon from '@mui/icons-material/ArrowUpwardRounded';
+import QuestionMarkRoundedIcon from '@mui/icons-material/QuestionMarkRounded';
 import { useContext } from "react";
 import { ThemeContext } from "../../theme/Theme";
 
@@ -14,6 +15,10 @@ export const Accessibility = () => {
       top: 0,
       behavior: 'smooth'
     });
+  };
+
+  const tutorialLink = () => {
+    window.open("https://youtu.be/H8yUIRUHsm8", "_blank");
   };
 
   return (
@@ -81,6 +86,20 @@ export const Accessibility = () => {
         aria-label="Voltar ao topo"
       >
         <ArrowUpwardRoundedIcon fontSize="medium" />
+      </IconButton>
+      <IconButton
+        variant="contained"
+        sx={{
+          backgroundColor: "primary.main",
+          "&:hover": { backgroundColor: "tertiary.main" },
+          padding: ".5rem",
+          mt: 1,
+          color: "white",
+        }}
+        onClick={tutorialLink}
+        aria-label="Vídeo Tutorial"
+      >
+        <QuestionMarkRoundedIcon fontSize="medium" />
       </IconButton>
     </Box>
   );
